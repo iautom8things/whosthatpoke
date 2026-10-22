@@ -5,14 +5,16 @@ import "@fontsource/luckiest-guy/400.css";
 import "@fontsource-variable/fredoka/index.css";
 import "./ui/global.css";
 import "./lib/kiosk";
-import "./pwa";
+import { isInstalled } from "./pwa";
 import App from "./App";
 import { runDemoFromUrl } from "./dev/demos";
 import { reloadForMissingChunk } from "./lib/staleChunk";
+import { fault, startGameMetrics } from "./metrics";
 import { hasStoredSettings, useSettings } from "./state/settings";
 
 // A chunk that fails to load (an old tab after an update) reloads the page once instead of crashing.
-window.addEventListener("vite:preloadError", () => {
+window.addEventListener("vite:preloadError", (e) => {
+  fault("chunk", e.payload);
   try {
     reloadForMissingChunk({ storage: sessionStorage, now: Date.now(), online: navigator.onLine, reload: () => location.reload() });
   } catch {
@@ -46,6 +48,9 @@ const theme = params.get("theme");
 if (theme === "spooky" || theme === "classic") useSettings.getState().update({ theme });
 if (params.has("projector")) useSettings.getState().update({ projector: params.get("projector") === "on" });
 if (params.get("motion") === "reduce") useSettings.getState().update({ reduceMotion: true });
+
+// Anonymous play counts, only on the real site (src/metrics.ts). After the settings above, so app_open sees them.
+startGameMetrics(isInstalled);
 
 runDemoFromUrl().finally(() => {
   createRoot(document.getElementById("root")!).render(

@@ -55,4 +55,6 @@ node qa/projector-sim.mjs <in.png> <out.png> [--ambient 0..1] [--letterbox 854x4
 
 ## URL switches
 
+`?nostats` keeps a visit out of the play stats, as `?demo=` and `?lab=` do. Add it whenever an agent opens the live site (`https://iautom8things.github.io/whosthatpoke/?nostats`): playwright-cli hides `navigator.webdriver`, so nothing else tells the game it is being driven.
+
 `?demo=` and `?lab=` run on the tab's sessionStorage, so they never touch real scores or settings. `?projector=on`, `?theme=classic` and `?motion=reduce` without them save to the device like the Settings switches, so `?projector=on` works as a big-screen bookmark. On a first visit with no saved settings, a laptop that looks like it drives a projector (no touch, 1x pixels, at most 800 px tall, wider than 3:2) turns Projector mode on by itself; demos skip that check.

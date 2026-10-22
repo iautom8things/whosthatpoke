@@ -4,6 +4,7 @@ import type { Question } from "../../../game/deck";
 import { difficultyById } from "../../../game/difficulty";
 import { haptic } from "../../../lib/haptic";
 import { isReducedMotion } from "../../../lib/reducedMotion";
+import { fault } from "../../../metrics";
 import { useNav } from "../../../state/nav";
 import { peekAhead, peekNext, useSession, type Phase, type Round } from "../../../state/session";
 import { useSettings } from "../../../state/settings";
@@ -314,7 +315,10 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
           if (!alive) return;
           if (ok) break;
           if (swaps >= MAX_ART_SWAPS || !useSession.getState().swapCurrent()) {
-            if (!toldArt.current) toast("Some pictures won’t load. Check the connection.", { tone: "bad", ms: 4000 });
+            if (!toldArt.current) {
+              toast("Some pictures won’t load. Check the connection.", { tone: "bad", ms: 4000 });
+              fault("art", `No picture for #${mon.dex}`);
+            }
             toldArt.current = true;
             break;
           }

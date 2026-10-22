@@ -12,6 +12,7 @@
 import { registerSW } from "virtual:pwa-register";
 import { create } from "zustand";
 import { CATALOG } from "./data/catalog";
+import { track } from "./lib/metrics";
 import { network } from "./lib/network";
 import { ART_CACHE, countSaved, saveAll, VOICE_CACHE, voiceFiles, type SaveJob, type Tally } from "./pwa-save";
 import { useNav } from "./state/nav";
@@ -183,7 +184,7 @@ export function saveForOffline({ background = false } = {}): void {
   usePwa.setState({ saving: true, saveFailed: null });
   void keepStorage();
   void (async () => {
-    let failed: PwaState["saveFailed"] = "network";
+    let outcome: "done" | "stopped" | "network" | "full" = "network";
     try {
       const voice = await voiceUrls();
       if (voice) {
@@ -199,7 +200,7 @@ export function saveForOffline({ background = false } = {}): void {
         });
         showCounts(++statsRun, result.tallies);
         const done = allSaved(usePwa.getState());
-        failed = done || result.stopped === "cancelled" ? null : result.stopped === "full" ? "full" : "network";
+        outcome = done ? "done" : result.stopped === "cancelled" ? "stopped" : result.stopped === "full" ? "full" : "network";
         if (done) {
           usePwa.setState({ savedOnce: true });
           try {
@@ -213,7 +214,8 @@ export function saveForOffline({ background = false } = {}): void {
       // saveAll never throws; this is the index fetch or a storage API in private mode.
     }
     saveRun = null;
-    usePwa.setState({ saving: false, saveFailed: failed });
+    usePwa.setState({ saving: false, saveFailed: outcome === "done" || outcome === "stopped" ? null : outcome });
+    track("offline_save", { result: outcome, auto: background });
     void refreshUsage();
   })();
 }

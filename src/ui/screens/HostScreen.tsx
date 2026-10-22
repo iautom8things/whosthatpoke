@@ -8,6 +8,7 @@ import { haptic } from "../../lib/haptic";
 import { useKeys } from "../../lib/useKeys";
 import { useSwipe, type SwipeDirection } from "../../lib/useSwipe";
 import { useViewport } from "../../lib/useViewport";
+import { fault } from "../../metrics";
 import { onBrowserBack, useNav } from "../../state/nav";
 import { peekNext, useSession } from "../../state/session";
 import { useSettings } from "../../state/settings";
@@ -186,6 +187,7 @@ export default function HostScreen() {
       if (!ok && !toldArt.current) {
         toldArt.current = true;
         toast("Some pictures won’t load. Check the connection.", { tone: "bad", ms: 4000 });
+        fault("art", `No picture for #${useSession.getState().current?.answer.dex}`);
       }
       setArtReady(dealing);
     });

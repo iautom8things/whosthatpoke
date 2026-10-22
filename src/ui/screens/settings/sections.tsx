@@ -5,6 +5,7 @@ import { artUrl, CATALOG } from "../../../data/catalog";
 import { clearRecent, recentAnswers } from "../../../game/history";
 import { leaderboard } from "../../../game/leaderboard";
 import { storageWorks } from "../../../game/storage";
+import { metricsOn } from "../../../lib/metrics";
 import { useFullscreen } from "../../../lib/useFullscreen";
 import { useSettings, type Theme } from "../../../state/settings";
 import { Button, Card, ConfirmDialog, Display, IconBack, IconPlay, IconRefresh, Pill, toast } from "../../components";
@@ -262,6 +263,12 @@ export function AboutSection() {
             <dt>Music</dt>
             <dd>Original tunes and sounds, made live in the browser.</dd>
           </div>
+          {metricsOn() && (
+            <div>
+              <dt>Stats</dt>
+              <dd>Counts games anonymously. No cookies.</dd>
+            </div>
+          )}
         </dl>
         <p className={s.legal}>
           Pokémon and character names are trademarks of Nintendo, Creatures and GAME FREAK. Fan-made for a family party.

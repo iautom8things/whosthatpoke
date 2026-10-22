@@ -5,3 +5,4 @@ dist
 .DS_Store
 erl_crash.dump
 qa/out
+*.tsbuildinfo

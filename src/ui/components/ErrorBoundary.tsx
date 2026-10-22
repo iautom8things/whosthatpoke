@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { fault } from "../../metrics";
 import { Button } from "./Button";
 import { IconRefresh } from "./icons";
 import { Panel } from "./Panel";
@@ -22,6 +23,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
 
   componentDidCatch(error: unknown, info: ErrorInfo) {
     console.error("Screen crashed", error, info.componentStack);
+    fault("crash", error);
   }
 
   render() {
