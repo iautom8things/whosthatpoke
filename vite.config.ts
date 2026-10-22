@@ -16,7 +16,7 @@ export default defineConfig({
     react(),
     VitePWA({
       // "prompt": a new version waits instead of reloading mid-game. src/pwa.ts applies it on the
-      // splash screen or from Settings.
+      // splash or title screen, or from Settings.
       registerType: "prompt",
       injectRegister: false,
       // The glob below already precaches the icons.

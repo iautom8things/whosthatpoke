@@ -1,7 +1,9 @@
-// The announcer: recorded clips first, speechSynthesis second, decided line by line. A line plays from clips only
-// when every clip it needs is decoded in time; otherwise Speech says its whole text, so voices never mix inside a
-// sentence. An `extra` line (the Pokédex entry) is the exception: with recordings in use it plays from its clip or
-// not at all, and on a poor connection only a clip already on the device plays.
+// The announcer: recorded clips first, speechSynthesis second, decided line by line. With recordings in use, a line
+// that has clips plays from them or not at all: the device voice never stands in for the recorded one, because the
+// two side by side sound broken. A line waits up to WAIT_MS for its clips to arrive and decode, and is left out if
+// they don't (its text is on screen). Speech says only lines with no recording, and everything when there are no
+// recordings. An `extra` line (the Pokédex entry) downloads only on a good connection, so on a poor one only a clip
+// already on the device plays.
 // say() always resolves: clip end, cancel, hidden tab, voice off, or a safety timer.
 
 import type { NetQuality } from "../lib/network";
@@ -10,8 +12,8 @@ import type { Clips } from "./clips";
 import type { Line } from "./lines";
 import type { Speech } from "./announcer";
 
-/** A line's clips must be decoded this soon after its cue, or Speech says it. */
-const READY_MS = 400;
+/** A recorded line's clips must be decoded this soon after its cue, or the line is left out. */
+const WAIT_MS = 2500;
 /** Silence before a `then` line that has no pauseMs of its own. */
 const PAUSE_MS = 250;
 /** Same as Speech: the music comes back this long after the last clip, unless another line starts. */
@@ -212,14 +214,14 @@ export class Voice implements Announcer {
     let afterClip = false;
     for (let part: Line | undefined = first; part; part = part.then) {
       const keys = this.keysFor(part);
-      // With recordings in use, an extra line plays from its clip or not at all: never in the device voice.
-      const clipOnly = part.extra === true && this.recorded;
+      // With recordings in use, a recorded line plays from its clips or not at all, and so does an extra line.
+      const clipOnly = this.recorded && (keys !== null || part.extra === true);
       if (clipOnly && !keys) continue;
       // Clips are trimmed tight, so they get their breath here. Speech leaves its own between two spoken lines.
       if (part !== first && (afterClip || keys)) await Promise.race([wait(part.pauseMs ?? PAUSE_MS), aborted]);
       if (gen !== this.gen) return;
       const download = this.downloads(part);
-      const ready = keys !== null && (await Promise.race([this.clips.prepare(keys, READY_MS, { download }), aborted.then(() => false)]));
+      const ready = keys !== null && (await Promise.race([this.clips.prepare(keys, WAIT_MS, { download }), aborted.then(() => false)]));
       if (gen !== this.gen) return;
       // The first part's pause rides the audio clock; a `then` part already waited for its own above.
       const clip = ready && keys ? this.clips.play(keys, part.gapMs ?? 0, part === first ? (part.pauseMs ?? 0) : 0) : null;

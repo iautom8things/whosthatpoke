@@ -7,7 +7,8 @@
 // that save by itself.
 //
 // The worker is in "prompt" mode: a new version waits instead of reloading the page mid-game.
-// It applies itself while the splash screen is up, or when the host taps "Update" in Settings.
+// It applies itself on the splash or title screen, where nobody is mid-game, or when the host taps "Update" in
+// Settings. A device that kept a tab open would otherwise play the old version until someone found that button.
 import { registerSW } from "virtual:pwa-register";
 import { create } from "zustand";
 import { CATALOG } from "./data/catalog";
@@ -113,6 +114,15 @@ let registration: ServiceWorkerRegistration | undefined;
 /** Switch to the waiting version. The page reloads once the new worker takes over. */
 export function applyUpdate(): void {
   void updateSW?.(true);
+}
+
+/** Screens where nobody is mid-game, so a waiting update can reload there. A reload lands on "Tap to play". */
+const IDLE_SCREENS: ReadonlySet<string> = new Set(["splash", "title"]);
+
+/** Applies a waiting update when the game is idle and no save for offline is running. */
+function applyWhenIdle(): void {
+  const { needRefresh, saving } = usePwa.getState();
+  if (needRefresh && !saving && IDLE_SCREENS.has(useNav.getState().screen)) applyUpdate();
 }
 
 let statsRun = 0;
@@ -275,6 +285,9 @@ function start(): void {
     return;
   }
   navigator.serviceWorker.addEventListener("controllerchange", syncStatus);
+  // Back on the title screen after a game, or a save just ended: a waiting update applies then.
+  useNav.subscribe(applyWhenIdle);
+  usePwa.subscribe((s, prev) => prev.saving && !s.saving && applyWhenIdle());
   updateSW = registerSW({
     immediate: true,
     onRegisteredSW(_url, reg) {
@@ -289,8 +302,7 @@ function start(): void {
     },
     onNeedRefresh() {
       usePwa.setState({ needRefresh: true });
-      // Nobody is playing yet on the splash screen, so reloading there costs nothing.
-      if (useNav.getState().screen === "splash") applyUpdate();
+      applyWhenIdle();
     },
     onRegisterError() {
       usePwa.setState({ status: "error" });

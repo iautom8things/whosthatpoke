@@ -194,14 +194,28 @@ describe("recorded announcer", () => {
     expect(said.done).toBe(true);
   });
 
-  it("speaks the whole text when a clip is not decoded in time", async () => {
+  it("leaves a recorded line out when its clip does not arrive in time, never using the device voice", async () => {
     const { clips, speech, voice } = setup(["reveal.25"]);
     clips.slow.set("reveal.25", deferred<boolean>());
     clips.slow.get("reveal.25")!.resolve(false);
-    void voice.say(reveal);
+    const said = track(voice.say(reveal));
     await flush();
-    expect(speech.said).toEqual(["It’s Pikachu!"]);
+    expect(speech.said).toEqual([]);
     expect(clips.played).toEqual([]);
+    expect(said.done).toBe(true);
+  });
+
+  it("plays a recorded line that arrives late instead of speaking it", async () => {
+    const { clips, speech, voice } = setup(["reveal.25"]);
+    const arriving = deferred<boolean>();
+    clips.slow.set("reveal.25", arriving);
+    void voice.say(reveal);
+    await sleep(20);
+    expect(speech.said).toEqual([]);
+    arriving.resolve(true);
+    await flush();
+    expect(clips.played).toEqual([["reveal.25"]]);
+    expect(speech.said).toEqual([]);
   });
 
   it("falls back part by part: a spoken score, then a recorded prize", async () => {
