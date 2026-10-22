@@ -1,0 +1,13 @@
+{
+ "browser": {
+  "browserName": "webkit",
+  "contextOptions": {
+   "viewport": {
+    "width": 844,
+    "height": 390
+   },
+   "hasTouch": true,
+   "deviceScaleFactor": 3
+  }
+ }
+}

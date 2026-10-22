@@ -1,0 +1,13 @@
+{
+ "browser": {
+  "browserName": "chromium",
+  "contextOptions": {
+   "viewport": {
+    "width": 854,
+    "height": 480
+   },
+   "hasTouch": false,
+   "deviceScaleFactor": 1
+  }
+ }
+}
