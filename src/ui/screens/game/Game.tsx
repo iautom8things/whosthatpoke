@@ -47,15 +47,21 @@ export default function Game() {
   );
   useKeys({ "ArrowRight|PageDown|Space|Enter": () => (g.gameOver ? g.finish() : g.next()) }, { enabled: g.phase === "revealed" });
 
+  // On Game over, Escape and the X go on to the score: there is nothing left to quit.
+  const leave = g.gameOver ? g.finish : g.askQuit;
   const askTitle = COPY.ask;
   const revealTitle = q ? COPY.reveal(q.answer.name) : "";
 
   return (
-    <div className={s.root}>
+    <div className={s.root} data-survival={survival || undefined}>
       <ScreenFrame
         layout="fill"
-        back={g.askQuit}
-        headerLeft={<IconButton icon={<IconX />} label="Quit game" sfx="back" onPress={g.askQuit} />}
+        back={leave}
+        headerLeft={
+          <span data-quit className={s.quitSlot}>
+            <IconButton icon={<IconX />} label={COPY.quitButton} sfx="back" onPress={leave} />
+          </span>
+        }
         title={
           <HudCenter
             survival={survival}
@@ -84,6 +90,7 @@ export default function Game() {
             streakBanner={g.streakBanner}
             survival={survival}
             livesLeft={lives}
+            timed={timer}
             onSwipeNext={g.next}
           />
 

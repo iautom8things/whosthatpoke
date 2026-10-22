@@ -1,8 +1,9 @@
 // Host mode ("Shout it out!"): a grown-up holds the iPad, the projector mirrors it, kids shout the name.
-// Swipe right = got it, left = missed, up or tap = peek first. Buttons and keys do the same.
+// Swipe right = got it, left = missed, up or tap = reveal first. Buttons and keys do the same.
+// While the answer is up, the other paddle or a swipe the other way changes the verdict.
 import { AnimatePresence, motion, type Variants } from "motion/react";
-import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent } from "react";
-import { announcer, audio } from "../../audio";
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type MouseEvent, type PointerEvent } from "react";
+import { announcer, audio, whosThat } from "../../audio";
 import { haptic } from "../../lib/haptic";
 import { useKeys } from "../../lib/useKeys";
 import { useSwipe, type SwipeDirection } from "../../lib/useSwipe";
@@ -34,6 +35,7 @@ import { hostDemo, hostHelpSeen, markHostHelpSeen } from "./host/flags";
 import s from "./host/Host.module.css";
 import { DeckBacks, HostCard, type CardFace, type Verdict } from "./host/HostCard";
 import { HostHelp } from "./host/HostHelp";
+import { justDealt, swipeAction } from "./host/hostIntent";
 
 /** How long the answer stays up after judging a silhouette, and after judging a card already peeked at. */
 const REVEAL_MS = 2600;
@@ -65,15 +67,26 @@ const CARD: Variants = {
   }),
 };
 
-/** Remembers a press so a short tap (no drag) can peek. useSwipe ignores taps on purpose. */
-interface TapStart {
+/** Remembers a press so a short tap on the card (no drag) can reveal. useSwipe ignores taps on purpose. */
+interface Press {
   id: number;
   x: number;
   y: number;
   t: number;
+  /** Started on the card, not on a paddle: only those taps reveal or deal. */
+  onCard: boolean;
+  /** Moved past the slop: the layout holds the pointer, and the click that ends it is swallowed. */
+  dragged: boolean;
 }
+/** A press that moves further is a drag, not a tap: on the card it reveals nothing, on a paddle it presses nothing. */
 const TAP_SLOP = 10;
 const TAP_MS = 600;
+
+function subscribeVisibility(cb: () => void) {
+  document.addEventListener("visibilitychange", cb);
+  return () => document.removeEventListener("visibilitychange", cb);
+}
+const isHidden = () => document.visibilityState === "hidden";
 
 const blurIfPointer = (e: MouseEvent<HTMLButtonElement>) => {
   // A mouse or finger press leaves focus on the button; Space would then press it again.
@@ -93,10 +106,19 @@ export default function HostScreen() {
   const [peeked, setPeeked] = useState<number | null>(null);
   const [helpOpen, setHelpOpen] = useState(() => !hostHelpSeen());
   const [confirmQuit, setConfirmQuit] = useState(false);
+  /** Bumped when the verdict changes, so the reveal hold and its fuse start over. */
+  const [flips, setFlips] = useState(0);
+  const hidden = useSyncExternalStore(subscribeVisibility, isHidden);
   const judgedAt = useRef(0);
+  const dealtAt = useRef(performance.now());
+  /** The card a press started on. A swipe or tap that ends on a newer card is dropped. */
+  const pressCard = useRef<number | null>(null);
   const advanceDir = useRef<1 | -1 | null>(null);
   const stage = useRef<HTMLDivElement>(null);
-  const tap = useRef<TapStart | null>(null);
+  const press = useRef<Press | null>(null);
+  /** The press turned into a drag: the click that ends it must not also press the paddle it started on. */
+  const swallowClick = useRef(false);
+  const cue = useRef<{ cancel(): void } | null>(null);
 
   // Arrive with a host game ready. The setup screens normally start it; anything else gets a fresh one.
   useEffect(() => {
@@ -109,7 +131,10 @@ export default function HostScreen() {
 
   useEffect(() => {
     audio.playSong("question");
-    return () => announcer.cancel();
+    return () => {
+      cue.current?.cancel();
+      announcer.cancel();
+    };
   }, []);
 
   const total = config?.rounds ?? useSettings.getState().rounds;
@@ -123,33 +148,31 @@ export default function HostScreen() {
   const exitDir = advanceDir.current ?? (last?.correct === false ? -1 : 1);
   const live = current != null && phase !== "done" && phase !== "idle" && !helpOpen && !confirmQuit;
 
-  // A new card: the sting, "Who's that Pokémon?", then the round is on.
+  // A new card: the sting, "Who's that Pokémon?", then the round is on. A hidden tab waits.
   const dex = current?.answer.dex;
   useEffect(() => {
-    if (phase !== "intro" || dex == null || helpOpen) return;
-    const sting = window.setTimeout(() => {
-      audio.sfx("whosThat");
-      void announcer.say("Who’s that Pokémon?");
-    }, 120);
+    if (phase !== "intro" || dex == null || helpOpen || hidden) return;
+    // The line outlives the intro (it starts about 1 s in), so only leaving the screen cancels it.
+    const sting = window.setTimeout(() => (cue.current = whosThat()), 120);
     const ask = window.setTimeout(() => useSession.getState().beginAsking(), INTRO_MS);
     return () => {
       window.clearTimeout(sting);
       window.clearTimeout(ask);
     };
-  }, [phase, dex, helpOpen]);
+  }, [phase, dex, helpOpen, hidden]);
 
   useEffect(() => {
     if (current) void preloadArt([current.answer]);
   }, [current]);
 
-  // After judging: hold the answer up, then deal the next card.
+  // After judging: hold the answer up, then deal the next card. A hidden tab holds it until it is back.
   useEffect(() => {
-    if (phase !== "revealed" || !autoAdvance || helpOpen || confirmQuit || hostDemo.holdReveal) return;
+    if (phase !== "revealed" || !autoAdvance || helpOpen || confirmQuit || hidden || hostDemo.holdReveal) return;
     const ms = peeked === index ? REVEAL_AFTER_PEEK_MS : REVEAL_MS;
     const t = window.setTimeout(() => advance(), ms);
     return () => window.clearTimeout(t);
-    // advance reads fresh state from the store; the round index is what restarts the clock.
-  }, [phase, index, autoAdvance, helpOpen, confirmQuit]);
+    // advance reads fresh state from the store; the round index (or a changed verdict) restarts the clock.
+  }, [phase, index, flips, autoAdvance, helpOpen, confirmQuit, hidden]);
 
   useEffect(() => {
     if (phase !== "done") return;
@@ -163,9 +186,11 @@ export default function HostScreen() {
     return { x: (r.left + r.width / 2) / window.innerWidth, y: (r.top + r.height * 0.4) / window.innerHeight };
   }
 
+  const fresh = () => justDealt(dealtAt.current, performance.now());
+
   function reveal() {
     const st = useSession.getState();
-    if (!st.current || (st.phase !== "asking" && st.phase !== "intro") || peeked === st.current.index) return;
+    if (!st.current || (st.phase !== "asking" && st.phase !== "intro") || peeked === st.current.index || fresh()) return;
     setPeeked(st.current.index);
     audio.sfx("reveal");
     haptic("select");
@@ -174,7 +199,7 @@ export default function HostScreen() {
 
   function judge(got: boolean) {
     const st = useSession.getState();
-    if (!st.current || (st.phase !== "asking" && st.phase !== "intro")) return;
+    if (!st.current || (st.phase !== "asking" && st.phase !== "intro") || fresh()) return;
     const wasPeeked = peeked === st.current.index;
     const round = st.judge(got);
     if (!round) return;
@@ -195,6 +220,26 @@ export default function HostScreen() {
     }
   }
 
+  /** Changes the verdict on the card whose answer is still up. Only that card: a new deal ends the chance. */
+  function flip(got: boolean) {
+    const st = useSession.getState();
+    const last = st.rounds.at(-1);
+    if (st.phase !== "revealed" || !last || last.correct === got || !st.rejudge(got)) return;
+    judgedAt.current = performance.now();
+    advanceDir.current = null;
+    setFlips((n) => n + 1);
+    audio.sfx(got ? "correct" : "wrong");
+    haptic(got ? "success" : "error");
+    if (got) celebrate("burst", { origin: stageOrigin(), intensity: 0.65 });
+    toast(got ? "Changed to Got it!" : "Changed to Missed", { tone: got ? "good" : "bad", icon: got ? <IconCheck /> : <IconX />, ms: 1600 });
+  }
+
+  /** A paddle: judge the card, or change the verdict while its answer is up. */
+  function decide(got: boolean) {
+    if (useSession.getState().phase === "revealed") flip(got);
+    else judge(got);
+  }
+
   function advance(dir?: 1 | -1, manual = false) {
     const st = useSession.getState();
     if (st.phase !== "revealed") return;
@@ -202,9 +247,13 @@ export default function HostScreen() {
     if (dir) advanceDir.current = dir;
     audio.sfx("swipe");
     st.next();
+    dealtAt.current = performance.now();
   }
 
+  const pressedThisCard = () => pressCard.current != null && pressCard.current === useSession.getState().current?.index;
+
   function onTap() {
+    if (!pressedThisCard()) return;
     const st = useSession.getState();
     if (st.phase === "revealed") advance(undefined, true);
     else if (!peek) reveal();
@@ -216,63 +265,94 @@ export default function HostScreen() {
     enabled: live,
     distance: threshold,
     onSwipe: (dir: SwipeDirection) => {
+      // A drag that started on the card before this one belonged to that card.
+      if (!pressedThisCard()) return;
       haptic("swipe");
-      if (useSession.getState().phase === "revealed") {
-        if (dir === "left" || dir === "right") advance(dir === "right" ? 1 : -1, true);
-        else if (dir === "up") advance(undefined, true);
-        return;
-      }
-      if (dir === "right") judge(true);
-      else if (dir === "left") judge(false);
-      else if (dir === "up") reveal();
+      const st = useSession.getState();
+      const action = swipeAction(dir, st.phase === "revealed" ? (st.rounds.at(-1)?.correct ?? null) : null);
+      if (action?.kind === "judge") judge(action.got);
+      else if (action?.kind === "flip") flip(action.got);
+      else if (action?.kind === "reveal") reveal();
+      else if (action?.kind === "next") advance(action.dir, true);
     },
   });
 
-  // Live hint for which way the card will go if released now.
-  const armed: Verdict | "peek" | null =
-    !swipe.dragging || judged
-      ? null
-      : swipe.dx >= threshold
-        ? "got"
-        : swipe.dx <= -threshold
-          ? "missed"
-          : face === "hidden" && -swipe.dy >= threshold && Math.abs(swipe.dy) > Math.abs(swipe.dx)
-            ? "peek"
-            : null;
+  // Live hint for which way the card will go if released now. Once judged, only a change of verdict lights up.
+  const pull: Verdict | "peek" | null = !swipe.dragging
+    ? null
+    : swipe.dx >= threshold
+      ? "got"
+      : swipe.dx <= -threshold
+        ? "missed"
+        : face === "hidden" && -swipe.dy >= threshold && Math.abs(swipe.dy) > Math.abs(swipe.dx)
+          ? "peek"
+          : null;
+  const armed = judged && pull === verdict ? null : pull;
   useEffect(() => {
     if (!armed) return;
     audio.sfx("select");
     haptic("select");
   }, [armed]);
 
-  const stageHandlers = {
-    ...swipe.bind,
+  // The whole layout takes swipes, so a thumb resting on a paddle can drag the card too. useSwipe grabs the
+  // pointer on press, and a grabbed pointer's click would land on the layout, not the paddle under the thumb.
+  // So the pointer is grabbed only once the press turns into a drag (as menus/useTapSafeSwipe does).
+  const layoutHandlers = {
     onPointerDown: (e: PointerEvent<HTMLDivElement>) => {
-      swipe.bind.onPointerDown(e);
+      pressCard.current = useSession.getState().current?.index ?? null;
+      swallowClick.current = false;
+      const el = e.currentTarget as { setPointerCapture?: (id: number) => void };
+      el.setPointerCapture = () => {};
+      try {
+        swipe.bind.onPointerDown(e);
+      } finally {
+        delete el.setPointerCapture;
+      }
       const primary = e.isPrimary && (e.pointerType !== "mouse" || e.button === 0);
-      tap.current = primary && live ? { id: e.pointerId, x: e.clientX, y: e.clientY, t: e.timeStamp } : null;
+      const onCard = stage.current?.contains(e.target as Node) ?? false;
+      press.current = primary && live ? { id: e.pointerId, x: e.clientX, y: e.clientY, t: e.timeStamp, onCard, dragged: false } : null;
+    },
+    onPointerMove: (e: PointerEvent<HTMLDivElement>) => {
+      const p = press.current;
+      if (p && p.id === e.pointerId && !p.dragged && Math.hypot(e.clientX - p.x, e.clientY - p.y) > TAP_SLOP) {
+        p.dragged = true;
+        swallowClick.current = true;
+        try {
+          e.currentTarget.setPointerCapture(e.pointerId);
+        } catch {
+          // The pointer may already be gone; the drag still works inside the layout.
+        }
+      }
+      swipe.bind.onPointerMove(e);
     },
     onPointerUp: (e: PointerEvent<HTMLDivElement>) => {
       swipe.bind.onPointerUp(e);
-      const t = tap.current;
-      tap.current = null;
-      if (!t || t.id !== e.pointerId) return;
-      if (Math.hypot(e.clientX - t.x, e.clientY - t.y) <= TAP_SLOP && e.timeStamp - t.t <= TAP_MS) onTap();
+      const p = press.current;
+      press.current = null;
+      if (!p || p.id !== e.pointerId || !p.onCard) return;
+      if (Math.hypot(e.clientX - p.x, e.clientY - p.y) <= TAP_SLOP && e.timeStamp - p.t <= TAP_MS) onTap();
     },
     onPointerCancel: (e: PointerEvent<HTMLDivElement>) => {
       swipe.bind.onPointerCancel(e);
-      tap.current = null;
+      press.current = null;
+    },
+    onClickCapture: (e: MouseEvent<HTMLDivElement>) => {
+      if (!swallowClick.current) return;
+      swallowClick.current = false;
+      e.stopPropagation();
+      e.preventDefault();
     },
   };
 
   useKeys(
     {
-      "ArrowRight|PageDown": () => (judged ? advance(1, true) : judge(true)),
+      // Clickers have only these two buttons, so after judging Right always means "next", never a change.
+      "ArrowRight|PageDown": () => (useSession.getState().phase === "revealed" ? advance(1, true) : judge(true)),
       "ArrowLeft|PageUp": () => {
-        if (!judged) judge(false);
+        if (useSession.getState().phase !== "revealed") judge(false);
       },
       ArrowUp: () => reveal(),
-      "Space|Enter": () => (judged ? advance(undefined, true) : reveal()),
+      "Space|Enter": () => (useSession.getState().phase === "revealed" ? advance(undefined, true) : reveal()),
       "?|h": () => setHelpOpen(true),
     },
     { enabled: live },
@@ -302,11 +382,13 @@ export default function HostScreen() {
   const remaining = Math.max(0, total - index - 1);
   const holdMs = peeked === index ? REVEAL_AFTER_PEEK_MS : REVEAL_MS;
 
-  // Reveal before judging, a hint while peeking, Next once judged. Short landscape screens put it in the header.
-  const compact = vp.orientation === "landscape" && vp.h < 600;
+  // Reveal before judging, a hint while peeking, Next once judged. Landscape screens up to the iPad's height
+  // put it in the header, so the card (what the crowd sees on the projector) gets the whole body height.
+  const compact = vp.orientation === "landscape" && vp.h < 860;
   const centerControl = judged ? (
     <Button
-      key="next"
+      // A new key restarts the fuse with the hold: after a changed verdict, or when a hidden tab comes back.
+      key={`next-${flips}-${hidden}`}
       variant="primary"
       size={compact ? "md" : "lg"}
       sfx={null}
@@ -364,7 +446,7 @@ export default function HostScreen() {
         ) : undefined
       }
     >
-      <div className={s.layout} data-face={face} data-compact={compact || undefined}>
+      <div className={s.layout} data-face={face} data-compact={compact || undefined} {...layoutHandlers}>
         <div className={`${s.side} ${s.miss}`}>
           <div className={s.paddleWrap} data-armed={armed === "missed" || undefined} data-dim={(judged && verdict !== "missed") || undefined}>
             <Button
@@ -373,10 +455,10 @@ export default function HostScreen() {
               sfx={null}
               className={s.paddle}
               icon={<IconX className={s.paddleIcon} />}
-              aria-disabled={judged || undefined}
+              aria-disabled={verdict === "missed" || undefined}
               onPress={(e) => {
                 blurIfPointer(e);
-                judge(false);
+                decide(false);
               }}
             >
               Missed
@@ -387,7 +469,7 @@ export default function HostScreen() {
           </div>
         </div>
 
-        <div ref={stage} className={s.stage} {...stageHandlers} role="group" aria-label={judged ? "Next card" : peek ? "Swipe right if they got it, left if not" : "Tap to peek at the answer"}>
+        <div ref={stage} className={s.stage} role="group" aria-label={judged ? "Next card" : peek ? "Swipe right if they got it, left if not" : "Tap to reveal the answer"}>
           <DeckBacks count={remaining} />
           <AnimatePresence custom={exitDir}>
             {current && (
@@ -419,10 +501,10 @@ export default function HostScreen() {
               sfx={null}
               className={s.paddle}
               icon={<IconCheck className={s.paddleIcon} />}
-              aria-disabled={judged || undefined}
+              aria-disabled={verdict === "got" || undefined}
               onPress={(e) => {
                 blurIfPointer(e);
-                judge(true);
+                decide(true);
               }}
             >
               Got it!

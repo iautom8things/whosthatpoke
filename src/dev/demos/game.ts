@@ -1,8 +1,8 @@
 // Game screen states for screenshots: ?demo=game-new, game-intro, game-asking, game-asking-urgent,
 // game-revealed-correct, game-revealed-wrong, game-survival, game-over, game-long-names, game-last.
-// Add &hold=1 to freeze clocks and auto-advance; &beat=result|fact pins a reveal beat.
+// Add &hold=1 to freeze clocks and auto-advance; &beat=result|fact pins a reveal beat;
+// &dex=N puts that Pokémon in place of the usual answer (check a long fact: 354 Banette, 778 Mimikyu).
 import { monByDex } from "../../data/catalog";
-import type { Mon } from "../../data/types";
 import type { Mode } from "../../game/deck";
 import { difficultyById, type DifficultyId } from "../../game/difficulty";
 import { useNav } from "../../state/nav";
@@ -11,17 +11,6 @@ import { gameDemo } from "../../ui/screens/game/demoHooks";
 import { registerDemo } from "../demos";
 
 const SEED = 20261022;
-
-/** Sample facts until the catalog ships its own (mon.fact). */
-const FACTS: Record<number, string> = {
-  25: "It stores electricity in its red cheeks. When it gets excited, little sparks fly out!",
-  94: "On dark nights it hides in your shadow, waiting for the perfect moment to play a trick.",
-  740: "It climbed all the way up a snowy mountain looking for food, and grew thick fur to stay warm.",
-};
-
-function withFact(mon: Mon): Mon {
-  return FACTS[mon.dex] ? { ...mon, fact: FACTS[mon.dex] } : mon;
-}
 
 interface Opts {
   mode?: Mode;
@@ -55,12 +44,14 @@ function play(results: boolean[]) {
   }
 }
 
-/** Puts a specific question on screen: `answer` plus three other names, answer in slot `at`. */
+/** Puts a specific question on screen: `answer` (or &dex=N) plus three other names, answer in slot `at`. */
 function force(answer: number, others: number[], at = 0) {
   const s = useSession.getState();
   const index = s.current?.index ?? 0;
-  const choices = others.map(monByDex);
-  choices.splice(at, 0, withFact(monByDex(answer)));
+  const dex = Number(new URLSearchParams(location.search).get("dex")) || answer;
+  // A distractor that is the new answer swaps places with the usual one, so there are still four names.
+  const choices = others.map((d) => monByDex(d === dex ? answer : d));
+  choices.splice(at, 0, monByDex(dex));
   useSession.setState({ current: { index, answer: choices[at], choices } });
 }
 
@@ -119,9 +110,11 @@ registerDemo("game-revealed-wrong", () => {
   reveal(false);
 });
 
+// &streak=N answers N more right first, so the flame badge shows.
 registerDemo("game-survival", () => {
   begin({ mode: "survival", difficulty: "medium" });
-  play([true, true, true, false, true, true, false]);
+  const streak = Number(new URLSearchParams(location.search).get("streak")) || 0;
+  play([true, true, true, false, true, true, false, ...Array<boolean>(streak).fill(true)]);
   ask();
 });
 

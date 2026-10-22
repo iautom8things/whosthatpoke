@@ -10,11 +10,12 @@
   --font-display: "Luckiest Guy", "Fredoka Variable", ui-rounded, system-ui, sans-serif;
   --font-body: "Fredoka Variable", "Fredoka", ui-rounded, system-ui, sans-serif;
 
-  /* Projector mode multiplies the whole scale. */
+  /* Projector mode multiplies the whole scale, and the small sizes by --boost-body too. */
   --boost: 1;
-  --fs-xs: calc(clamp(0.85rem, 0.6rem + 0.8vmin, 1.2rem) * var(--boost));
-  --fs-sm: calc(clamp(1rem, 0.7rem + 1vmin, 1.45rem) * var(--boost));
-  --fs-md: calc(clamp(1.125rem, 0.8rem + 1.35vmin, 1.8rem) * var(--boost));
+  --boost-body: 1;
+  --fs-xs: calc(clamp(0.85rem, 0.6rem + 0.8vmin, 1.2rem) * var(--boost) * var(--boost-body));
+  --fs-sm: calc(clamp(1rem, 0.7rem + 1vmin, 1.45rem) * var(--boost) * var(--boost-body));
+  --fs-md: calc(clamp(1.125rem, 0.8rem + 1.35vmin, 1.8rem) * var(--boost) * var(--boost-body));
   --fs-lg: calc(clamp(1.375rem, 0.9rem + 2vmin, 2.5rem) * var(--boost));
   --fs-xl: calc(clamp(1.75rem, 1rem + 3vmin, 3.5rem) * var(--boost));
   --fs-2xl: calc(clamp(2.25rem, 1.1rem + 4.6vmin, 5rem) * var(--boost));
@@ -135,6 +136,8 @@
   --outline: #13072d;
 
   --accent: #ff8a1f;
+  /* Text on an --accent fill. White on pumpkin orange is 2.4:1; dark ink is 8:1. */
+  --accent-ink: #160a33;
   --hi: #ffe14d;
   --accent-3: #8b5cff;
   --focus: #ffe14d;
@@ -145,6 +148,10 @@
   --surface-ink-soft: #e2d8ff;
   /* Fill for display text sitting on a surface (Panel, Card, Modal). */
   --surface-display: #ffffff;
+  /* Titles on a surface (Card names, Modal titles, .wtp-surface-title): fill, outline, drop. */
+  --surface-title: #ffffff;
+  --surface-title-stroke: var(--outline);
+  --surface-title-shadow: var(--display-shadow);
   --surface-border: rgb(255 255 255 / 0.3);
   --surface-blur: 14px;
   --scrim: rgb(8 2 24 / 0.72);
@@ -212,6 +219,7 @@
   --outline: #0a1f55;
 
   --accent: #e3350d;
+  --accent-ink: #ffffff;
   --hi: #ffde00;
   --accent-3: #2a75f0;
   --focus: #ffde00;
@@ -221,6 +229,10 @@
   --surface-ink: #0a1f55;
   --surface-ink-soft: #27467f;
   --surface-display: #2a75f0;
+  /* Plain navy, no outline: blue with a navy outline smears into one blob on a projector. */
+  --surface-title: #0a1f55;
+  --surface-title-stroke: transparent;
+  --surface-title-shadow: 0 0.06em 0 rgb(42 117 240 / 0.55);
   --surface-border: #0a1f55;
   --surface-blur: 10px;
   --scrim: rgb(3 20 70 / 0.7);
@@ -280,6 +292,17 @@
   --surface-blur: 0px;
   --sil-glow: #ffffff;
   --rim: #ffffff;
+}
+/*
+ * A 1080p picture is as big on the screen as a 480p one, but the rem floor of the small sizes does
+ * not grow with the viewport, so fact text fell to 2.5% of the picture height (3.7% at 480p).
+ * Tall projector viewports (a laptop at 1080p, an iPad Pro) lift the small sizes only; titles and
+ * buttons already read from the back of the driveway.
+ */
+@media (min-height: 900px) and (orientation: landscape) {
+  :root[data-projector="on"] {
+    --boost-body: 1.2;
+  }
 }
 :root[data-projector="on"]:not([data-theme="classic"]) {
   --surface-border: #ffffff;

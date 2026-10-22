@@ -1,12 +1,12 @@
 // The smaller Settings tabs: Sound, Game, Look, Party tools and About.
 import { useState, useSyncExternalStore } from "react";
-import { announcer, audio } from "../../../audio";
+import { announcer, whosThat } from "../../../audio";
 import { artUrl, CATALOG } from "../../../data/catalog";
 import { clearRecent, recentAnswers } from "../../../game/history";
 import { leaderboard } from "../../../game/leaderboard";
 import { useFullscreen } from "../../../lib/useFullscreen";
 import { useSettings, type Theme } from "../../../state/settings";
-import { Button, Card, ConfirmDialog, Display, IconPlay, Pill, toast } from "../../components";
+import { Button, Card, ConfirmDialog, Display, IconPlay, IconRefresh, Pill, toast } from "../../components";
 import { Choices, Level, Row, SectionTitle, SwitchRow } from "./controls";
 import { IconTrash } from "./icons";
 import s from "./Settings.module.css";
@@ -19,15 +19,13 @@ export function SoundSection() {
   const voice = useSettings((st) => st.voice);
   const update = useSettings((st) => st.update);
 
-  const test = () => {
-    audio.sfx("fanfare");
-    void announcer.say("Who's that Pokémon?");
-  };
+  // The same sting and delay as a real question, so the voice comes in after the jingle, not under it.
+  const test = () => void whosThat();
 
   return (
     <>
       <SectionTitle>Sound</SectionTitle>
-      <Row label="Music" hint="Spooky tunes in the menus, suspense during questions.">
+      <Row label="Music" hint="Catchy tunes in the menus, suspense music during questions.">
         <Level label="Music volume" value={musicVolume} sfx={null} onChange={(v) => update({ musicVolume: v })} />
       </Row>
       <Row label="Sound effects" hint="Dings, buzzers and the big candy fanfare.">
@@ -35,7 +33,7 @@ export function SoundSection() {
       </Row>
       <SwitchRow
         label="Announcer voice"
-        hint={announcer.supported ? "Says “Who’s that Pokémon?” and “It’s Pikachu!” out loud." : "This device has no speaking voice, so this stays quiet."}
+        hint={announcer.supported ? "Says “Who’s that Pokémon?”, reads the four names on Poké Ball, then names the Pokémon and reads its fun fact." : "This device has no speaking voice, so this stays quiet."}
         on={voice}
         disabled={!announcer.supported}
         onChange={(on) => update({ voice: on })}
@@ -64,7 +62,7 @@ export function GameSection() {
       <Row label="Questions per game" hint="5 is quick for little ones. 15 is a real challenge.">
         <Choices label="Questions per game" value={rounds} options={ROUND_OPTIONS} onChange={(n) => update({ rounds: n })} />
       </Row>
-      <SwitchRow label="Timer" hint="A countdown on every question, with bonus points for speed. Turn it off for little ones." on={timer} onChange={(on) => update({ timer: on })} />
+      <SwitchRow label="Timer" hint="A countdown on every question, with bonus points for speed. Off means no rush, and every right answer scores as if it were instant." on={timer} onChange={(on) => update({ timer: on })} />
       <SwitchRow label="Auto next" hint="After the answer shows, the next one starts by itself." on={autoAdvance} onChange={(on) => update({ autoAdvance: on })} />
     </>
   );
@@ -129,11 +127,18 @@ const ATTRACT_OPTIONS = [
   { value: 120, label: "2 min" },
 ];
 
-type Pending = "scores" | "recent" | null;
+type Pending = "scores" | "recent" | "settings" | null;
+
+const CONFIRM: Record<Exclude<Pending, null>, { title: string; label: string }> = {
+  scores: { title: "Clear the leaderboard?", label: "Clear it" },
+  recent: { title: "Forget recent Pokémon?", label: "Forget them" },
+  settings: { title: "Restore all settings?", label: "Restore" },
+};
 
 export function PartySection() {
   const attractAfterSec = useSettings((st) => st.attractAfterSec);
   const update = useSettings((st) => st.update);
+  const reset = useSettings((st) => st.reset);
   const fullscreen = useFullscreen();
   const scores = useSyncExternalStore(leaderboard.subscribe, leaderboard.all).length;
   const [recent, setRecent] = useState(() => recentAnswers().length);
@@ -147,6 +152,9 @@ export function PartySection() {
       clearRecent();
       setRecent(0);
       toast("All Pokémon are back in the mix!", { tone: "good" });
+    } else if (pending === "settings") {
+      reset();
+      toast("Settings are back to the start.", { tone: "good" });
     }
     setPending(null);
   };
@@ -181,16 +189,23 @@ export function PartySection() {
           </Button>
         )}
       </Row>
+      <Row label="All settings" hint="Lost in here? Put every setting back to how it started.">
+        <Button variant="danger" icon={<IconRefresh />} onPress={() => setPending("settings")}>
+          Restore
+        </Button>
+      </Row>
       <ConfirmDialog
         open={pending !== null}
         tone="danger"
-        title={pending === "scores" ? "Clear the leaderboard?" : "Forget recent Pokémon?"}
+        title={pending ? CONFIRM[pending].title : ""}
         message={
           pending === "scores"
             ? `All ${scores} ${scores === 1 ? "score" : "scores"} on this device go away for good.`
-            : "Pokémon from earlier games can show up again right away."
+            : pending === "settings"
+              ? "Sound, game, look, prizes and party settings go back to the start, custom prizes too. Scores stay."
+              : "Pokémon from earlier games can show up again right away."
         }
-        confirmLabel={pending === "scores" ? "Clear it" : "Forget them"}
+        confirmLabel={pending ? CONFIRM[pending].label : ""}
         cancelLabel="Keep"
         onConfirm={confirm}
         onCancel={() => setPending(null)}

@@ -159,18 +159,14 @@
 .board[data-inline] {
   width: auto;
 }
+/* "You're #8!" on a small second line, so it costs the label no width. */
 .rank {
-  display: inline-block;
-  margin-left: 0.4em;
-  padding: 0.12em 0.4em 0;
-  border: 3px solid var(--outline);
-  border-radius: var(--r-pill);
-  background: var(--hi);
-  color: #160a33;
-  font-size: 0.8em;
-  -webkit-text-stroke: 0;
-  text-shadow: none;
-  vertical-align: 0.08em;
+  display: block;
+  margin-top: 0.12em;
+  font-size: 0.62em;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--hi);
 }
 
 /* ---------- actions ---------- */
@@ -198,6 +194,12 @@
     flex-direction: column;
     align-items: center;
     gap: var(--sp-3);
+    /* Safety net: a screen too short for everything scrolls the column, it never clips the buttons. */
+    overflow: hidden auto;
+    overscroll-behavior: contain;
+    /* Room for the tilted card and the button edges inside the scroller. */
+    padding: 8px;
+    margin: -8px;
   }
   .side {
     display: contents;
@@ -230,14 +232,54 @@
   }
 }
 @media (orientation: portrait) and (max-width: 599px) {
+  .teaser {
+    font-size: var(--fs-md);
+  }
+  /* Two rows: Home beside "Add my name", then New theme beside Play again. Host has no offer,
+     so Play again gets the second row to itself. */
+  .actions {
+    gap: var(--sp-2);
+  }
+  .actions > button[data-size] {
+    --fs: var(--fs-md);
+    padding-inline: 0.75em;
+  }
+  .actions > .board {
+    order: 1;
+    flex: 1 1 calc(100% - 80px);
+  }
+  .theme {
+    order: 2;
+  }
   .again {
-    order: -1;
-    flex: 1 1 100%;
+    order: 3;
+    flex: 1 1 auto;
+  }
+}
+
+/* Short portrait: phones in Safari with the toolbars showing (iPhone 390x664, SE 375x553). */
+@media (orientation: portrait) and (max-height: 740px) {
+  .grid {
+    gap: var(--sp-2);
   }
   .headline {
     display: none;
   }
+  .prize {
+    min-height: 8rem;
+  }
   .teaser {
+    font-size: var(--fs-sm);
+  }
+}
+@media (orientation: portrait) and (max-height: 600px) {
+  .big {
+    font-size: var(--fs-3xl) !important;
+  }
+  .of {
+    font-size: var(--fs-2xl) !important;
+  }
+  .points {
     font-size: var(--fs-md);
   }
 }

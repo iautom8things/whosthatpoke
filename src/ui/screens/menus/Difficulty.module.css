@@ -24,13 +24,11 @@
   min-height: var(--touch-min);
   max-width: 100%;
   padding: 4px var(--sp-4) 4px 4px;
-  border: var(--stroke) solid var(--outline);
+  /* Flat on purpose: it is a label, and must not look like the Back button across the header. */
+  border: 2px solid color-mix(in srgb, var(--ink) 30%, transparent);
   border-radius: var(--r-pill);
-  background: linear-gradient(180deg, var(--raised-hi), var(--raised) 65%);
-  color: var(--raised-ink);
-  box-shadow:
-    0 0 0 2px var(--rim),
-    0 4px 0 var(--outline);
+  background: color-mix(in srgb, var(--bg-0) 50%, transparent);
+  color: var(--ink);
 }
 .themeArt {
   position: relative;
@@ -161,7 +159,8 @@
   color: var(--ink-dark);
 }
 
-/* The three silhouettes stand in a little lineup under a spotlight, the middle one up front. */
+/* The three silhouettes stand in a little lineup under a spotlight, the middle one up front.
+   The light core keeps the black shapes readable on dark spooky faces and on a washed-out projector. */
 .sils {
   grid-area: sils;
   container-type: size;
@@ -172,7 +171,12 @@
   height: 100%;
   min-height: 0;
   border-radius: var(--r-lg);
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--card) 45%, transparent), transparent);
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--card) 55%, #fff),
+    color-mix(in srgb, var(--card) 70%, transparent) 45%,
+    transparent
+  );
 }
 .sil {
   position: relative;
@@ -186,6 +190,12 @@
   width: min(36cqw, 92cqh);
   margin-inline: 1cqw;
   translate: 0 0;
+}
+/* Squeezed rows (phones at Safari heights) would shrink them to specks: drop them instead. */
+@container (max-height: 32px) {
+  .sil {
+    display: none;
+  }
 }
 
 .blurb {

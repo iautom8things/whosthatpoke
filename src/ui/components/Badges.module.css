@@ -55,7 +55,7 @@
 }
 .pill[data-tone="accent"] {
   --bg: var(--accent);
-  --fg: #fff;
+  --fg: var(--accent-ink);
 }
 .pill[data-tone="good"] {
   --bg: var(--good);

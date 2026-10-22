@@ -1,5 +1,5 @@
-// The announcer: a speechSynthesis wrapper that picks the best English voice, ducks the music while it
-// talks, and always resolves (iOS sometimes never fires onend).
+// The announcer: a speechSynthesis wrapper that picks the best English voice, ducks the game audio while it
+// talks, stays quiet while the tab is hidden, and always resolves (iOS sometimes never fires onend).
 
 import type { Announcer } from "./index";
 
@@ -59,6 +59,11 @@ export class Speech implements Announcer {
   private preferred: string | null = readPref();
   private readonly bad = new Set<string>();
   private current: { finish: () => void } | null = null;
+  /**
+   * A line waiting for its delay. A newer line, a hidden tab, voice off or unqueue() drops it, but not cancel():
+   * a screen that is leaving cancels late, after the next screen has queued its line.
+   */
+  private queued: { timer: ReturnType<typeof setTimeout>; resolve: () => void; done: Promise<void> } | null = null;
   private warmed = false;
   private releaseTimer: ReturnType<typeof setTimeout> | null = null;
   private readonly listeners = new Set<() => void>();
@@ -75,10 +80,27 @@ export class Speech implements Announcer {
     };
     if (typeof synth.addEventListener === "function") synth.addEventListener("voiceschanged", onChange);
     else (synth as SpeechSynthesis).onvoiceschanged = onChange;
+    // The engine suspends on hide; speech is not Web Audio, so stop it here or the room hears a line with no game.
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) return;
+      this.dropQueued();
+      this.cancel();
+    });
   }
 
-  say(text: string): Promise<void> {
-    if (!this.supported || !this.enabled || !text || !text.trim()) return Promise.resolve();
+  say(text: string, delayMs = 0): Promise<void> {
+    this.dropQueued();
+    if (!this.supported || !this.enabled || !text || !text.trim() || document.hidden) return Promise.resolve();
+    if (delayMs > 0) {
+      let resolve = () => {};
+      const done = new Promise<void>((r) => (resolve = r));
+      const timer = setTimeout(() => {
+        this.queued = null;
+        void this.say(text).then(resolve);
+      }, delayMs);
+      this.queued = { timer, resolve, done };
+      return done;
+    }
     try {
       const synth = window.speechSynthesis;
       const busy = synth.speaking || synth.pending || this.current !== null;
@@ -138,6 +160,11 @@ export class Speech implements Announcer {
     }
   }
 
+  /** Drop a delayed line from say() before it starts, if it is still waiting. */
+  unqueue(line: Promise<void>): void {
+    if (this.queued?.done === line) this.dropQueued();
+  }
+
   cancel(): void {
     try {
       const c = this.current;
@@ -151,7 +178,9 @@ export class Speech implements Announcer {
 
   setEnabled(on: boolean): void {
     this.enabled = on;
-    if (!on) this.cancel();
+    if (on) return;
+    this.dropQueued();
+    this.cancel();
   }
 
   /** Call inside a user gesture: iOS only lets speech start from one, after that it is free. */
@@ -235,6 +264,14 @@ export class Speech implements Announcer {
       }
     }
     return best;
+  }
+
+  private dropQueued(): void {
+    const q = this.queued;
+    this.queued = null;
+    if (!q) return;
+    clearTimeout(q.timer);
+    q.resolve();
   }
 
   private hold(): void {

@@ -1,4 +1,4 @@
-/* Shared bits of the menu screens: hold-to-open gear, peeking silhouette, top-trainer banner. */
+/* Shared bits of the menu screens: hold-to-open gear, mode tag, peeking silhouette, top-trainer banner. */
 
 /* ---------- kid-lock gear ---------- */
 .gear {
@@ -11,19 +11,26 @@
 .gear button svg {
   rotate: calc(var(--hold) * 240deg);
 }
+/* Wide enough to peek out around a grown-up's thumb, so the fill stays visible while holding. */
 .ring {
   position: absolute;
-  inset: -9px -9px -5px;
-  width: calc(100% + 18px);
-  height: calc(100% + 14px);
+  inset: -16px -16px -12px;
+  width: calc(100% + 32px);
+  height: calc(100% + 28px);
+  /* The global svg reset caps width at 100%, which squashed the ring onto the button. */
+  max-width: none;
   pointer-events: none;
   rotate: -90deg;
+  scale: 0.7;
   opacity: 0;
-  transition: opacity var(--dur-fast);
+  transition:
+    opacity var(--dur-fast),
+    scale var(--dur-fast) var(--ease-pop);
   overflow: visible;
 }
 .gear[data-holding] .ring {
   opacity: 1;
+  scale: 1;
 }
 .ringTrack,
 .ringFill {
@@ -39,6 +46,43 @@
   stroke-linecap: round;
   stroke-dasharray: 100;
   stroke-dashoffset: calc(100 - var(--hold) * 100);
+}
+
+/* ---------- mode tag: a quiet label, flat so nobody takes it for a button ---------- */
+.modeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.3em 0.9em 0.25em 0.7em;
+  border: 2px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--bg-0) 50%, transparent);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.modeTagIcon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+.modeTagIcon > * + * {
+  margin-left: -0.12em;
+}
+@media (max-width: 520px) {
+  .modeTag {
+    padding: 0.4em 0.5em;
+  }
+  .modeTagLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 }
 
 /* ---------- peeking mystery silhouette ---------- */

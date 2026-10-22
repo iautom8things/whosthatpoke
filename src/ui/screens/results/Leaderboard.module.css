@@ -33,9 +33,10 @@
   gap: var(--sp-2);
   overflow-y: auto;
   overscroll-behavior: contain;
-  /* Room for the fresh row's outline and glow inside the scroller. */
+  /* Room for the fresh row's outline and glow inside the scroller, also when it scrolls into view. */
   padding: 12px;
   margin: -12px;
+  scroll-padding: 12px;
 }
 .list {
   /* Auto margins center the list, and collapse to 0 when it overflows, so row 1 never hides above the fold. */
@@ -55,19 +56,42 @@
     grid-auto-flow: column;
     width: 100%;
   }
+  /* Same width as a row in the two columns above. */
+  .mine[data-cols="2"] > ol {
+    width: calc((100% - var(--sp-4)) / 2);
+  }
 }
-.list:has(+ .mine) {
-  margin-bottom: 0;
+/* "Your spot" lives outside the scroller so it never pushes #1 out of view. With room to spare,
+   the list and your spot sit together in the middle; on a short screen the list scrolls instead. */
+.scroller:has(+ .mine) {
+  flex-grow: 0;
+  /* The glow lives on your spot now; the top keeps room for #1's crown, the bottom for the row edge. */
+  padding-bottom: 4px;
+  margin-block: auto 0;
 }
 .mine {
+  --row: clamp(56px, 9.6vmin, 104px);
   flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;
+}
+.mine > ol {
   width: min(100%, 52rem);
-  margin: 0 auto auto;
-  padding-top: var(--sp-2);
-  border-top: 3px dashed var(--rim);
 }
 .mine .row {
   height: var(--row);
+}
+.skip {
+  /* Clear of the fresh row's outline below it. */
+  margin-bottom: calc(var(--stroke-thick) + 6px);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  text-shadow: 0 2px 0 var(--outline);
 }
 
 /* ---------- row ---------- */
@@ -197,6 +221,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+@media (max-width: 599px) {
+  .metaCategory {
+    display: none;
+  }
+}
 
 .score {
   display: flex;
@@ -205,10 +234,15 @@
   line-height: 1;
 }
 .value {
-  --display-fill: var(--accent);
   font-size: var(--fs-xl);
   font-variant-numeric: tabular-nums;
   padding-top: 0.08em;
+}
+/* Dark ink on the light row, no outline: orange on cream washes out on a projector. */
+.row .value {
+  --display-fill: var(--choice-ink);
+  -webkit-text-stroke: 0;
+  text-shadow: none;
 }
 .unit {
   font-size: var(--fs-xs);
@@ -247,7 +281,8 @@
 
 /* ---------- narrow and short screens ---------- */
 @media (max-width: 599px) {
-  .scroller {
+  .scroller,
+  .mine {
     --row: 52px;
   }
   .list {
@@ -268,7 +303,8 @@
   }
 }
 @media (orientation: landscape) and (max-height: 560px) {
-  .scroller {
+  .scroller,
+  .mine {
     --row: clamp(48px, 11vmin, 60px);
   }
   .list {
@@ -285,6 +321,14 @@
   }
   .controls {
     gap: var(--sp-2) var(--sp-3);
+  }
+}
+
+/* Phone on its side: slimmer rows so the top 4 and your spot fit, notch insets included. */
+@media (orientation: landscape) and (max-height: 440px) {
+  .scroller,
+  .mine {
+    --row: 44px;
   }
 }
 

@@ -1,9 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useContext, useEffect, useId, useRef, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { holdInert } from "../../lib/inert";
 import { KeyLayerContext, openKeyLayer, useKeys } from "../../lib/useKeys";
 import { Button } from "./Button";
 import { cx } from "./cx";
+import { IconBack, IconCheck, IconPlay, IconX } from "./icons";
 import s from "./Modal.module.css";
 
 export interface ModalProps {
@@ -21,6 +23,14 @@ export interface ModalProps {
   className?: string;
 }
 
+function focusVisible(el: Element): boolean {
+  try {
+    return el.matches(":focus-visible");
+  } catch {
+    return false; // Safari before 15.4 has no :focus-visible.
+  }
+}
+
 function Layer({ children }: { children: ReactNode }) {
   const layer = useContext(KeyLayerContext) + 1;
   useEffect(() => openKeyLayer(layer), [layer]);
@@ -33,10 +43,20 @@ function Body({ onClose, title, children, actions, dismissible = true, variant =
   useKeys({ Escape: () => dismissible && onClose?.() });
 
   useEffect(() => {
+    // Hand focus back on close only to a keyboard user. After a tap or click the opener (the quit X)
+    // would keep focus, and the next Space would press it and open the dialog again.
     const previous = document.activeElement as HTMLElement | null;
+    const restore = previous && focusVisible(previous) ? previous : null;
     const target = panel.current?.querySelector<HTMLElement>("[data-autofocus]") ?? panel.current?.querySelector<HTMLElement>("button");
     target?.focus({ preventScroll: true });
-    return () => previous?.focus?.({ preventScroll: true });
+    // The app behind is inert, so Tab, VoiceOver and Enter cannot reach the buttons under the
+    // scrim. The portal sits outside #root, so the dialog itself stays live.
+    const root = document.getElementById("root");
+    const releaseRoot = root ? holdInert(root) : () => {};
+    return () => {
+      releaseRoot();
+      restore?.focus({ preventScroll: true });
+    };
   }, []);
 
   const sheet = variant === "sheet";
@@ -95,25 +115,57 @@ export interface ConfirmDialogProps {
   message?: ReactNode;
   confirmLabel?: string;
   cancelLabel?: string;
-  /** "danger" paints the confirm button red (quit, reset). */
+  /**
+   * "danger" (quit, reset): the safe cancel becomes the big bright button and the risky confirm
+   * an outlined one, so a kid who opened it by accident taps the inviting button and keeps going.
+   */
   tone?: "primary" | "danger";
+  /** Icons for kids who cannot read yet. Default: a play arrow (danger) or back arrow on cancel, X (danger) or check on confirm. */
+  cancelIcon?: ReactNode;
+  confirmIcon?: ReactNode;
   onConfirm: () => void;
   onCancel: () => void;
 }
 
 /** Yes/no question, the replacement for window.confirm. Focus starts on the safe (cancel) button; Escape cancels. */
-export function ConfirmDialog({ open, title, message, confirmLabel = "Yes", cancelLabel = "No", tone = "primary", onConfirm, onCancel }: ConfirmDialogProps) {
+export function ConfirmDialog({
+  open,
+  title,
+  message,
+  confirmLabel = "Yes",
+  cancelLabel = "No",
+  tone = "primary",
+  cancelIcon,
+  confirmIcon,
+  onConfirm,
+  onCancel,
+}: ConfirmDialogProps) {
+  const danger = tone === "danger";
   return (
     <Modal
       open={open}
       onClose={onCancel}
       title={title}
+      className={s.confirm}
       actions={
         <>
-          <Button variant="secondary" size="lg" sfx="back" onPress={onCancel} data-autofocus>
+          <Button
+            variant={danger ? "primary" : "secondary"}
+            size="lg"
+            sfx="back"
+            icon={cancelIcon ?? (danger ? <IconPlay /> : <IconBack />)}
+            onPress={onCancel}
+            data-autofocus
+          >
             {cancelLabel}
           </Button>
-          <Button variant={tone === "danger" ? "danger" : "primary"} size="lg" onPress={onConfirm}>
+          <Button
+            variant={danger ? "ghost" : "primary"}
+            size="lg"
+            icon={confirmIcon ?? (danger ? <IconX /> : <IconCheck />)}
+            className={danger ? s.risky : undefined}
+            onPress={onConfirm}
+          >
             {confirmLabel}
           </Button>
         </>

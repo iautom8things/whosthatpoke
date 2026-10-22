@@ -69,19 +69,46 @@
   background: var(--good);
 }
 
-/* Reserved on every tile so a row of hits and misses lines up. A name may spill into the gap. */
+/* Reserved on every tile so a row of hits and misses lines up. A name may spill into the gap,
+   and a longer one ends in "…" rather than breaking mid-word. */
 .name {
-  min-height: 2.1em;
+  min-height: 1.2em;
   width: calc(var(--tile) + var(--sp-2) * 2 - 6px);
-  font-size: clamp(11px, calc(var(--tile) * 0.21), var(--fs-xs));
+  font-size: clamp(13px, calc(var(--tile) * 0.21), var(--fs-xs));
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
   text-align: center;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-  text-wrap: balance;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Keeps the drop shadow inside the clip. */
+  padding-bottom: 2px;
   color: var(--ink);
   text-shadow: 0 2px 0 var(--outline);
+}
+
+/* Short portrait (phones in Safari): smaller tiles, ticks and crosses only. */
+@media (orientation: portrait) and (max-height: 740px) {
+  .recap {
+    --tile: clamp(34px, 6vh, 44px);
+  }
+  .name {
+    display: none;
+  }
+}
+@media (orientation: portrait) and (max-height: 600px) {
+  .recap,
+  .recap[data-count="many"] {
+    --cols: 10;
+    --tile: 30px;
+    column-gap: var(--sp-1);
+  }
+  .mark {
+    top: -5px;
+    right: -5px;
+    width: 16px;
+    font-size: 10px;
+  }
 }
 
 @keyframes tileIn {

@@ -2,6 +2,16 @@
   width: min(100%, 64rem);
   gap: var(--sp-3);
 }
+/* "Let's play!" (the Modal's actions row, its last child) stays in view when a short screen scrolls the sheet. */
+.panel > :last-child {
+  position: sticky;
+  bottom: calc(var(--sp-4) * -1);
+  margin: 0 calc(var(--sp-5) * -1) calc(var(--sp-4) * -1);
+  padding: var(--sp-2) var(--sp-5) var(--sp-4);
+  width: auto;
+  align-self: stretch;
+  background: var(--surface-strong);
+}
 
 .lead {
   font-size: var(--fs-lg);
@@ -143,6 +153,12 @@
   font-size: var(--fs-md);
   font-weight: 700;
   line-height: 1.1;
+}
+
+.undo {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: var(--lh-snug);
 }
 
 .keys {

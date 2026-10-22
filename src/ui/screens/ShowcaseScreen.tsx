@@ -3,7 +3,7 @@
 // Any tap or key goes back to the title screen.
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { announcer, audio } from "../../audio";
+import { announcer, audio, whosThat } from "../../audio";
 import { monByDex } from "../../data/catalog";
 import type { Mon } from "../../data/types";
 import { categoryById } from "../../game/categories";
@@ -16,6 +16,7 @@ import {
   IconTrophy,
   Logo,
   Panel,
+  Pill,
   PokeArt,
   PokeBall,
   preloadArt,
@@ -26,14 +27,13 @@ import {
 } from "../components";
 import { showcaseDemo, type ShowcaseStart } from "./host/flags";
 import { HandIcon } from "./host/HostHelp";
+import { asksAloud, boardFor, EVERY, type BoardMode } from "./host/showcasePlan";
 import { createShowcaseQueue, type ShowcaseQueue } from "./host/showcaseQueue";
 import s from "./host/Showcase.module.css";
 
 const DURATION: Record<ShowcaseStart, number> = { ask: 6000, reveal: 4000, board: 8000, cta: 6000 };
 /** How long a slide stays up. Soak tests speed the loop up through the demo flags. */
 const duration = (kind: ShowcaseStart) => DURATION[kind] / (showcaseDemo.speed ?? 1);
-/** Pokémon between the Top Trainers + "Tap to play!" break. */
-const EVERY = 6;
 const TOP = 5;
 
 type Slide = { kind: "ask" | "reveal"; mon: Mon; n: number } | { kind: "board" | "cta"; n: number };
@@ -91,10 +91,11 @@ export default function ShowcaseScreen() {
     if (document.hidden) return;
     const timers: number[] = [];
     const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
+    let cue: { cancel(): void } | null = null;
     if (slide.kind === "ask") {
       later(150, () => {
-        audio.sfx("whosThat");
-        void announcer.say("Who’s that Pokémon?");
+        if (asksAloud(slide.n)) cue = whosThat();
+        else audio.sfx("whoosh");
       });
     } else if (slide.kind === "reveal") {
       audio.sfx("reveal");
@@ -105,7 +106,10 @@ export default function ShowcaseScreen() {
     } else {
       audio.sfx("pop");
     }
-    return () => timers.forEach((t) => window.clearTimeout(t));
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t));
+      cue?.cancel();
+    };
   }, [slide, queue]);
 
   useInterval(() => setNow(performance.now()), slide.kind === "ask" && !hold ? 100 : null);
@@ -141,7 +145,7 @@ export default function ShowcaseScreen() {
             {slide.kind === "ask" || slide.kind === "reveal" ? (
               <Quiz mon={slide.mon} revealed={slide.kind === "reveal"} msLeft={askLeft} />
             ) : slide.kind === "board" ? (
-              <TopTrainers />
+              <TopTrainers n={slide.n} />
             ) : (
               <CallToAction />
             )}
@@ -212,8 +216,20 @@ function buddyOf(entry: ScoreEntry): Mon | null {
   }
 }
 
-function TopTrainers() {
-  const entries = useMemo(() => showcaseDemo.entries ?? leaderboard.top("classic", TOP, TONIGHT_MS()), []);
+const BOARD_LABEL: Record<BoardMode, { label: string; icon: string }> = {
+  classic: { label: "Classic", icon: "⭐" },
+  survival: { label: "Survival", icon: "🔥" },
+};
+
+/** The break after Pokémon `n`: Classic and Survival boards take turns (see boardFor). */
+function TopTrainers({ n }: { n: number }) {
+  const { mode, entries } = useMemo(() => {
+    const since = TONIGHT_MS();
+    const top = (m: BoardMode) => (showcaseDemo.entries ? showcaseDemo.entries.filter((e) => e.mode === m).slice(0, TOP) : leaderboard.top(m, TOP, since));
+    const boards = { classic: top("classic"), survival: top("survival") };
+    const mode = boardFor(n, boards);
+    return { mode, entries: mode ? boards[mode] : [] };
+  }, [n]);
   const mascot = useMemo(() => {
     try {
       return monByDex(categoryById("all").mascot);
@@ -224,21 +240,33 @@ function TopTrainers() {
 
   return (
     <div className={s.board}>
-      <Display size="2xl" color="var(--hi)" className={s.boardTitle}>
-        <IconTrophy className={s.trophy} /> Tonight’s Top Trainers
-      </Display>
-      {entries.length > 0 ? (
+      <div className={s.boardHead}>
+        <Display size="2xl" color="var(--hi)" className={s.boardTitle}>
+          <IconTrophy className={s.trophy} /> Tonight’s Top Trainers
+        </Display>
+        {mode && (
+          <Pill tone={mode === "survival" ? "bad" : "accent"} size="lg" icon={<span aria-hidden="true">{BOARD_LABEL[mode].icon}</span>} className={s.boardMode}>
+            {BOARD_LABEL[mode].label}
+          </Pill>
+        )}
+      </div>
+      {mode && entries.length > 0 ? (
         <Panel tone="solid" padding="sm" className={s.boardPanel}>
           <ol className={s.rows}>
             {entries.map((e, i) => {
               const buddy = buddyOf(e);
               const rank = i + 1;
+              // Survival ranks by how many they named, so that is the number to show.
+              const survival = e.mode === "survival";
               return (
                 <li key={e.id} className={s.row} style={{ "--medal": MEDAL[rank] ?? "var(--raised)", "--i": i } as CSSProperties} data-top={rank <= 3 || undefined}>
                   <span className={`wtp-display ${s.rank}`}>{rank}</span>
                   <span className={s.buddy}>{buddy && <PokeArt mon={buddy} revealed outline={false} fill={0.95} />}</span>
                   <span className={s.trainer}>{e.name}</span>
-                  <span className={`wtp-display ${s.points}`}>{e.points.toLocaleString()}</span>
+                  <span className={s.score}>
+                    <span className={`wtp-display ${s.points}`}>{(survival ? e.correct : e.points).toLocaleString()}</span>
+                    {survival && <span className={s.unit}>named</span>}
+                  </span>
                 </li>
               );
             })}

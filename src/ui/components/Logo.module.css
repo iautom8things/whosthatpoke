@@ -41,7 +41,11 @@
 
 .line1 {
   font-size: 0.6em;
-  margin-bottom: 0.08em;
+  /*
+   * Room for the É accent of line 2 to land in the gap under S and T instead of touching the S.
+   * A margin, not a lift, so the logo's box holds both lines and a screen edge never clips line 1.
+   */
+  margin-bottom: 0.42em;
   translate: -0.35em 0;
   /* Thinner glyphs need a proportionally thicker outline to match line 2. */
   -webkit-text-stroke-width: 0.24em;

@@ -66,24 +66,30 @@ export function teaser(s: GameSummary): { text: string; emoji: string; close: bo
   return { text: `Get ${s.correct + needed} for ${tier.title}!`, emoji: tier.emoji, close: false };
 }
 
-/** Speech-friendly text: no emoji, "+" read as "and", shouted words lowercased so they aren't spelled out. */
+/**
+ * Speech-friendly text: no emoji, "+" read as "and", shouted words lowercased so they aren't spelled
+ * out. Two-letter words stay as written: "XL" and "TV" are meant to be spelled.
+ */
 export function spoken(text: string): string {
   return text
     .replace(/\p{Extended_Pictographic}/gu, "")
     .replace(/\s*\+\s*/g, " and ")
-    .replace(/\b[A-Z]{2,}\b/g, (w) => w.toLowerCase())
+    .replace(/\b[A-Z]{3,}\b/g, (w) => w.toLowerCase())
     .replace(/\s+/g, " ")
     .trim();
 }
 
 /** What the announcer says when the prize appears. */
 export function announcement(s: GameSummary): string {
+  // A zero isn't read out to the whole driveway.
   const score =
-    s.mode === "survival"
-      ? `You named ${s.correct} Pokémon!`
-      : s.perfect
-        ? `Perfect score! ${s.correct} out of ${s.asked}!`
-        : `${s.mode === "host" ? "Your team got" : "You got"} ${s.correct} out of ${s.asked}!`;
+    s.correct === 0
+      ? "Nice try!"
+      : s.mode === "survival"
+        ? `You named ${s.correct} Pokémon!`
+        : s.perfect
+          ? `Perfect score! ${s.correct} out of ${s.asked}!`
+          : `${s.mode === "host" ? "Your team got" : "You got"} ${s.correct} out of ${s.asked}!`;
   return spoken(`${score} ${s.tier.title}! ${s.tier.reward}`);
 }
 

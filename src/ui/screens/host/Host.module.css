@@ -28,6 +28,8 @@
   row-gap: var(--sp-3);
   height: 100%;
   min-height: 0;
+  /* A drag that starts on a paddle moves the card too, so the page never pans under the thumb. */
+  touch-action: none;
 }
 
 .side {
@@ -85,12 +87,10 @@
 .paddleWrap[data-armed] .paddle {
   filter: brightness(1.15);
 }
+/* The paddle the verdict did not take. It still takes a tap: that changes the verdict. */
 .paddleWrap[data-dim] {
   opacity: 0.4;
   filter: saturate(0.5);
-}
-.paddleWrap[data-dim] .paddle {
-  pointer-events: none;
 }
 
 .layout .side .paddle {

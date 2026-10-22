@@ -19,8 +19,15 @@ const MIN_GAP: Partial<Record<SfxId, number>> = {
   pop: 0.025,
 };
 
+/** Small sounds that play under the drumroll without stopping it (the results count-up). */
+const UNDER_ROLL = new Set<SfxId>(["points", "tick", "pop"]);
+/** Jingles that ring for seconds; the next round or another song stops them. */
+const JINGLE = new Set<SfxId>(["prize", "fanfare"]);
+
 const SONG_CROSSFADE = 0.7;
 const DUCK_LEVEL = 0.3;
+/** Effects dip less than music under the announcer (-6 dB): stings still land, the voice stays on top. */
+const SFX_DUCK_LEVEL = 0.5;
 
 /** Perceptual taper for 0..1 sliders. */
 const taper = (v: number) => {
@@ -50,6 +57,7 @@ export class Engine implements Audio {
   private song: { id: SongId; player: SongPlayer } | null = null;
   private pending: SongId | null = null;
   private roll: SfxHandle | null = null;
+  private jingle: SfxHandle | null = null;
   private readonly lastAt = new Map<SfxId, number>();
   private readonly runs = new Map<SfxId, number>();
   private count = 0;
@@ -112,9 +120,11 @@ export class Engine implements Audio {
         this.pending = id;
         return;
       }
+      const ctx = this.ctx!;
+      // The prize or fanfare belongs to the results screen: leaving it cuts the jingle short.
+      if (id !== "results") this.stopJingle(ctx.currentTime);
       if (this.song?.id === id) return;
       this.pending = null;
-      const ctx = this.ctx!;
       const prev = this.song;
       prev?.player.fadeOut(SONG_CROSSFADE);
       const player = new SongPlayer(ctx, song, this.chain!.music);
@@ -143,7 +153,8 @@ export class Engine implements Audio {
       const fx = SFX[id];
       if (!fx || !ctx || !this.chain || !this.wasUnlocked || ctx.state !== "running") return;
       const now = ctx.currentTime;
-      this.stopRoll(now);
+      if (!UNDER_ROLL.has(id)) this.stopRoll(now);
+      if (id === "whosThat" || JINGLE.has(id)) this.stopJingle(now);
       const last = this.lastAt.get(id) ?? -Infinity;
       if (now - last < (MIN_GAP[id] ?? 0)) return;
       // `points` climbs in pitch while calls keep coming; other sounds get a fresh counter for variety.
@@ -151,7 +162,8 @@ export class Engine implements Audio {
       this.lastAt.set(id, now);
       this.runs.set(id, run);
       const handle = fx(ctx, this.chain.sfx, now + 0.005, id === "points" ? run : this.count++);
-      if (handle) this.roll = handle;
+      if (handle && id === "drumroll") this.roll = handle;
+      else if (handle && JINGLE.has(id)) this.jingle = handle;
     } catch {
       // never throw into the UI
     }
@@ -164,12 +176,16 @@ export class Engine implements Audio {
 
   setSfxVolume(v: number): void {
     this.sfxVolume = v;
-    this.ramp(this.chain?.sfx.gain, taper(v), 0.03);
+    // A jump, not a glide: settings plays a sample right after, and it must sound at the new level.
+    this.jump(this.chain?.sfx.gain, taper(v));
   }
 
+  /** Lower music and, less, effects while the announcer talks. */
   duck(on: boolean): void {
     this.ducked = on;
-    this.ramp(this.chain?.duck.gain, on ? DUCK_LEVEL : 1, on ? 0.06 : 0.25);
+    const tau = on ? 0.06 : 0.25;
+    this.ramp(this.chain?.duck.gain, on ? DUCK_LEVEL : 1, tau);
+    this.ramp(this.chain?.sfxDuck.gain, on ? SFX_DUCK_LEVEL : 1, tau);
   }
 
   // ---------- internals ----------
@@ -182,6 +198,19 @@ export class Engine implements Audio {
     try {
       if (!p || !this.ctx) return;
       p.setTargetAtTime(value, this.ctx.currentTime, tau);
+    } catch {
+      // ignore
+    }
+  }
+
+  /** Drop any glide in progress and reach `value` in 5 ms. */
+  private jump(p: AudioParam | undefined, value: number): void {
+    try {
+      if (!p || !this.ctx) return;
+      const now = this.ctx.currentTime;
+      p.cancelScheduledValues(now);
+      p.setValueAtTime(p.value, now);
+      p.linearRampToValueAtTime(value, now + 0.005);
     } catch {
       // ignore
     }
@@ -204,6 +233,7 @@ export class Engine implements Audio {
     this.chain.music.gain.value = taper(this.musicVolume);
     this.chain.sfx.gain.value = taper(this.sfxVolume);
     this.chain.duck.gain.value = this.ducked ? DUCK_LEVEL : 1;
+    this.chain.sfxDuck.gain.value = this.ducked ? SFX_DUCK_LEVEL : 1;
     this.meter = ctx.createAnalyser();
     this.meter.fftSize = 2048;
     this.meterBuf = new Float32Array(this.meter.fftSize);
@@ -256,6 +286,7 @@ export class Engine implements Audio {
     if (document.hidden) {
       this.hiddenSuspend = true;
       this.stopRoll(ctx.currentTime);
+      this.stopJingle(ctx.currentTime);
       ctx.suspend().catch(() => {});
       return;
     }
@@ -294,5 +325,11 @@ export class Engine implements Audio {
     if (!this.roll) return;
     this.roll.stop(at);
     this.roll = null;
+  }
+
+  private stopJingle(at: number): void {
+    if (!this.jingle) return;
+    this.jingle.stop(at);
+    this.jingle = null;
   }
 }

@@ -1,7 +1,7 @@
 // Prize tiers: what a kid wins for each score. Edits save as you type; the ladder previews them live.
 import { useState, type CSSProperties } from "react";
 import { audio } from "../../../audio";
-import { DEFAULT_PRIZE_TIERS, prizeFor, type PrizeTier } from "../../../game/scoring";
+import { DEFAULT_PRIZE_TIERS, prizeFor, tierThreshold, type PrizeTier } from "../../../game/scoring";
 import { haptic } from "../../../lib/haptic";
 import { useSettings } from "../../../state/settings";
 import { Button, ConfirmDialog, Display, IconRefresh, Modal, cx } from "../../components";
@@ -15,8 +15,24 @@ function useTiers(): PrizeTier[] {
   return custom && custom.length > 0 ? custom : [...DEFAULT_PRIZE_TIERS];
 }
 
-function TierEditor({ tier, index, onChange, onPickEmoji }: { tier: PrizeTier; index: number; onChange(patch: Partial<PrizeTier>): void; onPickEmoji(): void }) {
+/**
+ * The out-of-10 value one step up or down in this game's units, so every press moves the
+ * ladder. At 5 questions, 5/10 and 6/10 both need 3, so + from 5 goes to 8 (needs 4).
+ * Ties keep the highest value, the plain scaling (3 of 5 is 6/10).
+ */
+function stepTier(tier: PrizeTier, rounds: number, dir: 1 | -1): number {
+  const need = (m: number) => tierThreshold({ ...tier, minCorrect: m }, rounds);
+  const now = need(tier.minCorrect);
+  const values = Array.from({ length: 11 }, (_, m) => m);
+  const target = dir > 0 ? values.find((m) => need(m) > now) : values.findLast((m) => need(m) < now);
+  return target === undefined ? tier.minCorrect : values.findLast((m) => need(m) === need(target))!;
+}
+
+function TierEditor({ tier, index, rounds, onChange, onPickEmoji }: { tier: PrizeTier; index: number; rounds: number; onChange(patch: Partial<PrizeTier>): void; onPickEmoji(): void }) {
   const fallback = DEFAULT_PRIZE_TIERS[index] ?? DEFAULT_PRIZE_TIERS[0];
+  const need = tierThreshold(tier, rounds);
+  // The first prize is what every score below the others wins, so its number would do nothing.
+  const anyScore = index === 0 && tier.minCorrect === 0;
   return (
     <li className={s.tier} style={{ "--c": tier.color } as CSSProperties}>
       <button type="button" className={s.emojiButton} aria-label={`Prize icon ${tier.emoji}. Change it`}
@@ -49,20 +65,26 @@ function TierEditor({ tier, index, onChange, onPickEmoji }: { tier: PrizeTier; i
         onBlur={(e) => onChange({ reward: e.target.value.trim() || fallback.reward })}
       />
       <div className={s.tierNeed}>
-        <span className={s.tierNeedLabel}>Needs</span>
-        <Stepper
-          label={`Correct answers for prize ${index + 1}`}
-          value={tier.minCorrect}
-          min={0}
-          max={10}
-          onChange={(n) => onChange({ minCorrect: n })}
-          display={
-            <>
-              {tier.minCorrect}
-              <small>/10</small>
-            </>
-          }
-        />
+        {anyScore ? (
+          <span className={s.tierNeedAny}>Any score</span>
+        ) : (
+          <>
+            <span className={s.tierNeedLabel}>Needs</span>
+            <Stepper
+              label={`Correct answers for prize ${index + 1}`}
+              value={need}
+              min={0}
+              max={rounds}
+              onChange={(n) => onChange({ minCorrect: stepTier(tier, rounds, n > need ? 1 : -1) })}
+              display={
+                <>
+                  {need}
+                  <small>/{rounds}</small>
+                </>
+              }
+            />
+          </>
+        )}
       </div>
     </li>
   );
@@ -131,13 +153,13 @@ export function PrizesSection() {
 
   return (
     <>
-      <SectionTitle note={rounds === 10 ? "Set what kids win for each score. Scores are out of 10." : `Scores are set out of 10 and scale to ${rounds}-question games.`}>
+      <SectionTitle note={`Set what kids win for each score. Scores are out of ${rounds}.`}>
         Prizes
       </SectionTitle>
       <Ladder tiers={tiers} rounds={rounds} />
       <ol className={s.tiers}>
         {tiers.map((tier, i) => (
-          <TierEditor key={i} tier={tier} index={i} onChange={(c) => patch(i, c)} onPickEmoji={() => setPicking(i)} />
+          <TierEditor key={i} tier={tier} index={i} rounds={rounds} onChange={(c) => patch(i, c)} onPickEmoji={() => setPicking(i)} />
         ))}
       </ol>
       {custom && (

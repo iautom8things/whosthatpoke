@@ -45,6 +45,8 @@ const BELL_HI: Inst = { kind: "tone", wave: "sine", env: { a: 0.002, d: 0.3, s: 
 const SPARKLE: Inst = { kind: "tone", wave: "sine", env: { a: 0.002, d: 0.16, s: 0, r: 0.12 } };
 const BASS: Inst = { kind: "tone", wave: "bass", env: { a: 0.004, d: 0.12, s: 0.75, r: 0.05 } };
 const PLUCK_BASS: Inst = { kind: "tone", wave: "bass", env: { a: 0.004, d: 0.22, s: 0.45, r: 0.07 } };
+/** Doubles a bass line an octave up, so it still reads on iPad and projector speakers with no low end. */
+const BASS_EDGE: Inst = { kind: "tone", wave: "pulse12", env: { a: 0.002, d: 0.1, s: 0.4, r: 0.05 }, lp: 2200 };
 const THEREMIN: Inst = {
   kind: "tone",
   wave: "theremin",
@@ -275,13 +277,14 @@ function question(): Song {
     id: "question",
     bpm: 132,
     steps: bars(4),
-    gain: 0.85,
+    gain: 1.2,
     loop: true,
     echo: { beats: 0.5, feedback: 0.3, tone: 2400, wet: 0.5 },
     tracks: [
       track("rise", PLUCK, rise, 0.4, { echo: 0.35 }),
-      track("pad", PAD, pad, 0.13),
+      track("pad", PAD, pad, 0.18),
       track("bass", BASS, bass, 0.26, { gate: 0.55 }),
+      track("bassEdge", BASS_EDGE, transpose(bass, 12), 0.2, { gate: 0.55 }),
       track("kick", KICK, beats("X.x.....X.x.....", 4), 0.26),
       track("hat", HAT, beats("xoxoxoxoxoxoxoxo", 4), 0.07),
     ],
@@ -323,7 +326,7 @@ function results(): Song {
     bpm: 140,
     steps: bars(16),
     loop: true,
-    gain: 0.7,
+    gain: 0.9,
     echo: { beats: 0.75, feedback: 0.25, tone: 2600, wet: 0.5 },
     tracks: [
       track("lead", LEAD, lead, 0.29, { echo: 0.2 }),

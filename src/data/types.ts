@@ -51,4 +51,10 @@ export interface Mon {
   family: number;
   /** Normalized alpha bounding box [x, y, w, h] in 0..1 of the art canvas. */
   bbox?: [number, number, number, number];
+  /** Dex numbers whose silhouettes can't be told from this one (data/silhouettes.json). */
+  twins?: number[];
+  /** A featureless silhouette (a plain circle, egg or cloud). Kept out of Poké Ball and Great Ball answers. */
+  blob?: true;
+  /** Where the fact card says it is from, when that differs from its region's label (e.g. "Hisui"). */
+  place?: string;
 }

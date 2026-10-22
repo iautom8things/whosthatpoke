@@ -27,6 +27,8 @@ function readLastBuddy(): number {
 /** "Add your name": a big name field, a random-name button and a buddy to stand next to it. */
 export function NameEntry({ summary }: { summary: GameSummary }) {
   const [name, setName] = useState("");
+  // Bumps on every letter past NAME_MAX, so the counter shakes instead of the letter silently vanishing.
+  const [overflow, setOverflow] = useState(0);
   const [buddy, setBuddy] = useState(readLastBuddy);
   const input = useRef<HTMLInputElement>(null);
   const projector = useSettings((st) => st.projector);
@@ -64,6 +66,15 @@ export function NameEntry({ summary }: { summary: GameSummary }) {
     useResultsUi.setState({ view: "summary", savedId: entry.id, highlight: { id: entry.id, at: entry.at } });
     useNav.getState().go("leaderboard");
   };
+
+  const type = (value: string) => {
+    if ([...value].length > NAME_MAX) {
+      setOverflow((n) => n + 1);
+      haptic("error");
+    }
+    setName([...value].slice(0, NAME_MAX).join(""));
+  };
+  const length = [...name].length;
 
   const pickBuddy = (dex: number) => {
     setBuddy(dex);
@@ -109,16 +120,20 @@ export function NameEntry({ summary }: { summary: GameSummary }) {
               ref={input}
               className={s.input}
               value={name}
-              onChange={(e) => setName(e.target.value.slice(0, NAME_MAX))}
+              onChange={(e) => type(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
                   if (window.matchMedia?.("(pointer: fine)").matches) save();
                   else e.currentTarget.blur();
                 }
+                // The focused field swallows ScreenFrame's Escape, so handle it here.
+                if (e.key === "Escape") {
+                  e.preventDefault();
+                  close();
+                }
               }}
-              placeholder="Type your name"
-              maxLength={NAME_MAX}
+              placeholder="Your name"
               autoCapitalize="words"
               autoComplete="off"
               autoCorrect="off"
@@ -128,6 +143,11 @@ export function NameEntry({ summary }: { summary: GameSummary }) {
               name="trainer-name"
               data-projector={projector || undefined}
             />
+            {length > 0 && (
+              <span key={overflow} className={s.count} data-full={length >= NAME_MAX || undefined} data-bump={overflow > 0 || undefined} aria-hidden="true">
+                {length}/{NAME_MAX}
+              </span>
+            )}
           </label>
           <Button
             variant="secondary"

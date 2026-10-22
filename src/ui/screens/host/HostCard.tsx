@@ -20,16 +20,21 @@ export interface HostCardProps {
 }
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
+/** How strong a stamp gets before the drag would count. A full stamp means "let go and it happens". */
+const FAINT = 0.35;
 
 /**
  * The trading card the grown-up swipes. It follows the finger, tilts, and tints green or red
- * with GOT IT! / MISSED stamps; dragging up on a hidden card shows a PEEK stamp.
+ * with GOT IT! / MISSED stamps; dragging up on a hidden card shows a REVEAL stamp.
+ * A stamp stays faint until the drag is far enough to count, then pops to full.
  */
 export function HostCard({ mon, face, verdict, dx, dy, dragging, threshold }: HostCardProps) {
   const judging = face !== "judged";
   const lean = verdict === "got" ? 1 : verdict === "missed" ? -1 : 0;
   const upward = face === "hidden" && dy < 0 && Math.abs(dy) > Math.abs(dx);
-  const strength = (v: number) => clamp(v / threshold, 0, 1);
+  const strength = (v: number) => (v >= threshold ? 1 : clamp(v / threshold, 0, 1) * FAINT);
+  const armed =
+    dragging && judging ? (dx >= threshold ? "got" : -dx >= threshold ? "miss" : upward && -dy >= threshold ? "peek" : undefined) : undefined;
 
   // Sideways follows the finger 1:1. Up follows only when it means something (peek); down barely moves.
   const y = dy < 0 ? (face === "hidden" ? dy : dy * 0.3) : dy * 0.2;
@@ -49,9 +54,9 @@ export function HostCard({ mon, face, verdict, dx, dy, dragging, threshold }: Ho
 
   const shown = face !== "hidden";
   return (
-    <div className={s.card} style={vars} data-dragging={dragging || undefined} data-face={face} data-verdict={verdict ?? undefined}>
+    <div className={s.card} style={vars} data-dragging={dragging || undefined} data-armed={armed} data-face={face} data-verdict={verdict ?? undefined}>
       <div className={s.window}>
-        <Burst intensity={shown ? 1 : 0.7} />
+        <Burst intensity={1} className={s.burst} />
         <PokeArt mon={mon} revealed={shown} fill={0.9} />
       </div>
       <div className={s.plate}>
@@ -70,7 +75,7 @@ export function HostCard({ mon, face, verdict, dx, dy, dragging, threshold }: Ho
         Missed
       </span>
       <span className={`wtp-display ${s.stamp}`} data-tone="peek" aria-hidden="true">
-        Peek!
+        Reveal!
       </span>
     </div>
   );

@@ -16,6 +16,9 @@ export function useMenuSong(): void {
   }, [theme]);
 }
 
+/** Set while the splash hands off to the title, so the title shows the logo it just saw instead of rebuilding it. */
+export const logoHandoff = { fromSplash: false };
+
 const BY_DEX = new Map(CATALOG.map((m) => [m.dex, m]));
 
 /** Like monByDex, but a missing species (catalog still growing) is undefined instead of a throw. */

@@ -11,6 +11,7 @@
 
 /* ---------- buddy preview ---------- */
 .card {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,11 +21,13 @@
   min-width: 0;
   text-align: center;
 }
+/* No taller than wide, so the name sits right under the buddy instead of down on the hills. */
 .stage {
   position: relative;
   flex: 1 1 0;
   align-self: stretch;
   min-height: 0;
+  max-height: 100cqi;
 }
 .cardText {
   display: flex;
@@ -65,8 +68,32 @@
   min-width: 0;
 }
 .field {
+  position: relative;
   grid-area: field;
   min-width: 0;
+}
+/* "7/12" on the field's corner: yellow at the limit, a shake when a letter doesn't fit. */
+.count {
+  position: absolute;
+  top: -0.7em;
+  right: 0.9em;
+  padding: 0.12em 0.55em 0.08em;
+  border: 2px solid var(--outline);
+  border-radius: var(--r-pill);
+  background: var(--raised);
+  color: var(--raised-ink);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.count[data-full] {
+  background: var(--hi);
+  color: #160a33;
+}
+.count[data-bump] {
+  animation: shake 360ms var(--ease-out);
 }
 .input {
   display: block;
@@ -232,6 +259,21 @@
   }
   .buddies {
     --b: 64px;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: none;
+  }
+  20%,
+  60% {
+    transform: translateX(-5px) rotate(-4deg);
+  }
+  40%,
+  80% {
+    transform: translateX(5px) rotate(4deg);
   }
 }
 

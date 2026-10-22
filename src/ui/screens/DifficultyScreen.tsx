@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { categoryById } from "../../game/categories";
 import { categoryInfo, DIFFICULTY_PREVIEW } from "../../game/deck";
 import { DIFFICULTIES, type Difficulty } from "../../game/difficulty";
@@ -43,7 +43,9 @@ export default function DifficultyScreen() {
   const timer = useSettings((st) => st.timer);
   const vp = useViewport();
   const [picked, setPicked] = useState<string | null>(null);
+  const leaving = useRef(0);
   useMenuSong();
+  useEffect(() => () => window.clearTimeout(leaving.current), []);
 
   const previews = useMemo(
     () => new Map(DIFFICULTIES.map((d) => [d.id, DIFFICULTY_PREVIEW(setup.categoryId, d.id, 3)])),
@@ -54,9 +56,12 @@ export default function DifficultyScreen() {
     if (picked) return;
     setPicked(d.id);
     useSession.getState().setSetup({ difficulty: d.id });
-    useSession.getState().start();
-    const next = useSession.getState().setup.mode === "host" ? "host" : "game";
-    window.setTimeout(() => useNav.getState().go(next), isReducedMotion() ? 0 : 220);
+    // Back (or Escape) during the press animation wins: only start if this screen is still up.
+    leaving.current = window.setTimeout(() => {
+      if (useNav.getState().screen !== "difficulty") return;
+      useSession.getState().start();
+      useNav.getState().go(useSession.getState().setup.mode === "host" ? "host" : "game");
+    }, isReducedMotion() ? 0 : 220);
   };
 
   // Keyboard starts on the ball picked last time.
@@ -112,7 +117,7 @@ export default function DifficultyScreen() {
                     <span className={s.meta}>
                       <span className={s.level}>{LEVEL[d.ball]}</span>
                       {showTimer && <span className={s.secs}>{d.seconds}s</span>}
-                      {d.multiplier > 1 && <span className={s.mult}>×{d.multiplier} pts</span>}
+                      {d.multiplier > 1 && setup.mode !== "host" && <span className={s.mult}>×{d.multiplier} pts</span>}
                     </span>
                   </span>
                   <span className={s.blurb}>{d.blurb}</span>

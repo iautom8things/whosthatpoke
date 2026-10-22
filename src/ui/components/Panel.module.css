@@ -8,6 +8,7 @@
   --ghost-ink: var(--surface-ink);
   --ghost-bg: transparent;
   --ghost-border: var(--surface-ink);
+  --ghost-stroke: var(--surface-title-stroke);
   --display-fill: var(--surface-display);
   box-shadow:
     0 6px 0 rgb(0 0 0 / 0.3),
@@ -56,7 +57,11 @@
     linear-gradient(180deg, var(--card) 0 0.55em, transparent 0.55em),
     linear-gradient(180deg, color-mix(in srgb, var(--card) 22%, var(--surface-strong)) 0%, var(--surface-strong) 70%);
   color: var(--surface-ink);
-  --display-fill: var(--surface-display);
+  --ghost-stroke: var(--surface-title-stroke);
+  /* Card names are titles; nothing in a Card sets its own display fill. */
+  --display-fill: var(--surface-title);
+  --display-stroke: var(--surface-title-stroke);
+  --display-shadow: var(--surface-title-shadow);
   text-align: center;
   box-shadow:
     0 calc(var(--edge) - var(--press)) 0 color-mix(in srgb, var(--card) 55%, #000),

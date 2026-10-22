@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, type Variants } from "motion/react";
-import { useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { audio } from "../../audio";
 import { categoryById, CATEGORIES, type Category, type CategoryGroup } from "../../game/categories";
 import { categoryInfo } from "../../game/deck";
@@ -31,7 +31,9 @@ export default function CategoryScreen() {
   const [group, setGroup] = useState<CategoryGroup>(() => categoryById(current).group);
   const [dir, setDir] = useState(1);
   const [picked, setPicked] = useState<string | null>(null);
+  const leaving = useRef(0);
   useMenuSong();
+  useEffect(() => () => window.clearTimeout(leaving.current), []);
 
   const cards = useMemo(() => CATEGORIES.filter((c) => c.group === group), [group]);
   const info = useMemo(() => new Map(CATEGORIES.map((c) => [c.id, categoryInfo(c.id, rounds)])), [rounds]);
@@ -60,7 +62,10 @@ export default function CategoryScreen() {
     if (picked || !playable(c)) return;
     setPicked(c.id);
     useSession.getState().setSetup({ categoryId: c.id });
-    window.setTimeout(() => useNav.getState().go("difficulty"), isReducedMotion() ? 0 : 170);
+    // Back (or Escape) during the press animation wins: only move on if this screen is still up.
+    leaving.current = window.setTimeout(() => {
+      if (useNav.getState().screen === "category") useNav.getState().go("difficulty");
+    }, isReducedMotion() ? 0 : 170);
   };
 
   const swipe = useTapSafeSwipe({

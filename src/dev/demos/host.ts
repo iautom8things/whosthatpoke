@@ -78,16 +78,18 @@ registerDemo("host-help", () => {
 const NAMES = ["Ava", "Leo & Dad", "Mia", "Noah", "Zoe"];
 const BUDDIES = [25, 94, 6, 133, 39];
 
-function fakeEntries(): ScoreEntry[] {
+function fakeEntries(mode: ScoreEntry["mode"] = "classic"): ScoreEntry[] {
   const at = Date.now() - 30 * 60 * 1000;
+  // Survival ranks by how many they named; each run ends after three misses.
+  const survival = mode === "survival";
   return NAMES.map((name, i) => ({
-    id: `demo-${i}`,
+    id: `demo-${mode}-${i}`,
     name,
     buddy: BUDDIES[i],
-    mode: "classic",
+    mode,
     points: 4200 - i * 650 - (i % 2) * 110,
-    correct: 10 - i,
-    total: 10,
+    correct: survival ? 17 - i * 3 : 10 - i,
+    total: survival ? 20 - i * 3 : 10,
     bestStreak: 8 - i,
     difficulty: "easy",
     categoryId: "all",
@@ -109,5 +111,6 @@ function startShowcase(start: ShowcaseStart, hold: boolean, entries?: ScoreEntry
 registerDemo("showcase", () => startShowcase("ask", false));
 registerDemo("showcase-reveal", () => startShowcase("reveal", true));
 registerDemo("showcase-leaderboard", () => startShowcase("board", true, fakeEntries()));
+registerDemo("showcase-survival", () => startShowcase("board", true, fakeEntries("survival")));
 registerDemo("showcase-empty", () => startShowcase("board", true, []));
 registerDemo("showcase-cta", () => startShowcase("cta", true));

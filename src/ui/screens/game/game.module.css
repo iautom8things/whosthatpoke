@@ -79,6 +79,27 @@
   }
 }
 
+/* Short portrait phones (Safari with its bars, iPhone SE): the room goes to the silhouette.
+   The dots fold into the header's 3/10, and the rows, gaps and title get smaller. */
+@media (orientation: portrait) and (max-width: 599px) and (max-height: 720px) {
+  .game {
+    --title-max: var(--fs-lg);
+    --h-choice: 64px;
+    --h-lg: 64px;
+    gap: var(--sp-2);
+  }
+  .game:not([data-survival]) {
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas: "stage" "side";
+  }
+  .dotsRow {
+    display: none;
+  }
+  .side {
+    gap: var(--sp-2);
+  }
+}
+
 /* Phone landscape and 480p projectors: one-line title, tighter rhythm. */
 @media (orientation: landscape) and (max-height: 560px) {
   .game {
@@ -89,12 +110,36 @@
     gap: var(--sp-3);
   }
 }
+/* Phone landscape in Safari (about 340 px tall): shorter rows so Next stays on screen. */
+@media (orientation: landscape) and (max-height: 380px) {
+  .game {
+    --h-choice: 64px;
+    --h-lg: 64px;
+  }
+  .side {
+    gap: var(--sp-2);
+  }
+}
+
+/* Projector, landscape: even columns give the answer names more width. The stage is height-bound there. */
+@media (orientation: landscape) {
+  :global([data-projector="on"]) .game {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+/* Marks the header X for the reveal's "look longer" listener; adds no box of its own. */
+.quitSlot {
+  display: contents;
+}
 
 /* ================= stage ================= */
 .drag {
   position: absolute;
   inset: 0;
-  transition: transform 320ms var(--ease-pop);
+  transition:
+    transform 320ms var(--ease-pop),
+    scale 320ms var(--ease-out);
 }
 .stage[data-dragging] .drag {
   transition: none;
@@ -177,6 +222,24 @@
   gap: 0.1em;
 }
 
+/* Narrow portrait: the points and the streak banner hug the stage edges and the art steps back a little,
+   so the celebration frames the Pokémon instead of covering it. */
+@media (orientation: portrait) and (max-width: 599px) {
+  .popup {
+    top: 0;
+    scale: 0.82;
+    transform-origin: 50% 0%;
+  }
+  .streak {
+    bottom: 0;
+    scale: 0.8;
+    transform-origin: 50% 100%;
+  }
+  .stage[data-celebrate] .drag {
+    scale: 0.82;
+  }
+}
+
 /* ================= title ================= */
 .titleSlot {
   display: grid;
@@ -239,9 +302,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(4px, 5cqh, var(--sp-3));
+  gap: clamp(4px, 4cqh, var(--sp-3));
   min-height: 0;
-  padding: var(--sp-3) var(--sp-4);
+  padding: clamp(6px, 5cqh, var(--sp-3)) var(--sp-4);
   overflow: hidden;
   text-align: center;
 }
@@ -272,30 +335,36 @@
 .region {
   white-space: nowrap;
 }
+/* Never squeezed by the card: FactCard (Answers.tsx) picks whole sentences and a --fit scale that fit. */
 .factText {
+  flex: none;
   max-width: 34em;
-  font-size: min(var(--fs-md), 13cqh);
+  font-size: calc(min(var(--fs-lg), 13cqh) * var(--fit, 1));
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.22;
   text-wrap: pretty;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .fact[data-has-fact] .genus {
   font-size: min(var(--fs-lg), 15cqh, calc(100cqw / 12));
 }
-/* Phones and 480p: the card is barely taller than two answer rows. */
-@container (max-height: 200px) {
-  .fact {
-    gap: 6px;
-    padding-block: var(--sp-2);
+/* Short cards (phones, 480p to the iPad), projectors and long facts: the fact takes the badges' room. */
+.fact[data-tight] .factTags {
+  display: none;
+}
+@container (max-height: 230px) {
+  .fact[data-has-fact] .factTags {
+    display: none;
   }
-  .factText {
-    font-size: min(var(--fs-sm), 12cqh);
-    line-height: 1.2;
-  }
+}
+:global([data-projector="on"]) .fact[data-has-fact] .factTags {
+  display: none;
+}
+:global([data-projector="on"]) .factText {
+  font-size: calc(min(var(--fs-lg), 14cqh) * var(--fit, 1));
 }
 
 /* ================= clock + next ================= */
@@ -407,6 +476,12 @@
     top: 0.2em;
     right: calc(100% + 4px);
     font-size: var(--fs-md);
+  }
+  /* Survival shows the caught count there, so the badge hangs under the score instead. */
+  .root[data-survival] .flame {
+    top: calc(100% + 2px);
+    right: 0;
+    z-index: var(--z-hud);
   }
 }
 

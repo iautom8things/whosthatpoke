@@ -4,15 +4,13 @@ import { haptic } from "../../../lib/haptic";
 import { IconButton, IconGear, toast } from "../../components";
 import s from "./menus.module.css";
 
-const DOUBLE_SHIFT_MS = 450;
-
 function typingIn(target: EventTarget | null): boolean {
   return target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName));
 }
 
 /**
  * Settings gear with a kid lock: it opens only after a press-and-hold of `ms`, while a ring fills.
- * On a keyboard, hold "S" for the same time or tap Shift twice.
+ * On a keyboard, hold "S" for the same time. A short tap never tells kids the trick.
  */
 export function HoldGear({ onOpen, ms = 1500 }: { onOpen: () => void; ms?: number }) {
   const wrap = useRef<HTMLSpanElement>(null);
@@ -59,17 +57,9 @@ export function HoldGear({ onOpen, ms = 1500 }: { onOpen: () => void; ms?: numbe
   };
 
   useEffect(() => {
-    let lastShift = 0;
     const down = (e: KeyboardEvent) => {
       if (e.repeat || e.ctrlKey || e.metaKey || e.altKey || typingIn(e.target)) return;
       if (e.key === "s" || e.key === "S") begin("key");
-      else if (e.key === "Shift") {
-        const now = performance.now();
-        if (now - lastShift < DOUBLE_SHIFT_MS) {
-          lastShift = 0;
-          finish();
-        } else lastShift = now;
-      }
     };
     const up = (e: KeyboardEvent) => {
       if ((e.key === "s" || e.key === "S") && hold.current.from === "key") stop();
@@ -109,7 +99,7 @@ export function HoldGear({ onOpen, ms = 1500 }: { onOpen: () => void; ms?: numbe
         sfx={null}
         onPress={() => {
           if (hold.current.done) return;
-          toast("Grown-ups: press and hold the gear", { icon: <IconGear />, ms: 2000 });
+          toast("Ask a grown-up!", { icon: <IconGear />, ms: 2000 });
         }}
       />
       <svg className={s.ring} viewBox="0 0 100 100" aria-hidden="true">

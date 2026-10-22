@@ -112,13 +112,13 @@
   paint-order: stroke fill;
 }
 
+/* Darkened rather than see-through, so the backdrop (moon, pumpkins) never shows through. */
 .choice[data-state="dimmed"] {
-  opacity: 0.4;
-  filter: saturate(0.4);
+  filter: brightness(0.5) saturate(0.4);
   scale: 0.96;
 }
 :global([data-projector="on"]) .choice[data-state="dimmed"] {
-  opacity: 0.32;
+  filter: brightness(0.42) saturate(0.4);
 }
 
 /* ---------- corner badge ---------- */

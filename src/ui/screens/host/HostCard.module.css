@@ -46,6 +46,12 @@
   background: radial-gradient(circle at 50% 45%, var(--bg-3) 0%, var(--bg-2) 45%, var(--bg-1) 100%);
   box-shadow: inset 0 0 0 0.8cqi rgb(255 255 255 / 0.25);
 }
+/* The burst reaches past the art's edges, so a black silhouette never sits on the window's dark rim
+   (Spooky's night purple nearly vanishes on a washed-out projector). */
+.card .window .burst {
+  --fade-from: 45cqmin;
+  --fade-to: 78cqmin;
+}
 
 .plate {
   display: grid;
@@ -146,6 +152,12 @@
   background: var(--accent);
   opacity: var(--peek);
 }
+/* The drag has gone far enough to count: the faint stamp pops to full. */
+.card[data-armed="got"] .stamp[data-tone="got"],
+.card[data-armed="miss"] .stamp[data-tone="miss"],
+.card[data-armed="peek"] .stamp[data-tone="peek"] {
+  animation: arm 220ms var(--ease-pop) both;
+}
 .card[data-verdict="got"] .stamp[data-tone="got"],
 .card[data-verdict="missed"] .stamp[data-tone="miss"] {
   animation: slam 460ms var(--ease-out) both;
@@ -173,11 +185,39 @@
   translate: -50% -50%;
   pointer-events: none;
 }
+/* Fanned out sideways but no taller than the live card, so the deck never hangs over the buttons below. */
 .back[data-depth="1"] {
-  transform: translate(-4%, 1.5%) rotate(-5deg) scale(0.97);
+  transform: translate(-5%, -0.5%) rotate(-4deg) scale(0.93);
 }
 .back[data-depth="2"] {
-  transform: translate(4%, 2.5%) rotate(4.5deg) scale(0.95);
+  transform: translate(5%, 0) rotate(4deg) scale(0.91);
+}
+
+/* Portrait puts the button row right under the card: leave room for the judged lean and its glow. */
+@media (orientation: portrait) {
+  .card,
+  .back {
+    --card-w: min(90cqw, 95cqh * 0.76);
+  }
+}
+
+/* Landscape cards are height-bound, so a squarer card gives the silhouette (what the projector shows)
+   about 10% more size. The plate and its text keep the same pixel size as on the 0.76 card. */
+@media (orientation: landscape) {
+  .card,
+  .back {
+    --card-w: min(90cqw, 100cqh * 0.86);
+    aspect-ratio: 0.86;
+  }
+  .plate {
+    height: 18.5cqi;
+  }
+  .ask {
+    font-size: 7cqi;
+  }
+  .name {
+    font-size: min(13cqi, calc(80cqi / (var(--chars) * 0.66)));
+  }
 }
 
 @keyframes slam {
@@ -191,6 +231,14 @@
   }
   100% {
     opacity: 1;
+    transform: rotate(var(--r)) scale(1);
+  }
+}
+@keyframes arm {
+  0% {
+    transform: rotate(var(--r)) scale(1.45);
+  }
+  100% {
     transform: rotate(var(--r)) scale(1);
   }
 }

@@ -583,6 +583,15 @@ label.rowLabel {
   font-size: var(--fs-md);
   font-weight: 700;
 }
+.tierNeedAny {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  padding-top: 0.1em;
+  color: var(--surface-ink);
+}
 @container (max-width: 40rem) {
   .tier {
     grid-template-columns: auto minmax(0, 1fr);
@@ -723,6 +732,9 @@ label.rowLabel {
   font-size: var(--fs-md);
   font-weight: 600;
   line-height: var(--lh-snug);
+}
+.statusAction {
+  margin-top: var(--sp-2);
 }
 .progress {
   height: 18px;

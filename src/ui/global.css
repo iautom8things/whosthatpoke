@@ -137,6 +137,10 @@ html.wtp-scroll #root {
   flex: 1 1 auto;
   min-height: 0;
 }
+/* Leaving, or just arrived: a kid's second tap must not land on the screen sliding in. */
+.wtp-screen[data-busy] {
+  pointer-events: none;
+}
 
 /* ---------- focus ---------- */
 :focus {
@@ -162,6 +166,13 @@ html.wtp-scroll #root {
   -webkit-text-stroke: var(--text-stroke) var(--display-stroke, var(--outline));
   paint-order: stroke fill;
   text-shadow: var(--display-shadow);
+}
+
+/* A display title on a Panel. Classic draws it plain navy without the outline (crisper on a projector). */
+.wtp-surface-title {
+  --display-fill: var(--surface-title);
+  --display-stroke: var(--surface-title-stroke);
+  --display-shadow: var(--surface-title-shadow);
 }
 
 .wtp-sr-only {

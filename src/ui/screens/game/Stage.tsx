@@ -19,6 +19,8 @@ export interface StageProps {
   streakBanner: number | null;
   survival: boolean;
   livesLeft: number;
+  /** The timer setting. Untimed games still get the speed bonus, but no "Speedy" pill for a clock nobody saw. */
+  timed: boolean;
   onSwipeNext?: () => void;
   ref?: Ref<HTMLDivElement>;
 }
@@ -47,7 +49,7 @@ function burstColors(mon: Mon | null, revealed: boolean): { color?: string; colo
   };
 }
 
-export function Stage({ mon, artKey, ready, revealed, timedOut, round, popup, streakBanner, survival, livesLeft, onSwipeNext, ref }: StageProps) {
+export function Stage({ mon, artKey, ready, revealed, timedOut, round, popup, streakBanner, survival, livesLeft, timed, onSwipeNext, ref }: StageProps) {
   const swipe = useSwipe({
     enabled: revealed && Boolean(onSwipeNext),
     onSwipe: (dir) => {
@@ -62,9 +64,17 @@ export function Stage({ mon, artKey, ready, revealed, timedOut, round, popup, st
   const score = round?.score;
   const showPoints = popup && revealed && round?.correct && score && score.points > 0;
   const showMiss = popup && revealed && round && !round.correct;
+  const celebrating = Boolean(showPoints) || streakBanner !== null;
 
   return (
-    <div ref={ref} className={s.stage} {...swipe.bind} style={swipe.bind.style} data-dragging={swipe.dragging || undefined}>
+    <div
+      ref={ref}
+      className={s.stage}
+      {...swipe.bind}
+      style={swipe.bind.style}
+      data-dragging={swipe.dragging || undefined}
+      data-celebrate={celebrating || undefined}
+    >
       <Burst intensity={intensity} {...burstColors(mon, revealed)} />
       <div className={s.drag} style={drag}>
         <AnimatePresence initial={true}>
@@ -94,9 +104,9 @@ export function Stage({ mon, artKey, ready, revealed, timedOut, round, popup, st
             </Display>
             <div className={s.breakdown}>
               <Pill tone="good" size="sm">
-                {COPY.right} +{score.base}
+                {COPY.right} +{timed ? score.base : score.base + score.speedBonus}
               </Pill>
-              {score.speedBonus > 0 && (
+              {timed && score.speedBonus > 0 && (
                 <Pill tone="hi" size="sm">
                   {COPY.fast} +{score.speedBonus}
                 </Pill>

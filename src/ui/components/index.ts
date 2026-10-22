@@ -11,6 +11,7 @@ export { Chip, Pill, TypeBadge, type ChipProps, type PillProps, type Tone, type 
 export { ConfirmDialog, Modal, type ConfirmDialogProps, type ModalProps } from "./Modal";
 export { cx } from "./cx";
 export { Display, type DisplayProps, type DisplaySize } from "./Display";
+export { ErrorBoundary } from "./ErrorBoundary";
 export {
   Lives,
   ProgressDots,

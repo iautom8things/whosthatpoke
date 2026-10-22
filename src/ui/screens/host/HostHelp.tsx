@@ -77,14 +77,15 @@ export function HostHelp({ open, onClose }: HostHelpProps) {
         </Button>
       }
     >
-      <p className={s.lead}>Kids shout the name. You swipe the card.</p>
+      <p className={s.lead}>Kids shout the name first. Then you swipe the card.</p>
       <div className={s.tiles}>
         <Tile kind="right" icon={<IconCheck />} label="Swipe right" sub="They got it!" />
         <Tile kind="left" icon={<IconX />} label="Swipe left" sub="Missed it" />
-        <Tile kind="tap" icon={<IconEye />} label="Tap" sub="Peek at the answer" />
+        <Tile kind="tap" icon={<IconEye />} label="Tap" sub="Reveal it to everyone" />
       </div>
+      <p className={s.undo}>Wrong call? Tap the other side before the next card.</p>
       <p className={s.keys}>
-        Keyboard: <kbd>→</kbd> got it <kbd>←</kbd> missed <kbd>Space</kbd> peek
+        Keyboard: <kbd>→</kbd> got it <kbd>←</kbd> missed <kbd>Space</kbd> reveal
       </p>
     </Modal>
   );

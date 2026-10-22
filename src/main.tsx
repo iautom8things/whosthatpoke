@@ -8,7 +8,7 @@ import "./lib/kiosk";
 import "./pwa";
 import App from "./App";
 import { runDemoFromUrl } from "./dev/demos";
-import { useSettings } from "./state/settings";
+import { hasStoredSettings, useSettings } from "./state/settings";
 
 // ?lab=gallery shows the design-system gallery, ?lab=audio the sound lab. Dev and QA only.
 const LABS = {
@@ -19,7 +19,19 @@ const params = new URLSearchParams(location.search);
 const lab = params.get("lab") as keyof typeof LABS | null;
 const Lab = lab ? LABS[lab] : null;
 
-// QA overrides: ?theme=classic&projector=on&motion=reduce
+// A laptop driving a 720p or 768p projector: no touch, 1x pixels, short and wide. Only on a first
+// visit, so the host's own choice always wins, and never in demos, so QA shots stay comparable.
+// A mirrored iPad can't be told apart; the host flips Projector mode there.
+const looksLikeProjector = () =>
+  !window.matchMedia?.("(pointer: coarse)").matches &&
+  window.devicePixelRatio === 1 &&
+  window.innerHeight <= 800 &&
+  window.innerWidth / window.innerHeight >= 1.5;
+const autoDetect = !params.has("demo") && !lab && !params.has("projector") && !hasStoredSettings();
+if (autoDetect && looksLikeProjector()) useSettings.getState().update({ projector: true });
+
+// ?theme=classic&projector=on&motion=reduce. With ?demo= or ?lab= they stay in the tab's sandbox
+// (dev/sandbox.ts); on their own they save, so ?projector=on works as a big-screen bookmark.
 const theme = params.get("theme");
 if (theme === "spooky" || theme === "classic") useSettings.getState().update({ theme });
 if (params.has("projector")) useSettings.getState().update({ projector: params.get("projector") === "on" });

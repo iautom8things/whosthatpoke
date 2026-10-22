@@ -2,8 +2,8 @@
 import { useEffect, type CSSProperties, type ReactNode } from "react";
 import { CATALOG } from "../../../data/catalog";
 import { useInterval } from "../../../lib/useInterval";
-import { applyUpdate, refreshOfflineStats, usePwa } from "../../../pwa";
-import { Button, IconCheck, IconRefresh, IconX } from "../../components";
+import { applyUpdate, refreshOfflineStats, saveAgain, usePwa } from "../../../pwa";
+import { Button, IconCheck, IconRefresh, IconX, toast } from "../../components";
 import { Row, SectionTitle } from "./controls";
 import { IconPlusBox, IconSave, IconShare } from "./icons";
 import s from "./Settings.module.css";
@@ -17,7 +17,7 @@ function isInstalled(): boolean {
 
 const mb = (bytes: number) => `${Math.max(1, Math.round(bytes / 1_000_000))} MB`;
 
-function StatusCard({ tone, icon, title, children }: { tone: "good" | "busy" | "warn"; icon: ReactNode; title: ReactNode; children?: ReactNode }) {
+function StatusCard({ tone, icon, title, children, action }: { tone: "good" | "busy" | "warn"; icon: ReactNode; title: ReactNode; children?: ReactNode; action?: ReactNode }) {
   return (
     <div className={s.status} data-tone={tone} role="status">
       <span className={s.statusIcon} aria-hidden="true">
@@ -26,10 +26,17 @@ function StatusCard({ tone, icon, title, children }: { tone: "good" | "busy" | "
       <div className={s.statusText}>
         <div className={s.statusTitle}>{title}</div>
         {children}
+        {action && <div className={s.statusAction}>{action}</div>}
       </div>
     </div>
   );
 }
+
+/** Runs `then` only with a network: these buttons download the game again. */
+const online = (then: () => void) => () => {
+  if (navigator.onLine === false) toast("Connect to Wi-Fi first.", { tone: "bad" });
+  else then();
+};
 
 function OfflineStatus() {
   const { status, cachedArt, usage } = usePwa();
@@ -38,12 +45,49 @@ function OfflineStatus() {
 
   switch (status) {
     case "ready":
+      if (saved >= TOTAL_ART)
+        return (
+          <StatusCard tone="good" icon={<IconCheck />} title="Ready to work offline!">
+            <div className={s.statusHint}>
+              {counted}
+              {usage ? ` (${mb(usage)})` : ""}. No Wi-Fi needed at the party.
+            </div>
+          </StatusCard>
+        );
+      if (cachedArt === null)
+        return (
+          <StatusCard tone="busy" icon={<IconSave />} title="Checking saved pictures…">
+            <div className={s.statusHint}>{counted}</div>
+          </StatusCard>
+        );
+      // The browser cleared some or all of the saved art. Only a fresh download brings it back.
       return (
-        <StatusCard tone="good" icon={<IconCheck />} title="Ready to work offline!">
-          <div className={s.statusHint}>
-            {counted}
-            {usage ? ` (${mb(usage)})` : ""}. No Wi-Fi needed at the party.
-          </div>
+        <StatusCard
+          tone="warn"
+          icon={<IconX />}
+          title="Some pictures aren’t saved"
+          action={
+            <Button variant="success" icon={<IconRefresh />} onPress={online(() => void saveAgain())}>
+              Save again
+            </Button>
+          }
+        >
+          <div className={s.statusHint}>{counted}. Missing ones show as “?” with no Wi-Fi. Save again while on Wi-Fi.</div>
+        </StatusCard>
+      );
+    case "reload":
+      return (
+        <StatusCard
+          tone="busy"
+          icon={<IconSave />}
+          title="Almost ready: reload once"
+          action={
+            <Button variant="success" icon={<IconRefresh />} onPress={() => location.reload()}>
+              Reload
+            </Button>
+          }
+        >
+          <div className={s.statusHint}>Everything is saved, but this page opened before that. Reload so it uses the saved copy with no Wi-Fi.</div>
         </StatusCard>
       );
     case "installing":
@@ -69,8 +113,17 @@ function OfflineStatus() {
       );
     default:
       return (
-        <StatusCard tone="warn" icon={<IconX />} title="Offline saving failed">
-          <div className={s.statusHint}>Reload the page on Wi-Fi to try again.</div>
+        <StatusCard
+          tone="warn"
+          icon={<IconX />}
+          title="Offline saving failed"
+          action={
+            <Button variant="success" icon={<IconRefresh />} onPress={online(() => location.reload())}>
+              Try again
+            </Button>
+          }
+        >
+          <div className={s.statusHint}>The download stopped partway. Try again on Wi-Fi.</div>
         </StatusCard>
       );
   }

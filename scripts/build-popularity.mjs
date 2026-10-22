@@ -16,7 +16,7 @@ const read = (rel) => {
   return existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : null;
 };
 
-const WEIGHTS = { llm: 0.4, enwiki: 0.25, tcg: 0.15, wikidata: 0.1, polls: 0.1 };
+const WEIGHTS = { llm: 0.55, enwiki: 0.1, tcg: 0.15, wikidata: 0.1, polls: 0.1 };
 const LENSES = ["kid2026", "parent", "merch"];
 
 const names = read("data/species-names.json");
@@ -197,7 +197,7 @@ for (const [i, { dex, score }] of byDex) {
 }
 
 const method = [
-  "Composite = weighted mean of per-signal z-scores (population SD, over the species that have the signal): 0.40 llm, 0.25 enwiki, 0.15 tcg, 0.10 wikidata, 0.10 polls. When a species lacks a signal its other weights are re-normalized to sum to 1.",
+  "Composite = weighted mean of per-signal z-scores (population SD, over the species that have the signal): 0.55 llm, 0.10 enwiki, 0.15 tcg, 0.10 wikidata, 0.10 polls. Enwiki gets a low weight because its 12-month views mostly reflect whether a species has its own article (memes and competitive history), not whether kids know it. When a species lacks a signal its other weights are re-normalized to sum to 1.",
   "Transforms: log1p on enwiki 12-month views, TCG card counts and Wikidata sitelinks.",
   "llm = mean of the raw 1-10 lens scores present (kid2026, parent, merch), then z-scored. Raw scores are averaged instead of per-lens z-scores because merch only covers part of the dex; on dex 1-512 merch differs from mean(kid2026, parent) by +0.01 on average, so a missing merch score does not bias a species.",
   "tcg = z of the 50/50 blend of z(log1p(all cards)) and z(log1p(cards since 2020)). All-time counts favour species printed since 1996; the recent count reflects what kids pull from packs now.",

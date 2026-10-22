@@ -5,7 +5,7 @@ import { isReducedMotion } from "../../lib/reducedMotion";
 import { useKeys } from "../../lib/useKeys";
 import { useNav } from "../../state/nav";
 import { Burst, IconVolume, Logo, PokeBall, ScreenFrame } from "../components";
-import { useMenuSong } from "./menus/shared";
+import { logoHandoff, useMenuSong } from "./menus/shared";
 import s from "./menus/Splash.module.css";
 
 /** First thing the crowd sees. One tap anywhere unlocks sound (iOS needs a gesture) and opens the menu. */
@@ -18,11 +18,17 @@ export default function SplashScreen() {
     if (started.current) return;
     started.current = true;
     // unlock() must start inside the gesture; the menu song queued above begins once it resolves.
-    void audio.unlock().then(() => audio.sfx("whoosh"));
-    audio.sfx("select");
+    // Sounds wait for it too: WebKit drops any sfx asked for while the context is still resuming.
+    void audio.unlock().then(() => {
+      audio.sfx("select");
+      window.setTimeout(() => audio.sfx("whoosh"), 120);
+    });
     haptic("success");
     setOpening(true);
-    window.setTimeout(() => useNav.getState().go("title", { replace: true }), isReducedMotion() ? 60 : 520);
+    window.setTimeout(() => {
+      logoHandoff.fromSplash = true;
+      useNav.getState().go("title", { replace: true });
+    }, isReducedMotion() ? 60 : 520);
   };
 
   useKeys({ "Enter|Space|ArrowRight|PageDown": start });

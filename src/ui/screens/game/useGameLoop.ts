@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
-import { announcer, audio } from "../../../audio";
+import { announcer, audio, whosThat } from "../../../audio";
+import { artUrl } from "../../../data/catalog";
+import type { Mon } from "../../../data/types";
 import type { Question } from "../../../game/deck";
 import { difficultyById } from "../../../game/difficulty";
 import { haptic } from "../../../lib/haptic";
@@ -7,9 +9,11 @@ import { isReducedMotion } from "../../../lib/reducedMotion";
 import { useNav } from "../../../state/nav";
 import { peekNext, useSession, type Phase, type Round } from "../../../state/session";
 import { useSettings } from "../../../state/settings";
-import { celebrate, preloadArt } from "../../components";
+import { celebrate, preloadArt, toast } from "../../components";
+import { COPY } from "./copy";
 import { Countdown } from "./countdown";
 import { gameDemo } from "./demoHooks";
+import { Timers } from "./timers";
 
 /** Silhouette swoop + "Who's that Pokémon?" before the clock starts. The sting's hit lands at ~0.9 s. */
 const INTRO_MS = 1250;
@@ -21,6 +25,10 @@ const TIMEOUT_BEAT_MS = 950;
 const FACT_DELAY_MS = 1500;
 /** Auto-advance drains this long once the fact card is up. */
 export const AUTO_ADVANCE_MS = 4500;
+/** With the voice on, auto-advance waits for the fact to be read, then drains this long. */
+const AUTO_AFTER_FACT_MS = 2500;
+/** A question whose art fails is swapped for another at most this many times in a row. */
+const MAX_ART_SWAPS = 3;
 /** Survival: the last miss shows this long before "Game over". */
 const GAME_OVER_DELAY_MS = 2300;
 const GAME_OVER_AUTO_MS = 4000;
@@ -36,19 +44,24 @@ function buzz(pattern: "success" | "error") {
 
 export const isStreakMilestone = (n: number) => n === 3 || (n >= 5 && n % 5 === 0);
 
-class Timers {
-  private ids = new Set<ReturnType<typeof setTimeout>>();
-  later(fn: () => void, ms: number) {
-    const id = setTimeout(() => {
-      this.ids.delete(id);
-      fn();
-    }, ms);
-    this.ids.add(id);
-  }
-  clear() {
-    for (const id of this.ids) clearTimeout(id);
-    this.ids.clear();
-  }
+/**
+ * False only when the art definitely failed (offline, missing file). Slow art counts as fine at the timeout:
+ * PokeArt keeps loading it. preloadArt can't tell, it resolves either way.
+ */
+function artLoads(mon: Mon, timeoutMs: number): Promise<boolean> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    const timer = setTimeout(() => resolve(true), timeoutMs);
+    img.onload = () => {
+      clearTimeout(timer);
+      resolve(true);
+    };
+    img.onerror = () => {
+      clearTimeout(timer);
+      resolve(false);
+    };
+    img.src = artUrl(mon);
+  });
 }
 
 type SessionSnapshot = ReturnType<typeof useSession.getState>;
@@ -145,6 +158,11 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
   const gameOverRef = useRef(false);
   const quitRef = useRef(false);
   const revealedAt = useRef(0);
+  /** Resolves when the choices have been read out; the clock waits for it. null = nothing to wait for. */
+  const voiceGate = useRef<Promise<void> | null>(null);
+  /** This question's "Who's that Pokémon?" line, which waits about a second before it starts. */
+  const asked = useRef<ReturnType<typeof whosThat> | null>(null);
+  const toldArt = useRef(false);
   const sawPlay = useRef(false);
   const lastQuestion = useRef<Question | null>(current);
   if (current) lastQuestion.current = current;
@@ -169,7 +187,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
   }, []);
 
   const finish = useCallback(() => {
-    if (finishing.current) return;
+    if (finishing.current || quitRef.current) return;
     const s = useSession.getState();
     if (s.phase !== "revealed" || !isLastRound(s)) return;
     finishing.current = true;
@@ -199,6 +217,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
       }
       advancing.current = true;
       stopAuto();
+      announcer.cancel();
       if (isLastRound(s)) {
         finish();
         return;
@@ -256,6 +275,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
   useEffect(() => {
     const t = new Timers();
     scope.current = t;
+    if (quitRef.current) t.pause();
     const s = useSession.getState();
     const q = s.current;
     const reduce = isReducedMotion();
@@ -270,17 +290,42 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
       gameOverRef.current = false;
       clockRef.current = null;
       autoRef.current = null;
+      voiceGate.current = null;
       setGameOver(false);
-      void preloadArt([q.answer], 1500).then(() => {
-        if (!alive) return;
+      const enter = () => {
+        const cur = useSession.getState().current ?? q;
         patch({ ready: true });
         audio.playSong("question");
-        audio.sfx("whosThat");
-        t.later(() => void announcer.say("Who’s that Pokémon?"), 520);
+        const line = whosThat();
+        asked.current = line;
+        // Poké Ball reads the four names out, for kids who can't read them yet.
+        if (useSession.getState().config?.difficulty === "easy") {
+          const key = keyOf(useSession.getState());
+          const names = COPY.choices(cur.choices.map((m) => m.say));
+          voiceGate.current = line.then(() =>
+            keyOf(useSession.getState()) === key && !answered.current && !quitRef.current ? announcer.say(names) : undefined,
+          );
+        }
         if (!gameDemo.hold) t.later(() => useSession.getState().beginAsking(), reduce ? 400 : INTRO_MS);
         const upcoming = peekNext();
         if (upcoming) void preloadArt([upcoming.answer], 10000);
-      });
+      };
+      // Never ask about a "?" tile: art that fails to load gets the question swapped for another.
+      void (async () => {
+        let mon = q.answer;
+        for (let swaps = 0; ; swaps++) {
+          const [ok] = await Promise.all([artLoads(mon, 1500), preloadArt([mon], 1500)]);
+          if (!alive) return;
+          if (ok) break;
+          if (swaps >= MAX_ART_SWAPS || !useSession.getState().swapCurrent()) {
+            if (!toldArt.current) toast("Some pictures won’t load. Check the connection.", { tone: "bad", ms: 4000 });
+            toldArt.current = true;
+            break;
+          }
+          mon = useSession.getState().current?.answer ?? mon;
+        }
+        t.later(enter, 0);
+      })();
     }
 
     if (s.phase === "asking" && q) {
@@ -296,7 +341,10 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
           },
           onEnd: timeUp,
         });
-        if (canRun()) c.start();
+        // Poké Ball: the clock starts once the choices have been read out.
+        const gate = voiceGate.current;
+        if (gate) void gate.then(() => alive && canRun() && c?.start());
+        else if (canRun()) c.start();
       }
       clockRef.current = c;
       patch({ ready: true, clock: c });
@@ -314,6 +362,10 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
         const settings = useSettings.getState();
         const survivalOver = s.config?.mode === "survival" && s.lives <= 0;
         const beat = gameDemo.beat;
+        const fact = q.answer.fact;
+        // The announcer reads the fact after the name; auto-advance waits for it.
+        const readsFact = Boolean(fact) && settings.voice && announcer.supported && !survivalOver;
+        let voiceDone: Promise<void> = Promise.resolve();
         patch({ ready: true, picked: round.picked, timedOut: round.picked === null, popup: beat !== "fact", factShown: beat === "fact" });
 
         t.later(() => {
@@ -329,7 +381,8 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
             audio.sfx("wrong");
             buzz("error");
           }
-          void announcer.say(`It’s ${q.answer.say}!`);
+          const named = announcer.say(`It’s ${q.answer.say}!`);
+          if (readsFact && fact) voiceDone = named.then(() => (alive ? announcer.say(fact) : undefined));
         }, 0);
         if (!gameDemo.hold) t.later(() => patch({ popup: false }), 2100);
 
@@ -344,10 +397,15 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
 
         const startAuto = () => {
           if (!settings.autoAdvance || autoCancelled.current || survivalOver) return;
-          const a = new Countdown(AUTO_ADVANCE_MS, { onEnd: () => next(true) });
-          autoRef.current = a;
-          patch({ factShown: true, auto: a });
-          if (canRun()) a.start();
+          const drain = (ms: number) => {
+            if (!alive || autoCancelled.current) return;
+            const a = new Countdown(ms, { onEnd: () => next(true) });
+            autoRef.current = a;
+            patch({ auto: a });
+            if (canRun()) a.start();
+          };
+          if (readsFact) void voiceDone.then(() => drain(AUTO_AFTER_FACT_MS));
+          else drain(AUTO_ADVANCE_MS);
         };
 
         if (beat === "fact") startAuto();
@@ -380,8 +438,10 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
   // Any touch or key on the reveal stops the auto-advance: someone wants to look longer.
   useEffect(() => {
     if (phase !== "revealed") return;
-    const stop = () => {
-      if (autoCancelled.current) return;
+    const stop = (e: Event) => {
+      // Taps and keys on the Quit dialog, and the X or Escape that opens it, are about quitting, not the reveal.
+      if (autoCancelled.current || quitRef.current) return;
+      if (e instanceof KeyboardEvent ? e.key === "Escape" : (e.target as Element | null)?.closest?.("[data-quit]")) return;
       autoCancelled.current = true;
       if (autoRef.current && !autoRef.current.isFinished) {
         autoRef.current.stop();
@@ -408,21 +468,27 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
       scope.current.clear();
       clockRef.current?.pause();
       autoRef.current?.pause();
+      asked.current?.cancel();
       announcer.cancel();
     },
     [],
   );
 
+  // The Quit dialog freezes everything behind it: clocks, the beats still to come and the announcer.
   const askQuit = useCallback(() => {
     if (quitRef.current) return;
     quitRef.current = true;
     setQuitOpen(true);
     pauseAll();
+    scope.current.pause();
+    asked.current?.cancel();
+    announcer.cancel();
   }, [pauseAll]);
 
   const cancelQuit = useCallback(() => {
     quitRef.current = false;
     setQuitOpen(false);
+    scope.current.resume();
     resumeAll();
   }, [resumeAll]);
 
@@ -430,6 +496,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
     scope.current.clear();
     clockRef.current?.stop();
     autoRef.current?.stop();
+    asked.current?.cancel();
     announcer.cancel();
     setQuitOpen(false);
     useSession.getState().quit();

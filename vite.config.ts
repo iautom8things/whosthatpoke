@@ -39,7 +39,14 @@ export default defineConfig({
         globPatterns: ["**/*.{js,css,html,svg,png,webp,woff2,json}"],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
         cleanupOutdatedCaches: true,
+        // Take over the tab that did the first install. Without it that tab keeps loading art from
+        // the network, so a host who waits for "Ready" and then goes offline sees only "?".
+        // Updates still wait for SKIP_WAITING ("prompt" above).
+        clientsClaim: true,
         navigateFallback: "index.html",
+        // Only the app root (here or one folder down, like /whosthatpoke/ on Pages). Deeper paths
+        // would get index.html with ./assets resolving under the wrong folder: a blank page.
+        navigateFallbackAllowlist: [/^\/(?:[^/]+\/)?(?:index\.html)?(?:\?.*)?$/],
       },
     }),
   ],

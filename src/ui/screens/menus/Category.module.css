@@ -146,6 +146,15 @@ header .tabs {
   height: 100%;
   min-height: 0;
 }
+/* Classic faces are near white, so pale art (Mew, Mewtwo) gets the card's color glowing behind it. */
+:global([data-theme="classic"]) .art {
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--card) 70%, transparent),
+    color-mix(in srgb, var(--card) 35%, transparent) 60%,
+    transparent
+  );
+}
 .art img {
   position: absolute;
   inset: 2%;
@@ -273,8 +282,15 @@ header .tabs {
   }
 }
 
-@media (max-width: 520px) {
-  .badge {
-    display: none;
+/* Phones: 4 x 5 so all 18 types fit a Safari-height screen. Steel and Fairy center in the last row. */
+@media (orientation: portrait) and (max-width: 560px) {
+  .grid[data-group="type"] {
+    --cols: 4;
+    --rows: 5;
+    --row-min: 64px;
+    gap: var(--sp-2);
+  }
+  .grid[data-group="type"] .card:nth-child(17):nth-last-child(2) {
+    grid-column: 2;
   }
 }

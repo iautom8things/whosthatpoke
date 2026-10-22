@@ -91,11 +91,17 @@
 /* Ghost adapts to what it sits on: Panel and Modal override --ghost-* for their surface. */
 .btn[data-variant="ghost"] {
   --label: var(--ghost-ink, var(--ink));
-  background: var(--ghost-bg, rgb(0 0 0 / 0.22));
+  /* Opaque on the sky, so the moon or a pumpkin never shows through the label. */
+  background: var(--ghost-bg, linear-gradient(rgb(0 0 0 / 0.22), rgb(0 0 0 / 0.22)), var(--bg-1));
   border-color: var(--ghost-border, var(--btn-ghost-border));
   box-shadow: none;
   margin-bottom: 0;
   min-height: var(--h);
+}
+/* On a light surface (classic Panel, Modal) the label drops its outline, like display text there. */
+.btn[data-variant="ghost"] .label {
+  -webkit-text-stroke-color: var(--ghost-stroke, var(--outline));
+  text-shadow: 0 0.07em 0 var(--ghost-stroke, var(--outline));
 }
 .btn[data-variant="ghost"]:active:not(:disabled) {
   --press: 0px;

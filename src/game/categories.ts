@@ -52,7 +52,7 @@ export const TYPE_INFO: Record<PokeType, { label: string; color: string; mascot:
 const FEATURED: Category[] = [
   { id: "all", group: "featured", label: "All Pokémon", blurb: "Anyone from every region!", mascot: 25, accent: "#ffcb05", test: () => true },
   { id: "spooky", group: "featured", label: "Spooky Night", blurb: "Ghosts, bats and things that go bump.", mascot: 94, accent: "#ff7a1a", test: (m) => m.tags.includes("spooky") || m.types.includes("ghost") },
-  { id: "starters", group: "featured", label: "Starters", blurb: "Every first partner and their evolutions.", mascot: 4, accent: "#3fa129", test: (m) => m.tags.includes("starter") },
+  { id: "starters", group: "featured", label: "Starters", blurb: "Every first partner and their evolutions, plus Pikachu and Eevee!", mascot: 4, accent: "#3fa129", test: (m) => m.tags.includes("starter") },
   { id: "legendary", group: "featured", label: "Legendary", blurb: "The rare and powerful legends.", mascot: 150, accent: "#7b5cff", test: (m) => m.legendary },
   { id: "mythical", group: "featured", label: "Mythical", blurb: "The rarest Pokémon of all.", mascot: 151, accent: "#ff5fa2", test: (m) => m.mythical },
 ];

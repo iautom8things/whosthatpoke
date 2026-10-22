@@ -2,11 +2,12 @@
 // Parents can also use it on the iPad to pin the announcer voice for that device.
 
 import { useEffect, useState, type CSSProperties } from "react";
-import type { SfxId, SongId } from "../audio";
+import { whosThat, type SfxId, type SongId } from "../audio";
 import { engine, speech, unlockAll } from "../audio/live";
 import { downloadWav, encodeWav, measure, renderSfx, renderSong, type Measurement } from "../audio/offline";
 import { SFX_IDS } from "../audio/sfx";
 import { SONG_NOTES } from "../audio/songs";
+import { monByDex } from "../data/catalog";
 import { useSettings } from "../state/settings";
 
 const SONG_IDS = Object.keys(SONG_NOTES) as SongId[];
@@ -18,16 +19,10 @@ const SONG_LABEL: Record<SongId, string> = {
   showcase: "Showcase",
 };
 
-const LINES = [
-  "Who's that Pokémon?",
-  "It's Pikachu!",
-  "It's Gyara-dose!",
-  "It's Bulba-saur!",
-  "It's Jiggly-puff!",
-  "Three in a row! You're on fire!",
-  "Time's up!",
-  "You won a big candy!",
-];
+const WHOS_THAT = "Who’s that Pokémon?";
+// Reveal lines built like the game's, from the catalog respellings, so the voice check hears what kids will.
+const REVEALS = [25, 130, 1, 39, 383].map((dex) => `It’s ${monByDex(dex).say}!`);
+const LINES = [WHOS_THAT, ...REVEALS, "Three in a row! You're on fire!", "Time's up!", "You won a big candy!"];
 
 interface Row extends Measurement {
   id: string;
@@ -107,7 +102,7 @@ export default function AudioLab() {
   const voice = useSettings((s) => s.voice);
   const update = useSettings((s) => s.update);
   const [flash, setFlash] = useState<string | null>(null);
-  const [text, setText] = useState("It's Gyara-dose!");
+  const [text, setText] = useState(REVEALS[1]);
   const [speaking, setSpeaking] = useState(false);
   const [rows, setRows] = useState<Row[]>([]);
   const [measuring, setMeasuring] = useState(false);
@@ -126,7 +121,8 @@ export default function AudioLab() {
   };
   const say = async (line: string) => {
     setSpeaking(true);
-    await speech.say(line);
+    // "Who's that" plays with its sting, timed as in the game.
+    await (line === WHOS_THAT ? whosThat() : speech.say(line));
     setSpeaking(false);
   };
 
@@ -225,7 +221,7 @@ export default function AudioLab() {
               aria-pressed={status.ducked}
               onClick={() => engine.duck(!status.ducked)}
             >
-              Duck music
+              Duck for voice
             </button>
           </div>
         </div>

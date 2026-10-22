@@ -1,4 +1,5 @@
 import { memo, useSyncExternalStore, type CSSProperties } from "react";
+import { useNav, type Screen } from "../../state/nav";
 import { useSettings } from "../../state/settings";
 import s from "./Backdrop.module.css";
 
@@ -30,6 +31,9 @@ function subscribeVisibility(cb: () => void) {
   return () => document.removeEventListener("visibilitychange", cb);
 }
 const isHidden = () => document.visibilityState === "hidden";
+
+/** Screens with live HUD: no moon behind it, and no pumpkins under the bottom band where it crowds. */
+const HUD: Partial<Record<Screen, "play" | "results">> = { game: "play", host: "play", showcase: "play", results: "results", leaderboard: "results" };
 
 const SPARKLE = "M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z";
 
@@ -85,8 +89,10 @@ function Spooky() {
       <Sparkle style={{ left: "44vw", top: "7vh", animationDelay: "-2.6s", width: "2.2vmin" }} />
       <Sparkle style={{ left: "64vw", top: "30vh", animationDelay: "-0.4s", width: "1.8vmin" }} />
       <Sparkle style={{ left: "28vw", top: "40vh", animationDelay: "-3.3s", width: "1.6vmin" }} />
-      <div className={s.moonHalo} />
-      <div className={s.moon} />
+      <div className={s.moonWrap}>
+        <div className={s.moonHalo} />
+        <div className={s.moon} />
+      </div>
       <Bat className={s.bat1} />
       <Bat className={s.bat2} />
       <Bat className={s.bat3} />
@@ -130,12 +136,20 @@ function Classic() {
 /**
  * The persistent animated background, rendered once behind every screen (App.tsx does this).
  * Transforms and opacity only; pauses while the tab is hidden; still under reduced motion.
+ * Reads the current screen to keep the moon and pumpkins out from under live HUD.
  */
 export const Backdrop = memo(function Backdrop() {
   const theme = useSettings((st) => st.theme);
+  const hud = useNav((st) => HUD[st.screen]);
   const hidden = useSyncExternalStore(subscribeVisibility, isHidden, () => false);
   return (
-    <div className={s.backdrop} data-variant={theme === "classic" ? "classic" : "spooky"} data-paused={hidden || undefined} aria-hidden="true">
+    <div
+      className={s.backdrop}
+      data-variant={theme === "classic" ? "classic" : "spooky"}
+      data-hud={hud}
+      data-paused={hidden || undefined}
+      aria-hidden="true"
+    >
       {theme === "classic" ? <Classic /> : <Spooky />}
     </div>
   );

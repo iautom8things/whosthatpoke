@@ -1,7 +1,8 @@
-// QA URLs (?demo=, ?theme=, ?projector=, ?motion=) run on this tab's sessionStorage, so demo
-// scores and overridden settings never reach the party iPad's real localStorage.
+// QA URLs (?demo=, ?lab=) run on this tab's sessionStorage, so demo scores and overridden
+// settings never reach the party iPad's real localStorage. ?projector=on or ?theme= on their own
+// are real shortcuts and save like the Settings switches do (see main.tsx).
 // Must be imported before anything that touches storage.
-const QA_PARAMS = ["demo", "theme", "projector", "motion"];
+const QA_PARAMS = ["demo", "lab"];
 
 const params = new URLSearchParams(location.search);
 if (QA_PARAMS.some((p) => params.has(p))) {

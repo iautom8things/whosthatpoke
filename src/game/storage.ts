@@ -14,6 +14,18 @@ export function browserStorage(): StorageLike | null {
   }
 }
 
+let failedWrite = false;
+
+/** Records a write that storage refused (full quota, blocked), so the host can be told. */
+export function noteFailedWrite(): void {
+  failedWrite = true;
+}
+
+/** False when storage is missing or refused a write: scores and settings won't survive a reload. */
+export function storageWorks(): boolean {
+  return !failedWrite && browserStorage() != null;
+}
+
 export interface StoredValue<T> {
   /** The current value. Same reference until the stored text changes. Never throws. */
   read(): T;
@@ -78,6 +90,7 @@ export function storedValue<T>(
         lastRaw = raw;
       } catch {
         memoryOnly = true;
+        noteFailedWrite();
       }
     },
     clear() {

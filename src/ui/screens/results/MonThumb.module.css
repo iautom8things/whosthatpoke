@@ -5,7 +5,11 @@
   display: grid;
   place-items: center;
 }
+/* Sized against the box, not a grid row: a tall SVG (Urshifu) would stretch an auto row and spill out. */
 .thumb img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
   width: 86%;
   height: 86%;
   object-fit: contain;

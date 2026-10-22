@@ -240,6 +240,76 @@ describe("distractors", () => {
   });
 });
 
+describe("fair questions", () => {
+  const THEMES = ["spooky", "starters", "legendary", "mythical", "region-unova", "region-paldea", "type-rock", "type-ghost", "type-bug", "type-electric"];
+  const firstTen = (mode: GameConfig["mode"], categoryId: string, difficulty: DifficultyId, n = 20) =>
+    seeds(n).flatMap((seed) => take(createDeck(config({ mode, categoryId, difficulty, seed })), 10));
+  const share = (qs: Question[], hit: (q: Question) => boolean) => qs.filter(hit).length / qs.length;
+
+  it("picking the best-known name wins about as often as a guess", { timeout: 60_000 }, () => {
+    const bestKnown = (q: Question) => q.choices.every((c) => c.rank >= q.answer.rank);
+    const tells: string[] = [];
+    for (const mode of ["classic", "survival"] as const) {
+      for (const categoryId of ["all", ...THEMES]) {
+        for (const difficulty of ["easy", "medium", "hard"] as const) {
+          const rate = share(firstTen(mode, categoryId, difficulty), bestKnown);
+          if (rate > 0.45) tells.push(`${mode} ${categoryId} ${difficulty}: ${rate}`);
+        }
+      }
+    }
+    expect(tells).toEqual([]);
+  });
+
+  it("in a theme, the answer is rarely the only on-theme name", { timeout: 60_000 }, () => {
+    const tells: string[] = [];
+    for (const categoryId of THEMES) {
+      const inTheme = new Set(dexes(categoryPool(categoryId)));
+      const onlyOne = (q: Question) => q.choices.filter((c) => inTheme.has(c.dex)).length === 1;
+      for (const difficulty of DIFFS) {
+        const rate = share(firstTen("classic", categoryId, difficulty), onlyOne);
+        if (rate > 0.35) tells.push(`${categoryId} ${difficulty}: ${rate}`);
+      }
+    }
+    expect(tells).toEqual([]);
+  });
+
+  it("never offers a silhouette twin of the answer", () => {
+    const twins = categoryPool("all").filter((m) => m.twins?.length);
+    expect(twins.map((m) => m.dex)).toEqual(expect.arrayContaining([100, 101]));
+    for (const categoryId of ["all", "type-electric", "region-kanto"]) {
+      for (const difficulty of DIFFS) {
+        for (const q of firstTen("classic", categoryId, difficulty, 30)) {
+          expect(q.choices.some((c) => q.answer.twins?.includes(c.dex))).toBe(false);
+        }
+      }
+    }
+  });
+
+  it("keeps featureless silhouettes out of Poké Ball and Great Ball answers", () => {
+    for (const c of CATEGORIES) {
+      for (const difficulty of ["easy", "medium"] as const) {
+        expect(answerBand(c.id, difficulty).filter((m) => m.blob).map((m) => m.name)).toEqual([]);
+      }
+    }
+  });
+});
+
+describe("answer bands", () => {
+  it("Poké Ball never reaches deeper than Great Ball, and Great Ball never reaches tier 4", () => {
+    const deepest = (id: string, d: DifficultyId) => Math.max(...answerBand(id, d).map((m) => m.rank));
+    const ids = CATEGORIES.map((c) => c.id);
+    expect(ids.filter((id) => deepest(id, "easy") > deepest(id, "medium"))).toEqual([]);
+    expect(ids.filter((id) => answerBand(id, "medium").some((m) => m.tier === 4))).toEqual([]);
+  });
+
+  it("Great Ball survival moves past the Poké Ball names early", () => {
+    const tiers = (difficulty: DifficultyId) =>
+      seeds(20).flatMap((seed) => take(createDeck(config({ mode: "survival", difficulty, seed })), 30).slice(2).map((q) => q.answer.rank));
+    expect(mean(tiers("medium"))).toBeGreaterThan(2 * mean(tiers("easy")));
+    expect(mean(tiers("hard"))).toBeGreaterThan(mean(tiers("medium")));
+  });
+});
+
 describe("recent answers", () => {
   it("avoids recently shown Pokémon when the pool has enough fresh ones", () => {
     for (const difficulty of DIFFS) {

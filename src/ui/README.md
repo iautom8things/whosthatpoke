@@ -47,9 +47,9 @@ Read the effective reduced-motion flag in code with `useReducedMotion()` (hook) 
 | `--fs-3xl` | 45 | 50 | 66 | 89 | big reveal names |
 | `--fs-hero` | 56 | 64 | 86 | 118 | final score |
 
-Projector mode multiplies all of them by `--boost` (1.12). Kids read display words from 3-6 m, so anything a kid needs is `--fs-lg` or bigger. Parents can read `--fs-md`.
+Projector mode multiplies all of them by `--boost` (1.12). On a projector viewport at least 900 px tall in landscape (a laptop at 1080p, an iPad Pro), `--fs-xs/sm/md` also get `--boost-body` (1.2), because their rem floor does not grow with the picture. Kids read display words from 3-6 m, so anything a kid needs is `--fs-lg` or bigger. Parents can read `--fs-md`.
 
-**Color** (per theme): `--bg-0..3` sky, `--ink` text on the sky, `--ink-soft`, `--ink-dark`, `--outline` (cartoon outline), `--accent` (pumpkin / Poké red), `--hi` (yellow highlight text), `--good`, `--bad`, `--surface`, `--surface-strong`, `--surface-ink`, `--surface-display`, `--raised*` (chips, icon buttons), `--rim` (light ring that separates dark shapes on a dark sky), `--btn-*`, `--choice-*`, `--burst-*`, `--confetti-1..6`, and `--type-<type>` for the 18 Pokémon types (same values as `TYPE_INFO`).
+**Color** (per theme): `--bg-0..3` sky, `--ink` text on the sky, `--ink-soft`, `--ink-dark`, `--outline` (cartoon outline), `--accent` (pumpkin / Poké red), `--accent-ink` (text on an `--accent` fill), `--hi` (yellow highlight text), `--good`, `--bad`, `--surface`, `--surface-strong`, `--surface-ink`, `--surface-display`, `--surface-title` / `--surface-title-stroke` / `--surface-title-shadow` (titles on a surface: white and outlined in spooky, plain navy in classic), `--raised*` (chips, icon buttons), `--rim` (light ring that separates dark shapes on a dark sky), `--btn-*`, `--choice-*`, `--burst-*`, `--confetti-1..6`, and `--type-<type>` for the 18 Pokémon types (same values as `TYPE_INFO`).
 
 **Space**: `--sp-1..7` (fluid, 4 px to 88 px), `--gutter` (at least 16 px), `--safe-t/r/b/l` (iOS safe areas).
 **Shape**: `--r-sm`, `--r-md`, `--r-lg`, `--r-xl`, `--r-pill`, `--stroke`, `--stroke-thick`, `--edge` (3D button depth).
@@ -57,7 +57,7 @@ Projector mode multiplies all of them by `--boost` (1.12). Kids read display wor
 **Layers**: `--z-backdrop` 0, `--z-screen` 10, `--z-hud` 30, `--z-modal` 100, `--z-confetti` 150, `--z-toast` 200.
 **Motion**: `--dur-instant/fast/med/slow/reveal`, `--ease-out`, `--ease-in`, `--ease-in-out`, `--ease-pop` (overshoot).
 
-Global utilities: `.wtp-display` (cartoon title text; set `--display-fill` to recolor) and `.wtp-sr-only`.
+Global utilities: `.wtp-display` (cartoon title text; set `--display-fill` to recolor), `.wtp-surface-title` (add it to a `.wtp-display` heading on a Panel; classic then draws it plain navy, because blue with a navy outline smears on a projector) and `.wtp-sr-only`.
 
 ## Layout: portrait vs landscape
 
@@ -84,7 +84,7 @@ For logic that CSS cannot express, `useViewport()` returns `{ w, h, orientation,
 ## Components
 
 ### Backdrop
-Persistent animated background. App.tsx renders it once; screens must not. Pauses while the tab is hidden, freezes under reduced motion, simplified in projector mode.
+Persistent animated background. App.tsx renders it once; screens must not. Pauses while the tab is hidden, freezes under reduced motion, simplified in projector mode. It reads the current screen to stay out from under the HUD: no moon on game, host, showcase, results or the leaderboard; no pumpkins on results and the leaderboard, nor on the play screens in portrait or short viewports; and a small moon without halo on the menus in portrait, short viewports and projector mode.
 
 ### ScreenFrame
 `{ title?, back?: boolean | () => void, headerLeft?, headerRight?, footer?, layout?: "center" | "split" | "stack" | "fill", className?, bodyClassName? }`
@@ -95,11 +95,11 @@ Safe areas, header row (back slot, centered title, actions), a body that never s
 ```tsx
 <Button size="xl" icon={<IconPlay />} onPress={start}>Play</Button>
 ```
-One primary button per screen. Ghost adapts to the surface it sits on (inside Panel or Modal it uses the surface ink).
+One primary button per screen. Ghost adapts to the surface it sits on (inside Panel or Modal it uses the surface ink). On the sky it is opaque, so the moon or a pumpkin never shows through its label.
 
 ### ChoiceButton
 `{ label, state?: "idle" | "picked" | "correct" | "wrong" | "dimmed", hint?: 1-4, onPress?, disabled?, sfx? = "select" }`
-Only `idle` buttons take presses. Names auto-shrink by length (container query), so "Crabominable" fits a phone 2x2 grid with no clipping. The `hint` badge shows keyboard numbers and hides on touch-only devices. Flow: pick -> `picked`; on reveal, the answer -> `correct`, a wrong pick -> `wrong`, the rest -> `dimmed`.
+Only `idle` buttons take presses. Names auto-shrink by length (container query), so "Crabominable" fits a phone 2x2 grid with no clipping. The `hint` badge shows keyboard numbers and hides on touch-only devices. Flow: pick -> `picked`; on reveal, the answer -> `correct`, a wrong pick -> `wrong`, the rest -> `dimmed` (darkened, not see-through).
 
 ### PokeArt and preloadArt
 `{ mon, revealed, outline? = true, size?, fill? = 0.86, onRevealEnd?, className? }`
@@ -108,14 +108,14 @@ Silhouette (black, with a light rim so it reads on dark projectors) or full colo
 
 ### Burst
 `{ spinning? = true, intensity? 0..1 = 1, color?, color2?, rays? = 14 }`
-The rotating sunburst. Fills its nearest positioned ancestor and fades out before the edges. Raise `intensity` on the reveal.
+The rotating sunburst. Fills its nearest positioned ancestor and fades out before the edges. Raise `intensity` on the reveal. In spooky the rays hold full strength out to 38cqmin (42 in projector mode), so a silhouette's wings and tails sit on light, not on the dark sky.
 
 ### Logo
 `{ size?: "sm" | "md" | "lg" | "xl", animated?, bob?, heading? = true }`
 The yellow, blue-outlined, tilted title lockup. `animated` drops the letters in; `bob` floats it afterward.
 
 ### Display
-`{ size?: "sm" ... "hero", color?, as? }` Cartoon title text. `color="var(--hi)"` for yellow.
+`{ size?: "sm" ... "hero", color?, as? }` Cartoon title text. `color="var(--hi)"` for yellow. A custom `color` always keeps the dark outline, even on a classic surface.
 
 ### PokeBall
 `{ kind?: "poke" | "great" | "ultra" | "master", size?, animate?: "none" | "wobble" | "spin" | "bounce", empty?, title? }`
@@ -123,12 +123,12 @@ Inline SVG with the real colors and markings. `BALL_NAMES[kind]` gives the displ
 
 ### TypeBadge, Pill, Chip
 - `TypeBadge { type, size? }`: official type color pill.
-- `Pill { tone?: "neutral" | "accent" | "good" | "bad" | "hi", icon?, size? }`: static label ("x3 streak", "+250").
+- `Pill { tone?: "neutral" | "accent" | "good" | "bad" | "hi", icon?, size? }`: static label ("x3 streak", "+250"). The accent tone uses `--accent-ink`, dark on spooky orange.
 - `Chip { selected?, onPress?, icon?, accent?, disabled? }`: 64 px toggle pill for filters and options.
 
 ### Panel, Card
-- `Panel { tone?: "glass" | "solid", padding?: "none" | "sm" | "md" | "lg" }`: rounded surface. Text inside uses `--surface-ink`; display text uses `--surface-display`.
-- `Card { onPress?, accent?, selected?, disabled? }`: big pressable tile with an accent band (categories, difficulties, modes).
+- `Panel { tone?: "glass" | "solid", padding?: "none" | "sm" | "md" | "lg" }`: rounded surface. Text inside uses `--surface-ink`; display text uses `--surface-display`. Give headings `.wtp-surface-title`.
+- `Card { onPress?, accent?, selected?, disabled? }`: big pressable tile with an accent band (categories, difficulties, modes). Its display text is a title (`--surface-title`).
 
 ### IconButton, BackButton
 - `IconButton { icon, label, showLabel?, onPress?, variant?: "solid" | "ghost" | "primary", size?: "md" | "lg" }`: round header action. `label` is the accessible name.
@@ -141,8 +141,11 @@ Inline SVG with the real colors and markings. `BALL_NAMES[kind]` gives the displ
 - `Lives { total, remaining, ball? }`: survival lives as Poké Balls; lost ones shake and grey out.
 
 ### Modal, ConfirmDialog
-- `Modal { open, onClose?, title?, actions?, dismissible? = true, variant?: "dialog" | "sheet" }`: portal dialog. Escape and a tap outside close it. While open, key bindings on the screen behind are blocked.
-- `ConfirmDialog { open, title, message?, confirmLabel?, cancelLabel?, tone?: "primary" | "danger", onConfirm, onCancel }`: the replacement for `window.confirm`. Focus starts on cancel.
+- `Modal { open, onClose?, title?, actions?, dismissible? = true, variant?: "dialog" | "sheet" }`: portal dialog. Escape and a tap outside close it. While open, `#root` is inert (Tab, VoiceOver and Enter cannot reach the screen behind) and key bindings on the screen behind are blocked. On close, focus goes back to the opener only if it had keyboard focus, so a clicked X never takes the next Space.
+- `ConfirmDialog { open, title, message?, confirmLabel?, cancelLabel?, tone?: "primary" | "danger", cancelIcon?, confirmIcon?, onConfirm, onCancel }`: the replacement for `window.confirm`. Focus starts on cancel. With `tone="danger"` the safe cancel is the bright primary button (play arrow) and the risky confirm an outlined button with a red edge (X), so a non-reader who opened it by accident taps the inviting one.
+
+### ErrorBoundary
+App.tsx wraps each screen in one. A render throw or a failed chunk load shows an "Oops! Tap to restart" card that reloads the page, instead of a blank screen the installed app cannot leave. Moving to another screen clears it.
 
 ### Toast
 `toast(message, { tone?: "info" | "good" | "bad" | "hi", icon?, ms? = 2200 })` from anywhere. App renders `<ToastHost/>` once.
@@ -162,6 +165,8 @@ Inline SVG with the real colors and markings. `BALL_NAMES[kind]` gives the displ
 - `useFullscreen()`: `{ supported, active, enter, exit, toggle }` with WebKit prefixes. Call `enter` from a tap. iPhone Safari has no element fullscreen, so `supported` is false there.
 - `useReducedMotion()` / `isReducedMotion()`.
 - `useInterval(cb, ms | null)`: null pauses.
+- `useWakeLock(enabled = true)`: keeps the screen awake (App calls it). Requests the lock again on every tap, key and return to the page while none is held; does nothing where the API is missing. The logic lives in `keepScreenAwake(env)`.
+- `holdInert(el)`: makes `el` inert until every returned release runs (Modal uses it on `#root`).
 - `haptic(pattern = "tap")`: `"tap" | "select" | "success" | "error" | "swipe"` or raw ms. No-op on iOS.
 - `useThemeAttributes()`: mirrors settings onto `<html>`. App and Gallery call it.
 - `kiosk.ts`: side-effect import that blocks pinch zoom (Safari `gesture*` events, two-finger touchmove, Ctrl+wheel), long-press menus and image drags.
@@ -190,3 +195,11 @@ const swipe = useSwipe({
 ## App shell
 
 App.tsx renders `<Backdrop/>`, the current screen inside a quick direction-aware transition (forward slides in from the right, back from the left, opacity-only under reduced motion), and `<ToastHost/>`. A screen's root element gets the full viewport; `ScreenFrame` handles the rest. All screen chunks are prefetched shortly after load, so transitions never flash empty.
+
+It also owns what every screen shares:
+- **Tap guard.** The leaving screen and, for 600 ms, the arriving one carry `data-busy` (`pointer-events: none`), so a kid's double tap never picks something on the screen sliding in.
+- **ErrorBoundary** around each screen.
+- **Idle home.** Category, Difficulty and the leaderboard go back to the title after 2x `attractAfterSec` without input, results (and name entry) after 3x. The title's own idle then starts Show-off mode. Games, Host, Settings and Showcase never time out.
+- **Wake lock** (`useWakeLock`).
+- **F** toggles full screen (ignored while typing).
+- **Sideways hint.** In projector mode, a touch tablet held upright gets a toast asking to turn it sideways, because a mirrored portrait iPad fills a narrow column of the projector.

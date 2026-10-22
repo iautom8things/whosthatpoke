@@ -14,7 +14,7 @@ import { timeAgo } from "./results/ago";
 import { buddyMon } from "./results/buddies";
 import s from "./results/Leaderboard.module.css";
 import { MonThumb } from "./results/MonThumb";
-import { freshHighlight } from "./results/state";
+import { freshHighlight, useResultsUi } from "./results/state";
 
 type BoardMode = ScoreEntry["mode"];
 type Range = "tonight" | "all";
@@ -42,18 +42,23 @@ export default function LeaderboardScreen() {
     const rank = entry ? leaderboard.rankOf(entry.id, Infinity, since) : null;
     return entry && rank ? { entry, rank } : null;
   }, [entries, highlight, mode, since, top]);
-  // Room for "your spot" under the list: the top 8 plus you still fit a 480p projector without scrolling.
-  const shown = mine ? top.slice(0, 8) : top;
+  // Room for "your spot" under the list without scrolling: the top 8 on roomy screens, 6 on a 480p
+  // projector, 4 on a phone on its side.
+  const shown = mine ? top.slice(0, vp.h < 440 ? 4 : vp.short ? 6 : 8) : top;
+  const cols = shown.length > 5 || mine ? 2 : 1;
   const otherRangeHas = useMemo(() => leaderboard.top(mode, 1, range === "tonight" ? undefined : TONIGHT_MS(now)).length > 0, [entries, mode, range, now]);
 
-  // A just-saved row gets a little party.
+  // A just-saved row gets a little party, once: opening the board again later doesn't replay it.
   const newRow = useRef<HTMLLIElement>(null);
+  const mineShown = mine !== null;
   useEffect(() => {
     if (!highlight) return;
+    useResultsUi.setState({ highlight: null });
     const id = window.setTimeout(() => {
       const el = newRow.current;
       if (!el) return;
-      el.scrollIntoView({ block: "nearest" });
+      // "Your spot" sits outside the scroller, so the top of the board stays in view.
+      if (!mineShown) el.scrollIntoView({ block: "nearest" });
       const r = el.getBoundingClientRect();
       audio.sfx("streak");
       celebrate("stars", { origin: { x: (r.left + r.width / 2) / innerWidth, y: (r.top + r.height / 2) / innerHeight }, intensity: 1.2 });
@@ -130,18 +135,26 @@ export default function LeaderboardScreen() {
           </div>
         </div>
       ) : (
-        <div className={s.scroller}>
-          <ol className={s.list} data-cols={shown.length > 5 ? 2 : 1} style={{ "--rows": Math.ceil(shown.length / 2) } as CSSProperties} aria-label={title}>
-            {shown.map((e, i) => (
-              <Row key={e.id} entry={e} rank={i + 1} now={now} fresh={e.id === highlight} rowRef={e.id === highlight ? newRow : undefined} />
-            ))}
-          </ol>
-          {mine && (
-            <ol className={s.mine} start={mine.rank} aria-label="Your spot">
-              <Row entry={mine.entry} rank={mine.rank} now={now} fresh rowRef={newRow} />
+        <>
+          <div className={s.scroller}>
+            <ol className={s.list} data-cols={cols} style={{ "--rows": Math.ceil(shown.length / 2) } as CSSProperties} aria-label={title}>
+              {shown.map((e, i) => (
+                <Row key={e.id} entry={e} rank={i + 1} now={now} fresh={e.id === highlight} rowRef={e.id === highlight ? newRow : undefined} />
+              ))}
             </ol>
+          </div>
+          {mine && (
+            <div className={s.mine} data-cols={cols}>
+              {/* Marks the ranks skipped between the list and you, so #11 doesn't read as 9th. */}
+              <span className={s.skip} aria-hidden="true">
+                • • •
+              </span>
+              <ol start={mine.rank} aria-label="Your spot">
+                <Row entry={mine.entry} rank={mine.rank} now={now} fresh rowRef={newRow} />
+              </ol>
+            </div>
           )}
-        </div>
+        </>
       )}
     </ScreenFrame>
   );
@@ -183,8 +196,10 @@ function Row({ entry, rank, now, fresh, rowRef }: RowProps) {
         </span>
         <span className={s.meta}>
           <PokeBall kind={difficulty.ball} size="1.15em" title={difficulty.label} />
+          {/* The time tells siblings apart, so it comes before the category, which phones drop. */}
           <span className={s.metaText}>
-            {category.label} · {survival ? `🔥 ${entry.bestStreak} in a row` : `${entry.correct}/${entry.total}`} · {timeAgo(entry.at, now)}
+            {survival ? `🔥 ${entry.bestStreak} in a row` : `${entry.correct}/${entry.total}`} · {timeAgo(entry.at, now)}
+            <span className={s.metaCategory}> · {category.label}</span>
           </span>
         </span>
       </span>

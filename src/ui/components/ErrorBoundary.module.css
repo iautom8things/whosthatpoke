@@ -1,0 +1,24 @@
+.root {
+  display: grid;
+  place-items: center;
+  padding: calc(var(--safe-t) + var(--gutter)) calc(var(--safe-r) + var(--gutter)) calc(var(--safe-b) + var(--gutter)) calc(var(--safe-l) + var(--gutter));
+  cursor: pointer;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  max-width: 36rem;
+  text-align: center;
+}
+
+.title {
+  font-size: var(--fs-3xl);
+}
+
+.text {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}

@@ -120,9 +120,21 @@
   gap: var(--sp-3);
   min-height: 0;
 }
+/* The title, then which board this is: it wraps under the title only where the screen is narrow. */
+.boardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2) var(--sp-3);
+}
 .boardTitle {
   text-align: center;
   text-wrap: balance;
+}
+.boardMode {
+  flex: none;
+  rotate: -3deg;
 }
 .trophy {
   display: inline-block;
@@ -182,12 +194,29 @@
   font-weight: 700;
   color: var(--surface-ink);
 }
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1;
+}
 .points {
   font-size: var(--fs-xl);
+  font-variant-numeric: tabular-nums;
   --display-fill: var(--hi);
 }
+/* Classic's rows are light: dark ink with no outline, as on the Leaderboard. Orange on cream washes out on a projector. */
 :global([data-theme="classic"]) .points {
-  --display-fill: var(--accent);
+  --display-fill: var(--choice-ink);
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+.unit {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--surface-ink-soft);
 }
 
 .empty {

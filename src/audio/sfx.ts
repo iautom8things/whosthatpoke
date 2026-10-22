@@ -19,7 +19,7 @@ import {
 } from "./synth";
 
 export interface SfxHandle {
-  /** Stop early with a short fade (the drumroll). */
+  /** Stop early with a short fade (the drumroll, the prize and fanfare jingles). */
   stop(at: number): void;
 }
 
@@ -110,12 +110,25 @@ const rand = (seq: number) => {
 
 const isLive = (ctx: BaseAudioContext) => typeof (ctx as AudioContext).close === "function";
 
-function jingle(song: (typeof JINGLES)[keyof typeof JINGLES]): Sfx {
-  return (ctx, out, t) => {
+/** Fade a bus gain to silence from `at` over `sec`, then unplug it. */
+function fadeAway(g: GainNode, at: number, sec: number): void {
+  try {
+    g.gain.cancelScheduledValues(at);
+    g.gain.setValueAtTime(g.gain.value, at);
+    g.gain.linearRampToValueAtTime(0, at + sec);
+    setTimeout(() => g.disconnect(), sec * 1000 + 260);
+  } catch {
+    // already gone
+  }
+}
+
+function jingle(song: (typeof JINGLES)[keyof typeof JINGLES]) {
+  return (ctx: BaseAudioContext, out: AudioNode, t: number): SfxHandle => {
     const p = new SongPlayer(ctx, song, out);
     p.start(t, 0.005);
     p.scheduleUntil(Infinity);
     if (isLive(ctx)) setTimeout(() => p.dispose(), (p.loopSeconds + 3) * 1000);
+    return { stop: () => p.fadeOut(0.2) };
   };
 }
 
@@ -264,14 +277,23 @@ export const SFX: Record<SfxId, Sfx> = {
 
   fanfare: jingle(JINGLES.fanfare),
 
-  prize(ctx, out, t, seq) {
-    jingle(JINGLES.prize)(ctx, out, t, seq);
-    // Extra glitter on the final chord.
+  prize(ctx, out, t) {
+    const song = jingle(JINGLES.prize)(ctx, out, t);
+    // Extra glitter on the final chord, on its own gain so stopping the prize stops it too.
+    const glitter = gainNode(ctx, 1);
+    glitter.connect(out);
     const at = t + (24 * 60) / 150 / 4;
     for (let i = 0; i < 14; i++) {
       const notes = ["c7", "g6", "e7", "c7", "g6", "e6"];
-      tone(ctx, out, at + 0.15 + i * 0.07, { wave: "sine", f: n(notes[i % notes.length]), d: 0.2, peak: 0.05 * (1 - i / 16) });
+      tone(ctx, glitter, at + 0.15 + i * 0.07, { wave: "sine", f: n(notes[i % notes.length]), d: 0.2, peak: 0.05 * (1 - i / 16) });
     }
+    if (isLive(ctx)) setTimeout(() => glitter.disconnect(), 7000);
+    return {
+      stop(when: number) {
+        song.stop(when);
+        fadeAway(glitter, when, 0.2);
+      },
+    };
   },
 
   drumroll(ctx, out, t) {
@@ -284,18 +306,7 @@ export const SFX: Record<SfxId, Sfx> = {
       const swell = Math.min(1, (at - t) / 3);
       playSnare(ctx, g, at, (0.18 + 0.24 * swell) * (i % 2 ? 0.85 : 1), { decay: 0.07, tone: 210 });
     }
-    return {
-      stop(at: number) {
-        try {
-          g.gain.cancelScheduledValues(at);
-          g.gain.setValueAtTime(g.gain.value, at);
-          g.gain.linearRampToValueAtTime(0, at + 0.04);
-          setTimeout(() => g.disconnect(), 300);
-        } catch {
-          // already gone
-        }
-      },
-    };
+    return { stop: (at: number) => fadeAway(g, at, 0.04) };
   },
 
   pop(ctx, out, t, seq) {

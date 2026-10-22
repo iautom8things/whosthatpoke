@@ -54,6 +54,18 @@ describe("leaderboard", () => {
     expect([more, first, tie, low].map((e) => lb.rankOf(e.id))).toEqual([1, 2, 3, 4]);
   });
 
+  it("ranks classic games of different lengths per question", () => {
+    const lb = board();
+    const long = lb.add(entry({ name: "fifteen", points: 3000, correct: 13, total: 15 }));
+    const short = lb.add(entry({ name: "five", points: 1100, correct: 5, total: 5 }));
+    const ten = lb.add(entry({ name: "ten", points: 2000, correct: 8, total: 10 }));
+    // 220 a question beats 200, then 200 a question with 87% right beats 200 with 80%.
+    expect(lb.top("classic").map((e) => e.name)).toEqual(["five", "fifteen", "ten"]);
+    expect([short, long, ten].map((e) => lb.rankOf(e.id))).toEqual([1, 2, 3]);
+    expect(lb.rankFor("classic", 950, 5, 10, undefined, 5)).toBe(4);
+    expect(lb.rankFor("classic", 1200, 5, 10, undefined, 5)).toBe(1);
+  });
+
   it("sorts survival by correct, then points, and keeps modes apart", () => {
     const lb = board();
     lb.add(entry({ name: "a", mode: "survival", correct: 12, points: 900 }));
@@ -140,6 +152,30 @@ describe("leaderboard", () => {
     for (let i = 0; i < MAX_ENTRIES + 40; i++) lb.add(entry({ points: i }));
     expect(lb.all()).toHaveLength(MAX_ENTRIES);
     expect(lb.top("classic", 1)[0].id).toBe(champ.id);
+  });
+
+  it("remove() deletes one entry, persists and notifies", () => {
+    const storage = fakeStorage();
+    const lb = board(storage);
+    const keep = lb.add(entry({ name: "Misty", points: 300 }));
+    const drop = lb.add(entry({ name: "Brock", points: 200 }));
+    const fn = vi.fn();
+    lb.subscribe(fn);
+    expect(lb.remove(drop.id)).toBe(true);
+    expect(lb.top("classic")).toEqual([keep]);
+    expect(JSON.parse(storage.data.get(LEADERBOARD_KEY)!).map((e: ScoreEntry) => e.id)).toEqual([keep.id]);
+    expect(fn).toHaveBeenCalledTimes(1);
+    expect(lb.remove("missing")).toBe(false);
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
+
+  it("add() swaps a rude name for Trainer, and stored rude names read as Trainer", () => {
+    const lb = board();
+    expect(lb.add(entry({ name: "F u u c k" })).name).toBe("Trainer");
+    expect(lb.add(entry({ name: "Ash" })).name).toBe("Ash");
+    const old: ScoreEntry = { ...entry({ name: "sh1t", points: 100 }), id: "old", at: 5 };
+    const storage = fakeStorage({ [LEADERBOARD_KEY]: JSON.stringify([old]) });
+    expect(board(storage).top("classic")[0].name).toBe("Trainer");
   });
 
   it("clear() empties the board", () => {

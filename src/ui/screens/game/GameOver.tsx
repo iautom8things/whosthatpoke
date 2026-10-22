@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
+import { useCallback } from "react";
 import { Button, Display, IconTrophy, PokeBall } from "../../components";
 import { COPY } from "./copy";
 import s from "./game.module.css";
@@ -12,6 +13,8 @@ export interface GameOverProps {
 
 /** Survival's last beat: the screen dims, "Game over!" slams down, then on to the results. */
 export function GameOver({ open, caught, bestStreak, onContinue }: GameOverProps) {
+  // Not a kit Modal (it has no key layer), so it focuses its own button: Enter and screen readers land there.
+  const focus = useCallback((el: HTMLButtonElement | null) => el?.focus({ preventScroll: true }), []);
   return (
     <AnimatePresence>
       {open && (
@@ -46,7 +49,7 @@ export function GameOver({ open, caught, bestStreak, onContinue }: GameOverProps
               {COPY.caught(caught)}
             </Display>
             {bestStreak >= 2 && <p className={s.gameOverSub}>Best streak: {bestStreak} in a row</p>}
-            <Button size="xl" variant="primary" icon={<IconTrophy />} onPress={onContinue} data-autofocus>
+            <Button size="xl" variant="primary" icon={<IconTrophy />} onPress={onContinue} ref={focus}>
               {COPY.seeScore}
             </Button>
           </motion.div>

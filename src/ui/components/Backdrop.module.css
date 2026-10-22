@@ -1,5 +1,8 @@
 .backdrop {
   --hill-h: clamp(64px, 17vh, 190px);
+  --moon: clamp(96px, 23vmin, 300px);
+  --moon-top: max(5vh, 20px);
+  --moon-right: 9vw;
   position: fixed;
   inset: 0;
   z-index: var(--z-backdrop);
@@ -56,10 +59,18 @@
   animation: sparkle 3.8s var(--ease-in-out) infinite;
 }
 
+/* Fades out on screens with live HUD (rules further down). */
+.moonWrap {
+  inset: 0;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+.moonWrap > * {
+  position: absolute;
+}
 .moon {
-  top: max(5vh, 20px);
-  right: 9vw;
-  width: clamp(96px, 23vmin, 300px);
+  top: var(--moon-top);
+  right: var(--moon-right);
+  width: var(--moon);
   aspect-ratio: 1;
   border-radius: 50%;
   background:
@@ -72,9 +83,9 @@
     0 0 4vmin 0.6vmin rgb(255 228 150 / 0.55);
 }
 .moonHalo {
-  top: max(5vh, 20px);
-  right: 9vw;
-  width: clamp(96px, 23vmin, 300px);
+  top: var(--moon-top);
+  right: var(--moon-right);
+  width: var(--moon);
   aspect-ratio: 1;
   border-radius: 50%;
   scale: 2.6;
@@ -148,6 +159,7 @@
 .pumpkin {
   width: calc(clamp(40px, 7vmin, 92px) * var(--s, 1));
   aspect-ratio: 64 / 54;
+  transition: opacity var(--dur-slow) var(--ease-out);
 }
 .pumpkin svg {
   position: relative;
@@ -187,6 +199,54 @@
   animation: drift 26s var(--ease-in-out) -9s infinite alternate-reverse;
 }
 
+/*
+ * Where the header crowds the top-right corner (portrait, short screens) and on a projector, where
+ * the moon is the brightest thing in the picture: a small moon with no halo, clear of the gear.
+ * In portrait it sits below the header.
+ */
+@media (orientation: portrait), (max-height: 560px) {
+  .backdrop {
+    --moon: clamp(56px, 14vmin, 160px);
+    --moon-right: 13vw;
+  }
+  .moonHalo {
+    display: none;
+  }
+}
+@media (max-height: 560px) {
+  .backdrop {
+    /* Up in the header row, beside the gear. */
+    --moon-top: 6px;
+  }
+}
+@media (orientation: portrait) {
+  .backdrop {
+    /* Below the header, which takes two rows on a phone. */
+    --moon-top: max(12vh, 136px);
+    --moon-right: 8vw;
+  }
+}
+:global([data-projector="on"]) .backdrop {
+  --moon: clamp(56px, 14vmin, 160px);
+  --moon-right: 13vw;
+}
+
+/*
+ * Screens with live HUD get no moon: it landed behind the score, the title and the hero score, and
+ * outshone the silhouette. Pumpkins sit in the bottom band where those screens put the timer,
+ * answers and buttons, so results and the leaderboard never get them, and game, host and showcase
+ * keep them only in roomy landscape, where that band leaves the corners free.
+ */
+.backdrop[data-hud] .moonWrap,
+.backdrop[data-hud="results"] .pumpkin {
+  opacity: 0;
+}
+@media (orientation: portrait), (max-height: 560px) {
+  .backdrop[data-hud] .pumpkin {
+    opacity: 0;
+  }
+}
+
 /* Projector: fewer moving parts, no haze that a projector turns into grey mud. */
 :global([data-projector="on"]) .fog,
 :global([data-projector="on"]) .stars3,
@@ -196,8 +256,7 @@
   display: none;
 }
 :global([data-projector="on"]) .moonHalo {
-  animation: none;
-  opacity: 0.6;
+  display: none;
 }
 :global([data-projector="on"]) .pumpkinGlow {
   animation: none;

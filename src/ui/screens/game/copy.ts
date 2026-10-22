@@ -19,6 +19,10 @@ export const COPY = {
   quitTitle: "Quit this game?",
   quitMessage: "Your score won’t be saved.",
   quitYes: "Quit",
+  quitButton: "Quit game",
+  /** Read out on Poké Ball for kids who can't read the names yet. Pass Mon.say, which the voice pronounces right. */
+  choices: (names: readonly string[]) =>
+    names.length < 2 ? (names[0] ?? "") : `Is it ${names.slice(0, -1).join(", ")}, or ${names[names.length - 1]}?`,
   quitNo: "Keep playing",
   dex: (n: number) => `#${String(n).padStart(3, "0")}`,
   gen: (n: number) => `Gen ${n}`,

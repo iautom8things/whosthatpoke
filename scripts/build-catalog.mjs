@@ -30,6 +30,15 @@ const pronunciations = read("data/pronunciations.json") ?? {};
 const artIndex = read("data/art-index.json") ?? {};
 const artMetrics = read("data/art-metrics.json") ?? {};
 const groups = read("data/groups.json") ?? {};
+const silhouettes = read("data/silhouettes.json") ?? { twins: [], blobs: [] };
+const places = read("data/places.json") ?? {};
+
+const twinsOf = new Map();
+for (const [a, b] of silhouettes.twins) {
+  twinsOf.set(a, [...(twinsOf.get(a) ?? []), b]);
+  twinsOf.set(b, [...(twinsOf.get(b) ?? []), a]);
+}
+const blobs = new Set(silhouettes.blobs.map((b) => b.dex));
 
 const flavor = {};
 const flavorDir = join(root, "data/flavor");
@@ -49,6 +58,19 @@ const tagSets = {
   eeveelution: new Set(groups.eeveelutions ?? []),
   "pseudo-legendary": new Set(groups.pseudoLegendary ?? []),
 };
+
+// Facts go up on a projector at a kids' party. These never should.
+const FACT_LINT = [
+  [/--|— /, "ASCII dash or a space after a dash"],
+  [/(^|[\s"])I\s/, "first person"],
+  [/skull of|mother's skull|dead mother|life force|life energy|\bcursed\b|grudge|flesh|cut off|afterlife|still human|own head|devours/i, "too grim for little kids"],
+  [/poison.*\bserves?\b|\bserves?\b.*poison/i, "poison treats on candy night"],
+];
+const factProblems = [];
+for (const [dex, text] of Object.entries(flavor)) {
+  for (const [pattern, why] of FACT_LINT) if (pattern.test(text)) factProblems.push(`${dex} (${why}): ${text}`);
+}
+if (factProblems.length) throw new Error(`fix these facts in data/flavor:\n${factProblems.join("\n")}`);
 
 const tierFor = (rank) => (rank <= TIER_CUTOFFS[0] ? 1 : rank <= TIER_CUTOFFS[1] ? 2 : rank <= TIER_CUTOFFS[2] ? 3 : 4);
 
@@ -104,6 +126,9 @@ for (const entry of names) {
     ...(sp?.shape && { shape: sp.shape }),
     family: sp?.chainId ?? 10000 + dex,
     ...(metrics?.bbox && { bbox: metrics.bbox.map((n) => Math.round(n * 1000) / 1000) }),
+    ...(twinsOf.has(dex) && { twins: twinsOf.get(dex).sort((a, b) => a - b) }),
+    ...(blobs.has(dex) && { blob: true }),
+    ...(places[dex] && { place: places[dex] }),
   });
 }
 
@@ -116,6 +141,9 @@ const sources = {
   pronunciations: Object.keys(pronunciations).length,
   groups: Object.keys(groups).length > 0,
   artMetrics: Object.keys(artMetrics).length,
+  twins: silhouettes.twins.length,
+  blobs: blobs.size,
+  places: Object.keys(places).filter((k) => k !== "notes").length,
 };
 console.log(`catalog: ${catalog.length} species, skipped ${skipped.length} without art`);
 console.log("sources:", JSON.stringify(sources));

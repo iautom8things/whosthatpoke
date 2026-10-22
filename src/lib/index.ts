@@ -8,3 +8,4 @@ export { useInterval } from "./useInterval";
 export { KeyLayerContext, openKeyLayer, useKeys, type KeyHandler, type UseKeysOptions } from "./useKeys";
 export { useSwipe, type SwipeDirection, type SwipeInfo, type UseSwipeOptions, type UseSwipeResult } from "./useSwipe";
 export { useViewport, type Orientation, type Viewport, type ViewportSize } from "./useViewport";
+export { useWakeLock } from "./useWakeLock";

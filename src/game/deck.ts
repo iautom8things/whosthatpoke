@@ -41,6 +41,13 @@ const CLASSIC_WINDOW = 3;
 const SURVIVAL_WINDOW = 10;
 /** Survival in a category smaller than this borrows from the whole catalog. */
 const MIN_SURVIVAL_POOL = 10;
+/**
+ * Great Ball and Ultra Ball survival climb from this far into their band, so they don't replay the
+ * level below for dozens of questions. The easier part before it comes back as relief.
+ */
+const SURVIVAL_CLIMB_FROM = 0.3;
+/** One relief question in this many. */
+const SURVIVAL_RELIEF_EVERY = 4;
 
 // ---------------------------------------------------------------------------
 // Answer bands: which part of a category each difficulty draws from.
@@ -63,25 +70,26 @@ export function answerBand(categoryId: string, difficulty: DifficultyId, rounds 
   return band;
 }
 
-function bandFor(pool: readonly Mon[], difficulty: DifficultyId, rounds: number): Mon[] {
+function bandFor(category: readonly Mon[], difficulty: DifficultyId, rounds: number): Mon[] {
+  // A plain circle or egg is a guess, not a silhouette: keep blobs out of the kid levels.
+  const kidLevel = difficulty === "easy" || difficulty === "medium";
+  const pool = kidLevel ? category.filter((m) => !m.blob) : category;
   const n = pool.length;
   const minSize = rounds + 6;
   const want = Math.min(n, minSize);
   const enough = (band: Mon[]) => band.length >= want;
   const famous = famousOverall();
 
+  // A short tier set grows toward the famous end only up to `want` (widen below), so a big
+  // category with few tier-1 members never reaches deeper on Poké Ball than on Great Ball.
   let band: Mon[];
   switch (difficulty) {
-    case "easy": {
-      const tier = pool.filter((m) => m.tier === 1);
-      band = enough(tier) ? tier : pool.slice(0, Math.max(minSize, Math.ceil(n * 0.3)));
+    case "easy":
+      band = pool.filter((m) => m.tier === 1);
       break;
-    }
-    case "medium": {
-      const tier = pool.filter((m) => m.tier <= 2);
-      band = enough(tier) ? tier : pool.slice(0, Math.max(minSize, Math.ceil(n * 0.6)));
+    case "medium":
+      band = pool.filter((m) => m.tier <= 2);
       break;
-    }
     case "hard": {
       const tier = pool.filter((m) => (m.tier === 2 || m.tier === 3) && !famous.has(m.dex));
       band = enough(tier) ? tier : pool.slice(Math.floor(n / 3)).filter((m) => !famous.has(m.dex));
@@ -93,8 +101,7 @@ function bandFor(pool: readonly Mon[], difficulty: DifficultyId, rounds: number)
       break;
     }
   }
-  const towardFamous = difficulty === "easy" || difficulty === "medium";
-  return widen(pool, band, want, towardFamous);
+  return widen(pool, band, want, kidLevel);
 }
 
 /** Grows a band with its nearest neighbors in the pool until it holds `want`, alternating sides. */
@@ -296,8 +303,15 @@ interface Stage {
   weight?: (m: Mon) => number;
 }
 
-/** Fills `n` distractors stage by stage; later stages relax the rules so it never comes up short. */
-function fillDistractors(answer: Mon, n: number, stages: Stage[], rng: Rng): Mon[] {
+/** How much less likely a name from the last two questions is to come back as a distractor. */
+const LATELY_WEIGHT = 0.05;
+
+/**
+ * Fills `n` distractors stage by stage; later stages relax the rules so it never comes up short.
+ * A silhouette twin of the answer is never offered: two identical shapes make a coin flip.
+ * Names from the last two questions (`lately`) rarely come back, so small themes don't loop.
+ */
+function fillDistractors(answer: Mon, n: number, stages: Stage[], lately: ReadonlySet<number>, rng: Rng): Mon[] {
   const out: Mon[] = [];
   const names = new Set([nameKey(answer)]);
   const families = new Set([answer.family]);
@@ -307,12 +321,14 @@ function fillDistractors(answer: Mon, n: number, stages: Stage[], rng: Rng): Mon
       const cands = stage.from.filter(
         (m) =>
           m.dex !== answer.dex &&
+          !answer.twins?.includes(m.dex) &&
           !names.has(nameKey(m)) &&
           !(stage.distinctFamilies && families.has(m.family)) &&
           (stage.ok?.(m, out) ?? true),
       );
       if (cands.length === 0) break;
-      const m = weightedPick(cands, stage.weight ?? (() => 1), rng);
+      const weight = stage.weight ?? (() => 1);
+      const m = weightedPick(cands, (c) => weight(c) * (lately.has(c.dex) ? LATELY_WEIGHT : 1), rng);
       out.push(m);
       names.add(nameKey(m));
       families.add(m.family);
@@ -335,8 +351,8 @@ function famousNames(): readonly Mon[] {
 }
 
 /** The candidates most like the answer, best first; small noise varies ties between games. */
-function closest(answer: Mon, score: (m: Mon) => number, limit: number, rng: Rng): Mon[] {
-  return allPool()
+function closest(from: readonly Mon[], answer: Mon, score: (m: Mon) => number, limit: number, rng: Rng): Mon[] {
+  return from
     .filter((m) => m.dex !== answer.dex)
     .map((m) => ({ m, s: score(m) + rng() * 3 }))
     .sort((a, b) => b.s - a.s)
@@ -344,25 +360,67 @@ function closest(answer: Mon, score: (m: Mon) => number, limit: number, rng: Rng
     .map((x) => x.m);
 }
 
-function distractors(answer: Mon, config: GameConfig, inCategory: ReadonlySet<number>, rng: Rng): Mon[] {
+/**
+ * Favors candidates about as famous as the answer: about `spread` places away in `from`'s rank
+ * order, above or below. Then "pick the best-known name" is no better than a guess.
+ */
+function nearFame(answer: Mon, from: readonly Mon[], spread: number): (m: Mon) => number {
+  const ranks = from.map((m) => m.rank).sort((a, b) => a - b);
+  const place = (rank: number) => {
+    let lo = 0;
+    let hi = ranks.length;
+    while (lo < hi) {
+      const mid = (lo + hi) >> 1;
+      if (ranks[mid] < rank) lo = mid + 1;
+      else hi = mid;
+    }
+    return lo;
+  };
+  const at = place(answer.rank);
+  return (m) => {
+    const d = (place(m.rank) - at) / spread;
+    return 1 / (1 + d * d);
+  };
+}
+
+/** A themed category big enough to fill a question with its own members. */
+const MIN_THEMED_DISTRACTORS = 8;
+
+function distractors(
+  answer: Mon,
+  config: GameConfig,
+  inCategory: ReadonlySet<number>,
+  lately: ReadonlySet<number>,
+  rng: Rng,
+): Mon[] {
   const n = Math.max(0, difficultyById(config.difficulty).choices - 1);
   const all = allPool();
   const fallback: Stage[] = [{ from: all, distinctFamilies: true }, { from: all }];
+  // In "Only Rock", the other names are rocks too, or the one rock is the answer.
+  const theme = config.categoryId !== "all" && inCategory.has(answer.dex) ? categoryPool(config.categoryId) : null;
+  const themed = theme != null && theme.length >= MIN_THEMED_DISTRACTORS;
 
   switch (config.difficulty) {
     case "easy": {
       const famous = famousNames();
-      const fame = new Map(famous.map((m, i) => [m.dex, 2 - i / famous.length]));
-      const weight = (m: Mon) => (fame.get(m.dex) ?? 1) * (inCategory.has(m.dex) ? 1.5 : 1);
+      const easyStages = (from: readonly Mon[]): Stage[] => {
+        const weight = nearFame(answer, from, 6);
+        return [
+          { from, distinctFamilies: true, ok: (m) => looksDifferent(answer, m, true), weight },
+          { from, distinctFamilies: true, ok: (m) => looksDifferent(answer, m, false), weight },
+        ];
+      };
+      const local = themed ? answerBand(config.categoryId, "easy", 10) : [];
       return fillDistractors(
         answer,
         n,
         [
-          { from: famous, distinctFamilies: true, ok: (m) => looksDifferent(answer, m, true), weight },
-          { from: famous, distinctFamilies: true, ok: (m) => looksDifferent(answer, m, false), weight },
-          { from: famous, distinctFamilies: true, weight },
+          ...easyStages(local),
+          ...easyStages(famous),
+          { from: famous, distinctFamilies: true, weight: nearFame(answer, famous, 6) },
           ...fallback,
         ],
+        lately,
         rng,
       );
     }
@@ -370,51 +428,73 @@ function distractors(answer: Mon, config: GameConfig, inCategory: ReadonlySet<nu
       const local = answerBand(config.categoryId, "medium", 10);
       const global = answerBand("all", "medium", 10);
       const alike = (m: Mon) => lookAlike(answer, m);
+      const near = nearFame(answer, local, 8);
       return fillDistractors(
         answer,
         n,
         [
-          { from: local, max: 1, distinctFamilies: true, ok: (m) => alike(m) >= 12, weight: alike },
-          { from: local, distinctFamilies: true },
-          { from: global, distinctFamilies: true },
+          { from: local, max: 1, distinctFamilies: true, ok: (m) => alike(m) >= 12, weight: (m) => alike(m) * near(m) },
+          { from: local, distinctFamilies: true, weight: near },
+          { from: global, distinctFamilies: true, weight: nearFame(answer, global, 8) },
           ...fallback,
         ],
+        lately,
         rng,
       );
     }
     case "hard": {
       const score = (m: Mon) => lookAlike(answer, m) + (m.family === answer.family ? 15 : 0) + (inCategory.has(m.dex) ? 8 : 0);
-      const near = closest(answer, score, 24, rng).filter((m) => lookAlike(answer, m) > 0);
+      const looksRelated = (m: Mon) => lookAlike(answer, m) > 0;
+      const near = closest(all, answer, score, 24, rng).filter(looksRelated);
       const oneRelative = (m: Mon, picked: readonly Mon[]) =>
         m.family !== answer.family || !picked.some((p) => p.family === answer.family);
+      const lookAlikes = (from: readonly Mon[], max?: number): Stage => {
+        const fame = nearFame(answer, from, 6);
+        return { from, max, ok: oneRelative, weight: (m) => score(m) * fame(m) };
+      };
       return fillDistractors(
         answer,
         n,
         [
-          { from: near, ok: oneRelative, weight: score },
+          ...(themed ? [lookAlikes(closest(theme, answer, score, 12, rng).filter(looksRelated), 2)] : []),
+          lookAlikes(near),
           { from: all, ok: (m) => m.types.some((t) => answer.types.includes(t)) },
           ...fallback,
         ],
+        lately,
         rng,
       );
     }
     case "master": {
       const score = (m: Mon) => similarity(answer, m) + (inCategory.has(m.dex) ? 15 : 0);
       const relatives = all.filter((m) => m.family === answer.family);
-      const near = closest(answer, score, 6, rng);
+      const near = closest(all, answer, score, 6, rng);
+      const sharpest = (m: Mon) => score(m) ** 2;
       return fillDistractors(
         answer,
         n,
-        [{ from: relatives, weight: score }, { from: near, weight: (m) => score(m) ** 2 }, ...fallback],
+        [
+          { from: relatives, weight: score },
+          ...(themed ? [{ from: closest(theme, answer, score, 6, rng), max: 2, weight: sharpest }] : []),
+          { from: near, weight: sharpest },
+          ...fallback,
+        ],
+        lately,
         rng,
       );
     }
   }
 }
 
-function choicesFor(answer: Mon, config: GameConfig, inCategory: ReadonlySet<number>, rng: Rng): Mon[] {
+function choicesFor(
+  answer: Mon,
+  config: GameConfig,
+  inCategory: ReadonlySet<number>,
+  lately: ReadonlySet<number>,
+  rng: Rng,
+): Mon[] {
   if (config.mode === "host") return [];
-  const choices = shuffle(distractors(answer, config, inCategory, rng), rng);
+  const choices = shuffle(distractors(answer, config, inCategory, lately, rng), rng);
   choices.splice(randInt(rng, choices.length + 1), 0, answer);
   return choices;
 }
@@ -431,11 +511,13 @@ export function createDeck(config: GameConfig, recent: readonly number[] = []): 
   const choiceRng = forkRng(config.seed, 2);
   const inCategory = new Set(categoryPool(config.categoryId).map((m) => m.dex));
   const ages = agesOf(recent);
-  const ask = (index: number, answer: Mon): Question => ({
-    index,
-    answer,
-    choices: choicesFor(answer, config, inCategory, choiceRng),
-  });
+  // Every name on the last two questions' buttons.
+  let lately: number[] = [];
+  const ask = (index: number, answer: Mon): Question => {
+    const choices = choicesFor(answer, config, inCategory, new Set(lately), choiceRng);
+    lately = [...lately, ...choices.map((m) => m.dex)].slice(-8);
+    return { index, answer, choices };
+  };
 
   if (config.mode === "survival") return survivalDeck(config, ages, answerRng, ask);
 
@@ -448,8 +530,9 @@ export function createDeck(config: GameConfig, recent: readonly number[] = []): 
 }
 
 /**
- * Survival never runs out: walk the difficulty's band easier to harder, then the rest of the pool
- * (harder ones first), then start a new lap that keeps the last few shown out of its opening.
+ * Survival never runs out: walk the difficulty's band easier to harder (Great and Ultra Ball start
+ * partway in), then the rest of the pool (harder ones first), then start a new lap that keeps the
+ * last few shown out of its opening.
  */
 function survivalDeck(config: GameConfig, ages: Ages, rng: Rng, ask: (i: number, m: Mon) => Question): Deck {
   const { difficulty } = config;
@@ -461,6 +544,21 @@ function survivalDeck(config: GameConfig, ages: Ages, rng: Rng, ask: (i: number,
   }
   const band = bandFor(pool, difficulty, MIN_SURVIVAL_POOL);
 
+  // Poké Ball climbs from the very top; Master Ball has no easier part to skip.
+  const skipsAhead = difficulty === "medium" || difficulty === "hard";
+  const climb = (mons: readonly Mon[], ages: Ages): Mon[] => {
+    if (!skipsAhead) return freshFirst(mons, ages, rng);
+    const cut = Math.floor(mons.length * SURVIVAL_CLIMB_FROM);
+    const relief = freshFirst(mons.slice(0, cut), ages, rng);
+    const harder = freshFirst(mons.slice(cut), ages, rng);
+    const out: Mon[] = [];
+    harder.forEach((m, i) => {
+      if (i % (SURVIVAL_RELIEF_EVERY - 1) === SURVIVAL_RELIEF_EVERY - 2 && relief.length > 0) out.push(relief.shift()!);
+      out.push(m);
+    });
+    return [...out, ...relief];
+  };
+
   const lap = (ages: Ages, opening: boolean): Mon[] => {
     const first = opening && hasOpeners(difficulty) ? openers(band, 2, ages, rng) : [];
     const used = new Set(first.map((m) => m.dex));
@@ -470,7 +568,7 @@ function survivalDeck(config: GameConfig, ages: Ages, rng: Rng, ask: (i: number,
     const others = pool.filter((m) => !inBand.has(m.dex));
     return [
       ...first,
-      ...freshFirst(band.filter((m) => !used.has(m.dex)), ages, rng),
+      ...climb(band.filter((m) => !used.has(m.dex)), ages),
       ...freshFirst(others.filter((m) => m.rank > middle), ages, rng),
       ...freshFirst(others.filter((m) => m.rank <= middle), ages, rng),
     ];

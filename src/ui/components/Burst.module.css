@@ -7,6 +7,7 @@
   container-type: size;
   --fade-from: 22cqmin;
   --fade-to: 50cqmin;
+  --core-size: 0.8;
 }
 
 .rays {
@@ -36,7 +37,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: calc(min(100cqw, 100cqh) * 0.8);
+  width: calc(min(100cqw, 100cqh) * var(--core-size));
   aspect-ratio: 1;
   translate: -50% -50%;
   border-radius: 50%;
@@ -50,6 +51,18 @@
 
 :global([data-projector="on"]) .burst {
   --fade-from: 32cqmin;
+}
+/*
+ * Spooky: the sky behind the stage is dark purple, so the rays and glow hold full strength out to
+ * where a silhouette's wings, feet and tails sit (about 43cqmin) and fade only near the stage edge.
+ * The light sky of classic already does this job.
+ */
+:global(:root:not([data-theme="classic"])) .burst {
+  --fade-from: 38cqmin;
+  --core-size: 0.95;
+}
+:global(:root[data-projector="on"]:not([data-theme="classic"])) .burst {
+  --fade-from: 42cqmin;
 }
 
 @keyframes spin {

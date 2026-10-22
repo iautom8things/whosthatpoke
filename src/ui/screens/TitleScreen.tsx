@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { useRef, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { Mode } from "../../game/deck";
 import { useIdle } from "../../lib/useIdle";
 import { useNav } from "../../state/nav";
@@ -8,7 +8,7 @@ import { useSettings } from "../../state/settings";
 import { Button, Card, cx, IconButton, IconPlay, IconTrophy, IconUsers, Lives, Logo, ScreenFrame } from "../components";
 import { HoldGear } from "./menus/HoldGear";
 import { Peeker } from "./menus/Peeker";
-import { NAV, useMenuKeys, useMenuSong } from "./menus/shared";
+import { logoHandoff, NAV, useMenuKeys, useMenuSong } from "./menus/shared";
 import { TopTrainer } from "./menus/TopTrainer";
 import s from "./menus/Title.module.css";
 
@@ -24,6 +24,11 @@ export default function TitleScreen() {
   const timer = useSettings((st) => st.timer);
   const attractAfterSec = useSettings((st) => st.attractAfterSec);
   const go = useNav((st) => st.go);
+  // Straight from the splash the logo is already up, so it stays put instead of dropping in again.
+  const [logoIntro] = useState(() => !logoHandoff.fromSplash);
+  useEffect(() => {
+    logoHandoff.fromSplash = false;
+  }, []);
   useMenuSong();
   useIdle(attractAfterSec > 0 ? attractAfterSec * 1000 : null, () => go("showcase"));
 
@@ -47,7 +52,7 @@ export default function TitleScreen() {
         headerRight={<HoldGear onOpen={() => go("settings")} />}
       >
         <div className={s.hero}>
-          <Logo size="xl" animated bob style={{ "--fs": "var(--logo-fs)" } as CSSProperties} />
+          <Logo size="xl" animated={logoIntro} bob style={{ "--fs": "var(--logo-fs)" } as CSSProperties} />
           <TopTrainer />
         </div>
 

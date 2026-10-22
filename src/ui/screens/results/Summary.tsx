@@ -21,6 +21,10 @@ type Stage = 0 | 1 | 2 | 3;
 const DRUMROLL_MS = 1300;
 const COUNT_MS = 1100;
 const SETTLE_MS = 900;
+/** When each jingle's last big hit lands. The announcer waits for it instead of talking over the music. */
+const JINGLE_MS = { prize: 2500, fanfare: 1400 } as const;
+/** The results song starts once the announcer is done, or after this long if the voice hangs. */
+const SONG_CAP_MS = 6000;
 
 export function Summary({ summary }: { summary: GameSummary }) {
   const reduce = useReducedMotion();
@@ -31,6 +35,8 @@ export function Summary({ summary }: { summary: GameSummary }) {
   const fired = useRef(celebratedAlready.current);
   const { mode, tier, correct, asked, points, config } = summary;
   const level = summary.tierCount > 1 ? summary.tierIndex / (summary.tierCount - 1) : 1;
+  // Every prize above the lowest gets the big jingle; the top one adds the cannons.
+  const jingle = level > 0 ? "prize" : "fanfare";
 
   // ---- the ceremony ----
   useEffect(() => {
@@ -48,7 +54,9 @@ export function Summary({ summary }: { summary: GameSummary }) {
       if (!fired.current) {
         fired.current = true;
         useResultsUi.setState({ celebrated: true });
-        audio.sfx(level >= 0.5 ? "prize" : "fanfare");
+        // Reduced motion and demos open here, skipping the drumroll that stops the game's loop.
+        audio.stopSong(300);
+        audio.sfx(jingle);
         if (level >= 1) {
           celebrate("cannons", { intensity: 1.3 });
           celebrate("stars", { origin: { x: 0.3, y: 0.4 } });
@@ -56,15 +64,38 @@ export function Summary({ summary }: { summary: GameSummary }) {
           celebrate("burst", { origin: { x: vp.orientation === "landscape" ? 0.27 : 0.5, y: 0.5 }, intensity: 0.6 + level * 0.8 });
         }
       }
-      const say = window.setTimeout(() => void announcer.say(announcement(summary)), 700);
-      const song = window.setTimeout(() => audio.playSong("results"), 1800);
       const ready = window.setTimeout(() => setStage(3), SETTLE_MS);
-      return () => [say, song, ready].forEach((t) => window.clearTimeout(t));
+      return () => window.clearTimeout(ready);
     }
-    audio.playSong("results");
+    // Back from name entry or the board: no ceremony this time, so the song starts now.
+    if (celebratedAlready.current) audio.playSong("results");
     return undefined;
     // The summary is fixed for the life of this view, so only the stage drives this.
   }, [stage]);
+
+  // The announcer waits for the jingle's last hit, then the results song waits for the announcer.
+  // Its own effect, so the move to stage 3 doesn't cancel the timers; only leaving the screen does.
+  const prizeShown = stage >= 2 && !celebratedAlready.current;
+  useEffect(() => {
+    if (!prizeShown) return;
+    let alive = true;
+    let started = false;
+    const song = () => {
+      if (started || !alive) return;
+      started = true;
+      audio.playSong("results");
+    };
+    const timers = [
+      window.setTimeout(() => {
+        void announcer.say(announcement(summary)).then(song);
+        timers.push(window.setTimeout(song, SONG_CAP_MS));
+      }, JINGLE_MS[jingle]),
+    ];
+    return () => {
+      alive = false;
+      timers.forEach((t) => window.clearTimeout(t));
+    };
+  }, [prizeShown]);
 
   useEffect(
     () => () => {
@@ -121,17 +152,21 @@ export function Summary({ summary }: { summary: GameSummary }) {
   const difficulty = difficultyById(config.difficulty);
   const live = stage === 3;
   // Short landscape screens (phone sideways, 480p projector) have no height to spare in the side column.
-  const offerInActions = vp.orientation === "landscape" && vp.short;
+  // Phones in portrait pair it with Home in the action rows, so Safari's short viewport still shows them all.
+  const phonePortrait = vp.orientation === "portrait" && vp.w < 600;
+  const offerInActions = (vp.orientation === "landscape" && vp.short) || phonePortrait;
+  // Until the kid saves, "Add my name" is the one loud button; Play again steps back.
+  const offering = Boolean(boardMode && !savedId);
   const offer = boardMode && (
     <div className={s.board} data-show={stage >= 2 || undefined} data-inline={offerInActions || undefined} inert={!live}>
       {savedId ? (
-        <Button variant="ghost" size="md" block={!offerInActions} icon={<IconCheck />} onPress={() => nav.go("leaderboard")}>
+        <Button variant="ghost" size="md" block={!offerInActions || phonePortrait} icon={<IconCheck />} onPress={() => nav.go("leaderboard")}>
           {rank ? `Saved! You're #${rank}` : "Saved! See the board"}
         </Button>
       ) : (
-        <Button variant="success" size={big ? "lg" : "md"} block={!offerInActions} icon={<IconTrophy />} onPress={() => useResultsUi.setState({ view: "name" })}>
+        <Button variant="success" size={big ? "lg" : "md"} block={!offerInActions || phonePortrait} icon={<IconTrophy />} onPress={() => useResultsUi.setState({ view: "name" })}>
           Add my name!
-          {rank && <span className={s.rank}>#{rank}</span>}
+          {rank && <span className={s.rank}>You’re #{rank}!</span>}
         </Button>
       )}
     </div>
@@ -171,9 +206,12 @@ export function Summary({ summary }: { summary: GameSummary }) {
                   🔥 Best streak <b>{summary.bestStreak}</b>
                 </span>
               )}
-              <span>
-                <b>{shownPoints.toLocaleString()}</b> points
-              </span>
+              {/* Host judging scores nothing that is kept, so the team just sees its count. */}
+              {mode !== "host" && (
+                <span>
+                  <b>{shownPoints.toLocaleString()}</b> points
+                </span>
+              )}
             </p>
           </div>
 
@@ -191,11 +229,11 @@ export function Summary({ summary }: { summary: GameSummary }) {
 
         <div className={s.actions} data-show={live || undefined} inert={!live}>
           <IconButton icon={<IconHome />} label="Home" size={big ? "lg" : "md"} sfx="back" onPress={home} />
-          <Button variant="secondary" size={big ? "lg" : "md"} onPress={newTheme}>
+          <Button variant="ghost" size={big ? "lg" : "md"} onPress={newTheme} className={s.theme}>
             New theme
           </Button>
           {offerInActions && offer}
-          <Button variant="primary" size={big ? "lg" : "md"} icon={<IconRefresh />} onPress={playAgain} className={s.again}>
+          <Button variant={offering ? "secondary" : "primary"} size={big ? "lg" : "md"} icon={<IconRefresh />} onPress={playAgain} className={s.again}>
             Play again
           </Button>
         </div>

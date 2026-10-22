@@ -31,6 +31,7 @@
   --ghost-ink: var(--surface-ink);
   --ghost-bg: transparent;
   --ghost-border: var(--surface-ink);
+  --ghost-stroke: var(--surface-title-stroke);
   --display-fill: var(--surface-display);
   box-shadow:
     0 8px 0 var(--outline),
@@ -46,6 +47,9 @@
 }
 
 .title {
+  --display-fill: var(--surface-title);
+  --display-stroke: var(--surface-title-stroke);
+  --display-shadow: var(--surface-title-shadow);
   font-size: var(--fs-2xl);
   padding-top: 0.1em;
 }
@@ -65,4 +69,14 @@
 }
 .actions > * {
   flex: 1 1 10rem;
+}
+
+/* ConfirmDialog: buttons size to their labels and wrap to two rows rather than squeeze them. */
+.confirm .actions > * {
+  flex: 1 1 auto;
+  white-space: normal;
+}
+/* The risky choice is an outline with a red edge, never the brightest thing in the dialog. */
+.risky {
+  --ghost-border: var(--bad);
 }
