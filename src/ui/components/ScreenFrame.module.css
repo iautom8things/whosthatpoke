@@ -1,0 +1,121 @@
+.frame {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: calc(var(--safe-t) + var(--sp-3)) calc(var(--safe-r) + var(--gutter)) calc(var(--safe-b) + var(--sp-3)) calc(var(--safe-l) + var(--gutter));
+  gap: var(--sp-3);
+  overflow: hidden;
+}
+
+/* ---------- header ---------- */
+.header {
+  display: grid;
+  /* Side slots never shrink below their content, so the title can't slide under them. */
+  grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr);
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: var(--touch-min);
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  justify-self: start;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  justify-self: end;
+}
+.title {
+  min-width: 0;
+  text-align: center;
+}
+.titleText {
+  font-size: var(--fs-xl);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.12em 0.2em 0.18em;
+}
+
+/* ---------- body ---------- */
+.body {
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+}
+
+.frame[data-layout="center"] .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  text-align: center;
+}
+
+.frame[data-layout="stack"] .body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.frame[data-layout="fill"] .body {
+  display: grid;
+}
+.frame[data-layout="fill"] .body > * {
+  min-height: 0;
+  min-width: 0;
+}
+
+/* split: stage + side. Landscape puts them side by side; portrait stacks them. */
+.frame[data-layout="split"] .body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  align-items: stretch;
+  gap: var(--sp-5);
+}
+.frame[data-layout="split"] .body > * {
+  min-height: 0;
+  min-width: 0;
+}
+.frame[data-layout="split"] .body > :first-child {
+  position: relative;
+}
+.frame[data-layout="split"] .body > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sp-4);
+}
+@media (orientation: portrait) {
+  .frame[data-layout="split"] .body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: var(--sp-4);
+  }
+}
+
+/* ---------- footer ---------- */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+/* Phone landscape and 480p projectors: every pixel of height counts. */
+@media (max-height: 499px) {
+  .frame {
+    padding-top: calc(var(--safe-t) + var(--sp-2));
+    padding-bottom: calc(var(--safe-b) + var(--sp-2));
+    gap: var(--sp-2);
+  }
+}

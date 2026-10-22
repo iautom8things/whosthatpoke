@@ -1,0 +1,68 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  padding: calc(var(--safe-t) + var(--gutter)) calc(var(--safe-r) + var(--gutter)) calc(var(--safe-b) + var(--gutter)) calc(var(--safe-l) + var(--gutter));
+  background: var(--scrim);
+}
+
+.scrim[data-variant="sheet"] {
+  place-items: end center;
+  padding-bottom: 0;
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  width: min(100%, 40rem);
+  max-height: 100%;
+  overflow: auto;
+  padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  border: var(--stroke-thick) solid var(--outline);
+  border-radius: var(--r-xl);
+  background: var(--surface-strong);
+  color: var(--surface-ink);
+  text-align: center;
+  --ghost-ink: var(--surface-ink);
+  --ghost-bg: transparent;
+  --ghost-border: var(--surface-ink);
+  --display-fill: var(--surface-display);
+  box-shadow:
+    0 8px 0 var(--outline),
+    var(--shadow-pop);
+}
+
+.scrim[data-variant="sheet"] .panel {
+  width: min(100%, 52rem);
+  border-bottom: 0;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  padding-bottom: calc(var(--safe-b) + var(--sp-4));
+  box-shadow: var(--shadow-pop);
+}
+
+.title {
+  font-size: var(--fs-2xl);
+  padding-top: 0.1em;
+}
+
+.content {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+  width: 100%;
+}
+.actions > * {
+  flex: 1 1 10rem;
+}

@@ -1,0 +1,60 @@
+.ball {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+  overflow: visible;
+  transform-origin: 50% 85%;
+  filter: drop-shadow(0 0.05em 0 rgb(0 0 0 / 0.35));
+}
+
+.ball[data-empty] {
+  opacity: 0.45;
+}
+
+.ball[data-animate="wobble"] {
+  animation: wobble 1.6s var(--ease-in-out) infinite;
+}
+.ball[data-animate="spin"] {
+  transform-origin: 50% 50%;
+  animation: spin 1.1s linear infinite;
+}
+.ball[data-animate="bounce"] {
+  animation: bounce 900ms var(--ease-out) infinite;
+}
+
+/* The catch wobble: two tilts, then rest. */
+@keyframes wobble {
+  0%,
+  45%,
+  100% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(-16deg);
+  }
+  22% {
+    transform: rotate(13deg);
+  }
+  34% {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  40% {
+    transform: translateY(-22%) scale(0.96, 1.04);
+  }
+  80% {
+    transform: translateY(0) scale(1.08, 0.92);
+  }
+}

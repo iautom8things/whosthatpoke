@@ -1,0 +1,265 @@
+/* ---------- Stat ---------- */
+.stat {
+  --fs: var(--fs-2xl);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+  min-width: 0;
+}
+.stat[data-size="md"] {
+  --fs: var(--fs-xl);
+}
+.stat[data-size="xl"] {
+  --fs: var(--fs-3xl);
+}
+.value {
+  --display-fill: var(--hi);
+  font-size: var(--fs);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.label {
+  font-weight: 700;
+  font-size: max(var(--fs-xs), calc(var(--fs) * 0.32));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-shadow: 0 2px 0 var(--outline);
+}
+
+/* ---------- ProgressDots ---------- */
+.progress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  max-width: 100%;
+}
+.dots {
+  --dot: clamp(22px, 4vmin, 42px);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: calc(var(--dot) * 0.28);
+  min-width: 0;
+}
+.dot {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  border: 2.5px solid var(--outline);
+  background: rgb(255 255 255 / 0.22);
+  color: #fff;
+  font-size: calc(var(--dot) * 0.62);
+  transition:
+    background-color var(--dur-med),
+    transform var(--dur-med) var(--ease-pop);
+}
+.dot svg {
+  stroke-width: 4;
+}
+.dot[data-state="todo"] {
+  background: rgb(255 255 255 / 0.18);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.55);
+}
+.dot[data-state="done"] {
+  background: var(--ink-dim);
+}
+.dot[data-state="current"] {
+  background: var(--hi);
+  transform: scale(1.3);
+  box-shadow: 0 0 0 3px rgb(255 255 255 / 0.9);
+  animation: beat 1.1s var(--ease-in-out) infinite;
+}
+.dot[data-state="good"] {
+  background: var(--good);
+  animation: dotIn 360ms var(--ease-pop) both;
+}
+.dot[data-state="bad"] {
+  background: var(--bad);
+  animation: dotIn 360ms var(--ease-pop) both;
+}
+:global([data-projector="on"]) .dot[data-state="todo"] {
+  background: rgb(255 255 255 / 0.35);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+.count {
+  font-size: var(--fs-lg);
+  white-space: nowrap;
+}
+.of {
+  font-size: 0.7em;
+  --display-fill: var(--ink-soft);
+}
+
+/* Narrow screens: shrink the dots to fit beside the header buttons instead of wrapping. */
+@media (orientation: portrait) {
+  .dots {
+    --dot: min(28px, calc((100vw - 300px) / var(--n) / 1.3));
+  }
+}
+@media (max-width: 599px) {
+  .dots {
+    --dot: min(22px, calc((100vw - 170px) / var(--n) / 1.3));
+  }
+}
+
+/* ---------- TimerBar ---------- */
+.bar {
+  --fill: var(--good);
+  position: relative;
+  width: 100%;
+  height: clamp(22px, 3.4vmin, 40px);
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: var(--track);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px var(--rim),
+    0 4px 0 rgb(0 0 0 / 0.3);
+}
+.barFill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--fill) 55%, #fff) 0%, var(--fill) 50%);
+  transform-origin: left center;
+  transition:
+    transform 140ms linear,
+    background-color var(--dur-med);
+  will-change: transform;
+}
+.bar[data-level="mid"] {
+  --fill: var(--hi);
+}
+.bar[data-level="low"] {
+  --fill: var(--bad);
+}
+.bar[data-urgent] {
+  animation: urgent 520ms var(--ease-in-out) infinite;
+}
+.barLabel {
+  position: absolute;
+  inset: 0 0.5em 0 auto;
+  display: grid;
+  place-items: center;
+  font-size: clamp(14px, 2.4vmin, 28px);
+  padding-top: 0.12em;
+}
+
+/* ---------- TimerRing ---------- */
+.ring {
+  --fill: var(--good);
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+}
+.ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  rotate: -90deg;
+  overflow: visible;
+}
+.ringTrack {
+  fill: var(--track);
+  stroke: var(--outline);
+  stroke-width: 18;
+}
+.ringRim {
+  fill: none;
+  stroke: var(--rim);
+  stroke-width: 2.5;
+}
+.ringFill {
+  fill: none;
+  stroke: var(--fill);
+  stroke-width: 11;
+  stroke-linecap: round;
+  transition:
+    stroke-dashoffset 140ms linear,
+    stroke var(--dur-med);
+}
+.ring[data-level="mid"] {
+  --fill: var(--hi);
+}
+.ring[data-level="low"] {
+  --fill: var(--bad);
+}
+.ring[data-urgent] {
+  animation: urgent 520ms var(--ease-in-out) infinite;
+}
+.ringLabel {
+  position: relative;
+  font-size: 1.5em;
+  padding-top: 0.12em;
+}
+
+/* ---------- Lives ---------- */
+.lives {
+  --life: clamp(36px, 6vmin, 64px);
+  display: inline-flex;
+  gap: calc(var(--life) * 0.18);
+}
+.life {
+  display: block;
+  width: var(--life);
+  height: var(--life);
+  transition:
+    transform var(--dur-med) var(--ease-pop),
+    filter var(--dur-med);
+}
+.life:not([data-alive]) {
+  transform: scale(0.82);
+  filter: grayscale(1);
+  animation: lose 560ms var(--ease-out) both;
+}
+
+@keyframes beat {
+  0%,
+  100% {
+    transform: scale(1.22);
+  }
+  50% {
+    transform: scale(1.38);
+  }
+}
+@keyframes dotIn {
+  0% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes urgent {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.03;
+  }
+}
+@keyframes lose {
+  0% {
+    transform: scale(1.25) rotate(0);
+    filter: grayscale(0);
+  }
+  25% {
+    transform: scale(1.1) rotate(-18deg);
+  }
+  50% {
+    transform: scale(1) rotate(14deg);
+  }
+  100% {
+    transform: scale(0.82) rotate(0);
+    filter: grayscale(1);
+  }
+}

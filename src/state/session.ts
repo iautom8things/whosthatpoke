@@ -59,6 +59,23 @@ interface SessionState {
 }
 
 let deck: Deck | null = null;
+/** One question drawn ahead so the screen can preload its art. undefined = not drawn yet. */
+let ahead: Question | null | undefined;
+
+function draw(): Question | null {
+  if (ahead !== undefined) {
+    const q = ahead;
+    ahead = undefined;
+    return q;
+  }
+  return deck?.next() ?? null;
+}
+
+/** The question next() will load, without moving the game on. null when the deck has no more. */
+export function peekNext(): Question | null {
+  if (ahead === undefined) ahead = deck?.next() ?? null;
+  return ahead;
+}
 
 const isOver = (s: Pick<SessionState, "config" | "lives" | "rounds">) =>
   s.config?.mode === "survival" ? s.lives <= 0 : s.rounds.length >= (s.config?.rounds ?? 0);
@@ -82,7 +99,8 @@ export const useSession = create<SessionState>((set, get) => ({
     const { setup } = get();
     const config: GameConfig = { ...setup, rounds: useSettings.getState().rounds, seed };
     deck = createDeck(config, recentAnswers());
-    const current = deck.next();
+    ahead = undefined;
+    const current = draw();
     set({
       config,
       current,
@@ -135,7 +153,7 @@ export const useSession = create<SessionState>((set, get) => ({
       set({ phase: "done", current: null });
       return;
     }
-    const current = deck?.next() ?? null;
+    const current = draw();
     if (!current) {
       rememberAnswers(s.rounds.map((r) => r.question.answer.dex));
       set({ phase: "done", current: null });
@@ -145,7 +163,10 @@ export const useSession = create<SessionState>((set, get) => ({
   },
 
   quit: () => {
+    const s = get();
+    if (s.phase !== "done" && s.rounds.length > 0) rememberAnswers(s.rounds.map((r) => r.question.answer.dex));
     deck = null;
+    ahead = undefined;
     set({ phase: "idle", current: null, config: null });
   },
 }));

@@ -1,0 +1,472 @@
+/* ================= layout =================
+ * Landscape: stage (burst + silhouette) left, side (title, answers, clock/next) right.
+ * Portrait: stage on top, side below. Narrow phones also get a dots row above the stage.
+ */
+.root {
+  position: relative;
+  display: grid;
+  min-height: 0;
+}
+
+.game {
+  --title-max: var(--fs-2xl);
+  --reveal-max: var(--fs-2xl);
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-areas: "stage side";
+  gap: var(--sp-5);
+  min-height: 0;
+  min-width: 0;
+}
+
+.stage {
+  grid-area: stage;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.side {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sp-4);
+  min-width: 0;
+  min-height: 0;
+}
+
+.dotsRow {
+  display: none;
+  grid-area: dots;
+}
+
+@media (orientation: portrait) {
+  .game {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas: "stage" "side";
+    gap: var(--sp-3);
+  }
+  .side {
+    gap: var(--sp-3);
+  }
+}
+
+@media (orientation: portrait) and (max-width: 599px) {
+  .game {
+    --title-max: var(--fs-xl);
+  }
+  .game:not([data-survival]) {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas: "dots" "stage" "side";
+  }
+  .dotsRow {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--sp-1);
+  }
+  .dotsRow ol {
+    --dot: min(26px, calc((100vw - 2 * var(--gutter)) / var(--n) / 1.32));
+  }
+  .hudCenter .dotsHeader {
+    display: none;
+  }
+  .hudCenter .countNarrow {
+    display: inline-block;
+  }
+}
+
+/* Phone landscape and 480p projectors: one-line title, tighter rhythm. */
+@media (orientation: landscape) and (max-height: 560px) {
+  .game {
+    --title-max: var(--fs-xl);
+    gap: var(--sp-4);
+  }
+  .side {
+    gap: var(--sp-3);
+  }
+}
+
+/* ================= stage ================= */
+.drag {
+  position: absolute;
+  inset: 0;
+  transition: transform 320ms var(--ease-pop);
+}
+.stage[data-dragging] .drag {
+  transition: none;
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  display: grid;
+}
+
+.center {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.shout {
+  text-align: center;
+  rotate: -6deg;
+  white-space: nowrap;
+}
+
+.popup {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 2%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  pointer-events: none;
+}
+
+.points {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2);
+}
+
+.streak {
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  z-index: 3;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4) var(--sp-2) var(--sp-3);
+  border: var(--stroke-thick) solid var(--hi);
+  border-radius: var(--r-xl);
+  background: linear-gradient(180deg, #ff7a1a 0%, #d6340b 100%);
+  box-shadow:
+    0 0 0 var(--stroke) var(--outline),
+    0 8px 0 var(--outline),
+    0 14px 30px rgb(0 0 0 / 0.45);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.streakFlame {
+  font-size: var(--fs-3xl);
+  line-height: 1;
+}
+.streakText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1em;
+}
+
+/* ================= title ================= */
+.titleSlot {
+  display: grid;
+  container-type: inline-size;
+  pointer-events: none;
+}
+.title {
+  grid-area: 1 / 1;
+  align-self: center;
+  text-align: center;
+  text-wrap: balance;
+  /* As big as the theme allows, but a long name's longest word always fits on one line. */
+  font-size: min(var(--title-max), calc(100cqi / (var(--word) * 0.68)));
+  padding: 0.08em 0.1em 0.18em;
+}
+.revealTitle {
+  --display-fill: var(--hi);
+  font-size: min(var(--reveal-max), calc(100cqi / (var(--word) * 0.68)));
+}
+
+/* ================= answers ================= */
+.answers {
+  position: relative;
+  display: grid;
+  perspective: 1000px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+  transition:
+    opacity var(--dur-med) var(--ease-out),
+    scale var(--dur-med) var(--ease-out),
+    visibility 0s;
+}
+.answers[data-fact] .grid {
+  opacity: 0;
+  scale: 0.92;
+  visibility: hidden;
+  transition:
+    opacity var(--dur-med) var(--ease-out),
+    scale var(--dur-med) var(--ease-out),
+    visibility 0s linear var(--dur-med);
+}
+.cell {
+  display: grid;
+  min-width: 0;
+}
+
+/* ---------- fact card: sits exactly where the buttons were ---------- */
+.factWrap {
+  position: absolute;
+  inset: 0 0 var(--edge);
+  display: grid;
+  container-type: size;
+  transform-origin: 50% 0%;
+}
+.fact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, 5cqh, var(--sp-3));
+  min-height: 0;
+  padding: var(--sp-3) var(--sp-4);
+  overflow: hidden;
+  text-align: center;
+}
+.factHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  column-gap: 0.45em;
+  max-width: 100%;
+}
+.dexNo {
+  font-family: var(--font-display);
+  font-size: min(var(--fs-lg), 15cqh);
+  line-height: 1;
+  color: var(--surface-ink-soft);
+}
+.genus {
+  font-size: min(var(--fs-xl), 17cqh, calc(100cqw / 11));
+  text-wrap: balance;
+}
+.factTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2);
+}
+.region {
+  white-space: nowrap;
+}
+.factText {
+  max-width: 34em;
+  font-size: min(var(--fs-md), 13cqh);
+  font-weight: 600;
+  line-height: 1.25;
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fact[data-has-fact] .genus {
+  font-size: min(var(--fs-lg), 15cqh, calc(100cqw / 12));
+}
+/* Phones and 480p: the card is barely taller than two answer rows. */
+@container (max-height: 200px) {
+  .fact {
+    gap: 6px;
+    padding-block: var(--sp-2);
+  }
+  .factText {
+    font-size: min(var(--fs-sm), 12cqh);
+    line-height: 1.2;
+  }
+}
+
+/* ================= clock + next ================= */
+.action {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: var(--h-lg);
+}
+.action > * {
+  grid-area: 1 / 1;
+}
+.clock {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+.seconds {
+  min-width: 1.7em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.clock[data-urgent] .seconds {
+  animation: thump 1s var(--ease-out) infinite;
+}
+.bar {
+  flex: 1;
+  min-width: 0;
+}
+/* The last five seconds are red whatever share of the clock they are. */
+.clock[data-urgent] .bar {
+  --fill: var(--bad);
+}
+
+.nextWrap {
+  display: grid;
+}
+.next {
+  position: relative;
+  isolation: isolate;
+}
+/* Auto-advance: a lighter sweep across the button face that drains to the left, painted under the label. */
+.drain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: calc(var(--r-lg) - var(--stroke));
+  overflow: hidden;
+  pointer-events: none;
+}
+.drainFill {
+  position: absolute;
+  inset: 0;
+  background: rgb(255 255 255 / 0.32);
+  transform-origin: left center;
+  transition: transform 90ms linear;
+}
+
+/* ================= HUD ================= */
+.hudCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+.countNarrow {
+  display: none;
+  white-space: nowrap;
+}
+.of {
+  font-size: 0.7em;
+  --display-fill: var(--ink-soft);
+}
+.caught {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+}
+.hudScore {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.flame {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.08em;
+  padding: 0.12em 0.45em 0.06em 0.3em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, #ffc27a 0%, #ff7a1a 55%, #e2420c 100%);
+  box-shadow: 0 3px 0 var(--outline);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  line-height: 1;
+  color: #fff;
+}
+.flameCount {
+  -webkit-text-stroke: 0.16em var(--outline);
+  paint-order: stroke fill;
+  padding-top: 0.08em;
+}
+/* Narrow phones: the badge floats left of the score so the header never grows. */
+@media (max-width: 599px) {
+  .flame {
+    position: absolute;
+    top: 0.2em;
+    right: calc(100% + 4px);
+    font-size: var(--fs-md);
+  }
+}
+
+/* ================= game over ================= */
+.gameOver {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-hud);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-5);
+  padding: calc(var(--safe-t) + var(--gutter)) var(--gutter) calc(var(--safe-b) + var(--gutter));
+  background:
+    radial-gradient(circle at 50% 42%, rgb(120 0 40 / 0.45) 0%, transparent 60%),
+    linear-gradient(rgb(0 0 0 / 0.3), rgb(0 0 0 / 0.3)),
+    var(--scrim);
+  -webkit-backdrop-filter: blur(6px) saturate(0.6);
+  backdrop-filter: blur(6px) saturate(0.6);
+  text-align: center;
+}
+.gameOverCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.gameOverBall {
+  display: block;
+  width: clamp(64px, 12vmin, 140px);
+  aspect-ratio: 1;
+}
+.gameOverTitle {
+  white-space: nowrap;
+}
+.gameOverInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+}
+.gameOverSub {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 2px 0 var(--outline);
+}
+@media (max-height: 560px) {
+  .gameOver {
+    gap: var(--sp-3);
+  }
+}
+
+@keyframes thump {
+  0% {
+    scale: 1.3;
+  }
+  40%,
+  100% {
+    scale: 1;
+  }
+}

@@ -1,0 +1,209 @@
+.root {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  cursor: pointer;
+}
+
+/* Logo on top, the big ball in the middle, a quiet hint at the bottom.
+   No header or footer here, so the body spans every row of the frame. */
+.body {
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas: "logo" "tap" "hint";
+  justify-items: center;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.logo {
+  grid-area: logo;
+  padding-top: var(--sp-5);
+  container-type: inline-size;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  /* The lockup is about 6.6em wide; never let it outgrow the screen. Logo reads this via style. */
+  --logo-fs: min(var(--fs-hero) * 1.3, 19cqw);
+}
+
+.tap {
+  grid-area: tap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  container-type: size;
+  border-radius: var(--r-xl);
+}
+
+.ballZone {
+  --ball: min(46cqh, 70cqw, 300px);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: calc(var(--ball) * 2);
+  height: calc(var(--ball) * 1.5);
+  flex: none;
+}
+.ballZone > :first-child {
+  /* Burst: a touch bigger than the zone so its rays read as a halo. */
+  inset: -10%;
+}
+
+.ball {
+  position: relative;
+  z-index: 2;
+  width: var(--ball);
+  height: var(--ball);
+  animation: throb 1.6s var(--ease-in-out) infinite;
+}
+
+.pulse {
+  position: absolute;
+  z-index: 1;
+  width: var(--ball);
+  height: var(--ball);
+  border-radius: 50%;
+  border: max(4px, 0.8vmin) solid var(--hi);
+  opacity: 0;
+  animation: ring 2s var(--ease-out) infinite;
+}
+.pulse[data-late] {
+  animation-delay: 1s;
+}
+
+.flash {
+  position: absolute;
+  z-index: 3;
+  width: calc(var(--ball) * 1.6);
+  height: calc(var(--ball) * 1.6);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #fff 0 40%, rgb(255 255 255 / 0.6) 65%, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cta {
+  flex: none;
+  font-size: min(var(--fs-3xl), 13cqw);
+  --display-fill: var(--hi);
+  animation: nudge 1.6s var(--ease-in-out) infinite;
+  white-space: nowrap;
+}
+
+.hint {
+  grid-area: hint;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  opacity: 0.9;
+}
+
+/* ---------- the tap: ball pops open in a flash ---------- */
+.root[data-opening] .ball {
+  animation: open 520ms var(--ease-in) forwards;
+}
+.root[data-opening] .flash {
+  animation: flash 520ms var(--ease-out) forwards;
+}
+.root[data-opening] .pulse,
+.root[data-opening] .cta {
+  animation: none;
+  opacity: 0;
+  transition: opacity 160ms;
+}
+
+@keyframes throb {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.06;
+  }
+}
+@keyframes ring {
+  0% {
+    opacity: 0.85;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.75;
+  }
+}
+@keyframes nudge {
+  0%,
+  100% {
+    scale: 1;
+    rotate: -2deg;
+  }
+  50% {
+    scale: 1.07;
+    rotate: 2deg;
+  }
+}
+@keyframes open {
+  0% {
+    scale: 1;
+  }
+  35% {
+    scale: 0.86;
+  }
+  100% {
+    scale: 1.9;
+    opacity: 0;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0;
+    scale: 0.4;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 2.2;
+  }
+}
+
+/* Phone landscape and 480p projectors: logo left, ball right. */
+@media (orientation: landscape) and (max-height: 620px) {
+  .body {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas: "logo tap" "hint hint";
+  }
+  .logo {
+    padding-top: 0;
+    --logo-fs: min(var(--fs-hero) * 1.25, 19cqw);
+  }
+  .ballZone {
+    --ball: min(48cqh, 52cqw, 260px);
+    width: calc(var(--ball) * 1.7);
+  }
+  .cta {
+    font-size: min(var(--fs-2xl), 12cqw);
+  }
+}
+
+/* The shadow sits on the svg itself: WebKit clips a wrapper's filter to its box, which shaved the wobbling ball. */
+.ball svg {
+  filter: drop-shadow(0 0.5vmin 0 var(--outline)) drop-shadow(0 1.6vmin 2vmin rgb(0 0 0 / 0.45));
+}
+@media (hover: hover) and (pointer: fine) {
+  .root:hover .ball svg {
+    filter: drop-shadow(0 0.5vmin 0 var(--outline)) drop-shadow(0 1.6vmin 2vmin rgb(0 0 0 / 0.45)) brightness(1.08);
+  }
+}

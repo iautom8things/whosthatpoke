@@ -1,0 +1,276 @@
+/*
+ * Landscape: [Missed] [card] [Got it], with Reveal/Next under the card.
+ * Portrait:  card on top, [Missed] [Reveal/Next] [Got it] below.
+ * The paddles sit on the side the card flies to, so buttons and swipes teach each other.
+ */
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.count {
+  white-space: nowrap;
+  padding-top: 0.1em;
+}
+.of {
+  font-size: 0.65em;
+  --display-fill: var(--ink-soft);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.8fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "miss stage got"
+    "miss center got";
+  column-gap: var(--sp-4);
+  row-gap: var(--sp-3);
+  height: 100%;
+  min-height: 0;
+}
+
+.side {
+  container-type: inline-size;
+  display: grid;
+  align-items: center;
+  min-width: 0;
+}
+.miss {
+  grid-area: miss;
+}
+.got {
+  grid-area: got;
+}
+.center {
+  grid-area: center;
+  justify-items: center;
+  /* Reserve the button's height so Reveal, the hint and Next never shift the card. */
+  min-height: var(--h-md);
+}
+
+/* ---------- the card stage ---------- */
+.stage {
+  grid-area: stage;
+  position: relative;
+  /* A dragged or thrown card flies over the paddles and the header, never under them. */
+  z-index: 2;
+  min-height: 0;
+  container-type: size;
+  display: grid;
+  place-items: center;
+  /* Swipes own every gesture here; the page never scrolls or zooms under the finger. */
+  touch-action: none;
+  cursor: grab;
+}
+.slot {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- Missed / Got it paddles ---------- */
+.paddleWrap {
+  position: relative;
+  width: 100%;
+  transition:
+    transform 260ms var(--ease-pop),
+    opacity var(--dur-med) var(--ease-out),
+    filter var(--dur-med) var(--ease-out);
+}
+.paddleWrap[data-armed] {
+  transform: scale(1.08);
+}
+.paddleWrap[data-armed] .paddle {
+  filter: brightness(1.15);
+}
+.paddleWrap[data-dim] {
+  opacity: 0.4;
+  filter: saturate(0.5);
+}
+.paddleWrap[data-dim] .paddle {
+  pointer-events: none;
+}
+
+.layout .side .paddle {
+  --fs: min(var(--fs-xl), 16cqi);
+  flex-direction: column;
+  gap: 0.1em;
+  width: 100%;
+  min-height: min(52vh, 22rem);
+  padding: 0.5em 0.2em 0.35em;
+}
+.paddleIcon {
+  width: 2.3em;
+  height: 2.3em;
+}
+.paddle[aria-disabled] {
+  cursor: default;
+}
+
+/* Running count on each paddle: how many they got, how many slipped by. */
+.tally {
+  position: absolute;
+  top: calc(var(--sp-2) * -1);
+  right: calc(var(--sp-1) * -1);
+  display: grid;
+  place-items: center;
+  min-width: 1.6em;
+  height: 1.6em;
+  padding: 0.12em 0.3em 0;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink-dark);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  line-height: 1;
+  box-shadow: 0 3px 0 var(--outline);
+  pointer-events: none;
+  /* Above the neighbouring Reveal button in the portrait row. */
+  z-index: 1;
+}
+
+/* ---------- Reveal / hint / Next ---------- */
+.layout .center .centerBtn {
+  --fs: var(--fs-lg);
+  min-width: min(100%, 11em);
+}
+.centerIcon {
+  width: 1.15em;
+  height: 1.15em;
+}
+.hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  min-height: calc(var(--h-lg) - var(--edge));
+  padding: 0 0.9em;
+  border: var(--stroke) dashed var(--rim);
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  text-transform: uppercase;
+  color: var(--hi);
+  -webkit-text-stroke: 0.14em var(--outline);
+  paint-order: stroke fill;
+  text-align: center;
+  animation: hintIn 300ms var(--ease-pop) both;
+}
+.hintArrow {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  color: var(--ink);
+  stroke-width: 4;
+}
+
+/* Under auto-advance, Next fills up like a fuse until the next card comes. */
+.timed::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 14%;
+  height: 5px;
+  border-radius: 3px;
+  background: rgb(255 255 255 / 0.85);
+  transform-origin: left center;
+  animation: fuse var(--hold) linear both;
+}
+
+/* A fuse that cannot move tells nothing. */
+:global([data-reduce-motion="on"]) .timed::after {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .timed::after {
+    display: none;
+  }
+}
+
+/* ---------- portrait ---------- */
+@media (orientation: portrait) {
+  .layout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "stage stage stage"
+      "miss center got";
+    column-gap: var(--sp-3);
+  }
+  .layout .side .paddle,
+  .layout .center .centerBtn {
+    --fs: min(var(--fs-lg), 15cqi);
+    flex-direction: column;
+    gap: 0.1em;
+    width: 100%;
+    min-width: 0;
+    min-height: calc(var(--h-lg) * 1.15);
+    padding: 0.35em 0.2em 0.25em;
+  }
+  .paddleIcon,
+  .centerIcon {
+    width: 1.7em;
+    height: 1.7em;
+  }
+  .center {
+    align-items: stretch;
+  }
+  .hint {
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 0;
+    padding: 0.3em 0.4em;
+    border-radius: var(--r-lg);
+    font-size: min(var(--fs-md), 13cqi);
+  }
+  .hintArrow {
+    display: none;
+  }
+}
+
+/* Short landscape (phone, 480p and 720p projectors): the card gets the whole body height and the
+   Reveal / hint / Next control moves up into the header. */
+.layout[data-compact] {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 3fr) minmax(0, 0.85fr);
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-areas: "miss stage got";
+}
+.layout[data-compact] .side .paddle {
+  min-height: min(62vh, 20rem);
+}
+.headerRight {
+  display: flex;
+  align-items: center;
+  min-height: var(--touch-min);
+}
+.headerRight .centerBtn {
+  --fs: var(--fs-md);
+}
+.headerRight .hint {
+  min-height: calc(var(--touch-min) - var(--edge));
+  padding: 0 0.6em;
+  font-size: var(--fs-md);
+}
+
+@keyframes fuse {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes hintIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}

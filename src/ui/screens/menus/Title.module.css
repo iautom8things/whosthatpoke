@@ -1,0 +1,138 @@
+.root {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+}
+.root > :last-child {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- layout: logo beside the menu in landscape, above it in portrait ---------- */
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-5);
+}
+
+.hero {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+  min-width: 0;
+  /* The lockup is about 6.6em wide. */
+  --logo-fs: min(var(--fs-hero) * 1.2, 18cqw);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: 100%;
+  max-width: 600px;
+  justify-self: center;
+}
+
+.playWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--sp-1);
+}
+.menu .playWrap .play {
+  --fs: calc(var(--fs-3xl) * 0.92);
+  min-height: calc(var(--h-xl) * 1.08 - var(--edge));
+}
+.playSub {
+  text-align: center;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-3);
+}
+.modes > * {
+  display: grid;
+  min-width: 0;
+}
+
+.body .mode {
+  min-height: calc(var(--h-xl) * 1.25);
+  gap: var(--sp-1);
+  padding-inline: var(--sp-2);
+}
+.modeIcon {
+  display: grid;
+  place-items: center;
+  height: clamp(36px, 6.5vmin, 68px);
+}
+.mode .lives {
+  --life: clamp(30px, 5.6vmin, 58px);
+}
+.hostIcon {
+  font-size: clamp(36px, 6.5vmin, 68px);
+  color: var(--good);
+  filter: drop-shadow(0 3px 0 var(--outline));
+}
+.modeName {
+  font-size: var(--fs-xl);
+  padding-top: 0.1em;
+  white-space: nowrap;
+}
+.modeBlurb {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--surface-ink-soft);
+  text-wrap: balance;
+}
+
+/* ---------- portrait: one column ---------- */
+@media (orientation: portrait) {
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-items: center;
+    gap: var(--sp-6);
+  }
+  .hero {
+    width: 100%;
+    gap: var(--sp-4);
+    --logo-fs: min(var(--fs-hero) * 1.25, 18cqw);
+  }
+}
+
+/* ---------- short landscape (phones, 480p projectors): tighter cards ---------- */
+@media (orientation: landscape) and (max-height: 560px) {
+  .body {
+    gap: var(--sp-4);
+  }
+  .hero {
+    gap: var(--sp-3);
+  }
+  .menu {
+    gap: var(--sp-3);
+  }
+  .body .mode {
+    min-height: 0;
+    padding-block: calc(var(--sp-2) + 0.45em) var(--sp-2);
+  }
+  .modeName {
+    font-size: var(--fs-lg);
+  }
+  .modeBlurb {
+    font-size: var(--fs-xs);
+  }
+  .playSub {
+    display: none;
+  }
+}

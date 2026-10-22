@@ -1,0 +1,321 @@
+.title {
+  font-size: var(--fs-xl);
+  line-height: 1.02;
+  text-align: center;
+  text-wrap: balance;
+  padding: 0.12em 0.2em 0.18em;
+}
+
+.body {
+  gap: var(--sp-3);
+}
+
+/* ---------- tabs ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2) var(--sp-5);
+  flex: none;
+}
+.group {
+  display: inline-flex;
+  gap: var(--sp-2);
+}
+
+/* ---------- list ---------- */
+.scroller {
+  --row: clamp(56px, 9.6vmin, 104px);
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* Room for the fresh row's outline and glow inside the scroller. */
+  padding: 12px;
+  margin: -12px;
+}
+.list {
+  /* Auto margins center the list, and collapse to 0 when it overflows, so row 1 never hides above the fold. */
+  margin-block: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: var(--row);
+  gap: var(--sp-2) var(--sp-4);
+  width: min(100%, 52rem);
+  margin-inline: auto;
+  flex: none;
+}
+@media (orientation: landscape) and (min-width: 780px) {
+  .list[data-cols="2"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(var(--rows, 5), var(--row));
+    grid-auto-flow: column;
+    width: 100%;
+  }
+}
+.list:has(+ .mine) {
+  margin-bottom: 0;
+}
+.mine {
+  flex: none;
+  width: min(100%, 52rem);
+  margin: 0 auto auto;
+  padding-top: var(--sp-2);
+  border-top: 3px dashed var(--rim);
+}
+.mine .row {
+  height: var(--row);
+}
+
+/* ---------- row ---------- */
+.row {
+  --face: var(--choice-face);
+  --face-2: color-mix(in srgb, var(--choice-face) 88%, #000);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  padding: 0 var(--sp-4) 0 var(--sp-2);
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--face) 0%, var(--face-2) 100%);
+  color: #160a33;
+  box-shadow: 0 4px 0 var(--outline);
+  animation: rowIn 380ms var(--ease-pop) both;
+  animation-delay: calc(var(--i) * 45ms);
+}
+.row[data-medal="gold"] {
+  --face: #fff0a8;
+  --face-2: #ffc93c;
+}
+.row[data-medal="silver"] {
+  --face: #ffffff;
+  --face-2: #c9d2e0;
+}
+.row[data-medal="bronze"] {
+  --face: #ffd9b8;
+  --face-2: #e39a5f;
+}
+.row[data-fresh] {
+  outline: var(--stroke-thick) solid var(--hi);
+  outline-offset: 3px;
+  animation:
+    rowIn 380ms var(--ease-pop) both,
+    glow 1.4s var(--ease-in-out) 600ms infinite;
+}
+
+.rank {
+  --display-fill: #fff;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: calc(var(--row) * 0.66);
+  aspect-ratio: 1;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 50%;
+  background: #3a2a6a;
+  font-size: calc(var(--row) * 0.36);
+  padding-top: 0.08em;
+  text-shadow: 0 0.06em 0 var(--outline);
+}
+.row[data-medal="gold"] .rank {
+  background: radial-gradient(circle at 35% 30%, #fff6c2, #ffcc00 55%, #c98a00);
+}
+.row[data-medal="silver"] .rank {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #c6cfdc 55%, #8692a6);
+}
+.row[data-medal="bronze"] .rank {
+  background: radial-gradient(circle at 35% 30%, #ffe1c4, #d98a4e 55%, #9a5524);
+}
+.crown {
+  position: absolute;
+  top: -0.9em;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 0.95em;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  rotate: -12deg;
+}
+
+.avatar {
+  position: relative;
+  display: grid;
+  width: calc(var(--row) * 0.78);
+  aspect-ratio: 1;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #fff 0%, #ece6ff 80%);
+  overflow: hidden;
+}
+
+.who {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1em;
+  min-width: 0;
+}
+.name {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  min-width: 0;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: 1.05;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name .newPill {
+  padding: 0.16em 0.6em 0.1em;
+  line-height: 1;
+}
+.newPill {
+  flex: none;
+  animation: pillPop 500ms var(--ease-pop) 500ms both;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  min-width: 0;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #3d3060;
+}
+.metaText {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1;
+}
+.value {
+  --display-fill: var(--accent);
+  font-size: var(--fs-xl);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.08em;
+}
+.unit {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #3d3060;
+}
+
+/* ---------- empty ---------- */
+.empty {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  min-height: 0;
+  text-align: center;
+}
+.emptyTitle {
+  text-wrap: balance;
+}
+.emptyText {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  text-shadow: 0 2px 0 var(--outline);
+  text-wrap: balance;
+}
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+
+/* ---------- narrow and short screens ---------- */
+@media (max-width: 599px) {
+  .scroller {
+    --row: 52px;
+  }
+  .list {
+    row-gap: 6px;
+  }
+  .row {
+    gap: var(--sp-2);
+    padding-right: var(--sp-3);
+  }
+  .name {
+    font-size: var(--fs-md);
+  }
+  .value {
+    font-size: var(--fs-lg);
+  }
+  .title {
+    font-size: var(--fs-lg);
+  }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .scroller {
+    --row: clamp(48px, 11vmin, 60px);
+  }
+  .list {
+    gap: 6px var(--sp-3);
+  }
+  .body {
+    gap: var(--sp-2);
+  }
+  .name {
+    font-size: var(--fs-md);
+  }
+  .value {
+    font-size: var(--fs-lg);
+  }
+  .controls {
+    gap: var(--sp-2) var(--sp-3);
+  }
+}
+
+@keyframes rowIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow:
+      0 4px 0 var(--outline),
+      0 0 0 0 rgb(255 225 77 / 0);
+  }
+  50% {
+    box-shadow:
+      0 4px 0 var(--outline),
+      0 0 26px 6px rgb(255 225 77 / 0.75);
+  }
+}
+@keyframes pillPop {
+  from {
+    transform: scale(0) rotate(-20deg);
+  }
+  to {
+    transform: none;
+  }
+}

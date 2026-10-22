@@ -1,0 +1,59 @@
+.burst {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  container-type: size;
+  --fade-from: 22cqmin;
+  --fade-to: 50cqmin;
+}
+
+.rays {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* A square a bit wider than the stage; the radial mask hides its corners while it spins. */
+  width: calc(max(100cqw, 100cqh) * 1.45);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: repeating-conic-gradient(from 0deg, var(--burst-a) 0deg var(--ray), var(--burst-b) var(--ray) calc(var(--ray) * 2));
+  /* Fades out within half the stage's short side, so the burst never shows a box edge. */
+  -webkit-mask-image: radial-gradient(circle, #000 var(--fade-from), transparent var(--fade-to));
+  mask-image: radial-gradient(circle, #000 var(--fade-from), transparent var(--fade-to));
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  opacity: calc(0.35 + 0.65 * var(--i));
+  transition: opacity var(--dur-slow) var(--ease-out);
+  will-change: transform;
+}
+
+.burst[data-spinning] .rays {
+  animation: spin 48s linear infinite;
+}
+
+.core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(min(100cqw, 100cqh) * 0.8);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--burst-core) 0%, color-mix(in srgb, var(--burst-core) 70%, transparent) 40%, transparent 100%);
+  opacity: calc(0.25 + 0.75 * var(--i));
+  scale: calc(0.85 + 0.3 * var(--i));
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    scale var(--dur-slow) var(--ease-pop);
+}
+
+:global([data-projector="on"]) .burst {
+  --fade-from: 32cqmin;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

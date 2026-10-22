@@ -1,0 +1,105 @@
+.logo {
+  --fs: var(--fs-3xl);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  color: var(--logo-fill);
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  rotate: -4deg;
+  user-select: none;
+}
+
+.logo[data-size="sm"] {
+  --fs: var(--fs-xl);
+}
+.logo[data-size="md"] {
+  --fs: var(--fs-2xl);
+}
+.logo[data-size="xl"] {
+  --fs: var(--fs-hero);
+}
+
+.line1,
+.line2 {
+  display: block;
+  -webkit-text-stroke: 0.2em var(--logo-stroke);
+  paint-order: stroke fill;
+  text-shadow:
+    0 0.05em 0 var(--logo-shadow),
+    0 0.09em 0 var(--logo-shadow),
+    0 0.13em 0 var(--logo-shadow),
+    0 0.2em 0.12em rgb(0 0 0 / 0.45);
+}
+
+.line1 {
+  font-size: 0.6em;
+  margin-bottom: 0.08em;
+  translate: -0.35em 0;
+  /* Thinner glyphs need a proportionally thicker outline to match line 2. */
+  -webkit-text-stroke-width: 0.24em;
+}
+
+.line2 {
+  font-size: 1em;
+  translate: 0.12em 0;
+}
+
+.letter,
+.space {
+  display: inline-block;
+}
+.space {
+  width: 0.28em;
+}
+
+/* Spooky night: the same iconic lockup, with a warm pumpkin glow behind it. */
+:global([data-theme="spooky"]) .logo,
+:global(:root:not([data-theme])) .logo {
+  filter: drop-shadow(0 0 0.18em rgb(255 138 31 / 0.55));
+}
+:global([data-projector="on"]) .logo {
+  filter: none;
+}
+
+/* ---------- entrance ---------- */
+.logo[data-animated] .letter {
+  animation: drop 620ms var(--ease-pop) both;
+  animation-delay: calc(var(--i) * 38ms + 80ms);
+}
+
+.logo[data-bob] {
+  animation: bob 3.2s var(--ease-in-out) 1.1s infinite;
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.9em) scale(0.4) rotate(-14deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0.06em) scale(1.12, 0.9) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -0.06em;
+  }
+}

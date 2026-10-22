@@ -1,0 +1,368 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  cursor: pointer;
+}
+.root > * {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+/* ScreenFrame has no header here, so its body would land in the header's auto row. Pin the rows. */
+.root .frame {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.slide {
+  position: relative;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+}
+.slide > * {
+  min-height: 0;
+  height: 100%;
+}
+
+/* ---------- footer call to action ---------- */
+.tapBar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.25em 1em 0.2em 0.7em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  box-shadow: 0 5px 0 var(--outline);
+  /* One line on a phone too: never wider than the screen allows. */
+  font-size: min(var(--fs-lg), 5vw);
+  white-space: nowrap;
+  animation: nudge 2.4s var(--ease-in-out) infinite;
+}
+.tapBar[data-hidden] {
+  visibility: hidden;
+}
+.tapHand {
+  width: 1.4em;
+  height: 1.4em;
+  flex: none;
+  animation: tapHand 1.2s var(--ease-in-out) infinite;
+}
+
+/* ---------- quiz ---------- */
+.quiz {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: var(--sp-5);
+  min-height: 0;
+}
+.stage {
+  position: relative;
+  min-height: 0;
+}
+.side {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  min-width: 0;
+  min-height: 0;
+  text-align: center;
+  container-type: inline-size;
+}
+.ask,
+.reveal {
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+}
+.askTitle {
+  text-wrap: balance;
+}
+.ring {
+  width: min(34vmin, 16rem, 60cqi);
+  aspect-ratio: 1;
+  font-size: var(--fs-2xl);
+}
+.shout {
+  animation: bounce 900ms var(--ease-in-out) infinite alternate;
+}
+.reveal {
+  animation: pop 520ms var(--ease-pop) both;
+}
+.name {
+  /* Fits one line: 0.7em per letter is Luckiest Guy's widest average. */
+  font-size: min(var(--fs-3xl), calc(96cqi / (var(--chars) * 0.7))) !important;
+  white-space: nowrap;
+  padding-top: 0.1em;
+}
+.genus {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 2px 0 var(--outline);
+}
+.types {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2);
+}
+
+/* ---------- Top Trainers ---------- */
+.board {
+  display: grid;
+  grid-template-rows: auto minmax(0, auto);
+  justify-items: center;
+  align-content: center;
+  gap: var(--sp-3);
+  min-height: 0;
+}
+.boardTitle {
+  text-align: center;
+  text-wrap: balance;
+}
+.trophy {
+  display: inline-block;
+  vertical-align: -0.12em;
+  margin-right: 0.15em;
+  width: 1em;
+  height: 1em;
+  color: var(--hi);
+  filter: drop-shadow(0 0.06em 0 var(--outline));
+}
+.boardPanel {
+  width: min(100%, 46rem);
+  min-height: 0;
+  overflow: hidden;
+}
+.rows {
+  display: grid;
+  gap: var(--sp-2);
+}
+.row {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 0;
+  padding: var(--sp-1) var(--sp-4) var(--sp-1) var(--sp-2);
+  border-radius: var(--r-lg);
+  background: color-mix(in srgb, var(--surface-ink) 7%, transparent);
+  animation: rowIn 500ms var(--ease-pop) both;
+  animation-delay: calc(var(--i) * 120ms + 200ms);
+}
+.row[data-top] {
+  background: color-mix(in srgb, var(--medal) 24%, transparent);
+}
+.rank {
+  display: grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  padding-top: 0.12em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 50%;
+  background: var(--medal);
+  font-size: var(--fs-lg);
+  --display-fill: #fff;
+}
+.buddy {
+  position: relative;
+  width: calc(var(--fs-lg) * 2);
+  height: calc(var(--fs-lg) * 2);
+}
+.trainer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--surface-ink);
+}
+.points {
+  font-size: var(--fs-xl);
+  --display-fill: var(--hi);
+}
+:global([data-theme="classic"]) .points {
+  --display-fill: var(--accent);
+}
+
+.empty {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-4);
+  width: min(100%, 44rem);
+}
+.emptyArt {
+  position: relative;
+  width: min(30vmin, 12rem);
+  aspect-ratio: 1;
+}
+.emptyText {
+  display: grid;
+  gap: var(--sp-2);
+  text-align: left;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+/* ---------- Tap to play! ---------- */
+.cta {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--sp-3);
+  text-align: center;
+}
+.ctaBig {
+  /* Hero size from across the driveway, but never wider than a phone. */
+  font-size: min(var(--fs-hero), 12vw) !important;
+  animation: throb 1.1s var(--ease-in-out) infinite alternate;
+}
+.ctaSub {
+  text-wrap: balance;
+}
+.balls {
+  display: flex;
+  gap: var(--sp-4);
+}
+.ball {
+  width: clamp(40px, 9vmin, 96px);
+  aspect-ratio: 1;
+  animation: hop 1s var(--ease-in-out) infinite alternate;
+  animation-delay: calc(var(--i) * 140ms);
+}
+
+/* ---------- portrait and short screens ---------- */
+@media (max-width: 599px) {
+  .trainer,
+  .points {
+    font-size: var(--fs-lg);
+  }
+  .row {
+    gap: var(--sp-2);
+    padding-inline: var(--sp-1) var(--sp-3);
+  }
+}
+@media (orientation: portrait) {
+  .empty {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    width: min(100%, 30rem);
+  }
+  .emptyText {
+    text-align: center;
+    text-wrap: balance;
+  }
+  .quiz {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1.3fr) auto;
+    gap: var(--sp-3);
+  }
+  .ring {
+    width: min(26vmin, 11rem);
+  }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .ask,
+  .reveal {
+    gap: var(--sp-2);
+  }
+  .ring {
+    width: min(30vmin, 10rem);
+    font-size: var(--fs-xl);
+  }
+  .boardTitle {
+    font-size: var(--fs-xl) !important;
+  }
+  .row {
+    padding-block: 2px;
+  }
+  .rank,
+  .trainer,
+  .points {
+    font-size: var(--fs-lg);
+  }
+  .rank {
+    font-size: var(--fs-md);
+  }
+  .buddy {
+    width: calc(var(--fs-lg) * 1.6);
+    height: calc(var(--fs-lg) * 1.6);
+  }
+  .tapBar {
+    font-size: var(--fs-md);
+    box-shadow: 0 3px 0 var(--outline);
+  }
+}
+
+@keyframes nudge {
+  0%,
+  70%,
+  100% {
+    transform: none;
+  }
+  78% {
+    transform: scale(1.08) rotate(-2deg);
+  }
+  86% {
+    transform: scale(1.04) rotate(2deg);
+  }
+}
+@keyframes tapHand {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(12%) scale(0.9);
+  }
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0) rotate(-2deg);
+  }
+  to {
+    transform: translateY(-10%) rotate(2deg);
+  }
+}
+@keyframes pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes rowIn {
+  from {
+    transform: translateX(-14%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes throb {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+@keyframes hop {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-28%);
+  }
+}

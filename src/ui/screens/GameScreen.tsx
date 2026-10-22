@@ -1,3 +1,2 @@
-export default function GameScreen() {
-  return <div style={{ padding: 40, fontSize: 32 }}>Game screen (stub)</div>;
-}
+// The play loop lives in ./game; this file is the lazy-loaded entry App.tsx expects.
+export { default } from "./game/Game";

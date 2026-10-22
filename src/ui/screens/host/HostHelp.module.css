@@ -1,0 +1,439 @@
+.panel {
+  width: min(100%, 64rem);
+  gap: var(--sp-3);
+}
+
+.lead {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  text-wrap: balance;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-3);
+  width: 100%;
+}
+
+.tile {
+  --tone: var(--good);
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-2) var(--sp-2) var(--sp-3);
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-lg);
+  background: color-mix(in srgb, var(--tone) 16%, var(--surface-strong));
+  min-width: 0;
+}
+.tile[data-kind="left"] {
+  --tone: var(--bad);
+}
+.tile[data-kind="tap"] {
+  --tone: var(--hi);
+}
+
+.demo {
+  position: relative;
+  width: 100%;
+  --h: clamp(96px, 20vmin, 190px);
+  --hand: clamp(40px, 8vmin, 72px);
+  height: var(--h);
+  overflow: hidden;
+  border-radius: var(--r-md);
+}
+
+/* Mini trading card. */
+.mini {
+  --w: calc(var(--h) * 0.58);
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  width: var(--w);
+  aspect-ratio: 0.76;
+  margin-left: calc(var(--w) / -2);
+  border: var(--stroke) solid var(--outline);
+  border-radius: calc(var(--w) * 0.1);
+  background:
+    radial-gradient(circle at 50% 42%, var(--bg-3), var(--bg-1) 70%) padding-box,
+    var(--logo-fill);
+  box-shadow:
+    inset 0 0 0 calc(var(--w) * 0.05) var(--logo-fill),
+    0 3px 0 var(--outline);
+  overflow: hidden;
+}
+.mini img {
+  position: absolute;
+  inset: 14%;
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+.sil {
+  filter: brightness(0) drop-shadow(0 0 1.5px #fff);
+}
+.col {
+  opacity: 0;
+}
+.badge {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  place-items: center;
+  width: 46%;
+  aspect-ratio: 1;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 50%;
+  background: var(--tone);
+  color: #fff;
+  font-size: calc(var(--w) * 0.28);
+  opacity: 0;
+}
+.tile[data-kind="tap"] .badge {
+  display: none;
+}
+
+.hand {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: var(--hand);
+  margin-left: calc(var(--hand) / -2.6);
+  filter: drop-shadow(0 3px 0 rgb(0 0 0 / 0.35));
+}
+
+.ripple {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  width: var(--hand);
+  aspect-ratio: 1;
+  margin: calc(var(--hand) / -2) 0 0 calc(var(--hand) / -2);
+  border: 4px solid var(--hi);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-size: var(--fs-lg);
+  --display-fill: #fff;
+}
+.labelIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.3em;
+  height: 1.3em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 50%;
+  background: var(--tone);
+  color: #fff;
+  font-size: 0.85em;
+}
+.tile[data-kind="tap"] .labelIcon {
+  color: var(--ink-dark);
+}
+.sub {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.keys {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--surface-ink-soft);
+}
+.keys kbd {
+  display: inline-block;
+  min-width: 1.8em;
+  margin: 0 0.15em 0 0.5em;
+  padding: 0.05em 0.4em;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  font-family: inherit;
+  font-weight: 700;
+}
+/* The keyboard line only helps where there is a keyboard. */
+@media (hover: none) and (pointer: coarse) {
+  .keys {
+    display: none;
+  }
+}
+
+/* ---------- loops ---------- */
+.tile[data-kind="right"] .mini {
+  animation: flingRight 2.6s var(--ease-in-out) infinite;
+}
+.tile[data-kind="right"] .hand {
+  animation: handRight 2.6s var(--ease-in-out) infinite;
+}
+.tile[data-kind="left"] .mini {
+  animation: flingLeft 2.6s var(--ease-in-out) infinite;
+}
+.tile[data-kind="left"] .hand {
+  animation: handLeft 2.6s var(--ease-in-out) infinite;
+}
+.tile[data-kind="right"] .badge,
+.tile[data-kind="left"] .badge {
+  animation: badge 2.6s var(--ease-out) infinite;
+}
+.tile[data-kind="tap"] .hand {
+  animation: handTap 2.6s var(--ease-in-out) infinite;
+}
+.tile[data-kind="tap"] .col {
+  animation: colorIn 2.6s linear infinite;
+}
+.tile[data-kind="tap"] .ripple {
+  animation: ripple 2.6s var(--ease-out) infinite;
+}
+
+@keyframes flingRight {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  6%,
+  14% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(62%) rotate(14deg);
+    opacity: 1;
+  }
+  84% {
+    transform: translateX(62%) rotate(14deg);
+    opacity: 1;
+  }
+  94%,
+  100% {
+    transform: translateX(62%) rotate(14deg);
+    opacity: 0;
+  }
+}
+@keyframes flingLeft {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  6%,
+  14% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(-62%) rotate(-14deg);
+    opacity: 1;
+  }
+  84% {
+    transform: translateX(-62%) rotate(-14deg);
+    opacity: 1;
+  }
+  94%,
+  100% {
+    transform: translateX(-62%) rotate(-14deg);
+    opacity: 0;
+  }
+}
+@keyframes handRight {
+  0% {
+    transform: translate(-20%, 30%);
+    opacity: 0;
+  }
+  12% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(150%);
+    opacity: 1;
+  }
+  70%,
+  100% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+}
+@keyframes handLeft {
+  0% {
+    transform: translate(20%, 30%);
+    opacity: 0;
+  }
+  12% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(-150%);
+    opacity: 1;
+  }
+  70%,
+  100% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+}
+@keyframes badge {
+  0%,
+  40% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  52%,
+  86% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  94%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes handTap {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  15% {
+    transform: none;
+    opacity: 1;
+  }
+  25% {
+    transform: scale(0.85);
+  }
+  33% {
+    transform: none;
+  }
+  75% {
+    transform: none;
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+}
+@keyframes colorIn {
+  0%,
+  26% {
+    opacity: 0;
+  }
+  32%,
+  88% {
+    opacity: 1;
+  }
+  95%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ripple {
+  0%,
+  24% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  28% {
+    opacity: 1;
+  }
+  48%,
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* Reduced motion: hold the most telling frame of each gesture instead of looping. */
+:global([data-reduce-motion="on"]) .tile .mini,
+:global([data-reduce-motion="on"]) .tile .hand,
+:global([data-reduce-motion="on"]) .tile .badge,
+:global([data-reduce-motion="on"]) .tile .col,
+:global([data-reduce-motion="on"]) .tile .ripple {
+  animation: none !important;
+}
+:global([data-reduce-motion="on"]) .tile[data-kind="right"] .mini {
+  transform: translateX(30%) rotate(8deg);
+}
+:global([data-reduce-motion="on"]) .tile[data-kind="right"] .hand {
+  transform: translateX(80%);
+}
+:global([data-reduce-motion="on"]) .tile[data-kind="left"] .mini {
+  transform: translateX(-30%) rotate(-8deg);
+}
+:global([data-reduce-motion="on"]) .tile[data-kind="left"] .hand {
+  transform: translateX(-80%);
+}
+:global([data-reduce-motion="on"]) .tile .badge,
+:global([data-reduce-motion="on"]) .tile[data-kind="tap"] .col {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile .mini,
+  .tile .hand,
+  .tile .badge,
+  .tile .col,
+  .tile .ripple {
+    animation: none !important;
+  }
+  .tile[data-kind="right"] .mini {
+    transform: translateX(30%) rotate(8deg);
+  }
+  .tile[data-kind="right"] .hand {
+    transform: translateX(80%);
+  }
+  .tile[data-kind="left"] .mini {
+    transform: translateX(-30%) rotate(-8deg);
+  }
+  .tile[data-kind="left"] .hand {
+    transform: translateX(-80%);
+  }
+  .tile .badge,
+  .tile[data-kind="tap"] .col {
+    opacity: 1;
+  }
+}
+
+/* Portrait: tiles stack, each a row with the demo on the left. */
+@media (orientation: portrait) {
+  .tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tile {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-items: start;
+    column-gap: var(--sp-3);
+    text-align: left;
+  }
+  .demo {
+    --h: clamp(96px, 16vh, 170px);
+    grid-row: 1 / span 2;
+  }
+  .label {
+    align-self: end;
+  }
+  .sub {
+    align-self: start;
+  }
+}
+
+/* Phone landscape and 480p: keep the whole dialog on one screen. */
+@media (max-height: 499px) and (orientation: landscape) {
+  .lead {
+    display: none;
+  }
+  .demo {
+    --h: 92px;
+    --hand: 38px;
+  }
+}

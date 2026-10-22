@@ -1,0 +1,283 @@
+.root {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.body {
+  grid-template-rows: minmax(0, 1fr);
+}
+.bodyWithBadge {
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--sp-3);
+}
+
+/* ---------- the chosen theme ---------- */
+.badgeRow {
+  display: flex;
+  justify-content: center;
+}
+.theme {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: var(--touch-min);
+  max-width: 100%;
+  padding: 4px var(--sp-4) 4px 4px;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--raised-hi), var(--raised) 65%);
+  color: var(--raised-ink);
+  box-shadow:
+    0 0 0 2px var(--rim),
+    0 4px 0 var(--outline);
+}
+.themeArt {
+  position: relative;
+  flex: none;
+  width: calc(var(--touch-min) - 14px);
+  aspect-ratio: 1;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--accent) 35%, #fff), var(--accent));
+  overflow: hidden;
+}
+.themeArt img {
+  position: absolute;
+  inset: 8%;
+  width: 84%;
+  height: 84%;
+}
+.themeText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.05;
+}
+.themeName {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 0.12em;
+}
+.themeCount {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+/* ---------- the four balls ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
+  gap: var(--sp-3);
+  min-height: 0;
+}
+.cell {
+  display: grid;
+  align-self: center;
+  height: 100%;
+  max-height: 560px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.grid .card {
+  --ball: min(36cqw, 22cqh, 130px);
+  container-type: size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-areas: "ball" "head" "sils" "blurb";
+  justify-content: stretch;
+  justify-items: center;
+  align-content: stretch;
+  gap: var(--sp-2);
+  min-height: 0;
+  padding: calc(var(--sp-3) + 0.55em) var(--sp-3) var(--sp-3);
+}
+
+.ball {
+  grid-area: ball;
+  display: block;
+  width: var(--ball);
+  height: var(--ball);
+  transition: scale 220ms var(--ease-pop);
+}
+.card:active .ball {
+  scale: 0.9;
+}
+.card[data-selected] .ball {
+  scale: 1.12;
+}
+
+.head {
+  grid-area: head;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  min-width: 0;
+  max-width: 100%;
+}
+.name {
+  font-size: min(var(--fs-xl), 13.5cqw);
+  white-space: nowrap;
+  padding-top: 0.1em;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+.level,
+.secs,
+.mult {
+  padding: 0.22em 0.6em 0.14em;
+  border: 2px solid var(--outline);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.level {
+  background: var(--card);
+  color: #fff;
+  text-shadow:
+    0 1px 0 var(--outline),
+    0 0 2px var(--outline);
+}
+.secs {
+  background: var(--raised);
+  color: var(--raised-ink);
+}
+.mult {
+  background: var(--hi);
+  color: var(--ink-dark);
+}
+
+/* The three silhouettes stand in a little lineup under a spotlight, the middle one up front. */
+.sils {
+  grid-area: sils;
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: var(--r-lg);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--card) 45%, transparent), transparent);
+}
+.sil {
+  position: relative;
+  flex: none;
+  width: min(30cqw, 72cqh);
+  aspect-ratio: 1;
+  translate: 0 8%;
+}
+.sil:nth-child(2) {
+  z-index: 1;
+  width: min(36cqw, 92cqh);
+  margin-inline: 1cqw;
+  translate: 0 0;
+}
+
+.blurb {
+  grid-area: blurb;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--surface-ink-soft);
+  text-wrap: balance;
+}
+
+.key {
+  position: absolute;
+  top: calc(0.55em + 8px);
+  left: 8px;
+  display: none;
+  place-items: center;
+  width: 1.7em;
+  height: 1.7em;
+  border: 2px solid var(--outline);
+  border-radius: 50%;
+  background: var(--raised);
+  color: var(--raised-ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  line-height: 1;
+  padding-top: 0.12em;
+}
+@media (hover: hover) and (pointer: fine) {
+  .key {
+    display: grid;
+  }
+}
+
+/* Narrow cards keep the pills on one line. */
+@container (max-width: 230px) {
+  .mult {
+    display: none;
+  }
+}
+
+/* Short cards drop the blurb first: the balls and silhouettes say the most. */
+@container (max-height: 380px) {
+  .blurb {
+    display: none;
+  }
+  .grid .card {
+    grid-template-rows: auto auto minmax(0, 1fr);
+    grid-template-areas: "ball" "head" "sils";
+  }
+}
+
+/* ---------- portrait tablets: 2 x 2 ---------- */
+@media (orientation: portrait) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- phones in portrait: one wide row per ball ---------- */
+@media (orientation: portrait) and (max-width: 560px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+  }
+  .grid .card {
+    --ball: min(26cqw, 62cqh);
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas: "ball head" "ball sils";
+    justify-items: start;
+    align-items: center;
+    column-gap: var(--sp-3);
+    row-gap: var(--sp-1);
+    padding-block: calc(var(--sp-2) + 0.55em) var(--sp-2);
+  }
+  .head {
+    align-items: flex-start;
+  }
+  .meta {
+    justify-content: flex-start;
+  }
+  .blurb {
+    display: none;
+  }
+  .sils {
+    justify-content: flex-start;
+    padding-left: 3cqw;
+    background: none;
+  }
+  .name {
+    font-size: min(var(--fs-xl), 11cqw);
+  }
+}

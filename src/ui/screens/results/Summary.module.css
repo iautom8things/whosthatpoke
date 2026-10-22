@@ -1,0 +1,283 @@
+.body {
+  display: grid;
+  /* No header: span the frame's header and footer rows too, or the body collapses to its content height. */
+  grid-row: 1 / -1;
+}
+
+/* Landscape: prize ticket left, score and recap right, buttons along the bottom. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "prize side"
+    "actions actions";
+  gap: var(--sp-3) var(--sp-5);
+  min-height: 0;
+  min-width: 0;
+}
+
+.prize {
+  grid-area: prize;
+}
+
+.side {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  min-height: 0;
+  min-width: 0;
+}
+
+/* ---------- score ---------- */
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+.context {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-bottom: var(--sp-1);
+  padding: 0.22em 0.9em 0.22em 0.4em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: var(--raised);
+  color: var(--raised-ink);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+  box-shadow: 0 3px 0 rgb(0 0 0 / 0.3);
+}
+.headline {
+  padding-top: 0.1em;
+}
+.hero {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.08em;
+  line-height: 1;
+}
+.big {
+  display: inline-block;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.of {
+  --display-fill: var(--ink);
+  line-height: 1;
+}
+.unit {
+  margin-left: 0.25em;
+  line-height: 1;
+}
+.points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2em 0.9em;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+  text-shadow: 0 2px 0 var(--outline);
+  transition: opacity var(--dur-med);
+}
+.points b {
+  color: var(--hi);
+}
+.streak {
+  white-space: nowrap;
+}
+
+/* ---------- teaser ---------- */
+.teaser {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  max-width: 100%;
+  padding: 0.3em 1em 0.28em 0.6em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: var(--raised);
+  color: var(--raised-ink);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: balance;
+  box-shadow: 0 4px 0 rgb(0 0 0 / 0.3);
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  transition:
+    opacity var(--dur-med) var(--ease-out) 450ms,
+    transform var(--dur-slow) var(--ease-pop) 450ms;
+}
+.teaser[data-close] {
+  background: var(--hi);
+  color: #160a33;
+}
+.teaser[data-show] {
+  opacity: 1;
+  transform: none;
+}
+.teaser[data-close][data-show] {
+  animation: nudge 2.4s var(--ease-in-out) 1.4s infinite;
+}
+.teaserEmoji {
+  font-size: 1.3em;
+  line-height: 1;
+}
+
+/* ---------- recap ---------- */
+.side .recap {
+  flex: 0 1 auto;
+  width: 100%;
+}
+
+/* ---------- leaderboard offer ---------- */
+.board {
+  width: min(100%, 26rem);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity var(--dur-med) var(--ease-out) 700ms,
+    transform var(--dur-slow) var(--ease-pop) 700ms;
+}
+.board[data-show] {
+  opacity: 1;
+  transform: none;
+}
+.board[data-inline] {
+  width: auto;
+}
+.rank {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0.12em 0.4em 0;
+  border: 3px solid var(--outline);
+  border-radius: var(--r-pill);
+  background: var(--hi);
+  color: #160a33;
+  font-size: 0.8em;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  vertical-align: 0.08em;
+}
+
+/* ---------- actions ---------- */
+.actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--sp-2) var(--sp-3);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out);
+}
+.actions[data-show] {
+  opacity: 1;
+}
+.again {
+  min-width: min(100%, 9em);
+}
+
+/* ---------- portrait: one column, score first ---------- */
+@media (orientation: portrait) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+  .side {
+    display: contents;
+  }
+  .score {
+    order: 1;
+  }
+  .prize {
+    order: 2;
+    flex: 1 1 0;
+    align-self: stretch;
+    min-height: 13rem;
+  }
+  .teaser {
+    order: 3;
+  }
+  .side .recap {
+    order: 4;
+    flex: none;
+  }
+  .board {
+    order: 5;
+  }
+  .actions {
+    order: 6;
+    align-self: stretch;
+  }
+  .context {
+    display: none;
+  }
+}
+@media (orientation: portrait) and (max-width: 599px) {
+  .again {
+    order: -1;
+    flex: 1 1 100%;
+  }
+  .headline {
+    display: none;
+  }
+  .teaser {
+    font-size: var(--fs-md);
+  }
+}
+
+/* ---------- short landscape: phone sideways, 480p projector ---------- */
+@media (orientation: landscape) and (max-height: 560px) {
+  .side {
+    gap: var(--sp-2);
+  }
+  .teaser {
+    font-size: var(--fs-md);
+  }
+  /* Four buttons share one row here; a smaller label keeps them from wrapping onto the recap. */
+  .actions {
+    flex-wrap: nowrap;
+  }
+  .actions > button[data-size] {
+    --fs: var(--fs-md);
+  }
+  .context {
+    display: none;
+  }
+  .headline {
+    font-size: var(--fs-md) !important;
+  }
+  .side .recap {
+    --tile: clamp(40px, 10vmin, 56px);
+  }
+}
+
+@keyframes nudge {
+  0%,
+  70%,
+  100% {
+    transform: none;
+  }
+  78% {
+    transform: scale(1.06) rotate(-1.5deg);
+  }
+  86% {
+    transform: scale(1.03) rotate(1deg);
+  }
+}

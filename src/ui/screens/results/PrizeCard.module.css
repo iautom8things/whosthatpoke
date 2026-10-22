@@ -1,0 +1,227 @@
+.card {
+  --tier: #ff9f1c;
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-width: 0;
+  min-height: 0;
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  border: var(--stroke-thick) solid var(--outline);
+  border-radius: var(--r-xl);
+  /* Closed: a neutral night-sky ticket, so the color can't spoil the prize. */
+  background: linear-gradient(180deg, #3b2585 0%, #1b0f45 100%);
+  box-shadow:
+    0 var(--edge) 0 var(--outline),
+    var(--shadow-pop);
+  overflow: hidden;
+  text-align: center;
+  transform: rotate(-1deg);
+}
+/* Open: the tier color floods in. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(110% 75% at 50% 18%, color-mix(in srgb, var(--tier) 45%, #fff) 0%, var(--tier) 52%, color-mix(in srgb, var(--tier) 72%, #000) 100%);
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+.card[data-open]::before {
+  opacity: 1;
+}
+.card[data-open] {
+  animation: cardPop 560ms var(--ease-pop) both;
+}
+
+/* ---------- emoji / ball stage ---------- */
+.stage {
+  position: relative;
+  flex: 1 1 0;
+  align-self: stretch;
+  min-height: 0;
+  container-type: size;
+  display: grid;
+  place-items: center;
+}
+.emoji,
+.ball {
+  position: relative;
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.emoji {
+  font-size: min(78cqh, 52cqw);
+  filter: drop-shadow(0 0.04em 0 rgb(0 0 0 / 0.35)) drop-shadow(0 0 0.12em rgb(255 255 255 / 0.6));
+}
+.ball {
+  width: min(70cqh, 46cqw);
+  aspect-ratio: 1;
+}
+
+/* ---------- title ribbon ---------- */
+.ribbon {
+  flex: none;
+  max-width: 100%;
+  padding: 0.28em 0.9em 0.16em;
+  border: var(--stroke) solid #fff;
+  border-radius: var(--r-pill);
+  background: var(--outline);
+  box-shadow: 0 4px 0 rgb(0 0 0 / 0.35);
+  font-size: var(--fs-lg);
+  transform: rotate(-2deg);
+}
+.ribbon > span {
+  --display-fill: #fff;
+  display: block;
+  line-height: 1.05;
+  text-wrap: balance;
+  padding: 0.06em 0 0.08em;
+}
+.card[data-open] .ribbon > span {
+  --display-fill: var(--hi);
+}
+
+/* ---------- reward ---------- */
+.reward {
+  --display-fill: #fff;
+  flex: none;
+  max-width: 100%;
+  font-size: min(var(--fs-3xl), 15cqi);
+  line-height: 0.98;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  padding: 0.04em 0.1em 0.12em;
+  /* Closed: the mystery marks bob while the drum rolls. */
+  animation: mystery 900ms var(--ease-in-out) infinite;
+}
+.reward[data-len="medium"] {
+  font-size: min(var(--fs-2xl), 12cqi);
+}
+.reward[data-len="long"] {
+  font-size: min(var(--fs-xl), 9.5cqi);
+}
+.card[data-open] .reward {
+  animation: rewardPop 520ms var(--ease-pop) 120ms both;
+}
+
+/* ---------- grown-up instruction ---------- */
+.show {
+  flex: none;
+  max-width: 100%;
+  padding: 0.35em 0.9em 0.3em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-lg);
+  background: #fff;
+  color: #160a33;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+  box-shadow: 0 4px 0 rgb(0 0 0 / 0.3);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out) 380ms;
+}
+.card[data-open] .show {
+  opacity: 1;
+}
+
+/* Roomy screens: the grown-up line can be bigger. */
+@media (min-height: 700px) and (min-width: 700px) {
+  .show {
+    font-size: var(--fs-lg);
+  }
+}
+
+/* Portrait: emoji beside the words, so the card stays short and the emoji never gets squeezed out. */
+@media (orientation: portrait) {
+  .card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: 1fr auto auto 1fr auto;
+    grid-template-areas:
+      "stage ."
+      "stage ribbon"
+      "stage reward"
+      "stage ."
+      "show show";
+    gap: var(--sp-2);
+    padding: var(--sp-3);
+  }
+  .stage {
+    grid-area: stage;
+    min-height: 6rem;
+  }
+  .emoji {
+    font-size: min(80cqh, 86cqw);
+  }
+  .ball {
+    width: min(76cqh, 80cqw);
+  }
+  .ribbon {
+    grid-area: ribbon;
+    justify-self: center;
+  }
+  .reward {
+    grid-area: reward;
+    font-size: min(var(--fs-3xl), 12cqi);
+  }
+  .reward[data-len="medium"] {
+    font-size: min(var(--fs-2xl), 9.5cqi);
+  }
+  .reward[data-len="long"] {
+    font-size: min(var(--fs-xl), 7.5cqi);
+  }
+  .show {
+    grid-area: show;
+    justify-self: stretch;
+  }
+}
+@media (orientation: portrait) and (max-width: 599px) {
+  .ribbon {
+    font-size: var(--fs-md);
+  }
+  .show {
+    font-size: var(--fs-sm);
+  }
+}
+
+@keyframes mystery {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-6%) rotate(2deg);
+  }
+}
+@keyframes rewardPop {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-4deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cardPop {
+  0% {
+    transform: rotate(-1deg) scale(1);
+  }
+  30% {
+    transform: rotate(1.5deg) scale(1.06);
+  }
+  100% {
+    transform: rotate(-1deg) scale(1);
+  }
+}

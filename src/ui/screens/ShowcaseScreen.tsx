@@ -1,3 +1,283 @@
+// Showcase (attract mode): the projector loops on its own while the van is idle.
+// Silhouette with a countdown, the reveal, and every few Pokémon the Top Trainers and a "Tap to play!" slide.
+// Any tap or key goes back to the title screen.
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { announcer, audio } from "../../audio";
+import { monByDex } from "../../data/catalog";
+import type { Mon } from "../../data/types";
+import { categoryById } from "../../game/categories";
+import { leaderboard, TONIGHT_MS, type ScoreEntry } from "../../game/leaderboard";
+import { useInterval } from "../../lib/useInterval";
+import { useNav } from "../../state/nav";
+import {
+  Burst,
+  Display,
+  IconTrophy,
+  Logo,
+  Panel,
+  PokeArt,
+  PokeBall,
+  preloadArt,
+  ScreenFrame,
+  TimerRing,
+  TypeBadge,
+  type BallKind,
+} from "../components";
+import { showcaseDemo, type ShowcaseStart } from "./host/flags";
+import { HandIcon } from "./host/HostHelp";
+import { createShowcaseQueue, type ShowcaseQueue } from "./host/showcaseQueue";
+import s from "./host/Showcase.module.css";
+
+const DURATION: Record<ShowcaseStart, number> = { ask: 6000, reveal: 4000, board: 8000, cta: 6000 };
+/** How long a slide stays up. Soak tests speed the loop up through the demo flags. */
+const duration = (kind: ShowcaseStart) => DURATION[kind] / (showcaseDemo.speed ?? 1);
+/** Pokémon between the Top Trainers + "Tap to play!" break. */
+const EVERY = 6;
+const TOP = 5;
+
+type Slide = { kind: "ask" | "reveal"; mon: Mon; n: number } | { kind: "board" | "cta"; n: number };
+
+function following(slide: Slide, queue: ShowcaseQueue): Slide {
+  switch (slide.kind) {
+    case "ask":
+      return { ...slide, kind: "reveal" };
+    case "reveal":
+      return slide.n % EVERY === 0 ? { kind: "board", n: slide.n } : { kind: "ask", mon: queue.next(), n: slide.n + 1 };
+    case "board":
+      return { kind: "cta", n: slide.n };
+    case "cta":
+      return { kind: "ask", mon: queue.next(), n: slide.n + 1 };
+  }
+}
+
+function firstSlide(queue: ShowcaseQueue): Slide {
+  const start = showcaseDemo.start ?? "ask";
+  if (start === "board" || start === "cta") return { kind: start, n: EVERY };
+  return { kind: start, mon: showcaseDemo.firstMon ?? queue.next(), n: 1 };
+}
+
+const quizKey = (slide: Slide) => (slide.kind === "ask" || slide.kind === "reveal" ? `quiz-${slide.n}` : `${slide.kind}-${slide.n}`);
+
+const SLIDE_MOTION = {
+  initial: { opacity: 0, scale: 0.94 },
+  animate: { opacity: 1, scale: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const } },
+  exit: { opacity: 0, scale: 1.03, transition: { duration: 0.3 } },
+};
+
 export default function ShowcaseScreen() {
-  return <div style={{ padding: 40, fontSize: 32 }}>Showcase screen (stub)</div>;
+  const queue = useMemo(() => createShowcaseQueue(showcaseDemo.seed), []);
+  const [slide, setSlide] = useState<Slide>(() => firstSlide(queue));
+  const startedAt = useRef(performance.now());
+  const [now, setNow] = useState(() => performance.now());
+  const hold = Boolean(showcaseDemo.hold);
+
+  useEffect(() => {
+    audio.playSong("showcase");
+    return () => announcer.cancel();
+  }, []);
+
+  // One timer per slide; the cleanup clears it, so nothing piles up over hours of looping.
+  useEffect(() => {
+    startedAt.current = performance.now();
+    setNow(startedAt.current);
+    if (hold) return;
+    const t = window.setTimeout(() => setSlide(following(slide, queue)), duration(slide.kind));
+    return () => window.clearTimeout(t);
+  }, [slide, queue, hold]);
+
+  // Sound and voice for each slide. Skipped while the tab is hidden so a background tab stays quiet.
+  useEffect(() => {
+    if (document.hidden) return;
+    const timers: number[] = [];
+    const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
+    if (slide.kind === "ask") {
+      later(150, () => {
+        audio.sfx("whosThat");
+        void announcer.say("Who’s that Pokémon?");
+      });
+    } else if (slide.kind === "reveal") {
+      audio.sfx("reveal");
+      later(250, () => void announcer.say(`It’s ${slide.mon.say}!`));
+      void preloadArt([queue.peek()]);
+    } else if (slide.kind === "board") {
+      audio.sfx("whoosh");
+    } else {
+      audio.sfx("pop");
+    }
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, [slide, queue]);
+
+  useInterval(() => setNow(performance.now()), slide.kind === "ask" && !hold ? 100 : null);
+
+  // Any tap, click or key: back to the title screen.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || ["Shift", "Control", "Alt", "Meta"].includes(e.key)) return;
+      e.preventDefault();
+      leave();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const askLeft = hold ? duration("ask") * 0.62 : Math.max(0, duration("ask") - (now - startedAt.current));
+  const showTapBar = slide.kind !== "cta";
+
+  return (
+    <div className={s.root} onClick={leave} role="button" tabIndex={-1} aria-label="Tap to play">
+      <ScreenFrame
+        layout="fill"
+        className={s.frame}
+        footer={
+          <div className={s.tapBar} data-hidden={!showTapBar || undefined} aria-hidden={!showTapBar || undefined}>
+            <HandIcon className={s.tapHand} />
+            <span className="wtp-display">Tap anywhere to play!</span>
+          </div>
+        }
+      >
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div key={quizKey(slide)} className={s.slide} data-kind={slide.kind} data-n={slide.n} {...SLIDE_MOTION}>
+            {slide.kind === "ask" || slide.kind === "reveal" ? (
+              <Quiz mon={slide.mon} revealed={slide.kind === "reveal"} msLeft={askLeft} />
+            ) : slide.kind === "board" ? (
+              <TopTrainers />
+            ) : (
+              <CallToAction />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </ScreenFrame>
+    </div>
+  );
+}
+
+function leave() {
+  audio.sfx("select");
+  useNav.getState().home();
+}
+
+/* ---------------- quiz: silhouette, countdown, reveal ---------------- */
+
+function Quiz({ mon, revealed, msLeft }: { mon: Mon; revealed: boolean; msLeft: number }) {
+  const fraction = msLeft / duration("ask");
+  const seconds = Math.ceil((fraction * DURATION.ask) / 1000);
+  return (
+    <div className={s.quiz}>
+      <div className={s.stage}>
+        <Burst intensity={revealed ? 1 : 0.65} />
+        <PokeArt mon={mon} revealed={revealed} />
+      </div>
+      <div className={s.side}>
+        {revealed ? (
+          <div key="reveal" className={s.reveal}>
+            <Display size="xl">It’s</Display>
+            <Display size="3xl" color="var(--hi)" className={s.name} style={{ "--chars": mon.name.length + 1 } as CSSProperties}>
+              {mon.name}!
+            </Display>
+            {mon.genus && <p className={s.genus}>The {mon.genus}</p>}
+            <div className={s.types}>
+              {mon.types.map((t) => (
+                <TypeBadge key={t} type={t} size="lg" />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div key="ask" className={s.ask}>
+            <Display size="2xl" className={s.askTitle}>
+              Who’s that Pokémon?
+            </Display>
+            <div className={s.ring}>
+              <TimerRing fraction={fraction} urgent={seconds <= 2} label={seconds} size="100%" />
+            </div>
+            <Display size="xl" color="var(--accent)" className={s.shout}>
+              Shout it out!
+            </Display>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Tonight's Top Trainers ---------------- */
+
+const MEDAL: Record<number, string> = { 1: "#ffd23f", 2: "#d5dde8", 3: "#f0a35e" };
+
+function buddyOf(entry: ScoreEntry): Mon | null {
+  try {
+    return monByDex(entry.buddy);
+  } catch {
+    return null;
+  }
+}
+
+function TopTrainers() {
+  const entries = useMemo(() => showcaseDemo.entries ?? leaderboard.top("classic", TOP, TONIGHT_MS()), []);
+  const mascot = useMemo(() => {
+    try {
+      return monByDex(categoryById("all").mascot);
+    } catch {
+      return null;
+    }
+  }, []);
+
+  return (
+    <div className={s.board}>
+      <Display size="2xl" color="var(--hi)" className={s.boardTitle}>
+        <IconTrophy className={s.trophy} /> Tonight’s Top Trainers
+      </Display>
+      {entries.length > 0 ? (
+        <Panel tone="solid" padding="sm" className={s.boardPanel}>
+          <ol className={s.rows}>
+            {entries.map((e, i) => {
+              const buddy = buddyOf(e);
+              const rank = i + 1;
+              return (
+                <li key={e.id} className={s.row} style={{ "--medal": MEDAL[rank] ?? "var(--raised)", "--i": i } as CSSProperties} data-top={rank <= 3 || undefined}>
+                  <span className={`wtp-display ${s.rank}`}>{rank}</span>
+                  <span className={s.buddy}>{buddy && <PokeArt mon={buddy} revealed outline={false} fill={0.95} />}</span>
+                  <span className={s.trainer}>{e.name}</span>
+                  <span className={`wtp-display ${s.points}`}>{e.points.toLocaleString()}</span>
+                </li>
+              );
+            })}
+          </ol>
+        </Panel>
+      ) : (
+        <Panel tone="solid" className={s.empty}>
+          <div className={s.emptyArt}>{mascot && <PokeArt mon={mascot} revealed outline={false} />}</div>
+          <div className={s.emptyText}>
+            <Display size="xl">No Top Trainers yet!</Display>
+            <p>Be the first one on the board tonight.</p>
+          </div>
+        </Panel>
+      )}
+    </div>
+  );
+}
+
+/* ---------------- Tap to play! ---------------- */
+
+const BALLS: BallKind[] = ["poke", "great", "ultra", "master"];
+
+function CallToAction() {
+  return (
+    <div className={s.cta}>
+      <Logo size="xl" animated bob heading={false} />
+      <Display size="3xl" color="var(--hi)" className={s.ctaBig}>
+        Tap to play!
+      </Display>
+      <Display size="lg" className={s.ctaSub}>
+        Guess the Pokémon. Win candy!
+      </Display>
+      <div className={s.balls} aria-hidden="true">
+        {BALLS.map((b, i) => (
+          <span key={b} className={s.ball} style={{ "--i": i } as CSSProperties}>
+            <PokeBall kind={b} size="100%" />
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }

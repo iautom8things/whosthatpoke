@@ -1,5 +1,8 @@
-// CONTRACT: implemented by the audio agent. Everything is synthesized with Web Audio; no audio files.
-// All calls are safe before unlock() (they no-op) and never throw.
+// Audio and announcer for the whole game. Everything is synthesized with Web Audio; no audio files.
+// All calls are safe before unlock() (songs requested early start on unlock) and never throw.
+// Volumes and the announcer switch follow useSettings on their own.
+
+import { engine, speech, unlockAll } from "./live";
 
 export type SongId =
   | "title" // upbeat adventure theme for menus
@@ -25,13 +28,14 @@ export type SfxId =
   | "points" // score counter rolling up
   | "fanfare" // end of game
   | "prize" // big candy moment
-  | "drumroll" // before the prize reveal
+  | "drumroll" // before the prize reveal; the next sfx stops it
   | "pop"; // confetti / bubbles
 
 export interface Audio {
-  /** Call from the first user gesture (iOS needs it). Resolves when sound can play. */
+  /** Call from the first user gesture (iOS needs it). Resolves when sound can play, or after ~1 s regardless. */
   unlock(): Promise<void>;
   readonly unlocked: boolean;
+  /** Crossfades from the current song. Same song again = no-op. Before unlock, it starts on unlock. */
   playSong(id: SongId): void;
   stopSong(fadeMs?: number): void;
   sfx(id: SfxId): void;
@@ -49,22 +53,17 @@ export interface Announcer {
   readonly supported: boolean;
 }
 
-const noop = () => {};
-
 export const audio: Audio = {
-  unlock: async () => {},
-  unlocked: false,
-  playSong: noop,
-  stopSong: noop,
-  sfx: noop,
-  setMusicVolume: noop,
-  setSfxVolume: noop,
-  duck: noop,
+  unlock: () => unlockAll(),
+  get unlocked() {
+    return engine.unlocked;
+  },
+  playSong: (id) => engine.playSong(id),
+  stopSong: (fadeMs) => engine.stopSong(fadeMs),
+  sfx: (id) => engine.sfx(id),
+  setMusicVolume: (v) => engine.setMusicVolume(v),
+  setSfxVolume: (v) => engine.setSfxVolume(v),
+  duck: (on) => engine.duck(on),
 };
 
-export const announcer: Announcer = {
-  say: async () => {},
-  cancel: noop,
-  setEnabled: noop,
-  supported: false,
-};
+export const announcer: Announcer = speech;

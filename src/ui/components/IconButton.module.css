@@ -1,0 +1,87 @@
+.btn {
+  --face: var(--raised);
+  --fg: var(--raised-ink);
+  --size: max(var(--touch-min), var(--h-md));
+  --press: 0px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  flex: none;
+  min-width: calc(var(--size) - 4px);
+  height: calc(var(--size) - 4px);
+  margin-bottom: 4px;
+  padding: 0;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--raised-hi) 0%, var(--face) 60%);
+  color: var(--fg);
+  box-shadow:
+    0 0 0 2px var(--rim),
+    0 calc(5px - var(--press)) 0 var(--outline),
+    0 calc(5px - var(--press)) 0 2px var(--rim),
+    0 calc(10px - var(--press)) 14px rgb(0 0 0 / 0.3);
+  transform: translateY(var(--press));
+  transition:
+    transform 160ms var(--ease-pop),
+    box-shadow 160ms var(--ease-pop);
+}
+.btn:active:not(:disabled) {
+  --press: 4px;
+  transition-duration: 50ms;
+}
+.btn:disabled {
+  opacity: 0.45;
+}
+.btn[data-size="lg"] {
+  --size: var(--h-lg);
+}
+.btn[data-variant="ghost"] {
+  --face: rgb(0 0 0 / 0.25);
+  --fg: var(--ink);
+  border-color: var(--btn-ghost-border);
+  box-shadow: none;
+}
+.btn[data-variant="ghost"]:active:not(:disabled) {
+  transform: scale(0.94);
+}
+.btn[data-variant="primary"] {
+  --face: var(--btn-primary);
+  --raised-hi: var(--btn-primary-hi);
+  --fg: #fff;
+}
+.btn[data-variant="primary"] .icon,
+.btn[data-variant="primary"] .label {
+  filter: drop-shadow(0 2px 0 var(--outline));
+}
+.btn[data-variant="primary"] .label {
+  -webkit-text-stroke: 0.16em var(--outline);
+  paint-order: stroke fill;
+  filter: none;
+}
+.btn[data-labelled] {
+  padding-inline: 0.5em 0.85em;
+}
+
+.icon {
+  display: inline-flex;
+  font-size: calc(var(--size) * 0.46);
+}
+
+.label {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: var(--fs-lg);
+  line-height: 1;
+  padding-top: 0.12em;
+}
+
+/* Phones, portrait tablets and short screens: the back arrow alone. */
+@media (max-width: 599px), (max-height: 499px), (orientation: portrait) {
+  .back[data-labelled] .label {
+    display: none;
+  }
+  .back[data-labelled] {
+    padding-inline: 0;
+  }
+}

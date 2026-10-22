@@ -1,0 +1,289 @@
+/*
+ * Design tokens. Every color, size and timing the UI uses lives here.
+ * Themes switch on <html data-theme="spooky|classic">; projector mode on data-projector="on".
+ * Sizes are fluid and keyed to vmin (the viewport's smaller side), so one scale works
+ * from a 390x844 phone to a 1920x1080 projector.
+ */
+
+:root {
+  /* ---------- type ---------- */
+  --font-display: "Luckiest Guy", "Fredoka Variable", ui-rounded, system-ui, sans-serif;
+  --font-body: "Fredoka Variable", "Fredoka", ui-rounded, system-ui, sans-serif;
+
+  /* Projector mode multiplies the whole scale. */
+  --boost: 1;
+  --fs-xs: calc(clamp(0.85rem, 0.6rem + 0.8vmin, 1.2rem) * var(--boost));
+  --fs-sm: calc(clamp(1rem, 0.7rem + 1vmin, 1.45rem) * var(--boost));
+  --fs-md: calc(clamp(1.125rem, 0.8rem + 1.35vmin, 1.8rem) * var(--boost));
+  --fs-lg: calc(clamp(1.375rem, 0.9rem + 2vmin, 2.5rem) * var(--boost));
+  --fs-xl: calc(clamp(1.75rem, 1rem + 3vmin, 3.5rem) * var(--boost));
+  --fs-2xl: calc(clamp(2.25rem, 1.1rem + 4.6vmin, 5rem) * var(--boost));
+  --fs-3xl: calc(clamp(2.75rem, 1.2rem + 6.5vmin, 7rem) * var(--boost));
+  --fs-hero: calc(clamp(3.25rem, 1.3rem + 9vmin, 10rem) * var(--boost));
+
+  --lh-tight: 1;
+  --lh-snug: 1.15;
+  --lh-body: 1.3;
+
+  /* Display text (Luckiest Guy): stroke is painted under the fill, so the visible outline is half of it. */
+  --text-stroke: 0.14em;
+  --display-shadow: 0 0.06em 0 var(--outline), 0 0.1em 0 var(--outline), 0 0.16em 0.12em rgb(0 0 0 / 0.35);
+
+  /* ---------- space ---------- */
+  --sp-1: clamp(4px, 0.6vmin, 8px);
+  --sp-2: clamp(8px, 1.1vmin, 14px);
+  --sp-3: clamp(12px, 1.7vmin, 20px);
+  --sp-4: clamp(16px, 2.4vmin, 28px);
+  --sp-5: clamp(20px, 3.2vmin, 40px);
+  --sp-6: clamp(28px, 4.5vmin, 56px);
+  --sp-7: clamp(40px, 6.5vmin, 88px);
+  --gutter: max(16px, var(--sp-4));
+
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+
+  /* ---------- touch targets ---------- */
+  --touch-min: 64px;
+  --h-md: clamp(64px, 9vmin, 92px);
+  --h-lg: clamp(76px, 11.5vmin, 120px);
+  --h-xl: clamp(92px, 14vmin, 150px);
+  --h-choice: clamp(72px, 12.5vmin, 140px);
+
+  /* ---------- shape ---------- */
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: clamp(18px, 2.6vmin, 30px);
+  --r-xl: clamp(24px, 3.6vmin, 44px);
+  --r-pill: 999px;
+
+  --stroke: 3px;
+  --stroke-thick: 5px;
+  /* 3D depth of chunky buttons. */
+  --edge: clamp(5px, 0.8vmin, 9px);
+
+  --shadow-hard: 0 4px 0 rgb(0 0 0 / 0.35);
+  --shadow-soft: 0 10px 30px rgb(0 0 0 / 0.35);
+  --shadow-pop: 0 18px 50px rgb(0 0 0 / 0.5);
+
+  /* ---------- layers ---------- */
+  --z-backdrop: 0;
+  --z-screen: 10;
+  --z-hud: 30;
+  --z-modal: 100;
+  --z-confetti: 150;
+  --z-toast: 200;
+
+  /* ---------- motion ---------- */
+  --dur-instant: 60ms;
+  --dur-fast: 140ms;
+  --dur-med: 240ms;
+  --dur-slow: 420ms;
+  --dur-reveal: 650ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---------- Pokémon type colors (same values as TYPE_INFO in src/game/categories.ts) ---------- */
+  --type-normal: #9fa19f;
+  --type-fire: #e62829;
+  --type-water: #2980ef;
+  --type-grass: #3fa129;
+  --type-electric: #fac000;
+  --type-ice: #3dcef3;
+  --type-fighting: #ff8000;
+  --type-poison: #9141cb;
+  --type-ground: #915121;
+  --type-flying: #81b9ef;
+  --type-psychic: #ef4179;
+  --type-bug: #91a119;
+  --type-rock: #afa981;
+  --type-ghost: #704170;
+  --type-dragon: #5060e1;
+  --type-dark: #624d4e;
+  --type-steel: #60a1b8;
+  --type-fairy: #ef70ef;
+
+  /* ---------- fixed brand colors ---------- */
+  --pokeball-red: #ee1515;
+  --logo-fill: #ffcb05;
+  --logo-stroke: #2a5bc4;
+  --logo-shadow: #102a72;
+  --good: #2fd36b;
+  --good-edge: #11793a;
+  --bad: #ff4560;
+  --bad-edge: #9a1028;
+  --gold: #ffd23f;
+}
+
+/* ================= SPOOKY NIGHT (default) ================= */
+:root,
+:root[data-theme="spooky"] {
+  color-scheme: dark;
+
+  --bg-0: #0a0420;
+  --bg-1: #1a0b45;
+  --bg-2: #33166c;
+  --bg-3: #5b2a8c;
+
+  --ink: #ffffff;
+  --ink-soft: #ebe3ff;
+  --ink-dim: #bfaeea;
+  --ink-dark: #160a33;
+  --outline: #13072d;
+
+  --accent: #ff8a1f;
+  --hi: #ffe14d;
+  --accent-3: #8b5cff;
+  --focus: #ffe14d;
+
+  --surface: rgb(26 11 64 / 0.8);
+  --surface-strong: #1d0d48;
+  --surface-ink: #ffffff;
+  --surface-ink-soft: #e2d8ff;
+  /* Fill for display text sitting on a surface (Panel, Card, Modal). */
+  --surface-display: #ffffff;
+  --surface-border: rgb(255 255 255 / 0.3);
+  --surface-blur: 14px;
+  --scrim: rgb(8 2 24 / 0.72);
+
+  /* Small raised controls (chips, icon buttons, pills) that must stand off a dark sky. */
+  --raised: #3a2283;
+  --raised-hi: #5b3fb0;
+  --raised-ink: #ffffff;
+  /* Light rim that separates dark-on-dark shapes (timer tracks, icon buttons). */
+  --rim: rgb(255 255 255 / 0.5);
+
+  --btn-primary: #ff8a1f;
+  --btn-primary-hi: #ffb35e;
+  --btn-primary-edge: #a03f00;
+  --btn-secondary: #8b5cff;
+  --btn-secondary-hi: #b394ff;
+  --btn-secondary-edge: #4420a6;
+  --btn-success: #2fd36b;
+  --btn-success-hi: #7ff0a6;
+  --btn-success-edge: #11793a;
+  --btn-danger: #ff4560;
+  --btn-danger-hi: #ff8b9b;
+  --btn-danger-edge: #9a1028;
+  --btn-ink: #ffffff;
+  --btn-ghost-border: rgb(255 255 255 / 0.9);
+
+  --choice-face: #fffaf0;
+  --choice-face-hi: #ffffff;
+  --choice-edge: #9c86dc;
+  --choice-ink: #160a33;
+  --choice-picked: #ffe14d;
+  --choice-picked-edge: #b08d00;
+
+  --burst-a: #ffb627;
+  --burst-b: #ff7a1a;
+  --burst-core: #fff4c8;
+
+  --sil-glow: rgb(255 255 255 / 0.95);
+  --sil-glow-soft: rgb(190 160 255 / 0.65);
+  --reveal-glow: rgb(255 226 120 / 0.9);
+
+  --track: rgb(255 255 255 / 0.16);
+
+  --confetti-1: #ff8a1f;
+  --confetti-2: #ffe14d;
+  --confetti-3: #8b5cff;
+  --confetti-4: #3ee07f;
+  --confetti-5: #ffffff;
+  --confetti-6: #ff4da6;
+}
+
+/* ================= CLASSIC (anime title card) ================= */
+:root[data-theme="classic"] {
+  color-scheme: dark;
+
+  --bg-0: #05328e;
+  --bg-1: #0a58cc;
+  --bg-2: #1d86f5;
+  --bg-3: #6cc4ff;
+
+  --ink: #ffffff;
+  --ink-soft: #eef6ff;
+  --ink-dim: #cfe3ff;
+  --ink-dark: #0a1f55;
+  --outline: #0a1f55;
+
+  --accent: #e3350d;
+  --hi: #ffde00;
+  --accent-3: #2a75f0;
+  --focus: #ffde00;
+
+  --surface: rgb(255 255 255 / 0.92);
+  --surface-strong: #ffffff;
+  --surface-ink: #0a1f55;
+  --surface-ink-soft: #27467f;
+  --surface-display: #2a75f0;
+  --surface-border: #0a1f55;
+  --surface-blur: 10px;
+  --scrim: rgb(3 20 70 / 0.7);
+
+  --raised: #ffffff;
+  --raised-hi: #ffffff;
+  --raised-ink: #0a1f55;
+  --rim: rgb(255 255 255 / 0.75);
+
+  --btn-primary: #e3350d;
+  --btn-primary-hi: #ff6b47;
+  --btn-primary-edge: #861b02;
+  --btn-secondary: #ffcb05;
+  --btn-secondary-hi: #ffe46b;
+  --btn-secondary-edge: #a67c00;
+  --btn-ghost-border: rgb(255 255 255 / 0.95);
+
+  --choice-face: #ffffff;
+  --choice-face-hi: #ffffff;
+  --choice-edge: #7ea6e6;
+  --choice-ink: #0a1f55;
+  --choice-picked: #ffde00;
+  --choice-picked-edge: #a68b00;
+
+  --burst-a: #ffd400;
+  --burst-b: #fff7b0;
+  --burst-core: #ffffff;
+
+  --sil-glow: rgb(255 255 255 / 0.9);
+  --sil-glow-soft: rgb(255 255 255 / 0.45);
+  --reveal-glow: rgb(255 255 255 / 0.95);
+
+  --track: rgb(3 20 70 / 0.45);
+
+  --confetti-1: #e3350d;
+  --confetti-2: #ffcb05;
+  --confetti-3: #2a75f0;
+  --confetti-4: #ffffff;
+  --confetti-5: #3ee07f;
+  --confetti-6: #ff70c8;
+}
+
+/* ================= PROJECTOR MODE =================
+ * Cheap projectors wash out mid-tones and lose thin lines at 3-6 m.
+ * Bigger type, thicker outlines, opaque surfaces, no soft or dim text.
+ */
+:root[data-projector="on"] {
+  --boost: 1.12;
+  --stroke: 4px;
+  --stroke-thick: 7px;
+  --text-stroke: 0.17em;
+  --edge: clamp(6px, 1vmin, 11px);
+  --ink-soft: var(--ink);
+  --ink-dim: var(--ink);
+  --surface: var(--surface-strong);
+  --surface-ink-soft: var(--surface-ink);
+  --surface-blur: 0px;
+  --sil-glow: #ffffff;
+  --rim: #ffffff;
+}
+:root[data-projector="on"]:not([data-theme="classic"]) {
+  --surface-border: #ffffff;
+  --bg-0: #07021a;
+  --bg-1: #160838;
+  --choice-edge: #7d65cf;
+}

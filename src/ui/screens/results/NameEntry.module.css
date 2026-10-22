@@ -1,0 +1,245 @@
+.body {
+  display: grid;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: var(--sp-5);
+  min-height: 0;
+}
+
+/* ---------- buddy preview ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 0;
+  min-width: 0;
+  text-align: center;
+}
+.stage {
+  position: relative;
+  flex: 1 1 0;
+  align-self: stretch;
+  min-height: 0;
+}
+.cardText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+.preview {
+  max-width: 100%;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  padding: 0.1em 0.15em 0.15em;
+}
+.score {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 2px 0 var(--outline);
+}
+.score b {
+  color: var(--hi);
+}
+
+/* ---------- form ---------- */
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto minmax(0, max-content) auto;
+  grid-template-areas:
+    "field dice"
+    "label label"
+    "buddies buddies"
+    "actions actions";
+  align-content: center;
+  gap: var(--sp-3);
+  min-height: 0;
+  min-width: 0;
+}
+.field {
+  grid-area: field;
+  min-width: 0;
+}
+.input {
+  display: block;
+  width: 100%;
+  height: var(--h-md);
+  padding: 0.1em 0.6em 0;
+  border: var(--stroke-thick) solid var(--outline);
+  border-radius: var(--r-lg);
+  background: #fff;
+  color: #160a33;
+  caret-color: var(--accent);
+  font-family: var(--font-body);
+  font-size: max(18px, var(--fs-xl));
+  font-weight: 700;
+  line-height: 1;
+  box-shadow:
+    inset 0 5px 0 rgb(0 0 0 / 0.07),
+    0 5px 0 var(--outline);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.input::placeholder {
+  color: #8c84a6;
+  opacity: 1;
+}
+.input:focus {
+  outline: var(--stroke-thick) solid var(--hi);
+  outline-offset: 3px;
+}
+.dice {
+  grid-area: dice;
+}
+.pickLabel {
+  grid-area: label;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  -webkit-text-stroke: 0.14em var(--outline);
+  paint-order: stroke fill;
+  text-shadow: 0 0.08em 0 var(--outline);
+  line-height: 1;
+  padding-top: 0.1em;
+}
+
+.buddies {
+  --b: clamp(64px, 9.2vmin, 96px);
+  grid-area: buddies;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--b), 1fr));
+  align-content: start;
+  gap: var(--sp-2);
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* Room for the selected ring and the press shadow inside the scroller. */
+  padding: 8px 8px 12px;
+  margin: -8px -8px -12px;
+  scrollbar-width: thin;
+}
+.buddy {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-width: var(--touch-min);
+  aspect-ratio: 1;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #fff 0%, var(--choice-face) 70%);
+  box-shadow: 0 4px 0 var(--outline);
+  transition:
+    transform 160ms var(--ease-pop),
+    box-shadow 160ms var(--ease-pop);
+}
+.buddies .buddy img {
+  width: 78%;
+  height: 78%;
+}
+.buddy:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--outline);
+  transition-duration: 50ms;
+}
+.buddy[aria-checked="true"] {
+  background: radial-gradient(circle at 50% 35%, #fff 0%, var(--hi) 85%);
+  outline: var(--stroke-thick) solid var(--hi);
+  outline-offset: 2px;
+  transform: scale(1.06);
+}
+.buddy:focus-visible {
+  outline-color: var(--focus);
+}
+.tick {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  width: 38%;
+  aspect-ratio: 1;
+  border: 2px solid var(--outline);
+  border-radius: 50%;
+  background: var(--good);
+  color: #fff;
+  font-size: calc(var(--b) * 0.24);
+  animation: tickIn 260ms var(--ease-pop) both;
+}
+.tick svg {
+  stroke-width: 4;
+}
+
+.actions {
+  grid-area: actions;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-3);
+}
+.save {
+  min-width: 8em;
+}
+
+/* ---------- portrait: preview shrinks to a row on top ---------- */
+@media (orientation: portrait) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: var(--sp-3);
+  }
+  .card {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--sp-3);
+    text-align: left;
+  }
+  .stage {
+    flex: none;
+    width: clamp(88px, 18vmin, 200px);
+    aspect-ratio: 1;
+  }
+  .cardText {
+    align-items: flex-start;
+  }
+  .form {
+    align-content: start;
+  }
+  .actions {
+    justify-content: stretch;
+  }
+  .actions > * {
+    flex: 1 1 0;
+  }
+}
+
+/* Short landscape: the grid scrolls inside itself; keep the preview compact. */
+@media (orientation: landscape) and (max-height: 560px) {
+  .grid {
+    gap: var(--sp-4);
+  }
+  .form {
+    gap: var(--sp-2);
+  }
+  .buddies {
+    --b: 64px;
+  }
+}
+
+@keyframes tickIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: none;
+  }
+}

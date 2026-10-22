@@ -1,0 +1,213 @@
+.choice {
+  --face: var(--choice-face);
+  --face-hi: var(--choice-face-hi);
+  --side: var(--choice-edge);
+  --ink: var(--choice-ink);
+  --press: 0px;
+  --badge: clamp(32px, 5vmin, 56px);
+
+  position: relative;
+  container-type: inline-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: calc(var(--h-choice) - var(--edge));
+  margin-bottom: var(--edge);
+  padding: 0.15em var(--sp-3) 0.1em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--face-hi) 0%, var(--face) 62%);
+  box-shadow:
+    inset 0 calc(var(--stroke) + 1px) 0 rgb(255 255 255 / 0.6),
+    0 calc(var(--edge) - var(--press)) 0 var(--side),
+    0 calc(var(--edge) - var(--press)) 0 var(--stroke) var(--outline),
+    0 calc(var(--edge) + 6px - var(--press)) 16px rgb(0 0 0 / 0.35);
+  transform: translateY(var(--press));
+  transition:
+    transform 180ms var(--ease-pop),
+    box-shadow 180ms var(--ease-pop),
+    opacity var(--dur-med) var(--ease-out),
+    filter var(--dur-med) var(--ease-out),
+    scale var(--dur-med) var(--ease-out);
+  color: var(--ink);
+}
+
+.choice[aria-disabled] {
+  cursor: default;
+}
+
+.choice:active:not([aria-disabled]) {
+  --press: calc(var(--edge) - 2px);
+  transition-duration: 50ms;
+  transition-timing-function: linear;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .choice:hover:not([aria-disabled]) {
+    filter: brightness(1.05);
+    --side: var(--accent);
+  }
+}
+
+.name {
+  display: block;
+  max-width: 100%;
+  font-family: var(--font-body);
+  font-weight: 700;
+  /* Fit by length: a 12-letter name gets 1/12 of the width. Capped for short names. */
+  font-size: clamp(15px, calc(100cqi / (var(--len) * 0.6)), calc(var(--fs-xl) * 0.95));
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ---------- states ---------- */
+.choice[data-state="picked"] {
+  --face: var(--choice-picked);
+  --face-hi: #fff6b8;
+  --side: var(--choice-picked-edge);
+  --press: calc(var(--edge) - 3px);
+}
+.choice[data-state="picked"]::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--stroke) - 7px);
+  border-radius: calc(var(--r-lg) + 7px);
+  border: var(--stroke-thick) solid var(--choice-picked);
+  pointer-events: none;
+  animation: ring 900ms var(--ease-out) infinite;
+}
+
+.choice[data-state="correct"] {
+  --face: var(--good);
+  --face-hi: #92f7b8;
+  --side: var(--good-edge);
+  --ink: #062a14;
+  z-index: 1;
+  animation: pop 520ms var(--ease-pop) both;
+}
+.choice[data-state="correct"]::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--stroke) - 7px);
+  border-radius: calc(var(--r-lg) + 7px);
+  border: var(--stroke-thick) solid #ffffff;
+  pointer-events: none;
+  opacity: 0;
+  animation: ring 1100ms var(--ease-out) 3;
+}
+
+.choice[data-state="wrong"] {
+  --face: var(--bad);
+  --face-hi: #ff8d9c;
+  --side: var(--bad-edge);
+  --ink: #ffffff;
+  animation: shake 460ms var(--ease-out) both;
+}
+.choice[data-state="wrong"] .name {
+  -webkit-text-stroke: 0.14em var(--outline);
+  paint-order: stroke fill;
+}
+
+.choice[data-state="dimmed"] {
+  opacity: 0.4;
+  filter: saturate(0.4);
+  scale: 0.96;
+}
+:global([data-projector="on"]) .choice[data-state="dimmed"] {
+  opacity: 0.32;
+}
+
+/* ---------- corner badge ---------- */
+.badge {
+  position: absolute;
+  top: calc(var(--badge) * -0.32);
+  left: calc(var(--badge) * -0.32);
+  display: grid;
+  place-items: center;
+  width: var(--badge);
+  height: var(--badge);
+  border-radius: 50%;
+  border: var(--stroke) solid var(--outline);
+  background: var(--outline);
+  color: var(--hi);
+  font-family: var(--font-display);
+  font-size: calc(var(--badge) * 0.55);
+  line-height: 1;
+  padding-top: 0.12em;
+  box-shadow: 0 3px 0 rgb(0 0 0 / 0.35);
+}
+.badge[data-kind="good"],
+.badge[data-kind="bad"] {
+  padding-top: 0;
+  color: #fff;
+  font-size: calc(var(--badge) * 0.6);
+  animation: badgeIn 380ms var(--ease-pop) both;
+}
+.badge[data-kind="good"] {
+  background: var(--good-edge);
+}
+.badge[data-kind="bad"] {
+  background: var(--bad-edge);
+}
+
+/* Kids on the iPad do not need keyboard hints. */
+@media (hover: none) and (pointer: coarse) {
+  .badge[data-kind="hint"] {
+    display: none;
+  }
+}
+
+@keyframes pop {
+  0% {
+    scale: 1;
+  }
+  35% {
+    scale: 1.08;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  18% {
+    translate: -10px 0;
+  }
+  36% {
+    translate: 9px 0;
+  }
+  54% {
+    translate: -6px 0;
+  }
+  72% {
+    translate: 4px 0;
+  }
+}
+
+@keyframes ring {
+  0% {
+    opacity: 0.95;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes badgeIn {
+  0% {
+    transform: scale(0) rotate(-40deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}

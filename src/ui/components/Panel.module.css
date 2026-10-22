@@ -1,0 +1,88 @@
+/* ---------- Panel ---------- */
+.panel {
+  position: relative;
+  border: var(--stroke) solid var(--surface-border);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  color: var(--surface-ink);
+  --ghost-ink: var(--surface-ink);
+  --ghost-bg: transparent;
+  --ghost-border: var(--surface-ink);
+  --display-fill: var(--surface-display);
+  box-shadow:
+    0 6px 0 rgb(0 0 0 / 0.3),
+    var(--shadow-soft);
+  -webkit-backdrop-filter: blur(var(--surface-blur)) saturate(1.2);
+  backdrop-filter: blur(var(--surface-blur)) saturate(1.2);
+}
+.panel[data-tone="solid"] {
+  background: var(--surface-strong);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.panel[data-pad="sm"] {
+  padding: var(--sp-3);
+}
+.panel[data-pad="md"] {
+  padding: var(--sp-4) var(--sp-5);
+}
+.panel[data-pad="lg"] {
+  padding: var(--sp-5) var(--sp-6);
+}
+:global([data-projector="on"]) .panel {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-width: var(--stroke-thick);
+}
+
+/* ---------- Card ---------- */
+.card {
+  --card: var(--accent);
+  --press: 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: calc(var(--h-xl) * 1.3);
+  min-width: 0;
+  margin-bottom: var(--edge);
+  padding: calc(var(--sp-3) + 0.5em) var(--sp-3) var(--sp-3);
+  overflow: hidden;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-xl);
+  background:
+    linear-gradient(180deg, var(--card) 0 0.55em, transparent 0.55em),
+    linear-gradient(180deg, color-mix(in srgb, var(--card) 22%, var(--surface-strong)) 0%, var(--surface-strong) 70%);
+  color: var(--surface-ink);
+  --display-fill: var(--surface-display);
+  text-align: center;
+  box-shadow:
+    0 calc(var(--edge) - var(--press)) 0 color-mix(in srgb, var(--card) 55%, #000),
+    0 calc(var(--edge) - var(--press)) 0 var(--stroke) var(--outline),
+    0 calc(var(--edge) + 6px - var(--press)) 18px rgb(0 0 0 / 0.35);
+  transform: translateY(var(--press));
+  transition:
+    transform 180ms var(--ease-pop),
+    box-shadow 180ms var(--ease-pop);
+}
+.card:active:not(:disabled) {
+  --press: calc(var(--edge) - 2px);
+  transition-duration: 50ms;
+  transition-timing-function: linear;
+}
+.card[data-selected] {
+  --press: calc(var(--edge) - 3px);
+  outline: var(--stroke-thick) solid var(--hi);
+  outline-offset: 3px;
+}
+.card:disabled {
+  opacity: 0.5;
+  filter: saturate(0.3);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+}

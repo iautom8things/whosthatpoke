@@ -1,0 +1,350 @@
+.backdrop {
+  --hill-h: clamp(64px, 17vh, 190px);
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-backdrop);
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  background: var(--bg-0);
+}
+.backdrop > * {
+  position: absolute;
+}
+.backdrop[data-paused] *,
+.backdrop[data-paused] *::before,
+.backdrop[data-paused] *::after {
+  animation-play-state: paused !important;
+}
+
+/* ================= SPOOKY NIGHT ================= */
+.nightSky {
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 45% at 80% 16%, rgb(255 205 130 / 0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 50% at 50% 105%, rgb(255 122 26 / 0.22) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 40%, var(--bg-2) 74%, var(--bg-3) 100%);
+}
+
+.stars {
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  will-change: opacity;
+}
+.stars1 {
+  animation: twinkle 3.4s ease-in-out infinite alternate;
+}
+.stars2 {
+  width: 3px;
+  height: 3px;
+  animation: twinkle 4.6s ease-in-out -1.5s infinite alternate;
+}
+.stars3 {
+  width: 4px;
+  height: 4px;
+  animation: twinkle 2.6s ease-in-out -0.7s infinite alternate;
+}
+
+.sparkle {
+  width: 2.8vmin;
+  min-width: 14px;
+  fill: #fff6d6;
+  filter: drop-shadow(0 0 4px rgb(255 240 190 / 0.9));
+  animation: sparkle 3.8s var(--ease-in-out) infinite;
+}
+
+.moon {
+  top: max(5vh, 20px);
+  right: 9vw;
+  width: clamp(96px, 23vmin, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 62%, rgb(214 168 72 / 0.42) 0 7%, transparent 7.5%),
+    radial-gradient(circle at 62% 30%, rgb(214 168 72 / 0.36) 0 10%, transparent 10.5%),
+    radial-gradient(circle at 70% 70%, rgb(214 168 72 / 0.3) 0 5%, transparent 5.5%),
+    radial-gradient(circle at 38% 34%, #fffef4 0%, #fff2bd 46%, #f7d77a 82%, #e8bf55 100%);
+  box-shadow:
+    inset -1.6vmin -1.4vmin 0 rgb(206 150 50 / 0.32),
+    0 0 4vmin 0.6vmin rgb(255 228 150 / 0.55);
+}
+.moonHalo {
+  top: max(5vh, 20px);
+  right: 9vw;
+  width: clamp(96px, 23vmin, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  scale: 2.6;
+  background: radial-gradient(closest-side, rgb(255 226 150 / 0.36) 0%, rgb(255 170 110 / 0.12) 55%, transparent 100%);
+  animation: halo 6s var(--ease-in-out) infinite alternate;
+  will-change: opacity, transform;
+}
+
+/* ---------- bats ---------- */
+.bat {
+  left: 0;
+  top: 0;
+  width: var(--w, 8vmin);
+  min-width: 44px;
+  will-change: transform;
+  animation: fly var(--dur, 22s) linear var(--delay, 0s) infinite;
+}
+.bat1 {
+  --w: 9vmin;
+  --y: 26vh;
+  --dur: 19s;
+  --delay: -4s;
+}
+.bat2 {
+  --w: 6vmin;
+  --y: 44vh;
+  --dur: 27s;
+  --delay: -15s;
+}
+.bat3 {
+  --w: 7vmin;
+  --y: 14vh;
+  --dur: 34s;
+  --delay: -26s;
+  scale: -1 1;
+}
+.bat3 .batBob {
+  animation-duration: 2.6s;
+}
+.batBob {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  fill: #0d0322;
+  animation: bob 1.9s var(--ease-in-out) infinite alternate;
+}
+.wing {
+  transform-box: fill-box;
+  transform-origin: 100% 45%;
+  animation: flap 300ms var(--ease-in-out) infinite alternate;
+}
+.eye {
+  fill: #ffe14d;
+}
+
+/* ---------- ground ---------- */
+.hills {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--hill-h);
+}
+.hillBack {
+  fill: #23104f;
+}
+.hillFront {
+  fill: #0e0526;
+}
+
+.pumpkin {
+  width: calc(clamp(40px, 7vmin, 92px) * var(--s, 1));
+  aspect-ratio: 64 / 54;
+}
+.pumpkin svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.face {
+  fill: #ffe14d;
+  animation: flicker 2.8s steps(1, end) infinite;
+}
+.pumpkinGlow {
+  position: absolute;
+  inset: -70%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 160 40 / 0.5), transparent 75%);
+  animation: glow 2.8s var(--ease-in-out) infinite alternate;
+}
+
+.fog {
+  left: -20vw;
+  width: 140vw;
+  height: 34vh;
+  background:
+    radial-gradient(ellipse 30% 45% at 22% 60%, rgb(196 176 255 / 0.2), transparent 70%),
+    radial-gradient(ellipse 26% 40% at 58% 55%, rgb(196 176 255 / 0.16), transparent 70%),
+    radial-gradient(ellipse 28% 42% at 86% 62%, rgb(196 176 255 / 0.2), transparent 70%);
+  will-change: transform;
+}
+.fogBack {
+  bottom: 4vh;
+  animation: drift 38s var(--ease-in-out) infinite alternate;
+}
+.fogFront {
+  bottom: -12vh;
+  opacity: 0.85;
+  animation: drift 26s var(--ease-in-out) -9s infinite alternate-reverse;
+}
+
+/* Projector: fewer moving parts, no haze that a projector turns into grey mud. */
+:global([data-projector="on"]) .fog,
+:global([data-projector="on"]) .stars3,
+:global([data-projector="on"]) .bat2,
+:global([data-projector="on"]) .bat3,
+:global([data-projector="on"]) .sparkle {
+  display: none;
+}
+:global([data-projector="on"]) .moonHalo {
+  animation: none;
+  opacity: 0.6;
+}
+:global([data-projector="on"]) .pumpkinGlow {
+  animation: none;
+}
+
+/* ================= CLASSIC ================= */
+.daySky {
+  inset: 0;
+  background: radial-gradient(ellipse 75% 70% at 50% 46%, var(--bg-3) 0%, var(--bg-2) 34%, var(--bg-1) 70%, var(--bg-0) 100%);
+}
+.dayRays {
+  left: 50%;
+  top: 46%;
+  width: 180vmax;
+  height: 180vmax;
+  translate: -50% -50%;
+  background: repeating-conic-gradient(from 0deg, rgb(255 255 255 / 0.16) 0deg 7.5deg, rgb(255 255 255 / 0) 7.5deg 15deg);
+  -webkit-mask-image: radial-gradient(closest-side, #000 0%, rgb(0 0 0 / 0.75) 40%, rgb(0 0 0 / 0.3) 75%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 0%, rgb(0 0 0 / 0.75) 40%, rgb(0 0 0 / 0.3) 75%, transparent 100%);
+  animation: spin 140s linear infinite;
+  will-change: transform;
+}
+.ballMark {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.1);
+  stroke-width: 6;
+  will-change: transform;
+}
+.ballMark1 {
+  width: 62vmin;
+  left: -16vmin;
+  bottom: -18vmin;
+  animation: spin 90s linear infinite;
+}
+.ballMark2 {
+  width: 44vmin;
+  right: -12vmin;
+  top: -12vmin;
+  animation: spin 120s linear infinite reverse;
+}
+.vignette {
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 55%, rgb(2 18 70 / 0.5) 100%);
+}
+:global([data-projector="on"]) .ballMark,
+:global([data-projector="on"]) .backdrop[data-variant="classic"] .sparkle {
+  display: none;
+}
+
+/* ================= keyframes ================= */
+@keyframes twinkle {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(0.35) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1) rotate(45deg);
+    opacity: 1;
+  }
+}
+@keyframes halo {
+  from {
+    opacity: 0.75;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+@keyframes fly {
+  0% {
+    transform: translate(-15vw, var(--y));
+  }
+  100% {
+    transform: translate(115vw, calc(var(--y) - 6vh));
+  }
+}
+.bat3 {
+  animation-name: flyBack;
+}
+@keyframes flyBack {
+  0% {
+    transform: translate(115vw, var(--y));
+  }
+  100% {
+    transform: translate(-15vw, calc(var(--y) + 8vh));
+  }
+}
+@keyframes bob {
+  from {
+    transform: translateY(-1.4vh) rotate(-5deg);
+  }
+  to {
+    transform: translateY(1.4vh) rotate(5deg);
+  }
+}
+@keyframes flap {
+  from {
+    transform: rotate(-8deg) scaleY(1);
+  }
+  to {
+    transform: rotate(22deg) scaleY(0.5);
+  }
+}
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.82;
+  }
+  44% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+}
+@keyframes glow {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes drift {
+  from {
+    transform: translateX(-6vw);
+  }
+  to {
+    transform: translateX(6vw);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,224 @@
+/*
+ * The host card is sized by its stage (a size container): as big as fits at a 0.76 aspect.
+ * The card is itself an inline-size container, so everything inside scales with it (cqi).
+ */
+.card,
+.back {
+  /* A little side room so the judged lean and its glow never touch the screen edge. */
+  --card-w: min(90cqw, 100cqh * 0.76);
+  width: var(--card-w);
+  aspect-ratio: 0.76;
+  border-radius: calc(var(--card-w) * 0.07);
+}
+
+.card {
+  position: relative;
+  container-type: inline-size;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: calc(var(--card-w) * 0.026);
+  padding: calc(var(--card-w) * 0.034);
+  border: var(--stroke-thick) solid var(--outline);
+  /* Trading-card yellow frame. */
+  background:
+    radial-gradient(120% 60% at 20% 0%, rgb(255 255 255 / 0.55), transparent 60%),
+    linear-gradient(165deg, #ffe680 0%, var(--logo-fill) 38%, #f2b100 100%);
+  box-shadow:
+    0 calc(var(--card-w) * 0.016) 0 var(--outline),
+    0 calc(var(--card-w) * 0.05) calc(var(--card-w) * 0.08) rgb(0 0 0 / 0.45);
+  transition:
+    transform 480ms var(--ease-pop),
+    box-shadow var(--dur-med) var(--ease-out);
+  will-change: transform;
+  cursor: grab;
+}
+.card[data-dragging] {
+  cursor: grabbing;
+  transition: none;
+}
+
+.window {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 5cqi;
+  background: radial-gradient(circle at 50% 45%, var(--bg-3) 0%, var(--bg-2) 45%, var(--bg-1) 100%);
+  box-shadow: inset 0 0 0 0.8cqi rgb(255 255 255 / 0.25);
+}
+
+.plate {
+  display: grid;
+  place-items: center;
+  height: 21cqi;
+  padding: 0 3cqi;
+  border: var(--stroke) solid var(--outline);
+  border-radius: 5cqi;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  text-align: center;
+  overflow: hidden;
+}
+.ask {
+  font-size: 8cqi;
+  line-height: 1.02;
+  text-wrap: balance;
+  padding-top: 0.08em;
+}
+.name {
+  --display-fill: var(--hi);
+  /* As big as the card allows, never wider than the plate. Luckiest Guy caps average about 0.62em; 0.66 leaves margin. */
+  font-size: min(15cqi, calc(90cqi / (var(--chars) * 0.66)));
+  white-space: nowrap;
+  padding-top: 0.1em;
+  animation: nameIn 420ms var(--ease-pop) both;
+}
+
+/* ---------- drag feedback ---------- */
+.tint {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: normal;
+}
+.tint[data-tone="got"] {
+  background: radial-gradient(circle at 25% 20%, rgb(47 211 107 / 0.95), rgb(17 121 58 / 0.6) 75%);
+  opacity: calc(var(--got) * 0.5);
+}
+.tint[data-tone="miss"] {
+  background: radial-gradient(circle at 75% 20%, rgb(255 69 96 / 0.95), rgb(154 16 40 / 0.6) 75%);
+  opacity: calc(var(--miss) * 0.5);
+}
+/* Once judged, the art stays clear; a colored glow carries the verdict instead of the tint. */
+.card[data-face="judged"] .tint {
+  opacity: 0;
+}
+.card[data-verdict="got"] {
+  box-shadow:
+    0 0 0 calc(var(--card-w) * 0.022) var(--good),
+    0 0 calc(var(--card-w) * 0.12) calc(var(--card-w) * 0.02) rgb(47 211 107 / 0.75),
+    0 calc(var(--card-w) * 0.05) calc(var(--card-w) * 0.08) rgb(0 0 0 / 0.45);
+}
+.card[data-verdict="missed"] {
+  box-shadow:
+    0 0 0 calc(var(--card-w) * 0.022) var(--bad),
+    0 0 calc(var(--card-w) * 0.12) calc(var(--card-w) * 0.02) rgb(255 69 96 / 0.7),
+    0 calc(var(--card-w) * 0.05) calc(var(--card-w) * 0.08) rgb(0 0 0 / 0.45);
+}
+
+.stamp {
+  --s: 1;
+  position: absolute;
+  top: 7%;
+  padding: 0.16em 0.32em 0.04em;
+  border: var(--stroke-thick) solid var(--outline);
+  border-radius: 3.5cqi;
+  font-size: 12.5cqi;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 0.7cqi rgb(255 255 255 / 0.85),
+    0 1.2cqi 0 var(--outline);
+  transform: rotate(var(--r)) scale(var(--s));
+}
+.stamp[data-tone="got"] {
+  --r: -14deg;
+  --s: calc(1.3 - 0.3 * var(--got));
+  left: 5%;
+  background: var(--good);
+  opacity: var(--got);
+}
+.stamp[data-tone="miss"] {
+  --r: 14deg;
+  --s: calc(1.3 - 0.3 * var(--miss));
+  right: 5%;
+  background: var(--bad);
+  opacity: var(--miss);
+}
+.stamp[data-tone="peek"] {
+  --r: -5deg;
+  --s: calc(1.3 - 0.3 * var(--peek));
+  top: auto;
+  bottom: 30%;
+  left: 50%;
+  translate: -50% 0;
+  background: var(--accent);
+  opacity: var(--peek);
+}
+.card[data-verdict="got"] .stamp[data-tone="got"],
+.card[data-verdict="missed"] .stamp[data-tone="miss"] {
+  animation: slam 460ms var(--ease-out) both;
+}
+.card[data-verdict="missed"] .window {
+  animation: shake 460ms var(--ease-in-out) both;
+}
+
+/* ---------- face-down deck ---------- */
+.back {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  border: var(--stroke-thick) solid var(--outline);
+  background:
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / 0.25) 0 18%, transparent 19%),
+    repeating-conic-gradient(from 0deg at 50% 50%, var(--logo-stroke) 0deg 12deg, #3568d4 12deg 24deg),
+    var(--logo-stroke);
+  box-shadow:
+    inset 0 0 0 calc(var(--card-w) * 0.03) #f2b100,
+    inset 0 0 0 calc(var(--card-w) * 0.036) var(--outline),
+    0 calc(var(--card-w) * 0.016) 0 var(--outline);
+  translate: -50% -50%;
+  pointer-events: none;
+}
+.back[data-depth="1"] {
+  transform: translate(-4%, 1.5%) rotate(-5deg) scale(0.97);
+}
+.back[data-depth="2"] {
+  transform: translate(4%, 2.5%) rotate(4.5deg) scale(0.95);
+}
+
+@keyframes slam {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--r)) scale(2.4);
+  }
+  55% {
+    opacity: 1;
+    transform: rotate(var(--r)) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(var(--r)) scale(1);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-4%);
+  }
+  40% {
+    transform: translateX(3.5%);
+  }
+  60% {
+    transform: translateX(-2.5%);
+  }
+  80% {
+    transform: translateX(1.5%);
+  }
+}
+@keyframes nameIn {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
