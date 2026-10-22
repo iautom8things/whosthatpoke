@@ -1,0 +1,5127 @@
+{
+  "1": {
+    "file": "pokemon/1.svg",
+    "form": "bulbasaur",
+    "artSource": "dream-world"
+  },
+  "2": {
+    "file": "pokemon/2.svg",
+    "form": "ivysaur",
+    "artSource": "dream-world"
+  },
+  "3": {
+    "file": "pokemon/3.svg",
+    "form": "venusaur",
+    "artSource": "dream-world"
+  },
+  "4": {
+    "file": "pokemon/4.svg",
+    "form": "charmander",
+    "artSource": "dream-world"
+  },
+  "5": {
+    "file": "pokemon/5.svg",
+    "form": "charmeleon",
+    "artSource": "dream-world"
+  },
+  "6": {
+    "file": "pokemon/6.svg",
+    "form": "charizard",
+    "artSource": "dream-world"
+  },
+  "7": {
+    "file": "pokemon/7.svg",
+    "form": "squirtle",
+    "artSource": "dream-world"
+  },
+  "8": {
+    "file": "pokemon/8.svg",
+    "form": "wartortle",
+    "artSource": "dream-world"
+  },
+  "9": {
+    "file": "pokemon/9.svg",
+    "form": "blastoise",
+    "artSource": "dream-world"
+  },
+  "10": {
+    "file": "pokemon/10.svg",
+    "form": "caterpie",
+    "artSource": "dream-world"
+  },
+  "11": {
+    "file": "pokemon/11.svg",
+    "form": "metapod",
+    "artSource": "dream-world"
+  },
+  "12": {
+    "file": "pokemon/12.svg",
+    "form": "butterfree",
+    "artSource": "dream-world"
+  },
+  "13": {
+    "file": "pokemon/13.svg",
+    "form": "weedle",
+    "artSource": "dream-world"
+  },
+  "14": {
+    "file": "pokemon/14.svg",
+    "form": "kakuna",
+    "artSource": "dream-world"
+  },
+  "15": {
+    "file": "pokemon/15.svg",
+    "form": "beedrill",
+    "artSource": "dream-world"
+  },
+  "16": {
+    "file": "pokemon/16.svg",
+    "form": "pidgey",
+    "artSource": "dream-world"
+  },
+  "17": {
+    "file": "pokemon/17.svg",
+    "form": "pidgeotto",
+    "artSource": "dream-world"
+  },
+  "18": {
+    "file": "pokemon/18.svg",
+    "form": "pidgeot",
+    "artSource": "dream-world"
+  },
+  "19": {
+    "file": "pokemon/19.svg",
+    "form": "rattata",
+    "artSource": "dream-world"
+  },
+  "20": {
+    "file": "pokemon/20.svg",
+    "form": "raticate",
+    "artSource": "dream-world"
+  },
+  "21": {
+    "file": "pokemon/21.svg",
+    "form": "spearow",
+    "artSource": "dream-world"
+  },
+  "22": {
+    "file": "pokemon/22.svg",
+    "form": "fearow",
+    "artSource": "dream-world"
+  },
+  "23": {
+    "file": "pokemon/23.svg",
+    "form": "ekans",
+    "artSource": "dream-world"
+  },
+  "24": {
+    "file": "pokemon/24.svg",
+    "form": "arbok",
+    "artSource": "dream-world"
+  },
+  "25": {
+    "file": "pokemon/25.svg",
+    "form": "pikachu",
+    "artSource": "dream-world"
+  },
+  "26": {
+    "file": "pokemon/26.svg",
+    "form": "raichu",
+    "artSource": "dream-world"
+  },
+  "27": {
+    "file": "pokemon/27.svg",
+    "form": "sandshrew",
+    "artSource": "dream-world"
+  },
+  "28": {
+    "file": "pokemon/28.svg",
+    "form": "sandslash",
+    "artSource": "dream-world"
+  },
+  "29": {
+    "file": "pokemon/29.svg",
+    "form": "nidoran-f",
+    "artSource": "dream-world"
+  },
+  "30": {
+    "file": "pokemon/30.svg",
+    "form": "nidorina",
+    "artSource": "dream-world"
+  },
+  "31": {
+    "file": "pokemon/31.svg",
+    "form": "nidoqueen",
+    "artSource": "dream-world"
+  },
+  "32": {
+    "file": "pokemon/32.svg",
+    "form": "nidoran-m",
+    "artSource": "dream-world"
+  },
+  "33": {
+    "file": "pokemon/33.svg",
+    "form": "nidorino",
+    "artSource": "dream-world"
+  },
+  "34": {
+    "file": "pokemon/34.svg",
+    "form": "nidoking",
+    "artSource": "dream-world"
+  },
+  "35": {
+    "file": "pokemon/35.svg",
+    "form": "clefairy",
+    "artSource": "dream-world"
+  },
+  "36": {
+    "file": "pokemon/36.svg",
+    "form": "clefable",
+    "artSource": "dream-world"
+  },
+  "37": {
+    "file": "pokemon/37.svg",
+    "form": "vulpix",
+    "artSource": "dream-world"
+  },
+  "38": {
+    "file": "pokemon/38.svg",
+    "form": "ninetales",
+    "artSource": "dream-world"
+  },
+  "39": {
+    "file": "pokemon/39.svg",
+    "form": "jigglypuff",
+    "artSource": "dream-world"
+  },
+  "40": {
+    "file": "pokemon/40.svg",
+    "form": "wigglytuff",
+    "artSource": "dream-world"
+  },
+  "41": {
+    "file": "pokemon/41.svg",
+    "form": "zubat",
+    "artSource": "dream-world"
+  },
+  "42": {
+    "file": "pokemon/42.svg",
+    "form": "golbat",
+    "artSource": "dream-world"
+  },
+  "43": {
+    "file": "pokemon/43.svg",
+    "form": "oddish",
+    "artSource": "dream-world"
+  },
+  "44": {
+    "file": "pokemon/44.svg",
+    "form": "gloom",
+    "artSource": "dream-world"
+  },
+  "45": {
+    "file": "pokemon/45.svg",
+    "form": "vileplume",
+    "artSource": "dream-world"
+  },
+  "46": {
+    "file": "pokemon/46.svg",
+    "form": "paras",
+    "artSource": "dream-world"
+  },
+  "47": {
+    "file": "pokemon/47.svg",
+    "form": "parasect",
+    "artSource": "dream-world"
+  },
+  "48": {
+    "file": "pokemon/48.svg",
+    "form": "venonat",
+    "artSource": "dream-world"
+  },
+  "49": {
+    "file": "pokemon/49.svg",
+    "form": "venomoth",
+    "artSource": "dream-world"
+  },
+  "50": {
+    "file": "pokemon/50.svg",
+    "form": "diglett",
+    "artSource": "dream-world"
+  },
+  "51": {
+    "file": "pokemon/51.svg",
+    "form": "dugtrio",
+    "artSource": "dream-world"
+  },
+  "52": {
+    "file": "pokemon/52.svg",
+    "form": "meowth",
+    "artSource": "dream-world"
+  },
+  "53": {
+    "file": "pokemon/53.svg",
+    "form": "persian",
+    "artSource": "dream-world"
+  },
+  "54": {
+    "file": "pokemon/54.svg",
+    "form": "psyduck",
+    "artSource": "dream-world"
+  },
+  "55": {
+    "file": "pokemon/55.svg",
+    "form": "golduck",
+    "artSource": "dream-world"
+  },
+  "56": {
+    "file": "pokemon/56.svg",
+    "form": "mankey",
+    "artSource": "dream-world"
+  },
+  "57": {
+    "file": "pokemon/57.svg",
+    "form": "primeape",
+    "artSource": "dream-world"
+  },
+  "58": {
+    "file": "pokemon/58.svg",
+    "form": "growlithe",
+    "artSource": "dream-world"
+  },
+  "59": {
+    "file": "pokemon/59.svg",
+    "form": "arcanine",
+    "artSource": "dream-world"
+  },
+  "60": {
+    "file": "pokemon/60.svg",
+    "form": "poliwag",
+    "artSource": "dream-world"
+  },
+  "61": {
+    "file": "pokemon/61.svg",
+    "form": "poliwhirl",
+    "artSource": "dream-world"
+  },
+  "62": {
+    "file": "pokemon/62.svg",
+    "form": "poliwrath",
+    "artSource": "dream-world"
+  },
+  "63": {
+    "file": "pokemon/63.svg",
+    "form": "abra",
+    "artSource": "dream-world"
+  },
+  "64": {
+    "file": "pokemon/64.svg",
+    "form": "kadabra",
+    "artSource": "dream-world"
+  },
+  "65": {
+    "file": "pokemon/65.svg",
+    "form": "alakazam",
+    "artSource": "dream-world"
+  },
+  "66": {
+    "file": "pokemon/66.svg",
+    "form": "machop",
+    "artSource": "dream-world"
+  },
+  "67": {
+    "file": "pokemon/67.svg",
+    "form": "machoke",
+    "artSource": "dream-world"
+  },
+  "68": {
+    "file": "pokemon/68.svg",
+    "form": "machamp",
+    "artSource": "dream-world"
+  },
+  "69": {
+    "file": "pokemon/69.svg",
+    "form": "bellsprout",
+    "artSource": "dream-world"
+  },
+  "70": {
+    "file": "pokemon/70.svg",
+    "form": "weepinbell",
+    "artSource": "dream-world"
+  },
+  "71": {
+    "file": "pokemon/71.svg",
+    "form": "victreebel",
+    "artSource": "dream-world"
+  },
+  "72": {
+    "file": "pokemon/72.svg",
+    "form": "tentacool",
+    "artSource": "dream-world"
+  },
+  "73": {
+    "file": "pokemon/73.svg",
+    "form": "tentacruel",
+    "artSource": "dream-world"
+  },
+  "74": {
+    "file": "pokemon/74.svg",
+    "form": "geodude",
+    "artSource": "dream-world"
+  },
+  "75": {
+    "file": "pokemon/75.svg",
+    "form": "graveler",
+    "artSource": "dream-world"
+  },
+  "76": {
+    "file": "pokemon/76.svg",
+    "form": "golem",
+    "artSource": "dream-world"
+  },
+  "77": {
+    "file": "pokemon/77.svg",
+    "form": "ponyta",
+    "artSource": "dream-world"
+  },
+  "78": {
+    "file": "pokemon/78.svg",
+    "form": "rapidash",
+    "artSource": "dream-world"
+  },
+  "79": {
+    "file": "pokemon/79.svg",
+    "form": "slowpoke",
+    "artSource": "dream-world"
+  },
+  "80": {
+    "file": "pokemon/80.svg",
+    "form": "slowbro",
+    "artSource": "dream-world"
+  },
+  "81": {
+    "file": "pokemon/81.svg",
+    "form": "magnemite",
+    "artSource": "dream-world"
+  },
+  "82": {
+    "file": "pokemon/82.svg",
+    "form": "magneton",
+    "artSource": "dream-world"
+  },
+  "83": {
+    "file": "pokemon/83.svg",
+    "form": "farfetchd",
+    "artSource": "dream-world"
+  },
+  "84": {
+    "file": "pokemon/84.svg",
+    "form": "doduo",
+    "artSource": "dream-world"
+  },
+  "85": {
+    "file": "pokemon/85.svg",
+    "form": "dodrio",
+    "artSource": "dream-world"
+  },
+  "86": {
+    "file": "pokemon/86.svg",
+    "form": "seel",
+    "artSource": "dream-world"
+  },
+  "87": {
+    "file": "pokemon/87.svg",
+    "form": "dewgong",
+    "artSource": "dream-world"
+  },
+  "88": {
+    "file": "pokemon/88.svg",
+    "form": "grimer",
+    "artSource": "dream-world"
+  },
+  "89": {
+    "file": "pokemon/89.svg",
+    "form": "muk",
+    "artSource": "dream-world"
+  },
+  "90": {
+    "file": "pokemon/90.svg",
+    "form": "shellder",
+    "artSource": "dream-world"
+  },
+  "91": {
+    "file": "pokemon/91.svg",
+    "form": "cloyster",
+    "artSource": "dream-world"
+  },
+  "92": {
+    "file": "pokemon/92.svg",
+    "form": "gastly",
+    "artSource": "dream-world"
+  },
+  "93": {
+    "file": "pokemon/93.svg",
+    "form": "haunter",
+    "artSource": "dream-world"
+  },
+  "94": {
+    "file": "pokemon/94.svg",
+    "form": "gengar",
+    "artSource": "dream-world"
+  },
+  "95": {
+    "file": "pokemon/95.svg",
+    "form": "onix",
+    "artSource": "dream-world"
+  },
+  "96": {
+    "file": "pokemon/96.svg",
+    "form": "drowzee",
+    "artSource": "dream-world"
+  },
+  "97": {
+    "file": "pokemon/97.svg",
+    "form": "hypno",
+    "artSource": "dream-world"
+  },
+  "98": {
+    "file": "pokemon/98.svg",
+    "form": "krabby",
+    "artSource": "dream-world"
+  },
+  "99": {
+    "file": "pokemon/99.svg",
+    "form": "kingler",
+    "artSource": "dream-world"
+  },
+  "100": {
+    "file": "pokemon/100.svg",
+    "form": "voltorb",
+    "artSource": "dream-world"
+  },
+  "101": {
+    "file": "pokemon/101.svg",
+    "form": "electrode",
+    "artSource": "dream-world"
+  },
+  "102": {
+    "file": "pokemon/102.svg",
+    "form": "exeggcute",
+    "artSource": "dream-world"
+  },
+  "103": {
+    "file": "pokemon/103.svg",
+    "form": "exeggutor",
+    "artSource": "dream-world"
+  },
+  "104": {
+    "file": "pokemon/104.svg",
+    "form": "cubone",
+    "artSource": "dream-world"
+  },
+  "105": {
+    "file": "pokemon/105.svg",
+    "form": "marowak",
+    "artSource": "dream-world"
+  },
+  "106": {
+    "file": "pokemon/106.svg",
+    "form": "hitmonlee",
+    "artSource": "dream-world"
+  },
+  "107": {
+    "file": "pokemon/107.svg",
+    "form": "hitmonchan",
+    "artSource": "dream-world"
+  },
+  "108": {
+    "file": "pokemon/108.svg",
+    "form": "lickitung",
+    "artSource": "dream-world"
+  },
+  "109": {
+    "file": "pokemon/109.svg",
+    "form": "koffing",
+    "artSource": "dream-world"
+  },
+  "110": {
+    "file": "pokemon/110.svg",
+    "form": "weezing",
+    "artSource": "dream-world"
+  },
+  "111": {
+    "file": "pokemon/111.svg",
+    "form": "rhyhorn",
+    "artSource": "dream-world"
+  },
+  "112": {
+    "file": "pokemon/112.svg",
+    "form": "rhydon",
+    "artSource": "dream-world"
+  },
+  "113": {
+    "file": "pokemon/113.svg",
+    "form": "chansey",
+    "artSource": "dream-world"
+  },
+  "114": {
+    "file": "pokemon/114.svg",
+    "form": "tangela",
+    "artSource": "dream-world"
+  },
+  "115": {
+    "file": "pokemon/115.svg",
+    "form": "kangaskhan",
+    "artSource": "dream-world"
+  },
+  "116": {
+    "file": "pokemon/116.svg",
+    "form": "horsea",
+    "artSource": "dream-world"
+  },
+  "117": {
+    "file": "pokemon/117.svg",
+    "form": "seadra",
+    "artSource": "dream-world"
+  },
+  "118": {
+    "file": "pokemon/118.svg",
+    "form": "goldeen",
+    "artSource": "dream-world"
+  },
+  "119": {
+    "file": "pokemon/119.svg",
+    "form": "seaking",
+    "artSource": "dream-world"
+  },
+  "120": {
+    "file": "pokemon/120.svg",
+    "form": "staryu",
+    "artSource": "dream-world"
+  },
+  "121": {
+    "file": "pokemon/121.svg",
+    "form": "starmie",
+    "artSource": "dream-world"
+  },
+  "122": {
+    "file": "pokemon/122.svg",
+    "form": "mr-mime",
+    "artSource": "dream-world"
+  },
+  "123": {
+    "file": "pokemon/123.svg",
+    "form": "scyther",
+    "artSource": "dream-world"
+  },
+  "124": {
+    "file": "pokemon/124.svg",
+    "form": "jynx",
+    "artSource": "dream-world"
+  },
+  "125": {
+    "file": "pokemon/125.svg",
+    "form": "electabuzz",
+    "artSource": "dream-world"
+  },
+  "126": {
+    "file": "pokemon/126.svg",
+    "form": "magmar",
+    "artSource": "dream-world"
+  },
+  "127": {
+    "file": "pokemon/127.svg",
+    "form": "pinsir",
+    "artSource": "dream-world"
+  },
+  "128": {
+    "file": "pokemon/128.svg",
+    "form": "tauros",
+    "artSource": "dream-world"
+  },
+  "129": {
+    "file": "pokemon/129.svg",
+    "form": "magikarp",
+    "artSource": "dream-world"
+  },
+  "130": {
+    "file": "pokemon/130.svg",
+    "form": "gyarados",
+    "artSource": "dream-world"
+  },
+  "131": {
+    "file": "pokemon/131.svg",
+    "form": "lapras",
+    "artSource": "dream-world"
+  },
+  "132": {
+    "file": "pokemon/132.svg",
+    "form": "ditto",
+    "artSource": "dream-world"
+  },
+  "133": {
+    "file": "pokemon/133.svg",
+    "form": "eevee",
+    "artSource": "dream-world"
+  },
+  "134": {
+    "file": "pokemon/134.svg",
+    "form": "vaporeon",
+    "artSource": "dream-world"
+  },
+  "135": {
+    "file": "pokemon/135.svg",
+    "form": "jolteon",
+    "artSource": "dream-world"
+  },
+  "136": {
+    "file": "pokemon/136.svg",
+    "form": "flareon",
+    "artSource": "dream-world"
+  },
+  "137": {
+    "file": "pokemon/137.svg",
+    "form": "porygon",
+    "artSource": "dream-world"
+  },
+  "138": {
+    "file": "pokemon/138.svg",
+    "form": "omanyte",
+    "artSource": "dream-world"
+  },
+  "139": {
+    "file": "pokemon/139.svg",
+    "form": "omastar",
+    "artSource": "dream-world"
+  },
+  "140": {
+    "file": "pokemon/140.svg",
+    "form": "kabuto",
+    "artSource": "dream-world"
+  },
+  "141": {
+    "file": "pokemon/141.svg",
+    "form": "kabutops",
+    "artSource": "dream-world"
+  },
+  "142": {
+    "file": "pokemon/142.svg",
+    "form": "aerodactyl",
+    "artSource": "dream-world"
+  },
+  "143": {
+    "file": "pokemon/143.svg",
+    "form": "snorlax",
+    "artSource": "dream-world"
+  },
+  "144": {
+    "file": "pokemon/144.svg",
+    "form": "articuno",
+    "artSource": "dream-world"
+  },
+  "145": {
+    "file": "pokemon/145.svg",
+    "form": "zapdos",
+    "artSource": "dream-world"
+  },
+  "146": {
+    "file": "pokemon/146.svg",
+    "form": "moltres",
+    "artSource": "dream-world"
+  },
+  "147": {
+    "file": "pokemon/147.svg",
+    "form": "dratini",
+    "artSource": "dream-world"
+  },
+  "148": {
+    "file": "pokemon/148.svg",
+    "form": "dragonair",
+    "artSource": "dream-world"
+  },
+  "149": {
+    "file": "pokemon/149.svg",
+    "form": "dragonite",
+    "artSource": "dream-world"
+  },
+  "150": {
+    "file": "pokemon/150.svg",
+    "form": "mewtwo",
+    "artSource": "dream-world"
+  },
+  "151": {
+    "file": "pokemon/151.svg",
+    "form": "mew",
+    "artSource": "dream-world"
+  },
+  "152": {
+    "file": "pokemon/152.svg",
+    "form": "chikorita",
+    "artSource": "dream-world"
+  },
+  "153": {
+    "file": "pokemon/153.svg",
+    "form": "bayleef",
+    "artSource": "dream-world"
+  },
+  "154": {
+    "file": "pokemon/154.svg",
+    "form": "meganium",
+    "artSource": "dream-world"
+  },
+  "155": {
+    "file": "pokemon/155.svg",
+    "form": "cyndaquil",
+    "artSource": "dream-world"
+  },
+  "156": {
+    "file": "pokemon/156.svg",
+    "form": "quilava",
+    "artSource": "dream-world"
+  },
+  "157": {
+    "file": "pokemon/157.svg",
+    "form": "typhlosion",
+    "artSource": "dream-world"
+  },
+  "158": {
+    "file": "pokemon/158.svg",
+    "form": "totodile",
+    "artSource": "dream-world"
+  },
+  "159": {
+    "file": "pokemon/159.svg",
+    "form": "croconaw",
+    "artSource": "dream-world"
+  },
+  "160": {
+    "file": "pokemon/160.svg",
+    "form": "feraligatr",
+    "artSource": "dream-world"
+  },
+  "161": {
+    "file": "pokemon/161.svg",
+    "form": "sentret",
+    "artSource": "dream-world"
+  },
+  "162": {
+    "file": "pokemon/162.svg",
+    "form": "furret",
+    "artSource": "dream-world"
+  },
+  "163": {
+    "file": "pokemon/163.svg",
+    "form": "hoothoot",
+    "artSource": "dream-world"
+  },
+  "164": {
+    "file": "pokemon/164.svg",
+    "form": "noctowl",
+    "artSource": "dream-world"
+  },
+  "165": {
+    "file": "pokemon/165.svg",
+    "form": "ledyba",
+    "artSource": "dream-world"
+  },
+  "166": {
+    "file": "pokemon/166.svg",
+    "form": "ledian",
+    "artSource": "dream-world"
+  },
+  "167": {
+    "file": "pokemon/167.svg",
+    "form": "spinarak",
+    "artSource": "dream-world"
+  },
+  "168": {
+    "file": "pokemon/168.svg",
+    "form": "ariados",
+    "artSource": "dream-world"
+  },
+  "169": {
+    "file": "pokemon/169.svg",
+    "form": "crobat",
+    "artSource": "dream-world"
+  },
+  "170": {
+    "file": "pokemon/170.svg",
+    "form": "chinchou",
+    "artSource": "dream-world"
+  },
+  "171": {
+    "file": "pokemon/171.svg",
+    "form": "lanturn",
+    "artSource": "dream-world"
+  },
+  "172": {
+    "file": "pokemon/172.svg",
+    "form": "pichu",
+    "artSource": "dream-world"
+  },
+  "173": {
+    "file": "pokemon/173.svg",
+    "form": "cleffa",
+    "artSource": "dream-world"
+  },
+  "174": {
+    "file": "pokemon/174.svg",
+    "form": "igglybuff",
+    "artSource": "dream-world"
+  },
+  "175": {
+    "file": "pokemon/175.svg",
+    "form": "togepi",
+    "artSource": "dream-world"
+  },
+  "176": {
+    "file": "pokemon/176.svg",
+    "form": "togetic",
+    "artSource": "dream-world"
+  },
+  "177": {
+    "file": "pokemon/177.svg",
+    "form": "natu",
+    "artSource": "dream-world"
+  },
+  "178": {
+    "file": "pokemon/178.svg",
+    "form": "xatu",
+    "artSource": "dream-world"
+  },
+  "179": {
+    "file": "pokemon/179.svg",
+    "form": "mareep",
+    "artSource": "dream-world"
+  },
+  "180": {
+    "file": "pokemon/180.svg",
+    "form": "flaaffy",
+    "artSource": "dream-world"
+  },
+  "181": {
+    "file": "pokemon/181.svg",
+    "form": "ampharos",
+    "artSource": "dream-world"
+  },
+  "182": {
+    "file": "pokemon/182.svg",
+    "form": "bellossom",
+    "artSource": "dream-world"
+  },
+  "183": {
+    "file": "pokemon/183.svg",
+    "form": "marill",
+    "artSource": "dream-world"
+  },
+  "184": {
+    "file": "pokemon/184.svg",
+    "form": "azumarill",
+    "artSource": "dream-world"
+  },
+  "185": {
+    "file": "pokemon/185.svg",
+    "form": "sudowoodo",
+    "artSource": "dream-world"
+  },
+  "186": {
+    "file": "pokemon/186.svg",
+    "form": "politoed",
+    "artSource": "dream-world"
+  },
+  "187": {
+    "file": "pokemon/187.svg",
+    "form": "hoppip",
+    "artSource": "dream-world"
+  },
+  "188": {
+    "file": "pokemon/188.svg",
+    "form": "skiploom",
+    "artSource": "dream-world"
+  },
+  "189": {
+    "file": "pokemon/189.svg",
+    "form": "jumpluff",
+    "artSource": "dream-world"
+  },
+  "190": {
+    "file": "pokemon/190.svg",
+    "form": "aipom",
+    "artSource": "dream-world"
+  },
+  "191": {
+    "file": "pokemon/191.svg",
+    "form": "sunkern",
+    "artSource": "dream-world"
+  },
+  "192": {
+    "file": "pokemon/192.svg",
+    "form": "sunflora",
+    "artSource": "dream-world"
+  },
+  "193": {
+    "file": "pokemon/193.svg",
+    "form": "yanma",
+    "artSource": "dream-world"
+  },
+  "194": {
+    "file": "pokemon/194.svg",
+    "form": "wooper",
+    "artSource": "dream-world"
+  },
+  "195": {
+    "file": "pokemon/195.svg",
+    "form": "quagsire",
+    "artSource": "dream-world"
+  },
+  "196": {
+    "file": "pokemon/196.svg",
+    "form": "espeon",
+    "artSource": "dream-world"
+  },
+  "197": {
+    "file": "pokemon/197.svg",
+    "form": "umbreon",
+    "artSource": "dream-world"
+  },
+  "198": {
+    "file": "pokemon/198.svg",
+    "form": "murkrow",
+    "artSource": "dream-world"
+  },
+  "199": {
+    "file": "pokemon/199.svg",
+    "form": "slowking",
+    "artSource": "dream-world"
+  },
+  "200": {
+    "file": "pokemon/200.svg",
+    "form": "misdreavus",
+    "artSource": "dream-world"
+  },
+  "201": {
+    "file": "pokemon/201.svg",
+    "form": "unown",
+    "artSource": "dream-world"
+  },
+  "202": {
+    "file": "pokemon/202.svg",
+    "form": "wobbuffet",
+    "artSource": "dream-world"
+  },
+  "203": {
+    "file": "pokemon/203.svg",
+    "form": "girafarig",
+    "artSource": "dream-world"
+  },
+  "204": {
+    "file": "pokemon/204.svg",
+    "form": "pineco",
+    "artSource": "dream-world"
+  },
+  "205": {
+    "file": "pokemon/205.svg",
+    "form": "forretress",
+    "artSource": "dream-world"
+  },
+  "206": {
+    "file": "pokemon/206.svg",
+    "form": "dunsparce",
+    "artSource": "dream-world"
+  },
+  "207": {
+    "file": "pokemon/207.svg",
+    "form": "gligar",
+    "artSource": "dream-world"
+  },
+  "208": {
+    "file": "pokemon/208.svg",
+    "form": "steelix",
+    "artSource": "dream-world"
+  },
+  "209": {
+    "file": "pokemon/209.svg",
+    "form": "snubbull",
+    "artSource": "dream-world"
+  },
+  "210": {
+    "file": "pokemon/210.svg",
+    "form": "granbull",
+    "artSource": "dream-world"
+  },
+  "211": {
+    "file": "pokemon/211.svg",
+    "form": "qwilfish",
+    "artSource": "dream-world"
+  },
+  "212": {
+    "file": "pokemon/212.svg",
+    "form": "scizor",
+    "artSource": "dream-world"
+  },
+  "213": {
+    "file": "pokemon/213.svg",
+    "form": "shuckle",
+    "artSource": "dream-world"
+  },
+  "214": {
+    "file": "pokemon/214.svg",
+    "form": "heracross",
+    "artSource": "dream-world"
+  },
+  "215": {
+    "file": "pokemon/215.svg",
+    "form": "sneasel",
+    "artSource": "dream-world"
+  },
+  "216": {
+    "file": "pokemon/216.svg",
+    "form": "teddiursa",
+    "artSource": "dream-world"
+  },
+  "217": {
+    "file": "pokemon/217.svg",
+    "form": "ursaring",
+    "artSource": "dream-world"
+  },
+  "218": {
+    "file": "pokemon/218.svg",
+    "form": "slugma",
+    "artSource": "dream-world"
+  },
+  "219": {
+    "file": "pokemon/219.svg",
+    "form": "magcargo",
+    "artSource": "dream-world"
+  },
+  "220": {
+    "file": "pokemon/220.svg",
+    "form": "swinub",
+    "artSource": "dream-world"
+  },
+  "221": {
+    "file": "pokemon/221.svg",
+    "form": "piloswine",
+    "artSource": "dream-world"
+  },
+  "222": {
+    "file": "pokemon/222.svg",
+    "form": "corsola",
+    "artSource": "dream-world"
+  },
+  "223": {
+    "file": "pokemon/223.svg",
+    "form": "remoraid",
+    "artSource": "dream-world"
+  },
+  "224": {
+    "file": "pokemon/224.svg",
+    "form": "octillery",
+    "artSource": "dream-world"
+  },
+  "225": {
+    "file": "pokemon/225.svg",
+    "form": "delibird",
+    "artSource": "dream-world"
+  },
+  "226": {
+    "file": "pokemon/226.svg",
+    "form": "mantine",
+    "artSource": "dream-world"
+  },
+  "227": {
+    "file": "pokemon/227.svg",
+    "form": "skarmory",
+    "artSource": "dream-world"
+  },
+  "228": {
+    "file": "pokemon/228.svg",
+    "form": "houndour",
+    "artSource": "dream-world"
+  },
+  "229": {
+    "file": "pokemon/229.svg",
+    "form": "houndoom",
+    "artSource": "dream-world"
+  },
+  "230": {
+    "file": "pokemon/230.svg",
+    "form": "kingdra",
+    "artSource": "dream-world"
+  },
+  "231": {
+    "file": "pokemon/231.svg",
+    "form": "phanpy",
+    "artSource": "dream-world"
+  },
+  "232": {
+    "file": "pokemon/232.svg",
+    "form": "donphan",
+    "artSource": "dream-world"
+  },
+  "233": {
+    "file": "pokemon/233.svg",
+    "form": "porygon2",
+    "artSource": "dream-world"
+  },
+  "234": {
+    "file": "pokemon/234.svg",
+    "form": "stantler",
+    "artSource": "dream-world"
+  },
+  "235": {
+    "file": "pokemon/235.svg",
+    "form": "smeargle",
+    "artSource": "dream-world"
+  },
+  "236": {
+    "file": "pokemon/236.svg",
+    "form": "tyrogue",
+    "artSource": "dream-world"
+  },
+  "237": {
+    "file": "pokemon/237.svg",
+    "form": "hitmontop",
+    "artSource": "dream-world"
+  },
+  "238": {
+    "file": "pokemon/238.svg",
+    "form": "smoochum",
+    "artSource": "dream-world"
+  },
+  "239": {
+    "file": "pokemon/239.svg",
+    "form": "elekid",
+    "artSource": "dream-world"
+  },
+  "240": {
+    "file": "pokemon/240.svg",
+    "form": "magby",
+    "artSource": "dream-world"
+  },
+  "241": {
+    "file": "pokemon/241.svg",
+    "form": "miltank",
+    "artSource": "dream-world"
+  },
+  "242": {
+    "file": "pokemon/242.svg",
+    "form": "blissey",
+    "artSource": "dream-world"
+  },
+  "243": {
+    "file": "pokemon/243.svg",
+    "form": "raikou",
+    "artSource": "dream-world"
+  },
+  "244": {
+    "file": "pokemon/244.svg",
+    "form": "entei",
+    "artSource": "dream-world"
+  },
+  "245": {
+    "file": "pokemon/245.svg",
+    "form": "suicune",
+    "artSource": "dream-world"
+  },
+  "246": {
+    "file": "pokemon/246.svg",
+    "form": "larvitar",
+    "artSource": "dream-world"
+  },
+  "247": {
+    "file": "pokemon/247.svg",
+    "form": "pupitar",
+    "artSource": "dream-world"
+  },
+  "248": {
+    "file": "pokemon/248.svg",
+    "form": "tyranitar",
+    "artSource": "dream-world"
+  },
+  "249": {
+    "file": "pokemon/249.svg",
+    "form": "lugia",
+    "artSource": "dream-world"
+  },
+  "250": {
+    "file": "pokemon/250.svg",
+    "form": "ho-oh",
+    "artSource": "dream-world"
+  },
+  "251": {
+    "file": "pokemon/251.svg",
+    "form": "celebi",
+    "artSource": "dream-world"
+  },
+  "252": {
+    "file": "pokemon/252.svg",
+    "form": "treecko",
+    "artSource": "dream-world"
+  },
+  "253": {
+    "file": "pokemon/253.svg",
+    "form": "grovyle",
+    "artSource": "dream-world"
+  },
+  "254": {
+    "file": "pokemon/254.svg",
+    "form": "sceptile",
+    "artSource": "dream-world"
+  },
+  "255": {
+    "file": "pokemon/255.svg",
+    "form": "torchic",
+    "artSource": "dream-world"
+  },
+  "256": {
+    "file": "pokemon/256.svg",
+    "form": "combusken",
+    "artSource": "dream-world"
+  },
+  "257": {
+    "file": "pokemon/257.svg",
+    "form": "blaziken",
+    "artSource": "dream-world"
+  },
+  "258": {
+    "file": "pokemon/258.svg",
+    "form": "mudkip",
+    "artSource": "dream-world"
+  },
+  "259": {
+    "file": "pokemon/259.svg",
+    "form": "marshtomp",
+    "artSource": "dream-world"
+  },
+  "260": {
+    "file": "pokemon/260.svg",
+    "form": "swampert",
+    "artSource": "dream-world"
+  },
+  "261": {
+    "file": "pokemon/261.svg",
+    "form": "poochyena",
+    "artSource": "dream-world"
+  },
+  "262": {
+    "file": "pokemon/262.svg",
+    "form": "mightyena",
+    "artSource": "dream-world"
+  },
+  "263": {
+    "file": "pokemon/263.svg",
+    "form": "zigzagoon",
+    "artSource": "dream-world"
+  },
+  "264": {
+    "file": "pokemon/264.svg",
+    "form": "linoone",
+    "artSource": "dream-world"
+  },
+  "265": {
+    "file": "pokemon/265.svg",
+    "form": "wurmple",
+    "artSource": "dream-world"
+  },
+  "266": {
+    "file": "pokemon/266.svg",
+    "form": "silcoon",
+    "artSource": "dream-world"
+  },
+  "267": {
+    "file": "pokemon/267.svg",
+    "form": "beautifly",
+    "artSource": "dream-world"
+  },
+  "268": {
+    "file": "pokemon/268.svg",
+    "form": "cascoon",
+    "artSource": "dream-world"
+  },
+  "269": {
+    "file": "pokemon/269.svg",
+    "form": "dustox",
+    "artSource": "dream-world"
+  },
+  "270": {
+    "file": "pokemon/270.svg",
+    "form": "lotad",
+    "artSource": "dream-world"
+  },
+  "271": {
+    "file": "pokemon/271.svg",
+    "form": "lombre",
+    "artSource": "dream-world"
+  },
+  "272": {
+    "file": "pokemon/272.svg",
+    "form": "ludicolo",
+    "artSource": "dream-world"
+  },
+  "273": {
+    "file": "pokemon/273.svg",
+    "form": "seedot",
+    "artSource": "dream-world"
+  },
+  "274": {
+    "file": "pokemon/274.svg",
+    "form": "nuzleaf",
+    "artSource": "dream-world"
+  },
+  "275": {
+    "file": "pokemon/275.svg",
+    "form": "shiftry",
+    "artSource": "dream-world"
+  },
+  "276": {
+    "file": "pokemon/276.svg",
+    "form": "taillow",
+    "artSource": "dream-world"
+  },
+  "277": {
+    "file": "pokemon/277.svg",
+    "form": "swellow",
+    "artSource": "dream-world"
+  },
+  "278": {
+    "file": "pokemon/278.svg",
+    "form": "wingull",
+    "artSource": "dream-world"
+  },
+  "279": {
+    "file": "pokemon/279.svg",
+    "form": "pelipper",
+    "artSource": "dream-world"
+  },
+  "280": {
+    "file": "pokemon/280.svg",
+    "form": "ralts",
+    "artSource": "dream-world"
+  },
+  "281": {
+    "file": "pokemon/281.svg",
+    "form": "kirlia",
+    "artSource": "dream-world"
+  },
+  "282": {
+    "file": "pokemon/282.svg",
+    "form": "gardevoir",
+    "artSource": "dream-world"
+  },
+  "283": {
+    "file": "pokemon/283.svg",
+    "form": "surskit",
+    "artSource": "dream-world"
+  },
+  "284": {
+    "file": "pokemon/284.svg",
+    "form": "masquerain",
+    "artSource": "dream-world"
+  },
+  "285": {
+    "file": "pokemon/285.svg",
+    "form": "shroomish",
+    "artSource": "dream-world"
+  },
+  "286": {
+    "file": "pokemon/286.svg",
+    "form": "breloom",
+    "artSource": "dream-world"
+  },
+  "287": {
+    "file": "pokemon/287.svg",
+    "form": "slakoth",
+    "artSource": "dream-world"
+  },
+  "288": {
+    "file": "pokemon/288.svg",
+    "form": "vigoroth",
+    "artSource": "dream-world"
+  },
+  "289": {
+    "file": "pokemon/289.svg",
+    "form": "slaking",
+    "artSource": "dream-world"
+  },
+  "290": {
+    "file": "pokemon/290.svg",
+    "form": "nincada",
+    "artSource": "dream-world"
+  },
+  "291": {
+    "file": "pokemon/291.svg",
+    "form": "ninjask",
+    "artSource": "dream-world"
+  },
+  "292": {
+    "file": "pokemon/292.svg",
+    "form": "shedinja",
+    "artSource": "dream-world"
+  },
+  "293": {
+    "file": "pokemon/293.svg",
+    "form": "whismur",
+    "artSource": "dream-world"
+  },
+  "294": {
+    "file": "pokemon/294.svg",
+    "form": "loudred",
+    "artSource": "dream-world"
+  },
+  "295": {
+    "file": "pokemon/295.svg",
+    "form": "exploud",
+    "artSource": "dream-world"
+  },
+  "296": {
+    "file": "pokemon/296.svg",
+    "form": "makuhita",
+    "artSource": "dream-world"
+  },
+  "297": {
+    "file": "pokemon/297.svg",
+    "form": "hariyama",
+    "artSource": "dream-world"
+  },
+  "298": {
+    "file": "pokemon/298.svg",
+    "form": "azurill",
+    "artSource": "dream-world"
+  },
+  "299": {
+    "file": "pokemon/299.svg",
+    "form": "nosepass",
+    "artSource": "dream-world"
+  },
+  "300": {
+    "file": "pokemon/300.svg",
+    "form": "skitty",
+    "artSource": "dream-world"
+  },
+  "301": {
+    "file": "pokemon/301.svg",
+    "form": "delcatty",
+    "artSource": "dream-world"
+  },
+  "302": {
+    "file": "pokemon/302.svg",
+    "form": "sableye",
+    "artSource": "dream-world"
+  },
+  "303": {
+    "file": "pokemon/303.svg",
+    "form": "mawile",
+    "artSource": "dream-world"
+  },
+  "304": {
+    "file": "pokemon/304.svg",
+    "form": "aron",
+    "artSource": "dream-world"
+  },
+  "305": {
+    "file": "pokemon/305.svg",
+    "form": "lairon",
+    "artSource": "dream-world"
+  },
+  "306": {
+    "file": "pokemon/306.svg",
+    "form": "aggron",
+    "artSource": "dream-world"
+  },
+  "307": {
+    "file": "pokemon/307.svg",
+    "form": "meditite",
+    "artSource": "dream-world"
+  },
+  "308": {
+    "file": "pokemon/308.svg",
+    "form": "medicham",
+    "artSource": "dream-world"
+  },
+  "309": {
+    "file": "pokemon/309.svg",
+    "form": "electrike",
+    "artSource": "dream-world"
+  },
+  "310": {
+    "file": "pokemon/310.svg",
+    "form": "manectric",
+    "artSource": "dream-world"
+  },
+  "311": {
+    "file": "pokemon/311.svg",
+    "form": "plusle",
+    "artSource": "dream-world"
+  },
+  "312": {
+    "file": "pokemon/312.svg",
+    "form": "minun",
+    "artSource": "dream-world"
+  },
+  "313": {
+    "file": "pokemon/313.svg",
+    "form": "volbeat",
+    "artSource": "dream-world"
+  },
+  "314": {
+    "file": "pokemon/314.svg",
+    "form": "illumise",
+    "artSource": "dream-world"
+  },
+  "315": {
+    "file": "pokemon/315.svg",
+    "form": "roselia",
+    "artSource": "dream-world"
+  },
+  "316": {
+    "file": "pokemon/316.svg",
+    "form": "gulpin",
+    "artSource": "dream-world"
+  },
+  "317": {
+    "file": "pokemon/317.svg",
+    "form": "swalot",
+    "artSource": "dream-world"
+  },
+  "318": {
+    "file": "pokemon/318.svg",
+    "form": "carvanha",
+    "artSource": "dream-world"
+  },
+  "319": {
+    "file": "pokemon/319.svg",
+    "form": "sharpedo",
+    "artSource": "dream-world"
+  },
+  "320": {
+    "file": "pokemon/320.svg",
+    "form": "wailmer",
+    "artSource": "dream-world"
+  },
+  "321": {
+    "file": "pokemon/321.svg",
+    "form": "wailord",
+    "artSource": "dream-world"
+  },
+  "322": {
+    "file": "pokemon/322.svg",
+    "form": "numel",
+    "artSource": "dream-world"
+  },
+  "323": {
+    "file": "pokemon/323.svg",
+    "form": "camerupt",
+    "artSource": "dream-world"
+  },
+  "324": {
+    "file": "pokemon/324.svg",
+    "form": "torkoal",
+    "artSource": "dream-world"
+  },
+  "325": {
+    "file": "pokemon/325.svg",
+    "form": "spoink",
+    "artSource": "dream-world"
+  },
+  "326": {
+    "file": "pokemon/326.svg",
+    "form": "grumpig",
+    "artSource": "dream-world"
+  },
+  "327": {
+    "file": "pokemon/327.svg",
+    "form": "spinda",
+    "artSource": "dream-world"
+  },
+  "328": {
+    "file": "pokemon/328.svg",
+    "form": "trapinch",
+    "artSource": "dream-world"
+  },
+  "329": {
+    "file": "pokemon/329.svg",
+    "form": "vibrava",
+    "artSource": "dream-world"
+  },
+  "330": {
+    "file": "pokemon/330.svg",
+    "form": "flygon",
+    "artSource": "dream-world"
+  },
+  "331": {
+    "file": "pokemon/331.svg",
+    "form": "cacnea",
+    "artSource": "dream-world"
+  },
+  "332": {
+    "file": "pokemon/332.svg",
+    "form": "cacturne",
+    "artSource": "dream-world"
+  },
+  "333": {
+    "file": "pokemon/333.svg",
+    "form": "swablu",
+    "artSource": "dream-world"
+  },
+  "334": {
+    "file": "pokemon/334.svg",
+    "form": "altaria",
+    "artSource": "dream-world"
+  },
+  "335": {
+    "file": "pokemon/335.svg",
+    "form": "zangoose",
+    "artSource": "dream-world"
+  },
+  "336": {
+    "file": "pokemon/336.svg",
+    "form": "seviper",
+    "artSource": "dream-world"
+  },
+  "337": {
+    "file": "pokemon/337.svg",
+    "form": "lunatone",
+    "artSource": "dream-world"
+  },
+  "338": {
+    "file": "pokemon/338.svg",
+    "form": "solrock",
+    "artSource": "dream-world"
+  },
+  "339": {
+    "file": "pokemon/339.svg",
+    "form": "barboach",
+    "artSource": "dream-world"
+  },
+  "340": {
+    "file": "pokemon/340.svg",
+    "form": "whiscash",
+    "artSource": "dream-world"
+  },
+  "341": {
+    "file": "pokemon/341.svg",
+    "form": "corphish",
+    "artSource": "dream-world"
+  },
+  "342": {
+    "file": "pokemon/342.svg",
+    "form": "crawdaunt",
+    "artSource": "dream-world"
+  },
+  "343": {
+    "file": "pokemon/343.svg",
+    "form": "baltoy",
+    "artSource": "dream-world"
+  },
+  "344": {
+    "file": "pokemon/344.svg",
+    "form": "claydol",
+    "artSource": "dream-world"
+  },
+  "345": {
+    "file": "pokemon/345.svg",
+    "form": "lileep",
+    "artSource": "dream-world"
+  },
+  "346": {
+    "file": "pokemon/346.svg",
+    "form": "cradily",
+    "artSource": "dream-world"
+  },
+  "347": {
+    "file": "pokemon/347.svg",
+    "form": "anorith",
+    "artSource": "dream-world"
+  },
+  "348": {
+    "file": "pokemon/348.svg",
+    "form": "armaldo",
+    "artSource": "dream-world"
+  },
+  "349": {
+    "file": "pokemon/349.svg",
+    "form": "feebas",
+    "artSource": "dream-world"
+  },
+  "350": {
+    "file": "pokemon/350.svg",
+    "form": "milotic",
+    "artSource": "dream-world"
+  },
+  "351": {
+    "file": "pokemon/351.svg",
+    "form": "castform",
+    "artSource": "dream-world"
+  },
+  "352": {
+    "file": "pokemon/352.svg",
+    "form": "kecleon",
+    "artSource": "dream-world"
+  },
+  "353": {
+    "file": "pokemon/353.svg",
+    "form": "shuppet",
+    "artSource": "dream-world"
+  },
+  "354": {
+    "file": "pokemon/354.svg",
+    "form": "banette",
+    "artSource": "dream-world"
+  },
+  "355": {
+    "file": "pokemon/355.svg",
+    "form": "duskull",
+    "artSource": "dream-world"
+  },
+  "356": {
+    "file": "pokemon/356.svg",
+    "form": "dusclops",
+    "artSource": "dream-world"
+  },
+  "357": {
+    "file": "pokemon/357.svg",
+    "form": "tropius",
+    "artSource": "dream-world"
+  },
+  "358": {
+    "file": "pokemon/358.svg",
+    "form": "chimecho",
+    "artSource": "dream-world"
+  },
+  "359": {
+    "file": "pokemon/359.svg",
+    "form": "absol",
+    "artSource": "dream-world"
+  },
+  "360": {
+    "file": "pokemon/360.svg",
+    "form": "wynaut",
+    "artSource": "dream-world"
+  },
+  "361": {
+    "file": "pokemon/361.svg",
+    "form": "snorunt",
+    "artSource": "dream-world"
+  },
+  "362": {
+    "file": "pokemon/362.svg",
+    "form": "glalie",
+    "artSource": "dream-world"
+  },
+  "363": {
+    "file": "pokemon/363.svg",
+    "form": "spheal",
+    "artSource": "dream-world"
+  },
+  "364": {
+    "file": "pokemon/364.svg",
+    "form": "sealeo",
+    "artSource": "dream-world"
+  },
+  "365": {
+    "file": "pokemon/365.svg",
+    "form": "walrein",
+    "artSource": "dream-world"
+  },
+  "366": {
+    "file": "pokemon/366.svg",
+    "form": "clamperl",
+    "artSource": "dream-world"
+  },
+  "367": {
+    "file": "pokemon/367.svg",
+    "form": "huntail",
+    "artSource": "dream-world"
+  },
+  "368": {
+    "file": "pokemon/368.svg",
+    "form": "gorebyss",
+    "artSource": "dream-world"
+  },
+  "369": {
+    "file": "pokemon/369.svg",
+    "form": "relicanth",
+    "artSource": "dream-world"
+  },
+  "370": {
+    "file": "pokemon/370.svg",
+    "form": "luvdisc",
+    "artSource": "dream-world"
+  },
+  "371": {
+    "file": "pokemon/371.svg",
+    "form": "bagon",
+    "artSource": "dream-world"
+  },
+  "372": {
+    "file": "pokemon/372.svg",
+    "form": "shelgon",
+    "artSource": "dream-world"
+  },
+  "373": {
+    "file": "pokemon/373.svg",
+    "form": "salamence",
+    "artSource": "dream-world"
+  },
+  "374": {
+    "file": "pokemon/374.svg",
+    "form": "beldum",
+    "artSource": "dream-world"
+  },
+  "375": {
+    "file": "pokemon/375.svg",
+    "form": "metang",
+    "artSource": "dream-world"
+  },
+  "376": {
+    "file": "pokemon/376.svg",
+    "form": "metagross",
+    "artSource": "dream-world"
+  },
+  "377": {
+    "file": "pokemon/377.svg",
+    "form": "regirock",
+    "artSource": "dream-world"
+  },
+  "378": {
+    "file": "pokemon/378.svg",
+    "form": "regice",
+    "artSource": "dream-world"
+  },
+  "379": {
+    "file": "pokemon/379.svg",
+    "form": "registeel",
+    "artSource": "dream-world"
+  },
+  "380": {
+    "file": "pokemon/380.svg",
+    "form": "latias",
+    "artSource": "dream-world"
+  },
+  "381": {
+    "file": "pokemon/381.svg",
+    "form": "latios",
+    "artSource": "dream-world"
+  },
+  "382": {
+    "file": "pokemon/382.svg",
+    "form": "kyogre",
+    "artSource": "dream-world"
+  },
+  "383": {
+    "file": "pokemon/383.svg",
+    "form": "groudon",
+    "artSource": "dream-world"
+  },
+  "384": {
+    "file": "pokemon/384.svg",
+    "form": "rayquaza",
+    "artSource": "dream-world"
+  },
+  "385": {
+    "file": "pokemon/385.svg",
+    "form": "jirachi",
+    "artSource": "dream-world"
+  },
+  "386": {
+    "file": "pokemon/386.svg",
+    "form": "deoxys-normal",
+    "artSource": "dream-world"
+  },
+  "387": {
+    "file": "pokemon/387.svg",
+    "form": "turtwig",
+    "artSource": "dream-world"
+  },
+  "388": {
+    "file": "pokemon/388.svg",
+    "form": "grotle",
+    "artSource": "dream-world"
+  },
+  "389": {
+    "file": "pokemon/389.svg",
+    "form": "torterra",
+    "artSource": "dream-world"
+  },
+  "390": {
+    "file": "pokemon/390.svg",
+    "form": "chimchar",
+    "artSource": "dream-world"
+  },
+  "391": {
+    "file": "pokemon/391.svg",
+    "form": "monferno",
+    "artSource": "dream-world"
+  },
+  "392": {
+    "file": "pokemon/392.svg",
+    "form": "infernape",
+    "artSource": "dream-world"
+  },
+  "393": {
+    "file": "pokemon/393.svg",
+    "form": "piplup",
+    "artSource": "dream-world"
+  },
+  "394": {
+    "file": "pokemon/394.svg",
+    "form": "prinplup",
+    "artSource": "dream-world"
+  },
+  "395": {
+    "file": "pokemon/395.svg",
+    "form": "empoleon",
+    "artSource": "dream-world"
+  },
+  "396": {
+    "file": "pokemon/396.svg",
+    "form": "starly",
+    "artSource": "dream-world"
+  },
+  "397": {
+    "file": "pokemon/397.svg",
+    "form": "staravia",
+    "artSource": "dream-world"
+  },
+  "398": {
+    "file": "pokemon/398.svg",
+    "form": "staraptor",
+    "artSource": "dream-world"
+  },
+  "399": {
+    "file": "pokemon/399.svg",
+    "form": "bidoof",
+    "artSource": "dream-world"
+  },
+  "400": {
+    "file": "pokemon/400.svg",
+    "form": "bibarel",
+    "artSource": "dream-world"
+  },
+  "401": {
+    "file": "pokemon/401.svg",
+    "form": "kricketot",
+    "artSource": "dream-world"
+  },
+  "402": {
+    "file": "pokemon/402.svg",
+    "form": "kricketune",
+    "artSource": "dream-world"
+  },
+  "403": {
+    "file": "pokemon/403.svg",
+    "form": "shinx",
+    "artSource": "dream-world"
+  },
+  "404": {
+    "file": "pokemon/404.svg",
+    "form": "luxio",
+    "artSource": "dream-world"
+  },
+  "405": {
+    "file": "pokemon/405.svg",
+    "form": "luxray",
+    "artSource": "dream-world"
+  },
+  "406": {
+    "file": "pokemon/406.svg",
+    "form": "budew",
+    "artSource": "dream-world"
+  },
+  "407": {
+    "file": "pokemon/407.svg",
+    "form": "roserade",
+    "artSource": "dream-world"
+  },
+  "408": {
+    "file": "pokemon/408.svg",
+    "form": "cranidos",
+    "artSource": "dream-world"
+  },
+  "409": {
+    "file": "pokemon/409.svg",
+    "form": "rampardos",
+    "artSource": "dream-world"
+  },
+  "410": {
+    "file": "pokemon/410.svg",
+    "form": "shieldon",
+    "artSource": "dream-world"
+  },
+  "411": {
+    "file": "pokemon/411.svg",
+    "form": "bastiodon",
+    "artSource": "dream-world"
+  },
+  "412": {
+    "file": "pokemon/412.svg",
+    "form": "burmy",
+    "artSource": "dream-world"
+  },
+  "413": {
+    "file": "pokemon/413.svg",
+    "form": "wormadam-plant",
+    "artSource": "dream-world"
+  },
+  "414": {
+    "file": "pokemon/414.svg",
+    "form": "mothim",
+    "artSource": "dream-world"
+  },
+  "415": {
+    "file": "pokemon/415.svg",
+    "form": "combee",
+    "artSource": "dream-world"
+  },
+  "416": {
+    "file": "pokemon/416.svg",
+    "form": "vespiquen",
+    "artSource": "dream-world"
+  },
+  "417": {
+    "file": "pokemon/417.svg",
+    "form": "pachirisu",
+    "artSource": "dream-world"
+  },
+  "418": {
+    "file": "pokemon/418.svg",
+    "form": "buizel",
+    "artSource": "dream-world"
+  },
+  "419": {
+    "file": "pokemon/419.svg",
+    "form": "floatzel",
+    "artSource": "dream-world"
+  },
+  "420": {
+    "file": "pokemon/420.svg",
+    "form": "cherubi",
+    "artSource": "dream-world"
+  },
+  "421": {
+    "file": "pokemon/421.svg",
+    "form": "cherrim",
+    "artSource": "dream-world"
+  },
+  "422": {
+    "file": "pokemon/422.svg",
+    "form": "shellos",
+    "artSource": "dream-world"
+  },
+  "423": {
+    "file": "pokemon/423.svg",
+    "form": "gastrodon",
+    "artSource": "dream-world"
+  },
+  "424": {
+    "file": "pokemon/424.svg",
+    "form": "ambipom",
+    "artSource": "dream-world"
+  },
+  "425": {
+    "file": "pokemon/425.svg",
+    "form": "drifloon",
+    "artSource": "dream-world"
+  },
+  "426": {
+    "file": "pokemon/426.svg",
+    "form": "drifblim",
+    "artSource": "dream-world"
+  },
+  "427": {
+    "file": "pokemon/427.svg",
+    "form": "buneary",
+    "artSource": "dream-world"
+  },
+  "428": {
+    "file": "pokemon/428.svg",
+    "form": "lopunny",
+    "artSource": "dream-world"
+  },
+  "429": {
+    "file": "pokemon/429.svg",
+    "form": "mismagius",
+    "artSource": "dream-world"
+  },
+  "430": {
+    "file": "pokemon/430.svg",
+    "form": "honchkrow",
+    "artSource": "dream-world"
+  },
+  "431": {
+    "file": "pokemon/431.svg",
+    "form": "glameow",
+    "artSource": "dream-world"
+  },
+  "432": {
+    "file": "pokemon/432.svg",
+    "form": "purugly",
+    "artSource": "dream-world"
+  },
+  "433": {
+    "file": "pokemon/433.svg",
+    "form": "chingling",
+    "artSource": "dream-world"
+  },
+  "434": {
+    "file": "pokemon/434.svg",
+    "form": "stunky",
+    "artSource": "dream-world"
+  },
+  "435": {
+    "file": "pokemon/435.svg",
+    "form": "skuntank",
+    "artSource": "dream-world"
+  },
+  "436": {
+    "file": "pokemon/436.svg",
+    "form": "bronzor",
+    "artSource": "dream-world"
+  },
+  "437": {
+    "file": "pokemon/437.svg",
+    "form": "bronzong",
+    "artSource": "dream-world"
+  },
+  "438": {
+    "file": "pokemon/438.svg",
+    "form": "bonsly",
+    "artSource": "dream-world"
+  },
+  "439": {
+    "file": "pokemon/439.svg",
+    "form": "mime-jr",
+    "artSource": "dream-world"
+  },
+  "440": {
+    "file": "pokemon/440.svg",
+    "form": "happiny",
+    "artSource": "dream-world"
+  },
+  "441": {
+    "file": "pokemon/441.svg",
+    "form": "chatot",
+    "artSource": "dream-world"
+  },
+  "442": {
+    "file": "pokemon/442.svg",
+    "form": "spiritomb",
+    "artSource": "dream-world"
+  },
+  "443": {
+    "file": "pokemon/443.svg",
+    "form": "gible",
+    "artSource": "dream-world"
+  },
+  "444": {
+    "file": "pokemon/444.svg",
+    "form": "gabite",
+    "artSource": "dream-world"
+  },
+  "445": {
+    "file": "pokemon/445.svg",
+    "form": "garchomp",
+    "artSource": "dream-world"
+  },
+  "446": {
+    "file": "pokemon/446.svg",
+    "form": "munchlax",
+    "artSource": "dream-world"
+  },
+  "447": {
+    "file": "pokemon/447.svg",
+    "form": "riolu",
+    "artSource": "dream-world"
+  },
+  "448": {
+    "file": "pokemon/448.svg",
+    "form": "lucario",
+    "artSource": "dream-world"
+  },
+  "449": {
+    "file": "pokemon/449.svg",
+    "form": "hippopotas",
+    "artSource": "dream-world"
+  },
+  "450": {
+    "file": "pokemon/450.svg",
+    "form": "hippowdon",
+    "artSource": "dream-world"
+  },
+  "451": {
+    "file": "pokemon/451.svg",
+    "form": "skorupi",
+    "artSource": "dream-world"
+  },
+  "452": {
+    "file": "pokemon/452.svg",
+    "form": "drapion",
+    "artSource": "dream-world"
+  },
+  "453": {
+    "file": "pokemon/453.svg",
+    "form": "croagunk",
+    "artSource": "dream-world"
+  },
+  "454": {
+    "file": "pokemon/454.svg",
+    "form": "toxicroak",
+    "artSource": "dream-world"
+  },
+  "455": {
+    "file": "pokemon/455.svg",
+    "form": "carnivine",
+    "artSource": "dream-world"
+  },
+  "456": {
+    "file": "pokemon/456.svg",
+    "form": "finneon",
+    "artSource": "dream-world"
+  },
+  "457": {
+    "file": "pokemon/457.svg",
+    "form": "lumineon",
+    "artSource": "dream-world"
+  },
+  "458": {
+    "file": "pokemon/458.svg",
+    "form": "mantyke",
+    "artSource": "dream-world"
+  },
+  "459": {
+    "file": "pokemon/459.svg",
+    "form": "snover",
+    "artSource": "dream-world"
+  },
+  "460": {
+    "file": "pokemon/460.svg",
+    "form": "abomasnow",
+    "artSource": "dream-world"
+  },
+  "461": {
+    "file": "pokemon/461.svg",
+    "form": "weavile",
+    "artSource": "dream-world"
+  },
+  "462": {
+    "file": "pokemon/462.svg",
+    "form": "magnezone",
+    "artSource": "dream-world"
+  },
+  "463": {
+    "file": "pokemon/463.svg",
+    "form": "lickilicky",
+    "artSource": "dream-world"
+  },
+  "464": {
+    "file": "pokemon/464.svg",
+    "form": "rhyperior",
+    "artSource": "dream-world"
+  },
+  "465": {
+    "file": "pokemon/465.svg",
+    "form": "tangrowth",
+    "artSource": "dream-world"
+  },
+  "466": {
+    "file": "pokemon/466.svg",
+    "form": "electivire",
+    "artSource": "dream-world"
+  },
+  "467": {
+    "file": "pokemon/467.svg",
+    "form": "magmortar",
+    "artSource": "dream-world"
+  },
+  "468": {
+    "file": "pokemon/468.svg",
+    "form": "togekiss",
+    "artSource": "dream-world"
+  },
+  "469": {
+    "file": "pokemon/469.svg",
+    "form": "yanmega",
+    "artSource": "dream-world"
+  },
+  "470": {
+    "file": "pokemon/470.svg",
+    "form": "leafeon",
+    "artSource": "dream-world"
+  },
+  "471": {
+    "file": "pokemon/471.svg",
+    "form": "glaceon",
+    "artSource": "dream-world"
+  },
+  "472": {
+    "file": "pokemon/472.svg",
+    "form": "gliscor",
+    "artSource": "dream-world"
+  },
+  "473": {
+    "file": "pokemon/473.svg",
+    "form": "mamoswine",
+    "artSource": "dream-world"
+  },
+  "474": {
+    "file": "pokemon/474.svg",
+    "form": "porygon-z",
+    "artSource": "dream-world"
+  },
+  "475": {
+    "file": "pokemon/475.svg",
+    "form": "gallade",
+    "artSource": "dream-world"
+  },
+  "476": {
+    "file": "pokemon/476.svg",
+    "form": "probopass",
+    "artSource": "dream-world"
+  },
+  "477": {
+    "file": "pokemon/477.svg",
+    "form": "dusknoir",
+    "artSource": "dream-world"
+  },
+  "478": {
+    "file": "pokemon/478.svg",
+    "form": "froslass",
+    "artSource": "dream-world"
+  },
+  "479": {
+    "file": "pokemon/479.svg",
+    "form": "rotom",
+    "artSource": "dream-world"
+  },
+  "480": {
+    "file": "pokemon/480.svg",
+    "form": "uxie",
+    "artSource": "dream-world"
+  },
+  "481": {
+    "file": "pokemon/481.svg",
+    "form": "mesprit",
+    "artSource": "dream-world"
+  },
+  "482": {
+    "file": "pokemon/482.svg",
+    "form": "azelf",
+    "artSource": "dream-world"
+  },
+  "483": {
+    "file": "pokemon/483.svg",
+    "form": "dialga",
+    "artSource": "dream-world"
+  },
+  "484": {
+    "file": "pokemon/484.svg",
+    "form": "palkia",
+    "artSource": "dream-world"
+  },
+  "485": {
+    "file": "pokemon/485.svg",
+    "form": "heatran",
+    "artSource": "dream-world"
+  },
+  "486": {
+    "file": "pokemon/486.svg",
+    "form": "regigigas",
+    "artSource": "dream-world"
+  },
+  "487": {
+    "file": "pokemon/487.svg",
+    "form": "giratina-altered",
+    "artSource": "dream-world"
+  },
+  "488": {
+    "file": "pokemon/488.svg",
+    "form": "cresselia",
+    "artSource": "dream-world"
+  },
+  "489": {
+    "file": "pokemon/489.svg",
+    "form": "phione",
+    "artSource": "dream-world"
+  },
+  "490": {
+    "file": "pokemon/490.svg",
+    "form": "manaphy",
+    "artSource": "dream-world"
+  },
+  "491": {
+    "file": "pokemon/491.svg",
+    "form": "darkrai",
+    "artSource": "dream-world"
+  },
+  "492": {
+    "file": "pokemon/492.svg",
+    "form": "shaymin-land",
+    "artSource": "dream-world"
+  },
+  "493": {
+    "file": "pokemon/493.svg",
+    "form": "arceus",
+    "artSource": "dream-world"
+  },
+  "494": {
+    "file": "pokemon/494.svg",
+    "form": "victini",
+    "artSource": "dream-world"
+  },
+  "495": {
+    "file": "pokemon/495.svg",
+    "form": "snivy",
+    "artSource": "dream-world"
+  },
+  "496": {
+    "file": "pokemon/496.svg",
+    "form": "servine",
+    "artSource": "dream-world"
+  },
+  "497": {
+    "file": "pokemon/497.svg",
+    "form": "serperior",
+    "artSource": "dream-world"
+  },
+  "498": {
+    "file": "pokemon/498.svg",
+    "form": "tepig",
+    "artSource": "dream-world"
+  },
+  "499": {
+    "file": "pokemon/499.svg",
+    "form": "pignite",
+    "artSource": "dream-world"
+  },
+  "500": {
+    "file": "pokemon/500.svg",
+    "form": "emboar",
+    "artSource": "dream-world"
+  },
+  "501": {
+    "file": "pokemon/501.svg",
+    "form": "oshawott",
+    "artSource": "dream-world"
+  },
+  "502": {
+    "file": "pokemon/502.svg",
+    "form": "dewott",
+    "artSource": "dream-world"
+  },
+  "503": {
+    "file": "pokemon/503.svg",
+    "form": "samurott",
+    "artSource": "dream-world"
+  },
+  "504": {
+    "file": "pokemon/504.svg",
+    "form": "patrat",
+    "artSource": "dream-world"
+  },
+  "505": {
+    "file": "pokemon/505.svg",
+    "form": "watchog",
+    "artSource": "dream-world"
+  },
+  "506": {
+    "file": "pokemon/506.svg",
+    "form": "lillipup",
+    "artSource": "dream-world"
+  },
+  "507": {
+    "file": "pokemon/507.svg",
+    "form": "herdier",
+    "artSource": "dream-world"
+  },
+  "508": {
+    "file": "pokemon/508.svg",
+    "form": "stoutland",
+    "artSource": "dream-world"
+  },
+  "509": {
+    "file": "pokemon/509.svg",
+    "form": "purrloin",
+    "artSource": "dream-world"
+  },
+  "510": {
+    "file": "pokemon/510.svg",
+    "form": "liepard",
+    "artSource": "dream-world"
+  },
+  "511": {
+    "file": "pokemon/511.svg",
+    "form": "pansage",
+    "artSource": "dream-world"
+  },
+  "512": {
+    "file": "pokemon/512.svg",
+    "form": "simisage",
+    "artSource": "dream-world"
+  },
+  "513": {
+    "file": "pokemon/513.svg",
+    "form": "pansear",
+    "artSource": "dream-world"
+  },
+  "514": {
+    "file": "pokemon/514.svg",
+    "form": "simisear",
+    "artSource": "dream-world"
+  },
+  "515": {
+    "file": "pokemon/515.svg",
+    "form": "panpour",
+    "artSource": "dream-world"
+  },
+  "516": {
+    "file": "pokemon/516.svg",
+    "form": "simipour",
+    "artSource": "dream-world"
+  },
+  "517": {
+    "file": "pokemon/517.svg",
+    "form": "munna",
+    "artSource": "dream-world"
+  },
+  "518": {
+    "file": "pokemon/518.svg",
+    "form": "musharna",
+    "artSource": "dream-world"
+  },
+  "519": {
+    "file": "pokemon/519.svg",
+    "form": "pidove",
+    "artSource": "dream-world"
+  },
+  "520": {
+    "file": "pokemon/520.svg",
+    "form": "tranquill",
+    "artSource": "dream-world"
+  },
+  "521": {
+    "file": "pokemon/521.svg",
+    "form": "unfezant",
+    "artSource": "dream-world"
+  },
+  "522": {
+    "file": "pokemon/522.svg",
+    "form": "blitzle",
+    "artSource": "dream-world"
+  },
+  "523": {
+    "file": "pokemon/523.svg",
+    "form": "zebstrika",
+    "artSource": "dream-world"
+  },
+  "524": {
+    "file": "pokemon/524.svg",
+    "form": "roggenrola",
+    "artSource": "dream-world"
+  },
+  "525": {
+    "file": "pokemon/525.svg",
+    "form": "boldore",
+    "artSource": "dream-world"
+  },
+  "526": {
+    "file": "pokemon/526.svg",
+    "form": "gigalith",
+    "artSource": "dream-world"
+  },
+  "527": {
+    "file": "pokemon/527.svg",
+    "form": "woobat",
+    "artSource": "dream-world"
+  },
+  "528": {
+    "file": "pokemon/528.svg",
+    "form": "swoobat",
+    "artSource": "dream-world"
+  },
+  "529": {
+    "file": "pokemon/529.svg",
+    "form": "drilbur",
+    "artSource": "dream-world"
+  },
+  "530": {
+    "file": "pokemon/530.svg",
+    "form": "excadrill",
+    "artSource": "dream-world"
+  },
+  "531": {
+    "file": "pokemon/531.svg",
+    "form": "audino",
+    "artSource": "dream-world"
+  },
+  "532": {
+    "file": "pokemon/532.svg",
+    "form": "timburr",
+    "artSource": "dream-world"
+  },
+  "533": {
+    "file": "pokemon/533.svg",
+    "form": "gurdurr",
+    "artSource": "dream-world"
+  },
+  "534": {
+    "file": "pokemon/534.svg",
+    "form": "conkeldurr",
+    "artSource": "dream-world"
+  },
+  "535": {
+    "file": "pokemon/535.svg",
+    "form": "tympole",
+    "artSource": "dream-world"
+  },
+  "536": {
+    "file": "pokemon/536.svg",
+    "form": "palpitoad",
+    "artSource": "dream-world"
+  },
+  "537": {
+    "file": "pokemon/537.svg",
+    "form": "seismitoad",
+    "artSource": "dream-world"
+  },
+  "538": {
+    "file": "pokemon/538.svg",
+    "form": "throh",
+    "artSource": "dream-world"
+  },
+  "539": {
+    "file": "pokemon/539.svg",
+    "form": "sawk",
+    "artSource": "dream-world"
+  },
+  "540": {
+    "file": "pokemon/540.svg",
+    "form": "sewaddle",
+    "artSource": "dream-world"
+  },
+  "541": {
+    "file": "pokemon/541.svg",
+    "form": "swadloon",
+    "artSource": "dream-world"
+  },
+  "542": {
+    "file": "pokemon/542.svg",
+    "form": "leavanny",
+    "artSource": "dream-world"
+  },
+  "543": {
+    "file": "pokemon/543.svg",
+    "form": "venipede",
+    "artSource": "dream-world"
+  },
+  "544": {
+    "file": "pokemon/544.svg",
+    "form": "whirlipede",
+    "artSource": "dream-world"
+  },
+  "545": {
+    "file": "pokemon/545.svg",
+    "form": "scolipede",
+    "artSource": "dream-world"
+  },
+  "546": {
+    "file": "pokemon/546.svg",
+    "form": "cottonee",
+    "artSource": "dream-world"
+  },
+  "547": {
+    "file": "pokemon/547.svg",
+    "form": "whimsicott",
+    "artSource": "dream-world"
+  },
+  "548": {
+    "file": "pokemon/548.svg",
+    "form": "petilil",
+    "artSource": "dream-world"
+  },
+  "549": {
+    "file": "pokemon/549.svg",
+    "form": "lilligant",
+    "artSource": "dream-world"
+  },
+  "550": {
+    "file": "pokemon/550.svg",
+    "form": "basculin-red-striped",
+    "artSource": "dream-world"
+  },
+  "551": {
+    "file": "pokemon/551.svg",
+    "form": "sandile",
+    "artSource": "dream-world"
+  },
+  "552": {
+    "file": "pokemon/552.svg",
+    "form": "krokorok",
+    "artSource": "dream-world"
+  },
+  "553": {
+    "file": "pokemon/553.svg",
+    "form": "krookodile",
+    "artSource": "dream-world"
+  },
+  "554": {
+    "file": "pokemon/554.svg",
+    "form": "darumaka",
+    "artSource": "dream-world"
+  },
+  "555": {
+    "file": "pokemon/555.svg",
+    "form": "darmanitan-standard",
+    "artSource": "dream-world"
+  },
+  "556": {
+    "file": "pokemon/556.svg",
+    "form": "maractus",
+    "artSource": "dream-world"
+  },
+  "557": {
+    "file": "pokemon/557.svg",
+    "form": "dwebble",
+    "artSource": "dream-world"
+  },
+  "558": {
+    "file": "pokemon/558.svg",
+    "form": "crustle",
+    "artSource": "dream-world"
+  },
+  "559": {
+    "file": "pokemon/559.svg",
+    "form": "scraggy",
+    "artSource": "dream-world"
+  },
+  "560": {
+    "file": "pokemon/560.svg",
+    "form": "scrafty",
+    "artSource": "dream-world"
+  },
+  "561": {
+    "file": "pokemon/561.svg",
+    "form": "sigilyph",
+    "artSource": "dream-world"
+  },
+  "562": {
+    "file": "pokemon/562.svg",
+    "form": "yamask",
+    "artSource": "dream-world"
+  },
+  "563": {
+    "file": "pokemon/563.svg",
+    "form": "cofagrigus",
+    "artSource": "dream-world"
+  },
+  "564": {
+    "file": "pokemon/564.svg",
+    "form": "tirtouga",
+    "artSource": "dream-world"
+  },
+  "565": {
+    "file": "pokemon/565.svg",
+    "form": "carracosta",
+    "artSource": "dream-world"
+  },
+  "566": {
+    "file": "pokemon/566.svg",
+    "form": "archen",
+    "artSource": "dream-world"
+  },
+  "567": {
+    "file": "pokemon/567.svg",
+    "form": "archeops",
+    "artSource": "dream-world"
+  },
+  "568": {
+    "file": "pokemon/568.svg",
+    "form": "trubbish",
+    "artSource": "dream-world"
+  },
+  "569": {
+    "file": "pokemon/569.svg",
+    "form": "garbodor",
+    "artSource": "dream-world"
+  },
+  "570": {
+    "file": "pokemon/570.svg",
+    "form": "zorua",
+    "artSource": "dream-world"
+  },
+  "571": {
+    "file": "pokemon/571.svg",
+    "form": "zoroark",
+    "artSource": "dream-world"
+  },
+  "572": {
+    "file": "pokemon/572.svg",
+    "form": "minccino",
+    "artSource": "dream-world"
+  },
+  "573": {
+    "file": "pokemon/573.svg",
+    "form": "cinccino",
+    "artSource": "dream-world"
+  },
+  "574": {
+    "file": "pokemon/574.svg",
+    "form": "gothita",
+    "artSource": "dream-world"
+  },
+  "575": {
+    "file": "pokemon/575.svg",
+    "form": "gothorita",
+    "artSource": "dream-world"
+  },
+  "576": {
+    "file": "pokemon/576.svg",
+    "form": "gothitelle",
+    "artSource": "dream-world"
+  },
+  "577": {
+    "file": "pokemon/577.svg",
+    "form": "solosis",
+    "artSource": "dream-world"
+  },
+  "578": {
+    "file": "pokemon/578.svg",
+    "form": "duosion",
+    "artSource": "dream-world"
+  },
+  "579": {
+    "file": "pokemon/579.svg",
+    "form": "reuniclus",
+    "artSource": "dream-world"
+  },
+  "580": {
+    "file": "pokemon/580.svg",
+    "form": "ducklett",
+    "artSource": "dream-world"
+  },
+  "581": {
+    "file": "pokemon/581.svg",
+    "form": "swanna",
+    "artSource": "dream-world"
+  },
+  "582": {
+    "file": "pokemon/582.svg",
+    "form": "vanillite",
+    "artSource": "dream-world"
+  },
+  "583": {
+    "file": "pokemon/583.svg",
+    "form": "vanillish",
+    "artSource": "dream-world"
+  },
+  "584": {
+    "file": "pokemon/584.svg",
+    "form": "vanilluxe",
+    "artSource": "dream-world"
+  },
+  "585": {
+    "file": "pokemon/585.svg",
+    "form": "deerling",
+    "artSource": "dream-world"
+  },
+  "586": {
+    "file": "pokemon/586.svg",
+    "form": "sawsbuck",
+    "artSource": "dream-world"
+  },
+  "587": {
+    "file": "pokemon/587.svg",
+    "form": "emolga",
+    "artSource": "dream-world"
+  },
+  "588": {
+    "file": "pokemon/588.svg",
+    "form": "karrablast",
+    "artSource": "dream-world"
+  },
+  "589": {
+    "file": "pokemon/589.svg",
+    "form": "escavalier",
+    "artSource": "dream-world"
+  },
+  "590": {
+    "file": "pokemon/590.svg",
+    "form": "foongus",
+    "artSource": "dream-world"
+  },
+  "591": {
+    "file": "pokemon/591.svg",
+    "form": "amoonguss",
+    "artSource": "dream-world"
+  },
+  "592": {
+    "file": "pokemon/592.svg",
+    "form": "frillish-male",
+    "artSource": "dream-world"
+  },
+  "593": {
+    "file": "pokemon/593.svg",
+    "form": "jellicent-male",
+    "artSource": "dream-world"
+  },
+  "594": {
+    "file": "pokemon/594.svg",
+    "form": "alomomola",
+    "artSource": "dream-world"
+  },
+  "595": {
+    "file": "pokemon/595.svg",
+    "form": "joltik",
+    "artSource": "dream-world"
+  },
+  "596": {
+    "file": "pokemon/596.svg",
+    "form": "galvantula",
+    "artSource": "dream-world"
+  },
+  "597": {
+    "file": "pokemon/597.svg",
+    "form": "ferroseed",
+    "artSource": "dream-world"
+  },
+  "598": {
+    "file": "pokemon/598.svg",
+    "form": "ferrothorn",
+    "artSource": "dream-world"
+  },
+  "599": {
+    "file": "pokemon/599.svg",
+    "form": "klink",
+    "artSource": "dream-world"
+  },
+  "600": {
+    "file": "pokemon/600.svg",
+    "form": "klang",
+    "artSource": "dream-world"
+  },
+  "601": {
+    "file": "pokemon/601.svg",
+    "form": "klinklang",
+    "artSource": "dream-world"
+  },
+  "602": {
+    "file": "pokemon/602.svg",
+    "form": "tynamo",
+    "artSource": "dream-world"
+  },
+  "603": {
+    "file": "pokemon/603.svg",
+    "form": "eelektrik",
+    "artSource": "dream-world"
+  },
+  "604": {
+    "file": "pokemon/604.svg",
+    "form": "eelektross",
+    "artSource": "dream-world"
+  },
+  "605": {
+    "file": "pokemon/605.svg",
+    "form": "elgyem",
+    "artSource": "dream-world"
+  },
+  "606": {
+    "file": "pokemon/606.svg",
+    "form": "beheeyem",
+    "artSource": "dream-world"
+  },
+  "607": {
+    "file": "pokemon/607.svg",
+    "form": "litwick",
+    "artSource": "dream-world"
+  },
+  "608": {
+    "file": "pokemon/608.svg",
+    "form": "lampent",
+    "artSource": "dream-world"
+  },
+  "609": {
+    "file": "pokemon/609.svg",
+    "form": "chandelure",
+    "artSource": "dream-world"
+  },
+  "610": {
+    "file": "pokemon/610.svg",
+    "form": "axew",
+    "artSource": "dream-world"
+  },
+  "611": {
+    "file": "pokemon/611.svg",
+    "form": "fraxure",
+    "artSource": "dream-world"
+  },
+  "612": {
+    "file": "pokemon/612.svg",
+    "form": "haxorus",
+    "artSource": "dream-world"
+  },
+  "613": {
+    "file": "pokemon/613.svg",
+    "form": "cubchoo",
+    "artSource": "dream-world"
+  },
+  "614": {
+    "file": "pokemon/614.svg",
+    "form": "beartic",
+    "artSource": "dream-world"
+  },
+  "615": {
+    "file": "pokemon/615.svg",
+    "form": "cryogonal",
+    "artSource": "dream-world"
+  },
+  "616": {
+    "file": "pokemon/616.svg",
+    "form": "shelmet",
+    "artSource": "dream-world"
+  },
+  "617": {
+    "file": "pokemon/617.svg",
+    "form": "accelgor",
+    "artSource": "dream-world"
+  },
+  "618": {
+    "file": "pokemon/618.svg",
+    "form": "stunfisk",
+    "artSource": "dream-world"
+  },
+  "619": {
+    "file": "pokemon/619.svg",
+    "form": "mienfoo",
+    "artSource": "dream-world"
+  },
+  "620": {
+    "file": "pokemon/620.svg",
+    "form": "mienshao",
+    "artSource": "dream-world"
+  },
+  "621": {
+    "file": "pokemon/621.svg",
+    "form": "druddigon",
+    "artSource": "dream-world"
+  },
+  "622": {
+    "file": "pokemon/622.svg",
+    "form": "golett",
+    "artSource": "dream-world"
+  },
+  "623": {
+    "file": "pokemon/623.svg",
+    "form": "golurk",
+    "artSource": "dream-world"
+  },
+  "624": {
+    "file": "pokemon/624.svg",
+    "form": "pawniard",
+    "artSource": "dream-world"
+  },
+  "625": {
+    "file": "pokemon/625.svg",
+    "form": "bisharp",
+    "artSource": "dream-world"
+  },
+  "626": {
+    "file": "pokemon/626.svg",
+    "form": "bouffalant",
+    "artSource": "dream-world"
+  },
+  "627": {
+    "file": "pokemon/627.svg",
+    "form": "rufflet",
+    "artSource": "dream-world"
+  },
+  "628": {
+    "file": "pokemon/628.svg",
+    "form": "braviary",
+    "artSource": "dream-world"
+  },
+  "629": {
+    "file": "pokemon/629.svg",
+    "form": "vullaby",
+    "artSource": "dream-world"
+  },
+  "630": {
+    "file": "pokemon/630.svg",
+    "form": "mandibuzz",
+    "artSource": "dream-world"
+  },
+  "631": {
+    "file": "pokemon/631.svg",
+    "form": "heatmor",
+    "artSource": "dream-world"
+  },
+  "632": {
+    "file": "pokemon/632.svg",
+    "form": "durant",
+    "artSource": "dream-world"
+  },
+  "633": {
+    "file": "pokemon/633.svg",
+    "form": "deino",
+    "artSource": "dream-world"
+  },
+  "634": {
+    "file": "pokemon/634.svg",
+    "form": "zweilous",
+    "artSource": "dream-world"
+  },
+  "635": {
+    "file": "pokemon/635.svg",
+    "form": "hydreigon",
+    "artSource": "dream-world"
+  },
+  "636": {
+    "file": "pokemon/636.svg",
+    "form": "larvesta",
+    "artSource": "dream-world"
+  },
+  "637": {
+    "file": "pokemon/637.svg",
+    "form": "volcarona",
+    "artSource": "dream-world"
+  },
+  "638": {
+    "file": "pokemon/638.svg",
+    "form": "cobalion",
+    "artSource": "dream-world"
+  },
+  "639": {
+    "file": "pokemon/639.svg",
+    "form": "terrakion",
+    "artSource": "dream-world"
+  },
+  "640": {
+    "file": "pokemon/640.svg",
+    "form": "virizion",
+    "artSource": "dream-world"
+  },
+  "641": {
+    "file": "pokemon/641.svg",
+    "form": "tornadus-incarnate",
+    "artSource": "dream-world"
+  },
+  "642": {
+    "file": "pokemon/642.svg",
+    "form": "thundurus-incarnate",
+    "artSource": "dream-world"
+  },
+  "643": {
+    "file": "pokemon/643.svg",
+    "form": "reshiram",
+    "artSource": "dream-world"
+  },
+  "644": {
+    "file": "pokemon/644.svg",
+    "form": "zekrom",
+    "artSource": "dream-world"
+  },
+  "645": {
+    "file": "pokemon/645.svg",
+    "form": "landorus-incarnate",
+    "artSource": "dream-world"
+  },
+  "646": {
+    "file": "pokemon/646.svg",
+    "form": "kyurem",
+    "artSource": "dream-world"
+  },
+  "647": {
+    "file": "pokemon/647.svg",
+    "form": "keldeo-ordinary",
+    "artSource": "dream-world"
+  },
+  "648": {
+    "file": "pokemon/648.svg",
+    "form": "meloetta-aria",
+    "artSource": "dream-world"
+  },
+  "649": {
+    "file": "pokemon/649.svg",
+    "form": "genesect",
+    "artSource": "dream-world"
+  },
+  "650": {
+    "file": "pokemon/650.svg",
+    "form": "chespin",
+    "artSource": "dream-world"
+  },
+  "651": {
+    "file": "pokemon/651.svg",
+    "form": "quilladin",
+    "artSource": "dream-world"
+  },
+  "652": {
+    "file": "pokemon/652.svg",
+    "form": "chesnaught",
+    "artSource": "dream-world"
+  },
+  "653": {
+    "file": "pokemon/653.svg",
+    "form": "fennekin",
+    "artSource": "dream-world"
+  },
+  "654": {
+    "file": "pokemon/654.svg",
+    "form": "braixen",
+    "artSource": "dream-world"
+  },
+  "655": {
+    "file": "pokemon/655.svg",
+    "form": "delphox",
+    "artSource": "dream-world"
+  },
+  "656": {
+    "file": "pokemon/656.svg",
+    "form": "froakie",
+    "artSource": "dream-world"
+  },
+  "657": {
+    "file": "pokemon/657.svg",
+    "form": "frogadier",
+    "artSource": "dream-world"
+  },
+  "658": {
+    "file": "pokemon/658.svg",
+    "form": "greninja",
+    "artSource": "dream-world"
+  },
+  "659": {
+    "file": "pokemon/659.svg",
+    "form": "bunnelby",
+    "artSource": "dream-world"
+  },
+  "660": {
+    "file": "pokemon/660.svg",
+    "form": "diggersby",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "661": {
+    "file": "pokemon/661.svg",
+    "form": "fletchling",
+    "artSource": "dream-world"
+  },
+  "662": {
+    "file": "pokemon/662.svg",
+    "form": "fletchinder",
+    "artSource": "dream-world"
+  },
+  "663": {
+    "file": "pokemon/663.svg",
+    "form": "talonflame",
+    "artSource": "dream-world"
+  },
+  "664": {
+    "file": "pokemon/664.svg",
+    "form": "scatterbug",
+    "artSource": "dream-world"
+  },
+  "665": {
+    "file": "pokemon/665.svg",
+    "form": "spewpa",
+    "artSource": "dream-world"
+  },
+  "666": {
+    "file": "pokemon/666.svg",
+    "form": "vivillon",
+    "artSource": "dream-world"
+  },
+  "667": {
+    "file": "pokemon/667.svg",
+    "form": "litleo",
+    "artSource": "dream-world"
+  },
+  "668": {
+    "file": "pokemon/668.svg",
+    "form": "pyroar-male",
+    "artSource": "dream-world"
+  },
+  "669": {
+    "file": "pokemon/669.svg",
+    "form": "flabebe",
+    "artSource": "dream-world"
+  },
+  "670": {
+    "file": "pokemon/670.svg",
+    "form": "floette",
+    "artSource": "dream-world"
+  },
+  "671": {
+    "file": "pokemon/671.svg",
+    "form": "florges",
+    "artSource": "dream-world"
+  },
+  "672": {
+    "file": "pokemon/672.svg",
+    "form": "skiddo",
+    "artSource": "dream-world"
+  },
+  "673": {
+    "file": "pokemon/673.svg",
+    "form": "gogoat",
+    "artSource": "dream-world"
+  },
+  "674": {
+    "file": "pokemon/674.svg",
+    "form": "pancham",
+    "artSource": "dream-world"
+  },
+  "675": {
+    "file": "pokemon/675.svg",
+    "form": "pangoro",
+    "artSource": "dream-world"
+  },
+  "676": {
+    "file": "pokemon/676.svg",
+    "form": "furfrou",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "677": {
+    "file": "pokemon/677.svg",
+    "form": "espurr",
+    "artSource": "dream-world"
+  },
+  "678": {
+    "file": "pokemon/678.svg",
+    "form": "meowstic-male",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "679": {
+    "file": "pokemon/679.svg",
+    "form": "honedge",
+    "artSource": "dream-world"
+  },
+  "680": {
+    "file": "pokemon/680.svg",
+    "form": "doublade",
+    "artSource": "dream-world"
+  },
+  "681": {
+    "file": "pokemon/681.svg",
+    "form": "aegislash-shield",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "682": {
+    "file": "pokemon/682.svg",
+    "form": "spritzee",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "683": {
+    "file": "pokemon/683.svg",
+    "form": "aromatisse",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "684": {
+    "file": "pokemon/684.svg",
+    "form": "swirlix",
+    "artSource": "dream-world"
+  },
+  "685": {
+    "file": "pokemon/685.svg",
+    "form": "slurpuff",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "686": {
+    "file": "pokemon/686.svg",
+    "form": "inkay",
+    "artSource": "dream-world"
+  },
+  "687": {
+    "file": "pokemon/687.svg",
+    "form": "malamar",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "688": {
+    "file": "pokemon/688.svg",
+    "form": "binacle",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "689": {
+    "file": "pokemon/689.svg",
+    "form": "barbaracle",
+    "artSource": "dream-world"
+  },
+  "690": {
+    "file": "pokemon/690.svg",
+    "form": "skrelp",
+    "artSource": "dream-world"
+  },
+  "691": {
+    "file": "pokemon/691.svg",
+    "form": "dragalge",
+    "artSource": "dream-world"
+  },
+  "692": {
+    "file": "pokemon/692.svg",
+    "form": "clauncher",
+    "artSource": "dream-world"
+  },
+  "693": {
+    "file": "pokemon/693.svg",
+    "form": "clawitzer",
+    "artSource": "dream-world"
+  },
+  "694": {
+    "file": "pokemon/694.svg",
+    "form": "helioptile",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "695": {
+    "file": "pokemon/695.svg",
+    "form": "heliolisk",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "696": {
+    "file": "pokemon/696.svg",
+    "form": "tyrunt",
+    "artSource": "dream-world"
+  },
+  "697": {
+    "file": "pokemon/697.svg",
+    "form": "tyrantrum",
+    "artSource": "dream-world"
+  },
+  "698": {
+    "file": "pokemon/698.svg",
+    "form": "amaura",
+    "artSource": "dream-world"
+  },
+  "699": {
+    "file": "pokemon/699.svg",
+    "form": "aurorus",
+    "artSource": "dream-world"
+  },
+  "700": {
+    "file": "pokemon/700.svg",
+    "form": "sylveon",
+    "artSource": "dream-world"
+  },
+  "701": {
+    "file": "pokemon/701.svg",
+    "form": "hawlucha",
+    "artSource": "dream-world"
+  },
+  "702": {
+    "file": "pokemon/702.svg",
+    "form": "dedenne",
+    "artSource": "dream-world"
+  },
+  "703": {
+    "file": "pokemon/703.svg",
+    "form": "carbink",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "704": {
+    "file": "pokemon/704.svg",
+    "form": "goomy",
+    "artSource": "dream-world"
+  },
+  "705": {
+    "file": "pokemon/705.svg",
+    "form": "sliggoo",
+    "artSource": "dream-world"
+  },
+  "706": {
+    "file": "pokemon/706.svg",
+    "form": "goodra",
+    "artSource": "dream-world"
+  },
+  "707": {
+    "file": "pokemon/707.svg",
+    "form": "klefki",
+    "artSource": "dream-world"
+  },
+  "708": {
+    "file": "pokemon/708.svg",
+    "form": "phantump",
+    "artSource": "dream-world"
+  },
+  "709": {
+    "file": "pokemon/709.svg",
+    "form": "trevenant",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "710": {
+    "file": "pokemon/710.svg",
+    "form": "pumpkaboo-average",
+    "artSource": "dream-world"
+  },
+  "711": {
+    "file": "pokemon/711.svg",
+    "form": "gourgeist-average",
+    "artSource": "dream-world"
+  },
+  "712": {
+    "file": "pokemon/712.svg",
+    "form": "bergmite",
+    "artSource": "dream-world"
+  },
+  "713": {
+    "file": "pokemon/713.svg",
+    "form": "avalugg",
+    "artSource": "dream-world"
+  },
+  "714": {
+    "file": "pokemon/714.svg",
+    "form": "noibat",
+    "artSource": "dream-world"
+  },
+  "715": {
+    "file": "pokemon/715.svg",
+    "form": "noivern",
+    "artSource": "dream-world"
+  },
+  "716": {
+    "file": "pokemon/716.svg",
+    "form": "xerneas",
+    "artSource": "dream-world"
+  },
+  "717": {
+    "file": "pokemon/717.svg",
+    "form": "yveltal",
+    "artSource": "dream-world"
+  },
+  "718": {
+    "file": "pokemon/718.svg",
+    "form": "zygarde-50",
+    "artSource": "dream-world"
+  },
+  "719": {
+    "file": "pokemon/719.svg",
+    "form": "diancie",
+    "artSource": "dream-world"
+  },
+  "720": {
+    "file": "pokemon/720.svg",
+    "form": "hoopa",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "721": {
+    "file": "pokemon/721.svg",
+    "form": "volcanion",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "722": {
+    "file": "pokemon/722.svg",
+    "form": "rowlet",
+    "artSource": "dream-world"
+  },
+  "723": {
+    "file": "pokemon/723.svg",
+    "form": "dartrix",
+    "artSource": "dream-world"
+  },
+  "724": {
+    "file": "pokemon/724.svg",
+    "form": "decidueye",
+    "artSource": "dream-world"
+  },
+  "725": {
+    "file": "pokemon/725.svg",
+    "form": "litten",
+    "artSource": "dream-world"
+  },
+  "726": {
+    "file": "pokemon/726.svg",
+    "form": "torracat",
+    "artSource": "dream-world"
+  },
+  "727": {
+    "file": "pokemon/727.svg",
+    "form": "incineroar",
+    "artSource": "dream-world"
+  },
+  "728": {
+    "file": "pokemon/728.svg",
+    "form": "popplio",
+    "artSource": "dream-world"
+  },
+  "729": {
+    "file": "pokemon/729.svg",
+    "form": "brionne",
+    "artSource": "dream-world"
+  },
+  "730": {
+    "file": "pokemon/730.svg",
+    "form": "primarina",
+    "artSource": "dream-world"
+  },
+  "731": {
+    "file": "pokemon/731.svg",
+    "form": "pikipek",
+    "artSource": "dream-world"
+  },
+  "732": {
+    "file": "pokemon/732.svg",
+    "form": "trumbeak",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "733": {
+    "file": "pokemon/733.svg",
+    "form": "toucannon",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "734": {
+    "file": "pokemon/734.svg",
+    "form": "yungoos",
+    "artSource": "dream-world"
+  },
+  "735": {
+    "file": "pokemon/735.svg",
+    "form": "gumshoos",
+    "artSource": "dream-world"
+  },
+  "736": {
+    "file": "pokemon/736.svg",
+    "form": "grubbin",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "737": {
+    "file": "pokemon/737.svg",
+    "form": "charjabug",
+    "artSource": "dream-world"
+  },
+  "738": {
+    "file": "pokemon/738.svg",
+    "form": "vikavolt",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "739": {
+    "file": "pokemon/739.svg",
+    "form": "crabrawler",
+    "artSource": "dream-world"
+  },
+  "740": {
+    "file": "pokemon/740.svg",
+    "form": "crabominable",
+    "artSource": "dream-world"
+  },
+  "741": {
+    "file": "pokemon/741.svg",
+    "form": "oricorio-baile",
+    "artSource": "dream-world"
+  },
+  "742": {
+    "file": "pokemon/742.svg",
+    "form": "cutiefly",
+    "artSource": "dream-world"
+  },
+  "743": {
+    "file": "pokemon/743.svg",
+    "form": "ribombee",
+    "artSource": "dream-world"
+  },
+  "744": {
+    "file": "pokemon/744.svg",
+    "form": "rockruff",
+    "artSource": "dream-world"
+  },
+  "745": {
+    "file": "pokemon/745.svg",
+    "form": "lycanroc-midday",
+    "artSource": "dream-world"
+  },
+  "746": {
+    "file": "pokemon/746.svg",
+    "form": "wishiwashi-solo",
+    "artSource": "dream-world"
+  },
+  "747": {
+    "file": "pokemon/747.svg",
+    "form": "mareanie",
+    "artSource": "dream-world"
+  },
+  "748": {
+    "file": "pokemon/748.svg",
+    "form": "toxapex",
+    "artSource": "dream-world"
+  },
+  "749": {
+    "file": "pokemon/749.svg",
+    "form": "mudbray",
+    "artSource": "dream-world"
+  },
+  "750": {
+    "file": "pokemon/750.svg",
+    "form": "mudsdale",
+    "artSource": "dream-world"
+  },
+  "751": {
+    "file": "pokemon/751.svg",
+    "form": "dewpider",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "752": {
+    "file": "pokemon/752.svg",
+    "form": "araquanid",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "753": {
+    "file": "pokemon/753.svg",
+    "form": "fomantis",
+    "artSource": "dream-world"
+  },
+  "754": {
+    "file": "pokemon/754.svg",
+    "form": "lurantis",
+    "artSource": "dream-world"
+  },
+  "755": {
+    "file": "pokemon/755.svg",
+    "form": "morelull",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "756": {
+    "file": "pokemon/756.svg",
+    "form": "shiinotic",
+    "artSource": "dream-world"
+  },
+  "757": {
+    "file": "pokemon/757.svg",
+    "form": "salandit",
+    "artSource": "dream-world"
+  },
+  "758": {
+    "file": "pokemon/758.svg",
+    "form": "salazzle",
+    "artSource": "dream-world"
+  },
+  "759": {
+    "file": "pokemon/759.svg",
+    "form": "stufful",
+    "artSource": "dream-world"
+  },
+  "760": {
+    "file": "pokemon/760.svg",
+    "form": "bewear",
+    "artSource": "dream-world"
+  },
+  "761": {
+    "file": "pokemon/761.svg",
+    "form": "bounsweet",
+    "artSource": "dream-world"
+  },
+  "762": {
+    "file": "pokemon/762.svg",
+    "form": "steenee",
+    "artSource": "dream-world"
+  },
+  "763": {
+    "file": "pokemon/763.svg",
+    "form": "tsareena",
+    "artSource": "dream-world"
+  },
+  "764": {
+    "file": "pokemon/764.svg",
+    "form": "comfey",
+    "artSource": "dream-world"
+  },
+  "765": {
+    "file": "pokemon/765.svg",
+    "form": "oranguru",
+    "artSource": "dream-world"
+  },
+  "766": {
+    "file": "pokemon/766.svg",
+    "form": "passimian",
+    "artSource": "dream-world"
+  },
+  "767": {
+    "file": "pokemon/767.svg",
+    "form": "wimpod",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "768": {
+    "file": "pokemon/768.svg",
+    "form": "golisopod",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "769": {
+    "file": "pokemon/769.svg",
+    "form": "sandygast",
+    "artSource": "dream-world"
+  },
+  "770": {
+    "file": "pokemon/770.svg",
+    "form": "palossand",
+    "artSource": "dream-world"
+  },
+  "771": {
+    "file": "pokemon/771.svg",
+    "form": "pyukumuku",
+    "artSource": "dream-world"
+  },
+  "772": {
+    "file": "pokemon/772.svg",
+    "form": "type-null",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "773": {
+    "file": "pokemon/773.svg",
+    "form": "silvally",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "774": {
+    "file": "pokemon/774.svg",
+    "form": "minior-red-meteor",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "775": {
+    "file": "pokemon/775.svg",
+    "form": "komala",
+    "artSource": "dream-world"
+  },
+  "776": {
+    "file": "pokemon/776.svg",
+    "form": "turtonator",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "777": {
+    "file": "pokemon/777.svg",
+    "form": "togedemaru",
+    "artSource": "dream-world"
+  },
+  "778": {
+    "file": "pokemon/778.svg",
+    "form": "mimikyu-disguised",
+    "artSource": "dream-world"
+  },
+  "779": {
+    "file": "pokemon/779.svg",
+    "form": "bruxish",
+    "artSource": "dream-world"
+  },
+  "780": {
+    "file": "pokemon/780.svg",
+    "form": "drampa",
+    "artSource": "dream-world"
+  },
+  "781": {
+    "file": "pokemon/781.svg",
+    "form": "dhelmise",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "782": {
+    "file": "pokemon/782.svg",
+    "form": "jangmo-o",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "783": {
+    "file": "pokemon/783.svg",
+    "form": "hakamo-o",
+    "artSource": "dream-world"
+  },
+  "784": {
+    "file": "pokemon/784.svg",
+    "form": "kommo-o",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "785": {
+    "file": "pokemon/785.svg",
+    "form": "tapu-koko",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "786": {
+    "file": "pokemon/786.svg",
+    "form": "tapu-lele",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "787": {
+    "file": "pokemon/787.svg",
+    "form": "tapu-bulu",
+    "artSource": "dream-world"
+  },
+  "788": {
+    "file": "pokemon/788.svg",
+    "form": "tapu-fini",
+    "artSource": "dream-world"
+  },
+  "789": {
+    "file": "pokemon/789.svg",
+    "form": "cosmog",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "790": {
+    "file": "pokemon/790.svg",
+    "form": "cosmoem",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "791": {
+    "file": "pokemon/791.svg",
+    "form": "solgaleo",
+    "artSource": "dream-world"
+  },
+  "792": {
+    "file": "pokemon/792.svg",
+    "form": "lunala",
+    "artSource": "dream-world"
+  },
+  "793": {
+    "file": "pokemon/793.svg",
+    "form": "nihilego",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "794": {
+    "file": "pokemon/794.svg",
+    "form": "buzzwole",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "795": {
+    "file": "pokemon/795.svg",
+    "form": "pheromosa",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "796": {
+    "file": "pokemon/796.svg",
+    "form": "xurkitree",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "797": {
+    "file": "pokemon/797.svg",
+    "form": "celesteela",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "798": {
+    "file": "pokemon/798.svg",
+    "form": "kartana",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "799": {
+    "file": "pokemon/799.svg",
+    "form": "guzzlord",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "800": {
+    "file": "pokemon/800.svg",
+    "form": "necrozma",
+    "artSource": "dream-world"
+  },
+  "801": {
+    "file": "pokemon/801.svg",
+    "form": "magearna",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "802": {
+    "file": "pokemon/802.svg",
+    "form": "marshadow",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "803": {
+    "file": "pokemon/803.svg",
+    "form": "poipole",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "804": {
+    "file": "pokemon/804.svg",
+    "form": "naganadel",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "805": {
+    "file": "pokemon/805.svg",
+    "form": "stakataka",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "806": {
+    "file": "pokemon/806.svg",
+    "form": "blacephalon",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "807": {
+    "file": "pokemon/807.svg",
+    "form": "zeraora",
+    "artSource": "dream-world"
+  },
+  "808": {
+    "file": "pokemon/808.svg",
+    "form": "meltan",
+    "artSource": "dream-world"
+  },
+  "809": {
+    "file": "pokemon/809.svg",
+    "form": "melmetal",
+    "artSource": "dream-world"
+  },
+  "810": {
+    "file": "pokemon/810.svg",
+    "form": "grookey",
+    "artSource": "dream-world"
+  },
+  "811": {
+    "file": "pokemon/811.svg",
+    "form": "thwackey",
+    "artSource": "dream-world"
+  },
+  "812": {
+    "file": "pokemon/812.svg",
+    "form": "rillaboom",
+    "artSource": "dream-world"
+  },
+  "813": {
+    "file": "pokemon/813.svg",
+    "form": "scorbunny",
+    "artSource": "dream-world"
+  },
+  "814": {
+    "file": "pokemon/814.svg",
+    "form": "raboot",
+    "artSource": "dream-world"
+  },
+  "815": {
+    "file": "pokemon/815.svg",
+    "form": "cinderace",
+    "artSource": "dream-world"
+  },
+  "816": {
+    "file": "pokemon/816.svg",
+    "form": "sobble",
+    "artSource": "dream-world"
+  },
+  "817": {
+    "file": "pokemon/817.svg",
+    "form": "drizzile",
+    "artSource": "dream-world"
+  },
+  "818": {
+    "file": "pokemon/818.svg",
+    "form": "inteleon",
+    "artSource": "dream-world"
+  },
+  "819": {
+    "file": "pokemon/819.svg",
+    "form": "skwovet",
+    "artSource": "dream-world"
+  },
+  "820": {
+    "file": "pokemon/820.svg",
+    "form": "greedent",
+    "artSource": "dream-world"
+  },
+  "821": {
+    "file": "pokemon/821.svg",
+    "form": "rookidee",
+    "artSource": "dream-world"
+  },
+  "822": {
+    "file": "pokemon/822.svg",
+    "form": "corvisquire",
+    "artSource": "dream-world"
+  },
+  "823": {
+    "file": "pokemon/823.svg",
+    "form": "corviknight",
+    "artSource": "dream-world"
+  },
+  "824": {
+    "file": "pokemon/824.svg",
+    "form": "blipbug",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "825": {
+    "file": "pokemon/825.svg",
+    "form": "dottler",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "826": {
+    "file": "pokemon/826.svg",
+    "form": "orbeetle",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "827": {
+    "file": "pokemon/827.svg",
+    "form": "nickit",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "828": {
+    "file": "pokemon/828.svg",
+    "form": "thievul",
+    "artSource": "dream-world"
+  },
+  "829": {
+    "file": "pokemon/829.svg",
+    "form": "gossifleur",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "830": {
+    "file": "pokemon/830.svg",
+    "form": "eldegoss",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "831": {
+    "file": "pokemon/831.svg",
+    "form": "wooloo",
+    "artSource": "dream-world"
+  },
+  "832": {
+    "file": "pokemon/832.svg",
+    "form": "dubwool",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "833": {
+    "file": "pokemon/833.svg",
+    "form": "chewtle",
+    "artSource": "dream-world"
+  },
+  "834": {
+    "file": "pokemon/834.svg",
+    "form": "drednaw",
+    "artSource": "dream-world"
+  },
+  "835": {
+    "file": "pokemon/835.svg",
+    "form": "yamper",
+    "artSource": "dream-world"
+  },
+  "836": {
+    "file": "pokemon/836.svg",
+    "form": "boltund",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "837": {
+    "file": "pokemon/837.svg",
+    "form": "rolycoly",
+    "artSource": "dream-world"
+  },
+  "838": {
+    "file": "pokemon/838.svg",
+    "form": "carkol",
+    "artSource": "dream-world"
+  },
+  "839": {
+    "file": "pokemon/839.svg",
+    "form": "coalossal",
+    "artSource": "dream-world"
+  },
+  "840": {
+    "file": "pokemon/840.svg",
+    "form": "applin",
+    "artSource": "dream-world"
+  },
+  "841": {
+    "file": "pokemon/841.svg",
+    "form": "flapple",
+    "artSource": "dream-world"
+  },
+  "842": {
+    "file": "pokemon/842.svg",
+    "form": "appletun",
+    "artSource": "dream-world"
+  },
+  "843": {
+    "file": "pokemon/843.svg",
+    "form": "silicobra",
+    "artSource": "dream-world"
+  },
+  "844": {
+    "file": "pokemon/844.svg",
+    "form": "sandaconda",
+    "artSource": "dream-world"
+  },
+  "845": {
+    "file": "pokemon/845.svg",
+    "form": "cramorant",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "846": {
+    "file": "pokemon/846.svg",
+    "form": "arrokuda",
+    "artSource": "dream-world"
+  },
+  "847": {
+    "file": "pokemon/847.svg",
+    "form": "barraskewda",
+    "artSource": "dream-world"
+  },
+  "848": {
+    "file": "pokemon/848.svg",
+    "form": "toxel",
+    "artSource": "dream-world"
+  },
+  "849": {
+    "file": "pokemon/849.svg",
+    "form": "toxtricity-amped",
+    "artSource": "dream-world"
+  },
+  "850": {
+    "file": "pokemon/850.svg",
+    "form": "sizzlipede",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "851": {
+    "file": "pokemon/851.svg",
+    "form": "centiskorch",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "852": {
+    "file": "pokemon/852.svg",
+    "form": "clobbopus",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "853": {
+    "file": "pokemon/853.svg",
+    "form": "grapploct",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "854": {
+    "file": "pokemon/854.svg",
+    "form": "sinistea",
+    "artSource": "dream-world"
+  },
+  "855": {
+    "file": "pokemon/855.svg",
+    "form": "polteageist",
+    "artSource": "dream-world"
+  },
+  "856": {
+    "file": "pokemon/856.svg",
+    "form": "hatenna",
+    "artSource": "dream-world"
+  },
+  "857": {
+    "file": "pokemon/857.svg",
+    "form": "hattrem",
+    "artSource": "dream-world"
+  },
+  "858": {
+    "file": "pokemon/858.svg",
+    "form": "hatterene",
+    "artSource": "dream-world"
+  },
+  "859": {
+    "file": "pokemon/859.svg",
+    "form": "impidimp",
+    "artSource": "dream-world"
+  },
+  "860": {
+    "file": "pokemon/860.svg",
+    "form": "morgrem",
+    "artSource": "dream-world"
+  },
+  "861": {
+    "file": "pokemon/861.svg",
+    "form": "grimmsnarl",
+    "artSource": "dream-world"
+  },
+  "862": {
+    "file": "pokemon/862.svg",
+    "form": "obstagoon",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "863": {
+    "file": "pokemon/863.svg",
+    "form": "perrserker",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "864": {
+    "file": "pokemon/864.svg",
+    "form": "cursola",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "865": {
+    "file": "pokemon/865.svg",
+    "form": "sirfetchd",
+    "artSource": "dream-world"
+  },
+  "866": {
+    "file": "pokemon/866.svg",
+    "form": "mr-rime",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "867": {
+    "file": "pokemon/867.svg",
+    "form": "runerigus",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "868": {
+    "file": "pokemon/868.svg",
+    "form": "milcery",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "869": {
+    "file": "pokemon/869.svg",
+    "form": "alcremie",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "870": {
+    "file": "pokemon/870.svg",
+    "form": "falinks",
+    "artSource": "dream-world"
+  },
+  "871": {
+    "file": "pokemon/871.svg",
+    "form": "pincurchin",
+    "artSource": "dream-world"
+  },
+  "872": {
+    "file": "pokemon/872.svg",
+    "form": "snom",
+    "artSource": "dream-world"
+  },
+  "873": {
+    "file": "pokemon/873.svg",
+    "form": "frosmoth",
+    "artSource": "dream-world"
+  },
+  "874": {
+    "file": "pokemon/874.svg",
+    "form": "stonjourner",
+    "artSource": "dream-world"
+  },
+  "875": {
+    "file": "pokemon/875.svg",
+    "form": "eiscue-ice",
+    "artSource": "dream-world"
+  },
+  "876": {
+    "file": "pokemon/876.svg",
+    "form": "indeedee-male",
+    "artSource": "dream-world"
+  },
+  "877": {
+    "file": "pokemon/877.svg",
+    "form": "morpeko-full-belly",
+    "artSource": "dream-world"
+  },
+  "878": {
+    "file": "pokemon/878.svg",
+    "form": "cufant",
+    "artSource": "dream-world"
+  },
+  "879": {
+    "file": "pokemon/879.svg",
+    "form": "copperajah",
+    "artSource": "dream-world"
+  },
+  "880": {
+    "file": "pokemon/880.svg",
+    "form": "dracozolt",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "881": {
+    "file": "pokemon/881.svg",
+    "form": "arctozolt",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "882": {
+    "file": "pokemon/882.svg",
+    "form": "dracovish",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "883": {
+    "file": "pokemon/883.svg",
+    "form": "arctovish",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "884": {
+    "file": "pokemon/884.svg",
+    "form": "duraludon",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "885": {
+    "file": "pokemon/885.svg",
+    "form": "dreepy",
+    "artSource": "dream-world"
+  },
+  "886": {
+    "file": "pokemon/886.svg",
+    "form": "drakloak",
+    "artSource": "dream-world"
+  },
+  "887": {
+    "file": "pokemon/887.svg",
+    "form": "dragapult",
+    "artSource": "dream-world"
+  },
+  "888": {
+    "file": "pokemon/888.svg",
+    "form": "zacian",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "889": {
+    "file": "pokemon/889.svg",
+    "form": "zamazenta",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "890": {
+    "file": "pokemon/890.svg",
+    "form": "eternatus",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "891": {
+    "file": "pokemon/891.svg",
+    "form": "kubfu",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "892": {
+    "file": "pokemon/892.svg",
+    "form": "urshifu-single-strike",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "893": {
+    "file": "pokemon/893.svg",
+    "form": "zarude",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "894": {
+    "file": "pokemon/894.svg",
+    "form": "regieleki",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "895": {
+    "file": "pokemon/895.svg",
+    "form": "regidrago",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "896": {
+    "file": "pokemon/896.svg",
+    "form": "glastrier",
+    "artSource": "dream-world"
+  },
+  "897": {
+    "file": "pokemon/897.svg",
+    "form": "spectrier",
+    "artSource": "dream-world"
+  },
+  "898": {
+    "file": "pokemon/898.svg",
+    "form": "calyrex",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "899": {
+    "file": "pokemon/899.svg",
+    "form": "wyrdeer",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "900": {
+    "file": "pokemon/900.svg",
+    "form": "kleavor",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "901": {
+    "file": "pokemon/901.svg",
+    "form": "ursaluna",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "902": {
+    "file": "pokemon/902.svg",
+    "form": "basculegion-male",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "903": {
+    "file": "pokemon/903.svg",
+    "form": "sneasler",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "904": {
+    "file": "pokemon/904.svg",
+    "form": "overqwil",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "905": {
+    "file": "pokemon/905.svg",
+    "form": "enamorus-incarnate",
+    "artSource": "traced-dream-world-artwork"
+  },
+  "906": {
+    "file": "pokemon/906.svg",
+    "form": "sprigatito",
+    "artSource": "dream-world"
+  },
+  "907": {
+    "file": "pokemon/907.svg",
+    "form": "floragato",
+    "artSource": "dream-world"
+  },
+  "908": {
+    "file": "pokemon/908.svg",
+    "form": "meowscarada",
+    "artSource": "dream-world"
+  },
+  "909": {
+    "file": "pokemon/909.svg",
+    "form": "fuecoco",
+    "artSource": "dream-world"
+  },
+  "910": {
+    "file": "pokemon/910.svg",
+    "form": "crocalor",
+    "artSource": "dream-world"
+  },
+  "911": {
+    "file": "pokemon/911.svg",
+    "form": "skeledirge",
+    "artSource": "dream-world"
+  },
+  "912": {
+    "file": "pokemon/912.svg",
+    "form": "quaxly",
+    "artSource": "dream-world"
+  },
+  "913": {
+    "file": "pokemon/913.svg",
+    "form": "quaxwell",
+    "artSource": "dream-world"
+  },
+  "914": {
+    "file": "pokemon/914.svg",
+    "form": "quaquaval",
+    "artSource": "dream-world"
+  },
+  "915": {
+    "file": "pokemon/915.svg",
+    "form": "lechonk",
+    "artSource": "dream-world"
+  },
+  "916": {
+    "file": "pokemon/916.svg",
+    "form": "oinkologne-male",
+    "artSource": "dream-world"
+  },
+  "917": {
+    "file": "pokemon/917.svg",
+    "form": "tarountula",
+    "artSource": "dream-world"
+  },
+  "918": {
+    "file": "pokemon/918.svg",
+    "form": "spidops",
+    "artSource": "dream-world"
+  },
+  "919": {
+    "file": "pokemon/919.svg",
+    "form": "nymble",
+    "artSource": "dream-world"
+  },
+  "920": {
+    "file": "pokemon/920.svg",
+    "form": "lokix",
+    "artSource": "dream-world"
+  },
+  "921": {
+    "file": "pokemon/921.svg",
+    "form": "pawmi",
+    "artSource": "dream-world"
+  },
+  "922": {
+    "file": "pokemon/922.svg",
+    "form": "pawmo",
+    "artSource": "dream-world"
+  },
+  "923": {
+    "file": "pokemon/923.svg",
+    "form": "pawmot",
+    "artSource": "dream-world"
+  },
+  "924": {
+    "file": "pokemon/924.svg",
+    "form": "tandemaus",
+    "artSource": "dream-world"
+  },
+  "925": {
+    "file": "pokemon/925.svg",
+    "form": "maushold-family-of-four",
+    "artSource": "dream-world"
+  },
+  "926": {
+    "file": "pokemon/926.svg",
+    "form": "fidough",
+    "artSource": "dream-world"
+  },
+  "927": {
+    "file": "pokemon/927.svg",
+    "form": "dachsbun",
+    "artSource": "dream-world"
+  },
+  "928": {
+    "file": "pokemon/928.svg",
+    "form": "smoliv",
+    "artSource": "dream-world"
+  },
+  "929": {
+    "file": "pokemon/929.svg",
+    "form": "dolliv",
+    "artSource": "dream-world"
+  },
+  "930": {
+    "file": "pokemon/930.svg",
+    "form": "arboliva",
+    "artSource": "dream-world"
+  },
+  "931": {
+    "file": "pokemon/931.svg",
+    "form": "squawkabilly-green-plumage",
+    "artSource": "dream-world"
+  },
+  "932": {
+    "file": "pokemon/932.svg",
+    "form": "nacli",
+    "artSource": "dream-world"
+  },
+  "933": {
+    "file": "pokemon/933.svg",
+    "form": "naclstack",
+    "artSource": "dream-world"
+  },
+  "934": {
+    "file": "pokemon/934.svg",
+    "form": "garganacl",
+    "artSource": "dream-world"
+  },
+  "935": {
+    "file": "pokemon/935.svg",
+    "form": "charcadet",
+    "artSource": "dream-world"
+  },
+  "936": {
+    "file": "pokemon/936.svg",
+    "form": "armarouge",
+    "artSource": "dream-world"
+  },
+  "937": {
+    "file": "pokemon/937.svg",
+    "form": "ceruledge",
+    "artSource": "dream-world"
+  },
+  "938": {
+    "file": "pokemon/938.svg",
+    "form": "tadbulb",
+    "artSource": "dream-world"
+  },
+  "939": {
+    "file": "pokemon/939.svg",
+    "form": "bellibolt",
+    "artSource": "dream-world"
+  },
+  "940": {
+    "file": "pokemon/940.svg",
+    "form": "wattrel",
+    "artSource": "dream-world"
+  },
+  "941": {
+    "file": "pokemon/941.svg",
+    "form": "kilowattrel",
+    "artSource": "dream-world"
+  },
+  "942": {
+    "file": "pokemon/942.svg",
+    "form": "maschiff",
+    "artSource": "dream-world"
+  },
+  "943": {
+    "file": "pokemon/943.svg",
+    "form": "mabosstiff",
+    "artSource": "dream-world"
+  },
+  "944": {
+    "file": "pokemon/944.svg",
+    "form": "shroodle",
+    "artSource": "dream-world"
+  },
+  "945": {
+    "file": "pokemon/945.svg",
+    "form": "grafaiai",
+    "artSource": "dream-world"
+  },
+  "946": {
+    "file": "pokemon/946.svg",
+    "form": "bramblin",
+    "artSource": "dream-world"
+  },
+  "947": {
+    "file": "pokemon/947.svg",
+    "form": "brambleghast",
+    "artSource": "dream-world"
+  },
+  "948": {
+    "file": "pokemon/948.svg",
+    "form": "toedscool",
+    "artSource": "dream-world"
+  },
+  "949": {
+    "file": "pokemon/949.svg",
+    "form": "toedscruel",
+    "artSource": "dream-world"
+  },
+  "950": {
+    "file": "pokemon/950.svg",
+    "form": "klawf",
+    "artSource": "dream-world"
+  },
+  "951": {
+    "file": "pokemon/951.svg",
+    "form": "capsakid",
+    "artSource": "dream-world"
+  },
+  "952": {
+    "file": "pokemon/952.svg",
+    "form": "scovillain",
+    "artSource": "dream-world"
+  },
+  "953": {
+    "file": "pokemon/953.svg",
+    "form": "rellor",
+    "artSource": "dream-world"
+  },
+  "954": {
+    "file": "pokemon/954.svg",
+    "form": "rabsca",
+    "artSource": "dream-world"
+  },
+  "955": {
+    "file": "pokemon/955.svg",
+    "form": "flittle",
+    "artSource": "dream-world"
+  },
+  "956": {
+    "file": "pokemon/956.svg",
+    "form": "espathra",
+    "artSource": "dream-world"
+  },
+  "957": {
+    "file": "pokemon/957.svg",
+    "form": "tinkatink",
+    "artSource": "dream-world"
+  },
+  "958": {
+    "file": "pokemon/958.svg",
+    "form": "tinkatuff",
+    "artSource": "dream-world"
+  },
+  "959": {
+    "file": "pokemon/959.svg",
+    "form": "tinkaton",
+    "artSource": "dream-world"
+  },
+  "960": {
+    "file": "pokemon/960.svg",
+    "form": "wiglett",
+    "artSource": "dream-world"
+  },
+  "961": {
+    "file": "pokemon/961.svg",
+    "form": "wugtrio",
+    "artSource": "dream-world"
+  },
+  "962": {
+    "file": "pokemon/962.svg",
+    "form": "bombirdier",
+    "artSource": "dream-world"
+  },
+  "963": {
+    "file": "pokemon/963.svg",
+    "form": "finizen",
+    "artSource": "dream-world"
+  },
+  "964": {
+    "file": "pokemon/964.svg",
+    "form": "palafin-zero",
+    "artSource": "dream-world"
+  },
+  "965": {
+    "file": "pokemon/965.svg",
+    "form": "varoom",
+    "artSource": "dream-world"
+  },
+  "966": {
+    "file": "pokemon/966.svg",
+    "form": "revavroom",
+    "artSource": "dream-world"
+  },
+  "967": {
+    "file": "pokemon/967.svg",
+    "form": "cyclizar",
+    "artSource": "dream-world"
+  },
+  "968": {
+    "file": "pokemon/968.svg",
+    "form": "orthworm",
+    "artSource": "dream-world"
+  },
+  "969": {
+    "file": "pokemon/969.svg",
+    "form": "glimmet",
+    "artSource": "dream-world"
+  },
+  "970": {
+    "file": "pokemon/970.svg",
+    "form": "glimmora",
+    "artSource": "dream-world"
+  },
+  "971": {
+    "file": "pokemon/971.svg",
+    "form": "greavard",
+    "artSource": "dream-world"
+  },
+  "972": {
+    "file": "pokemon/972.svg",
+    "form": "houndstone",
+    "artSource": "dream-world"
+  },
+  "973": {
+    "file": "pokemon/973.svg",
+    "form": "flamigo",
+    "artSource": "dream-world"
+  },
+  "974": {
+    "file": "pokemon/974.svg",
+    "form": "cetoddle",
+    "artSource": "dream-world"
+  },
+  "975": {
+    "file": "pokemon/975.svg",
+    "form": "cetitan",
+    "artSource": "dream-world"
+  },
+  "976": {
+    "file": "pokemon/976.svg",
+    "form": "veluza",
+    "artSource": "dream-world"
+  },
+  "977": {
+    "file": "pokemon/977.svg",
+    "form": "dondozo",
+    "artSource": "dream-world"
+  },
+  "978": {
+    "file": "pokemon/978.svg",
+    "form": "tatsugiri-curly",
+    "artSource": "dream-world"
+  },
+  "979": {
+    "file": "pokemon/979.svg",
+    "form": "annihilape",
+    "artSource": "dream-world"
+  },
+  "980": {
+    "file": "pokemon/980.svg",
+    "form": "clodsire",
+    "artSource": "dream-world"
+  },
+  "981": {
+    "file": "pokemon/981.svg",
+    "form": "farigiraf",
+    "artSource": "dream-world"
+  },
+  "982": {
+    "file": "pokemon/982.svg",
+    "form": "dudunsparce-two-segment",
+    "artSource": "dream-world"
+  },
+  "983": {
+    "file": "pokemon/983.svg",
+    "form": "kingambit",
+    "artSource": "dream-world"
+  },
+  "984": {
+    "file": "pokemon/984.svg",
+    "form": "great-tusk",
+    "artSource": "dream-world"
+  },
+  "985": {
+    "file": "pokemon/985.svg",
+    "form": "scream-tail",
+    "artSource": "dream-world"
+  },
+  "986": {
+    "file": "pokemon/986.svg",
+    "form": "brute-bonnet",
+    "artSource": "dream-world"
+  },
+  "987": {
+    "file": "pokemon/987.svg",
+    "form": "flutter-mane",
+    "artSource": "dream-world"
+  },
+  "988": {
+    "file": "pokemon/988.svg",
+    "form": "slither-wing",
+    "artSource": "dream-world"
+  },
+  "989": {
+    "file": "pokemon/989.svg",
+    "form": "sandy-shocks",
+    "artSource": "dream-world"
+  },
+  "990": {
+    "file": "pokemon/990.svg",
+    "form": "iron-treads",
+    "artSource": "dream-world"
+  },
+  "991": {
+    "file": "pokemon/991.svg",
+    "form": "iron-bundle",
+    "artSource": "dream-world"
+  },
+  "992": {
+    "file": "pokemon/992.svg",
+    "form": "iron-hands",
+    "artSource": "dream-world"
+  },
+  "993": {
+    "file": "pokemon/993.svg",
+    "form": "iron-jugulis",
+    "artSource": "dream-world"
+  },
+  "994": {
+    "file": "pokemon/994.svg",
+    "form": "iron-moth",
+    "artSource": "dream-world"
+  },
+  "995": {
+    "file": "pokemon/995.svg",
+    "form": "iron-thorns",
+    "artSource": "dream-world"
+  },
+  "996": {
+    "file": "pokemon/996.svg",
+    "form": "frigibax",
+    "artSource": "dream-world"
+  },
+  "997": {
+    "file": "pokemon/997.svg",
+    "form": "arctibax",
+    "artSource": "dream-world"
+  },
+  "998": {
+    "file": "pokemon/998.svg",
+    "form": "baxcalibur",
+    "artSource": "dream-world"
+  },
+  "999": {
+    "file": "pokemon/999.svg",
+    "form": "gimmighoul",
+    "artSource": "dream-world"
+  },
+  "1000": {
+    "file": "pokemon/1000.svg",
+    "form": "gholdengo",
+    "artSource": "dream-world"
+  },
+  "1001": {
+    "file": "pokemon/1001.svg",
+    "form": "wo-chien",
+    "artSource": "dream-world"
+  },
+  "1002": {
+    "file": "pokemon/1002.svg",
+    "form": "chien-pao",
+    "artSource": "dream-world"
+  },
+  "1003": {
+    "file": "pokemon/1003.svg",
+    "form": "ting-lu",
+    "artSource": "dream-world"
+  },
+  "1004": {
+    "file": "pokemon/1004.svg",
+    "form": "chi-yu",
+    "artSource": "dream-world"
+  },
+  "1005": {
+    "file": "pokemon/1005.svg",
+    "form": "roaring-moon",
+    "artSource": "dream-world"
+  },
+  "1006": {
+    "file": "pokemon/1006.svg",
+    "form": "iron-valiant",
+    "artSource": "dream-world"
+  },
+  "1007": {
+    "file": "pokemon/1007.svg",
+    "form": "koraidon",
+    "artSource": "dream-world"
+  },
+  "1008": {
+    "file": "pokemon/1008.svg",
+    "form": "miraidon",
+    "artSource": "dream-world"
+  },
+  "1009": {
+    "file": "pokemon/1009.svg",
+    "form": "walking-wake",
+    "artSource": "dream-world"
+  },
+  "1010": {
+    "file": "pokemon/1010.svg",
+    "form": "iron-leaves",
+    "artSource": "dream-world"
+  },
+  "1011": {
+    "file": "pokemon/1011.svg",
+    "form": "dipplin",
+    "artSource": "dream-world"
+  },
+  "1012": {
+    "file": "pokemon/1012.svg",
+    "form": "poltchageist",
+    "artSource": "dream-world"
+  },
+  "1013": {
+    "file": "pokemon/1013.svg",
+    "form": "sinistcha",
+    "artSource": "dream-world"
+  },
+  "1014": {
+    "file": "pokemon/1014.svg",
+    "form": "okidogi",
+    "artSource": "dream-world"
+  },
+  "1015": {
+    "file": "pokemon/1015.svg",
+    "form": "munkidori",
+    "artSource": "dream-world"
+  },
+  "1016": {
+    "file": "pokemon/1016.svg",
+    "form": "fezandipiti",
+    "artSource": "dream-world"
+  },
+  "1017": {
+    "file": "pokemon/1017.svg",
+    "form": "ogerpon",
+    "artSource": "dream-world"
+  },
+  "1018": {
+    "file": "pokemon/1018.svg",
+    "form": "archaludon",
+    "artSource": "dream-world"
+  },
+  "1019": {
+    "file": "pokemon/1019.svg",
+    "form": "hydrapple",
+    "artSource": "dream-world"
+  },
+  "1020": {
+    "file": "pokemon/1020.svg",
+    "form": "gouging-fire",
+    "artSource": "dream-world"
+  },
+  "1021": {
+    "file": "pokemon/1021.svg",
+    "form": "raging-bolt",
+    "artSource": "dream-world"
+  },
+  "1022": {
+    "file": "pokemon/1022.svg",
+    "form": "iron-boulder",
+    "artSource": "dream-world"
+  },
+  "1023": {
+    "file": "pokemon/1023.svg",
+    "form": "iron-crown",
+    "artSource": "dream-world"
+  },
+  "1024": {
+    "file": "pokemon/1024.svg",
+    "form": "terapagos",
+    "artSource": "dream-world"
+  },
+  "1025": {
+    "file": "pokemon/1025.svg",
+    "form": "pecharunt",
+    "artSource": "dream-world"
+  }
+}

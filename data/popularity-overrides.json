@@ -1,0 +1,370 @@
+{
+  "5": {
+    "tier": 2,
+    "reason": "Middle evolution whose outline reads as Charmander; matches Wartortle (138) and Ivysaur (140), already Medium."
+  },
+  "14": {
+    "tier": 3,
+    "reason": "Cocoon middle evolution; low LLM (z 0.26); Wikidata carries it."
+  },
+  "30": {
+    "tier": 3,
+    "rank": 640,
+    "reason": "One of only two original-151 species in master; the SV 151 card set put all 151 in kids' hands."
+  },
+  "40": {
+    "tier": 2,
+    "reason": "Pin. At 126 it would roll into Easy; its silhouette reads as Jigglypuff."
+  },
+  "49": {
+    "tier": 3,
+    "rank": 645,
+    "reason": "The other original-151 species in master; same 151-set reasoning as Nidorina."
+  },
+  "51": {
+    "tier": 1,
+    "rank": 106,
+    "reason": "Three Diglett heads; any kid who knows Diglett (rank 57) reads it at once."
+  },
+  "57": {
+    "tier": 3,
+    "reason": "Round furry body with limbs, the same outline as Mankey; LLM z 0.26."
+  },
+  "64": {
+    "tier": 3,
+    "reason": "Middle evolution; its one-spoon outline reads as Alakazam."
+  },
+  "100": {
+    "tier": 2,
+    "reason": "Silhouette is a plain circle, identical to Electrode and a Poke Ball, so it is unfair to a 5-year-old. Medium, not Master: medium choices never pair it with Electrode (same family), and Master is for deep cuts."
+  },
+  "102": {
+    "tier": 3,
+    "reason": "A cluster of eggs with no readable outline; polls z -1.32."
+  },
+  "103": {
+    "tier": 2,
+    "reason": "The palm-tree meme is a grown-up joke; kids know Diglett and Cubone far better."
+  },
+  "114": {
+    "tier": 3,
+    "reason": "Kid lens 3; a ball of vines with feet has no readable outline."
+  },
+  "124": {
+    "tier": 3,
+    "reason": "Kid lens 4; rarely featured in current anime or merch."
+  },
+  "137": {
+    "tier": 3,
+    "reason": "Kid lens 4; its fame is a banned 1997 episode, which is parent trivia."
+  },
+  "148": {
+    "tier": 2,
+    "reason": "Pin. At 123 it would roll into Easy; its long serpent outline reads as Dratini."
+  },
+  "169": {
+    "tier": 2,
+    "reason": "Lowest kid-lens score in the easy tier (5); Zubat is the one kids know."
+  },
+  "172": {
+    "tier": 2,
+    "reason": "Silhouette reads as Pikachu; a 5-year-old who answers Pikachu will feel cheated."
+  },
+  "180": {
+    "tier": 4,
+    "reason": "Middle evolution; LLM z -0.53; TCG alone holds it in Hard."
+  },
+  "181": {
+    "tier": 2,
+    "reason": "Mid-fame Johto species, not part of the everyday kid roster."
+  },
+  "201": {
+    "tier": 3,
+    "reason": "Its letter-shaped silhouette is a trivia question; casual kids cannot name it, and it rides high on adult TCG and Wikidata counts."
+  },
+  "206": {
+    "tier": 3,
+    "reason": "Kid lens 4; its fame is an adult meme."
+  },
+  "208": {
+    "tier": 2,
+    "reason": "Pin. At 122 it would roll into Easy as slots open; its silhouette reads as Onix."
+  },
+  "213": {
+    "tier": 3,
+    "reason": "Competitive meme with a kid lens of 4."
+  },
+  "235": {
+    "tier": 3,
+    "reason": "Kid lens 4; known to fans, not casual kids."
+  },
+  "244": {
+    "tier": 2,
+    "reason": "Suicune is the famous beast; Entei belongs with Raikou in medium."
+  },
+  "251": {
+    "tier": 2,
+    "reason": "Rank 56 is too high for a mythical whose movie is 25 years old."
+  },
+  "252": {
+    "tier": 1,
+    "rank": 112,
+    "reason": "First-stage starter; Torchic and Mudkip are already easy."
+  },
+  "281": {
+    "tier": 3,
+    "reason": "Middle evolution between Ralts and Gardevoir; LLM z -0.14; only TCG keeps it in Medium."
+  },
+  "302": {
+    "tier": 2,
+    "reason": "Kids who play Unite or SV know it, but it is not a name a 5-year-old shouts out."
+  },
+  "303": {
+    "tier": 3,
+    "reason": "An adult and competitive favourite (parent lens 4); few kids under 10 can name it."
+  },
+  "311": {
+    "tier": 3,
+    "reason": "Twin of Minun; only the tail tip differs."
+  },
+  "312": {
+    "tier": 3,
+    "reason": "Twin of Plusle; keep the pair together."
+  },
+  "350": {
+    "tier": 2,
+    "reason": "A fan-poll favourite that few young kids can name on sight."
+  },
+  "351": {
+    "tier": 3,
+    "reason": "Obscure Hoenn weather gimmick, kid lens 5 and parent 4."
+  },
+  "375": {
+    "tier": 4,
+    "reason": "Middle evolution; LLM z -0.72; held in Hard by TCG only."
+  },
+  "377": {
+    "tier": 3,
+    "reason": "The Regis are an older-fan thing; Regice and Registeel already sit at the hard edge."
+  },
+  "378": {
+    "tier": 3,
+    "reason": "Same Regi outline problem as Regirock; kid and parent lenses are low."
+  },
+  "379": {
+    "tier": 3,
+    "reason": "Same Regi outline problem; LLM z 0.26."
+  },
+  "380": {
+    "tier": 2,
+    "reason": "Shares a silhouette with Latios, so it is never an easy round, and older fans are the ones who know it."
+  },
+  "381": {
+    "tier": 2,
+    "reason": "Same as Latias: twin silhouette, known mostly to older fans."
+  },
+  "386": {
+    "tier": 2,
+    "reason": "Parent lens 4; known to fans, not to the average trick-or-treater."
+  },
+  "390": {
+    "tier": 1,
+    "rank": 109,
+    "reason": "First-stage starter with a kid-lens score of 7, as high as most of tier 1."
+  },
+  "404": {
+    "tier": 4,
+    "reason": "Middle evolution whose outline reads as Luxray; LLM z -0.72."
+  },
+  "479": {
+    "tier": 2,
+    "reason": "Base form is a small spark blob; kids know Rotom Phone, not this; TCG z 2.62 drives the rank."
+  },
+  "492": {
+    "tier": 3,
+    "reason": "Kid 5, parent 4; its rank is carried by TCG."
+  },
+  "494": {
+    "tier": 2,
+    "reason": "A mythical held up by its card count; small kids do not know it."
+  },
+  "495": {
+    "tier": 1,
+    "rank": 115,
+    "reason": "First-stage starter; Oshawott and Tepig move up with it so all of Unova matches."
+  },
+  "496": {
+    "tier": 3,
+    "rank": 647,
+    "reason": "Starter middle stage; fans who know the Snivy line know it."
+  },
+  "498": {
+    "tier": 1,
+    "rank": 117,
+    "reason": "A starter in Legends Z-A (2025), so many kids picked it this year."
+  },
+  "499": {
+    "tier": 3,
+    "rank": 646,
+    "reason": "Middle stage of a Legends Z-A starter kids raised this year; Bayleef and Croconaw are already hard."
+  },
+  "500": {
+    "tier": 2,
+    "rank": 346,
+    "reason": "Final evolution of a Legends: Z-A starter; matches Samurott (213) and Serperior (225) in Medium."
+  },
+  "501": {
+    "tier": 1,
+    "rank": 105,
+    "reason": "Ash's anime partner; kid 6, merch 7; the scalchop gives a clear outline. Sits at 124, just outside Easy."
+  },
+  "571": {
+    "tier": 2,
+    "reason": "Kid 6 and parent 5 with no merch score; TCG z 2.10 carries it."
+  },
+  "646": {
+    "tier": 2,
+    "reason": "Pin. At 127 it would roll into Easy as slots open; kid 6, parent 5, no merch score."
+  },
+  "649": {
+    "tier": 3,
+    "reason": "A Gen 5 mythical with kid lens 5 and parent 4, ranked medium mostly on card count."
+  },
+  "650": {
+    "tier": 1,
+    "rank": 120,
+    "reason": "Kalos starter (the Legends Z-A region); keeps the every-starter-is-easy rule whole."
+  },
+  "651": {
+    "tier": 3,
+    "rank": 649,
+    "reason": "Starter middle stage; Frogadier and Braixen, the other Kalos middle stages, are already hard."
+  },
+  "653": {
+    "tier": 1,
+    "rank": 111,
+    "reason": "Kalos starter (the Legends Z-A region), kid lens 7."
+  },
+  "656": {
+    "tier": 1,
+    "rank": 110,
+    "reason": "Greninja's first stage, kid lens 7; kids who love Greninja know where it starts."
+  },
+  "725": {
+    "tier": 1,
+    "rank": 113,
+    "reason": "First-stage starter, kid lens 7, a plush staple."
+  },
+  "726": {
+    "tier": 3,
+    "rank": 642,
+    "reason": "Starter middle stages belong with Frogadier and Braixen in hard; kid lens 5."
+  },
+  "728": {
+    "tier": 1,
+    "rank": 119,
+    "reason": "First-stage starter, kid lens 7, but stuck at 269 behind Gen 1 middle stages."
+  },
+  "729": {
+    "tier": 3,
+    "rank": 648,
+    "reason": "Starter middle stage with kid lens 5, ranked below hundreds of obscure Gen 3-5 species."
+  },
+  "745": {
+    "tier": 2,
+    "reason": "Kid 6, parent 5, no merch score; rank driven by TCG."
+  },
+  "807": {
+    "tier": 3,
+    "reason": "LLM z 0.06; TCG z 1.87 from promo cards carries it."
+  },
+  "810": {
+    "tier": 1,
+    "rank": 116,
+    "reason": "First-stage starter; its starter partner Scorbunny is already easy."
+  },
+  "811": {
+    "tier": 3,
+    "rank": 650,
+    "reason": "Starter middle stage; Raboot is already hard."
+  },
+  "816": {
+    "tier": 1,
+    "rank": 114,
+    "reason": "First-stage starter; its starter partner Scorbunny is already easy."
+  },
+  "817": {
+    "tier": 3,
+    "rank": 644,
+    "reason": "Starter middle stage; Raboot is already hard."
+  },
+  "851": {
+    "tier": 4,
+    "reason": "LLM z -1.12, bottom 10 percent; only TCG z 1.33 keeps it in Hard."
+  },
+  "872": {
+    "tier": 2,
+    "rank": 345,
+    "reason": "Kid-favourite plush and meme sitting just below the cutoff, behind Pinsir and Tangela."
+  },
+  "907": {
+    "tier": 2,
+    "rank": 349,
+    "reason": "Liko's partner in Pokémon Horizons, the anime kids watch now."
+  },
+  "910": {
+    "tier": 2,
+    "rank": 350,
+    "reason": "Roy's partner in Pokémon Horizons."
+  },
+  "915": {
+    "tier": 1,
+    "rank": 118,
+    "reason": "Kid lens 7; an early-route staple in Scarlet/Violet; the round pig outline differs from Tepig's."
+  },
+  "922": {
+    "tier": 3,
+    "rank": 643,
+    "reason": "Middle of the Pawmi line, Gen 9's Pikachu stand-in; Pawmot is already hard."
+  },
+  "937": {
+    "tier": 2,
+    "rank": 348,
+    "reason": "Polls z 1.62, among the highest in the dex; blade-arm silhouette is unmistakable."
+  },
+  "977": {
+    "tier": 3,
+    "rank": 638,
+    "reason": "The giant catfish from SV's Tatsugiri pairing sticks with kids who play."
+  },
+  "983": {
+    "tier": 3,
+    "rank": 639,
+    "reason": "A big Scarlet/Violet battle and card-game name; hard, not master."
+  },
+  "1000": {
+    "tier": 2,
+    "rank": 347,
+    "reason": "Polls z 1.47; its coin-surfboard outline is unique."
+  },
+  "1005": {
+    "tier": 3,
+    "rank": 641,
+    "reason": "Scarlet's headline paradox Pokémon; SV players know it."
+  },
+  "1006": {
+    "tier": 3,
+    "rank": 637,
+    "reason": "Violet's headline paradox Pokémon; SV players know it."
+  },
+  "1007": {
+    "tier": 1,
+    "rank": 107,
+    "reason": "Box-art legend and the ride Pokémon of Scarlet, the main game most of these kids own."
+  },
+  "1008": {
+    "tier": 1,
+    "rank": 108,
+    "reason": "Box-art legend and the ride Pokémon of Violet."
+  }
+}
