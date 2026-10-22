@@ -2226,8 +2226,8 @@
   },
   "2": {
    "name": "Ivysaur",
-   "status": "respelled",
-   "input": "Eye-vee-sore",
+   "status": "manual",
+   "input": "Ivysaur",
    "verdict": "match",
    "target": {
     "ipa": "/ˈaɪvisɔr/",
@@ -2293,10 +2293,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/2/eye-vee-sore~0e9edd44a7-1.wav",
-    "hash": "0e9edd44a7"
+    "file": "names/gpt-4o-mini-tts-verse/2/ivysaur~7628ccf6b3-s2.wav",
+    "hash": "7628ccf6b3"
    },
-   "at": "2026-10-22T14:06:10.640Z"
+   "at": "2026-10-22T14:06:10.640Z",
+   "history": [
+    {
+     "input": "Eye-vee-sore",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/2/eye-vee-sore~0e9edd44a7-1.wav",
+      "hash": "0e9edd44a7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "3": {
    "name": "Venusaur",
@@ -2569,8 +2580,8 @@
   },
   "6": {
    "name": "Charizard",
-   "status": "review",
-   "input": "Charizard",
+   "status": "manual",
+   "input": "Charrizard",
    "verdict": "near",
    "target": {
     "ipa": "/ˈtʃɑrɪzɑrd/",
@@ -2718,15 +2729,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/6/charizard~7c696df8f2-1.wav",
-    "hash": "7c696df8f2"
+    "file": "names/gpt-4o-mini-tts-verse/6/charrizard~1a48bfa7b4-r2t1.wav",
+    "hash": "1a48bfa7b4"
    },
-   "at": "2026-10-22T14:06:57.779Z"
+   "at": "2026-10-22T14:06:57.779Z",
+   "history": [
+    {
+     "input": "Charizard",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/6/charizard~7c696df8f2-1.wav",
+      "hash": "7c696df8f2"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "7": {
    "name": "Squirtle",
-   "status": "review",
-   "input": "Skwur-tul",
+   "status": "manual",
+   "input": "Squirtul",
    "verdict": "near",
    "target": {
     "ipa": "/ˈskwɝtəl/",
@@ -2865,15 +2887,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/7/skwur-tul~ec6ff6cbf2-1.wav",
-    "hash": "ec6ff6cbf2"
+    "file": "names/gpt-4o-mini-tts-verse/7/squirtul~58a8539abb-r2t1.wav",
+    "hash": "58a8539abb"
    },
-   "at": "2026-10-22T14:07:16.676Z"
+   "at": "2026-10-22T14:07:16.676Z",
+   "history": [
+    {
+     "input": "Skwur-tul",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/7/skwur-tul~ec6ff6cbf2-1.wav",
+      "hash": "ec6ff6cbf2"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "8": {
    "name": "Wartortle",
-   "status": "respelled",
-   "input": "Wor-tor-tul",
+   "status": "manual",
+   "input": "Wortortle",
    "verdict": "match",
    "target": {
     "ipa": "/ˈwɔrˌtɔrtəl/",
@@ -2948,10 +2981,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/8/wor-tor-tul~537428132c-1.wav",
-    "hash": "537428132c"
+    "file": "names/gpt-4o-mini-tts-verse/8/wortortle~feb9ade158-s2.wav",
+    "hash": "feb9ade158"
    },
-   "at": "2026-10-22T14:06:34.863Z"
+   "at": "2026-10-22T14:06:34.863Z",
+   "history": [
+    {
+     "input": "Wor-tor-tul",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/8/wor-tor-tul~537428132c-1.wav",
+      "hash": "537428132c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "9": {
    "name": "Blastoise",
@@ -3008,8 +3052,8 @@
   },
   "10": {
    "name": "Caterpie",
-   "status": "respelled",
-   "input": "Kat-er-pee",
+   "status": "manual",
+   "input": "Caterpie",
    "verdict": "match",
    "target": {
     "ipa": "/ˈkætɚpi/",
@@ -3083,10 +3127,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/10/kat-er-pee~08c19e26f1-1.wav",
-    "hash": "08c19e26f1"
+    "file": "names/gpt-4o-mini-tts-verse/10/caterpie~4dffda443d-s2.wav",
+    "hash": "4dffda443d"
    },
-   "at": "2026-10-22T14:06:17.131Z"
+   "at": "2026-10-22T14:06:17.131Z",
+   "history": [
+    {
+     "input": "Kat-er-pee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/10/kat-er-pee~08c19e26f1-1.wav",
+      "hash": "08c19e26f1"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "11": {
    "name": "Metapod",
@@ -3841,8 +3896,8 @@
   },
   "20": {
    "name": "Raticate",
-   "status": "respelled",
-   "input": "Rat-ih-kayt",
+   "status": "manual",
+   "input": "Raticate",
    "verdict": "match",
    "target": {
     "ipa": "/ˈrætɪkeɪt/",
@@ -3910,10 +3965,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/20/rat-ih-kayt~056ba528dd-1.wav",
-    "hash": "056ba528dd"
+    "file": "names/gpt-4o-mini-tts-verse/20/raticate~11593bab1d-s2.wav",
+    "hash": "11593bab1d"
    },
-   "at": "2026-10-22T14:06:36.830Z"
+   "at": "2026-10-22T14:06:36.830Z",
+   "history": [
+    {
+     "input": "Rat-ih-kayt",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/20/rat-ih-kayt~056ba528dd-1.wav",
+      "hash": "056ba528dd"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "21": {
    "name": "Spearow",
@@ -4467,8 +4533,8 @@
   },
   "27": {
    "name": "Sandshrew",
-   "status": "respelled",
-   "input": "Sand Shroo",
+   "status": "manual",
+   "input": "Sandshroo",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsændʃru/",
@@ -4551,15 +4617,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/27/sand-shroo~bad2760457-1.wav",
-    "hash": "bad2760457"
+    "file": "names/gpt-4o-mini-tts-verse/27/sandshroo~a1ed187481-s2.wav",
+    "hash": "a1ed187481"
    },
-   "at": "2026-10-22T14:07:06.482Z"
+   "at": "2026-10-22T14:07:06.482Z",
+   "history": [
+    {
+     "input": "Sand Shroo",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/27/sand-shroo~bad2760457-1.wav",
+      "hash": "bad2760457"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "28": {
    "name": "Sandslash",
-   "status": "respelled",
-   "input": "Sand-slash",
+   "status": "manual",
+   "input": "Sandslash",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsændslæʃ/",
@@ -4635,15 +4712,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/28/sand-slash~45e1590a7f-1.wav",
-    "hash": "45e1590a7f"
+    "file": "names/gpt-4o-mini-tts-verse/28/sandslash~6988b2595d-s2.wav",
+    "hash": "6988b2595d"
    },
-   "at": "2026-10-22T14:07:02.046Z"
+   "at": "2026-10-22T14:07:02.046Z",
+   "history": [
+    {
+     "input": "Sand-slash",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/28/sand-slash~45e1590a7f-1.wav",
+      "hash": "45e1590a7f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "29": {
    "name": "Nidoran♀",
-   "status": "respelled",
-   "input": "Nee-doe-ran",
+   "status": "manual",
+   "input": "Nidoran",
    "verdict": "match",
    "target": {
     "ipa": "/ˈnidoʊræn/",
@@ -4717,15 +4805,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/29/nee-doe-ran~84a5f0d6ee-1.wav",
-    "hash": "84a5f0d6ee"
+    "file": "names/gpt-4o-mini-tts-verse/29/nidoran~884f0ebe39-s2.wav",
+    "hash": "884f0ebe39"
    },
-   "at": "2026-10-22T14:07:00.313Z"
+   "at": "2026-10-22T14:07:00.313Z",
+   "history": [
+    {
+     "input": "Nee-doe-ran",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/29/nee-doe-ran~84a5f0d6ee-1.wav",
+      "hash": "84a5f0d6ee"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "30": {
    "name": "Nidorina",
-   "status": "review",
-   "input": "Knee-doh-ree-nuh",
+   "status": "manual",
+   "input": "Needorina",
    "verdict": "near",
    "target": {
     "ipa": "/ˌnidoʊˈrinə/",
@@ -4856,15 +4955,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/30/knee-doh-ree-nuh~43fadde453-1.wav",
-    "hash": "43fadde453"
+    "file": "names/gpt-4o-mini-tts-verse/30/needorina~23366991e1-s2.wav",
+    "hash": "23366991e1"
    },
-   "at": "2026-10-22T14:08:09.953Z"
+   "at": "2026-10-22T14:08:09.953Z",
+   "history": [
+    {
+     "input": "Knee-doh-ree-nuh",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/30/knee-doh-ree-nuh~43fadde453-1.wav",
+      "hash": "43fadde453"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "31": {
    "name": "Nidoqueen",
-   "status": "respelled",
-   "input": "Knee-dough-queen",
+   "status": "manual",
+   "input": "Needohqueen",
    "verdict": "match",
    "target": {
     "ipa": "/ˈnidoʊkwin/",
@@ -5016,10 +5126,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/31/knee-dough-queen~e65702c8a7-1.wav",
-    "hash": "e65702c8a7"
+    "file": "names/gpt-4o-mini-tts-verse/31/needohqueen~96cc2dbb82-s2.wav",
+    "hash": "96cc2dbb82"
    },
-   "at": "2026-10-22T14:08:12.881Z"
+   "at": "2026-10-22T14:08:12.881Z",
+   "history": [
+    {
+     "input": "Knee-dough-queen",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/31/knee-dough-queen~e65702c8a7-1.wav",
+      "hash": "e65702c8a7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "32": {
    "name": "Nidoran♂",
@@ -5166,8 +5287,8 @@
   },
   "34": {
    "name": "Nidoking",
-   "status": "review",
-   "input": "Nee-doh-king",
+   "status": "manual",
+   "input": "Needoking",
    "verdict": "near",
    "target": {
     "ipa": "/ˈnidoʊkɪŋ/",
@@ -5334,10 +5455,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/34/nee-doh-king~4625c68eda-1.wav",
-    "hash": "4625c68eda"
+    "file": "names/gpt-4o-mini-tts-verse/34/needoking~ee5af823de-r2t3.wav",
+    "hash": "ee5af823de"
    },
-   "at": "2026-10-22T14:08:10.654Z"
+   "at": "2026-10-22T14:08:10.654Z",
+   "history": [
+    {
+     "input": "Nee-doh-king",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/34/nee-doh-king~4625c68eda-1.wav",
+      "hash": "4625c68eda"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "35": {
    "name": "Clefairy",
@@ -7523,8 +7655,8 @@
   },
   "67": {
    "name": "Machoke",
-   "status": "respelled",
-   "input": "Muh-choke",
+   "status": "manual",
+   "input": "Muhchoke",
    "verdict": "match",
    "target": {
     "ipa": "/məˈtʃoʊk/",
@@ -7612,10 +7744,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/67/muh-choke~7ebb42d7fe-1.wav",
-    "hash": "7ebb42d7fe"
+    "file": "names/gpt-4o-mini-tts-verse/67/muhchoke~055ac91399-s2.wav",
+    "hash": "055ac91399"
    },
-   "at": "2026-10-22T14:09:31.254Z"
+   "at": "2026-10-22T14:09:31.254Z",
+   "history": [
+    {
+     "input": "Muh-choke",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/67/muh-choke~7ebb42d7fe-1.wav",
+      "hash": "7ebb42d7fe"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "68": {
    "name": "Machamp",
@@ -8003,8 +8146,8 @@
   },
   "75": {
    "name": "Graveler",
-   "status": "respelled",
-   "input": "Grav-uh-ler",
+   "status": "manual",
+   "input": "Graveler",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡrævəlɚ/",
@@ -8080,10 +8223,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/75/grav-uh-ler~5b9034d49d-1.wav",
-    "hash": "5b9034d49d"
+    "file": "names/gpt-4o-mini-tts-verse/75/graveler~10c08c35ab-s2.wav",
+    "hash": "10c08c35ab"
    },
-   "at": "2026-10-22T14:09:48.619Z"
+   "at": "2026-10-22T14:09:48.619Z",
+   "history": [
+    {
+     "input": "Grav-uh-ler",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/75/grav-uh-ler~5b9034d49d-1.wav",
+      "hash": "5b9034d49d"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "76": {
    "name": "Golem",
@@ -8407,8 +8561,8 @@
   },
   "82": {
    "name": "Magneton",
-   "status": "respelled",
-   "input": "Mag-nuh-tahn",
+   "status": "manual",
+   "input": "Magneton",
    "verdict": "match",
    "target": {
     "ipa": "/ˈmæɡnətɑn/",
@@ -8482,15 +8636,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/82/mag-nuh-tahn~d64f88b3b0-1.wav",
-    "hash": "d64f88b3b0"
+    "file": "names/gpt-4o-mini-tts-verse/82/magneton~a474dcf97c-s2.wav",
+    "hash": "a474dcf97c"
    },
-   "at": "2026-10-22T14:09:53.843Z"
+   "at": "2026-10-22T14:09:53.843Z",
+   "history": [
+    {
+     "input": "Mag-nuh-tahn",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/82/mag-nuh-tahn~d64f88b3b0-1.wav",
+      "hash": "d64f88b3b0"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "83": {
    "name": "Farfetch’d",
-   "status": "respelled",
-   "input": "Far-fetcht",
+   "status": "manual",
+   "input": "Farfetcht",
    "verdict": "match",
    "target": {
     "ipa": "/ˈfɑrfɛtʃt/",
@@ -8557,10 +8722,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/83/far-fetcht~12f5b7ff38-1.wav",
-    "hash": "12f5b7ff38"
+    "file": "names/gpt-4o-mini-tts-verse/83/farfetcht~2096cb5b91-s1.wav",
+    "hash": "2096cb5b91"
    },
-   "at": "2026-10-22T14:10:00.469Z"
+   "at": "2026-10-22T14:10:00.469Z",
+   "history": [
+    {
+     "input": "Far-fetcht",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/83/far-fetcht~12f5b7ff38-1.wav",
+      "hash": "12f5b7ff38"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "84": {
    "name": "Doduo",
@@ -11685,8 +11861,8 @@
   },
   "126": {
    "name": "Magmar",
-   "status": "respelled",
-   "input": "Mag-mar",
+   "status": "manual",
+   "input": "Magmar",
    "verdict": "match",
    "target": {
     "ipa": "/ˈmæɡmɑr/",
@@ -11760,10 +11936,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/126/mag-mar~12f4ed03f8-1.wav",
-    "hash": "12f4ed03f8"
+    "file": "names/gpt-4o-mini-tts-verse/126/magmar~ce97f0cee5-s1.wav",
+    "hash": "ce97f0cee5"
    },
-   "at": "2026-10-22T14:10:54.428Z"
+   "at": "2026-10-22T14:10:54.428Z",
+   "history": [
+    {
+     "input": "Mag-mar",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/126/mag-mar~12f4ed03f8-1.wav",
+      "hash": "12f4ed03f8"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "127": {
    "name": "Pinsir",
@@ -12879,8 +13066,8 @@
   },
   "140": {
    "name": "Kabuto",
-   "status": "review",
-   "input": "Kuh Boo Toh",
+   "status": "manual",
+   "input": "Kabuto",
    "verdict": "near",
    "target": {
     "ipa": "/kəˈbutoʊ/",
@@ -13033,10 +13220,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/140/kuh-boo-toh~bbdbd295f9-1.wav",
-    "hash": "bbdbd295f9"
+    "file": "names/gpt-4o-mini-tts-verse/140/kabuto~b05e8a6d02-s2.wav",
+    "hash": "b05e8a6d02"
    },
-   "at": "2026-10-22T14:12:37.512Z"
+   "at": "2026-10-22T14:12:37.512Z",
+   "history": [
+    {
+     "input": "Kuh Boo Toh",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/140/kuh-boo-toh~bbdbd295f9-1.wav",
+      "hash": "bbdbd295f9"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "141": {
    "name": "Kabutops",
@@ -13300,8 +13498,8 @@
   },
   "146": {
    "name": "Moltres",
-   "status": "respelled",
-   "input": "Mol-trace",
+   "status": "manual",
+   "input": "Moltres",
    "verdict": "match",
    "target": {
     "ipa": "/ˈmoʊltreɪs/",
@@ -13389,10 +13587,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/146/mol-trace~1cefb6a90f-1.wav",
-    "hash": "1cefb6a90f"
+    "file": "names/gpt-4o-mini-tts-verse/146/moltres~9a3e4627d7-s2.wav",
+    "hash": "9a3e4627d7"
    },
-   "at": "2026-10-22T14:11:46.973Z"
+   "at": "2026-10-22T14:11:46.973Z",
+   "history": [
+    {
+     "input": "Mol-trace",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/146/mol-trace~1cefb6a90f-1.wav",
+      "hash": "1cefb6a90f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "147": {
    "name": "Dratini",
@@ -13734,8 +13943,8 @@
   },
   "152": {
    "name": "Chikorita",
-   "status": "respelled",
-   "input": "Chick-uh-ree-tuh",
+   "status": "manual",
+   "input": "Chikorita",
    "verdict": "match",
    "target": {
     "ipa": "/ˌtʃɪkəˈritə/",
@@ -13803,10 +14012,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/152/chick-uh-ree-tuh~56f5793e2e-1.wav",
-    "hash": "56f5793e2e"
+    "file": "names/gpt-4o-mini-tts-verse/152/chikorita~79cab96e06-s1.wav",
+    "hash": "79cab96e06"
    },
-   "at": "2026-10-22T14:12:39.954Z"
+   "at": "2026-10-22T14:12:39.954Z",
+   "history": [
+    {
+     "input": "Chick-uh-ree-tuh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/152/chick-uh-ree-tuh~56f5793e2e-1.wav",
+      "hash": "56f5793e2e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "153": {
    "name": "Bayleef",
@@ -13864,8 +14084,8 @@
   },
   "154": {
    "name": "Meganium",
-   "status": "respelled",
-   "input": "Meh-gay-nee-um",
+   "status": "manual",
+   "input": "Meganium",
    "verdict": "match",
    "target": {
     "ipa": "/mɛˈɡeɪniəm/",
@@ -13939,10 +14159,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/154/meh-gay-nee-um~fe6a0f5673-1.wav",
-    "hash": "fe6a0f5673"
+    "file": "names/gpt-4o-mini-tts-verse/154/meganium~bfa7b3088d-s1.wav",
+    "hash": "bfa7b3088d"
    },
-   "at": "2026-10-22T14:12:15.903Z"
+   "at": "2026-10-22T14:12:15.903Z",
+   "history": [
+    {
+     "input": "Meh-gay-nee-um",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/154/meh-gay-nee-um~fe6a0f5673-1.wav",
+      "hash": "fe6a0f5673"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "155": {
    "name": "Cyndaquil",
@@ -14302,8 +14533,8 @@
   },
   "160": {
    "name": "Feraligatr",
-   "status": "respelled",
-   "input": "Fuh-ral-uh-gay-ter",
+   "status": "manual",
+   "input": "Feraligatr",
    "verdict": "match",
    "target": {
     "ipa": "/fəˈræləˌɡeɪtɚ/",
@@ -14410,10 +14641,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/160/fuh-ral-uh-gay-ter~6cfa91d3f4-1.wav",
-    "hash": "6cfa91d3f4"
+    "file": "names/gpt-4o-mini-tts-verse/160/feraligatr~65a8c41254-s1.wav",
+    "hash": "65a8c41254"
    },
-   "at": "2026-10-22T14:13:53.260Z"
+   "at": "2026-10-22T14:13:53.260Z",
+   "history": [
+    {
+     "input": "Fuh-ral-uh-gay-ter",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/160/fuh-ral-uh-gay-ter~6cfa91d3f4-1.wav",
+      "hash": "6cfa91d3f4"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "161": {
    "name": "Sentret",
@@ -14524,8 +14766,8 @@
   },
   "163": {
    "name": "Hoothoot",
-   "status": "review",
-   "input": "Hoot-hoot",
+   "status": "manual",
+   "input": "Hootthoot",
    "verdict": "near",
    "target": {
     "ipa": "/ˈhutˈhut/",
@@ -14601,15 +14843,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/163/hoot-hoot~de0b27371a-1.wav",
-    "hash": "de0b27371a"
+    "file": "names/gpt-4o-mini-tts-verse/163/hootthoot~78945a717e-s1.wav",
+    "hash": "78945a717e"
    },
-   "at": "2026-10-22T14:12:51.890Z"
+   "at": "2026-10-22T14:12:51.890Z",
+   "history": [
+    {
+     "input": "Hoot-hoot",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/163/hoot-hoot~de0b27371a-1.wav",
+      "hash": "de0b27371a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "164": {
    "name": "Noctowl",
-   "status": "respelled",
-   "input": "Nok-towl",
+   "status": "manual",
+   "input": "Noctowl",
    "verdict": "match",
    "target": {
     "ipa": "/ˈnɑktaʊl/",
@@ -14685,10 +14938,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/164/nok-towl~d598af2d42-1.wav",
-    "hash": "d598af2d42"
+    "file": "names/gpt-4o-mini-tts-verse/164/noctowl~4fd6635cfd-s1.wav",
+    "hash": "4fd6635cfd"
    },
-   "at": "2026-10-22T14:13:00.051Z"
+   "at": "2026-10-22T14:13:00.051Z",
+   "history": [
+    {
+     "input": "Nok-towl",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/164/nok-towl~d598af2d42-1.wav",
+      "hash": "d598af2d42"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "165": {
    "name": "Ledyba",
@@ -14759,8 +15023,8 @@
   },
   "166": {
    "name": "Ledian",
-   "status": "respelled",
-   "input": "Leddy-un",
+   "status": "manual",
+   "input": "Ledian",
    "verdict": "match",
    "target": {
     "ipa": "/ˈlɛdiən/",
@@ -14819,10 +15083,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/166/leddy-un~e7c830912e-1.wav",
-    "hash": "e7c830912e"
+    "file": "names/gpt-4o-mini-tts-verse/166/ledian~df6d0ae489-s1.wav",
+    "hash": "df6d0ae489"
    },
-   "at": "2026-10-22T14:12:55.327Z"
+   "at": "2026-10-22T14:12:55.327Z",
+   "history": [
+    {
+     "input": "Leddy-un",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/166/leddy-un~e7c830912e-1.wav",
+      "hash": "e7c830912e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "167": {
    "name": "Spinarak",
@@ -15001,8 +15276,8 @@
   },
   "170": {
    "name": "Chinchou",
-   "status": "respelled",
-   "input": "Chin-chow",
+   "status": "manual",
+   "input": "Chinchow",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtʃɪntʃaʊ/",
@@ -15061,10 +15336,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/170/chin-chow~8b66d015b9-1.wav",
-    "hash": "8b66d015b9"
+    "file": "names/gpt-4o-mini-tts-verse/170/chinchow~c63482927f-s2.wav",
+    "hash": "c63482927f"
    },
-   "at": "2026-10-22T14:12:58.528Z"
+   "at": "2026-10-22T14:12:58.528Z",
+   "history": [
+    {
+     "input": "Chin-chow",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/170/chin-chow~8b66d015b9-1.wav",
+      "hash": "8b66d015b9"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "171": {
    "name": "Lanturn",
@@ -15418,8 +15704,8 @@
   },
   "175": {
    "name": "Togepi",
-   "status": "respelled",
-   "input": "Toe-gheh-pee",
+   "status": "manual",
+   "input": "Toeghehpee",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtoʊɡɛpi/",
@@ -15493,10 +15779,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/175/toe-gheh-pee~bfd2a18fdf-1.wav",
-    "hash": "bfd2a18fdf"
+    "file": "names/gpt-4o-mini-tts-verse/175/toeghehpee~3c75d048c9-s1.wav",
+    "hash": "3c75d048c9"
    },
-   "at": "2026-10-22T14:13:25.478Z"
+   "at": "2026-10-22T14:13:25.478Z",
+   "history": [
+    {
+     "input": "Toe-gheh-pee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/175/toe-gheh-pee~bfd2a18fdf-1.wav",
+      "hash": "bfd2a18fdf"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "176": {
    "name": "Togetic",
@@ -15778,8 +16075,8 @@
   },
   "179": {
    "name": "Mareep",
-   "status": "respelled",
-   "input": "Muh-reepp",
+   "status": "manual",
+   "input": "Mareep",
    "verdict": "match",
    "target": {
     "ipa": "/məˈrip/",
@@ -15883,10 +16180,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/179/muh-reepp~c3dfa85136-1.wav",
-    "hash": "c3dfa85136"
+    "file": "names/gpt-4o-mini-tts-verse/179/mareep~1afb549294-s2.wav",
+    "hash": "1afb549294"
    },
-   "at": "2026-10-22T14:14:00.238Z"
+   "at": "2026-10-22T14:14:00.238Z",
+   "history": [
+    {
+     "input": "Muh-reepp",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/179/muh-reepp~c3dfa85136-1.wav",
+      "hash": "c3dfa85136"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "180": {
    "name": "Flaaffy",
@@ -16207,8 +16515,8 @@
   },
   "184": {
    "name": "Azumarill",
-   "status": "review",
-   "input": "Azzoo-muh-rill",
+   "status": "manual",
+   "input": "Azumerill",
    "verdict": "near",
    "target": {
     "ipa": "/əˈzuməˌrɪl/",
@@ -16354,10 +16662,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/184/azzoo-muh-rill~f525df46ea-1.wav",
-    "hash": "f525df46ea"
+    "file": "names/gpt-4o-mini-tts-verse/184/azumerill~d9ab9e4239-r2t1.wav",
+    "hash": "d9ab9e4239"
    },
-   "at": "2026-10-22T14:15:55.461Z"
+   "at": "2026-10-22T14:15:55.461Z",
+   "history": [
+    {
+     "input": "Azzoo-muh-rill",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/184/azzoo-muh-rill~f525df46ea-1.wav",
+      "hash": "f525df46ea"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "185": {
    "name": "Sudowoodo",
@@ -16468,8 +16787,8 @@
   },
   "187": {
    "name": "Hoppip",
-   "status": "review",
-   "input": "Hahp-pip",
+   "status": "manual",
+   "input": "Hoppip",
    "verdict": "near",
    "target": {
     "ipa": "/ˈhɑpɪp/",
@@ -16598,10 +16917,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/187/hahp-pip~6f3f625209-1.wav",
-    "hash": "6f3f625209"
+    "file": "names/gpt-4o-mini-tts-verse/187/hoppip~07d8572f8f-s2.wav",
+    "hash": "07d8572f8f"
    },
-   "at": "2026-10-22T14:14:15.590Z"
+   "at": "2026-10-22T14:14:15.590Z",
+   "history": [
+    {
+     "input": "Hahp-pip",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/187/hahp-pip~6f3f625209-1.wav",
+      "hash": "6f3f625209"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "188": {
    "name": "Skiploom",
@@ -16658,8 +16988,8 @@
   },
   "189": {
    "name": "Jumpluff",
-   "status": "respelled",
-   "input": "Jum-pluff",
+   "status": "manual",
+   "input": "Jumpluff",
    "verdict": "match",
    "target": {
     "ipa": "/ˈdʒʌmplʌf/",
@@ -16719,10 +17049,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/189/jum-pluff~022bddf6ee-1.wav",
-    "hash": "022bddf6ee"
+    "file": "names/gpt-4o-mini-tts-verse/189/jumpluff~2f3f276e06-s1.wav",
+    "hash": "2f3f276e06"
    },
-   "at": "2026-10-22T14:14:09.314Z"
+   "at": "2026-10-22T14:14:09.314Z",
+   "history": [
+    {
+     "input": "Jum-pluff",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/189/jum-pluff~022bddf6ee-1.wav",
+      "hash": "022bddf6ee"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "190": {
    "name": "Aipom",
@@ -16779,8 +17120,8 @@
   },
   "191": {
    "name": "Sunkern",
-   "status": "respelled",
-   "input": "Sun-kurn",
+   "status": "manual",
+   "input": "Sunkern",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsʌnkɝn/",
@@ -16871,10 +17212,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/191/sun-kurn~ce852aee40-1.wav",
-    "hash": "ce852aee40"
+    "file": "names/gpt-4o-mini-tts-verse/191/sunkern~5a751df4b8-s2.wav",
+    "hash": "5a751df4b8"
    },
-   "at": "2026-10-22T14:14:02.781Z"
+   "at": "2026-10-22T14:14:02.781Z",
+   "history": [
+    {
+     "input": "Sun-kurn",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/191/sun-kurn~ce852aee40-1.wav",
+      "hash": "ce852aee40"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "192": {
    "name": "Sunflora",
@@ -16931,8 +17283,8 @@
   },
   "193": {
    "name": "Yanma",
-   "status": "review",
-   "input": "Yan-ma",
+   "status": "manual",
+   "input": "Yannmuh",
    "verdict": "near",
    "target": {
     "ipa": "/ˈjænmə/",
@@ -17071,10 +17423,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/193/yan-ma~4a9b6107fd-1.wav",
-    "hash": "4a9b6107fd"
+    "file": "names/gpt-4o-mini-tts-verse/193/yannmuh~7aaca6c653-s1.wav",
+    "hash": "7aaca6c653"
    },
-   "at": "2026-10-22T14:15:32.283Z"
+   "at": "2026-10-22T14:15:32.283Z",
+   "history": [
+    {
+     "input": "Yan-ma",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/193/yan-ma~4a9b6107fd-1.wav",
+      "hash": "4a9b6107fd"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "194": {
    "name": "Wooper",
@@ -17727,8 +18090,8 @@
   },
   "203": {
    "name": "Girafarig",
-   "status": "review",
-   "input": "Jih-raff-uh-rigg",
+   "status": "manual",
+   "input": "Jirafferig",
    "verdict": "near",
    "target": {
     "ipa": "/dʒɪˈræfərɪɡ/",
@@ -17890,10 +18253,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/203/jih-raff-uh-rigg~7e63caf184-1.wav",
-    "hash": "7e63caf184"
+    "file": "names/gpt-4o-mini-tts-verse/203/jirafferig~e9a72a120d-s1.wav",
+    "hash": "e9a72a120d"
    },
-   "at": "2026-10-22T14:17:18.140Z"
+   "at": "2026-10-22T14:17:18.140Z",
+   "history": [
+    {
+     "input": "Jih-raff-uh-rigg",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/203/jih-raff-uh-rigg~7e63caf184-1.wav",
+      "hash": "7e63caf184"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "204": {
    "name": "Pineco",
@@ -18411,8 +18785,8 @@
   },
   "211": {
    "name": "Qwilfish",
-   "status": "respelled",
-   "input": "Kwil-fish",
+   "status": "manual",
+   "input": "Qwilfish",
    "verdict": "match",
    "target": {
     "ipa": "/ˈkwɪlfɪʃ/",
@@ -18470,10 +18844,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/211/kwil-fish~4f32f2b40e-1.wav",
-    "hash": "4f32f2b40e"
+    "file": "names/gpt-4o-mini-tts-verse/211/qwilfish~b2a18379e2-s2.wav",
+    "hash": "b2a18379e2"
    },
-   "at": "2026-10-22T14:14:28.675Z"
+   "at": "2026-10-22T14:14:28.675Z",
+   "history": [
+    {
+     "input": "Kwil-fish",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/211/kwil-fish~4f32f2b40e-1.wav",
+      "hash": "4f32f2b40e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "212": {
    "name": "Scizor",
@@ -19386,8 +19771,8 @@
   },
   "222": {
    "name": "Corsola",
-   "status": "respelled",
-   "input": "Core-soe-luh",
+   "status": "manual",
+   "input": "Corsola",
    "verdict": "match",
    "target": {
     "ipa": "/ˈkɔrsoʊlə/",
@@ -19507,10 +19892,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/222/core-soe-luh~5a2a4b718e-1.wav",
-    "hash": "5a2a4b718e"
+    "file": "names/gpt-4o-mini-tts-verse/222/corsola~41689cd745-s2.wav",
+    "hash": "41689cd745"
    },
-   "at": "2026-10-22T14:15:51.569Z"
+   "at": "2026-10-22T14:15:51.569Z",
+   "history": [
+    {
+     "input": "Core-soe-luh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/222/core-soe-luh~5a2a4b718e-1.wav",
+      "hash": "5a2a4b718e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "223": {
    "name": "Remoraid",
@@ -19674,8 +20070,8 @@
   },
   "226": {
    "name": "Mantine",
-   "status": "respelled",
-   "input": "Man-teen",
+   "status": "manual",
+   "input": "Manteen",
    "verdict": "match",
    "target": {
     "ipa": "/ˈmæntin/",
@@ -19733,10 +20129,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/226/man-teen~9643e5ae07-1.wav",
-    "hash": "9643e5ae07"
+    "file": "names/gpt-4o-mini-tts-verse/226/manteen~7a2f1bb70d-s2.wav",
+    "hash": "7a2f1bb70d"
    },
-   "at": "2026-10-22T14:15:36.989Z"
+   "at": "2026-10-22T14:15:36.989Z",
+   "history": [
+    {
+     "input": "Man-teen",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/226/man-teen~9643e5ae07-1.wav",
+      "hash": "9643e5ae07"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "227": {
    "name": "Skarmory",
@@ -20135,8 +20542,8 @@
   },
   "232": {
    "name": "Donphan",
-   "status": "respelled",
-   "input": "Daa-nfan",
+   "status": "manual",
+   "input": "Donphan",
    "verdict": "match",
    "target": {
     "ipa": "/ˈdɑnfæn/",
@@ -20227,10 +20634,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/232/daa-nfan~f717e8730b-1.wav",
-    "hash": "f717e8730b"
+    "file": "names/gpt-4o-mini-tts-verse/232/donphan~cd8a049a65-s2.wav",
+    "hash": "cd8a049a65"
    },
-   "at": "2026-10-22T14:15:58.107Z"
+   "at": "2026-10-22T14:15:58.107Z",
+   "history": [
+    {
+     "input": "Daa-nfan",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/232/daa-nfan~f717e8730b-1.wav",
+      "hash": "f717e8730b"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "233": {
    "name": "Porygon2",
@@ -20287,8 +20705,8 @@
   },
   "234": {
    "name": "Stantler",
-   "status": "respelled",
-   "input": "Stant-ler",
+   "status": "manual",
+   "input": "Stanttler",
    "verdict": "match",
    "target": {
     "ipa": "/ˈstæntlɚ/",
@@ -20354,10 +20772,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/234/stant-ler~2480ce1701-1.wav",
-    "hash": "2480ce1701"
+    "file": "names/gpt-4o-mini-tts-verse/234/stanttler~f40bccc4a3-s2.wav",
+    "hash": "f40bccc4a3"
    },
-   "at": "2026-10-22T14:16:06.041Z"
+   "at": "2026-10-22T14:16:06.041Z",
+   "history": [
+    {
+     "input": "Stant-ler",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/234/stant-ler~2480ce1701-1.wav",
+      "hash": "2480ce1701"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "235": {
    "name": "Smeargle",
@@ -21057,8 +21486,8 @@
   },
   "243": {
    "name": "Raikou",
-   "status": "respelled",
-   "input": "Rye-koh",
+   "status": "manual",
+   "input": "Raikoe",
    "verdict": "match",
    "target": {
     "ipa": "/ˈraɪkoʊ/",
@@ -21124,10 +21553,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/243/rye-koh~567efcea00-1.wav",
-    "hash": "567efcea00"
+    "file": "names/gpt-4o-mini-tts-verse/243/raikoe~e4ac9003ed-s2.wav",
+    "hash": "e4ac9003ed"
    },
-   "at": "2026-10-22T14:16:32.577Z"
+   "at": "2026-10-22T14:16:32.577Z",
+   "history": [
+    {
+     "input": "Rye-koh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/243/rye-koh~567efcea00-1.wav",
+      "hash": "567efcea00"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "244": {
    "name": "Entei",
@@ -21565,8 +22005,8 @@
   },
   "250": {
    "name": "Ho-Oh",
-   "status": "review",
-   "input": "Ho-Oh",
+   "status": "manual",
+   "input": "Hoe-Oh",
    "verdict": "near",
    "target": {
     "ipa": "/ˈhoʊˈoʊ/",
@@ -21596,10 +22036,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/250/ho-oh~dbc179909f-1.wav",
-    "hash": "dbc179909f"
+    "file": "names/gpt-4o-mini-tts-verse/250/hoe-oh~c901c67092-r2t2.wav",
+    "hash": "c901c67092"
    },
-   "at": "2026-10-22T14:16:51.770Z"
+   "at": "2026-10-22T14:16:51.770Z",
+   "history": [
+    {
+     "input": "Ho-Oh",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/250/ho-oh~dbc179909f-1.wav",
+      "hash": "dbc179909f"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "251": {
    "name": "Celebi",
@@ -22726,8 +23177,8 @@
   },
   "269": {
    "name": "Dustox",
-   "status": "review",
-   "input": "Dus-toks",
+   "status": "manual",
+   "input": "Dustox",
    "verdict": "near",
    "target": {
     "ipa": "/ˈdʌstɑks/",
@@ -22795,10 +23246,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/269/dus-toks~b6ff113665-1.wav",
-    "hash": "b6ff113665"
+    "file": "names/gpt-4o-mini-tts-verse/269/dustox~3d376b7200-s2.wav",
+    "hash": "3d376b7200"
    },
-   "at": "2026-10-22T14:18:25.115Z"
+   "at": "2026-10-22T14:18:25.115Z",
+   "history": [
+    {
+     "input": "Dus-toks",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/269/dus-toks~b6ff113665-1.wav",
+      "hash": "b6ff113665"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "270": {
    "name": "Lotad",
@@ -23736,8 +24198,8 @@
   },
   "282": {
    "name": "Gardevoir",
-   "status": "respelled",
-   "input": "Gar-duh-vwar",
+   "status": "manual",
+   "input": "Gardevoir",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡɑrdəvwɑr/",
@@ -23795,10 +24257,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/282/gar-duh-vwar~a906775472-1.wav",
-    "hash": "a906775472"
+    "file": "names/gpt-4o-mini-tts-verse/282/gardevoir~dc4fc07f05-s2.wav",
+    "hash": "dc4fc07f05"
    },
-   "at": "2026-10-22T14:17:49.664Z"
+   "at": "2026-10-22T14:17:49.664Z",
+   "history": [
+    {
+     "input": "Gar-duh-vwar",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/282/gar-duh-vwar~a906775472-1.wav",
+      "hash": "a906775472"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "283": {
    "name": "Surskit",
@@ -23876,8 +24349,8 @@
   },
   "284": {
    "name": "Masquerain",
-   "status": "respelled",
-   "input": "Mas-ker-rayn",
+   "status": "manual",
+   "input": "Masquerain",
    "verdict": "match",
    "target": {
     "ipa": "/ˌmæskəˈreɪn/",
@@ -23935,10 +24408,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/284/mas-ker-rayn~53390e24ef-1.wav",
-    "hash": "53390e24ef"
+    "file": "names/gpt-4o-mini-tts-verse/284/masquerain~a1c0dd4a6e-s1.wav",
+    "hash": "a1c0dd4a6e"
    },
-   "at": "2026-10-22T14:18:21.330Z"
+   "at": "2026-10-22T14:18:21.330Z",
+   "history": [
+    {
+     "input": "Mas-ker-rayn",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/284/mas-ker-rayn~53390e24ef-1.wav",
+      "hash": "53390e24ef"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "285": {
    "name": "Shroomish",
@@ -24272,8 +24756,8 @@
   },
   "289": {
    "name": "Slaking",
-   "status": "respelled",
-   "input": "Slack-king",
+   "status": "manual",
+   "input": "Slaking",
    "verdict": "match",
    "target": {
     "ipa": "/ˈslækɪŋ/",
@@ -24401,10 +24885,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/289/slack-king~437600d8ea-1.wav",
-    "hash": "437600d8ea"
+    "file": "names/gpt-4o-mini-tts-verse/289/slaking~fdcb73b08d-s1.wav",
+    "hash": "fdcb73b08d"
    },
-   "at": "2026-10-22T14:19:02.436Z"
+   "at": "2026-10-22T14:19:02.436Z",
+   "history": [
+    {
+     "input": "Slack-king",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/289/slack-king~437600d8ea-1.wav",
+      "hash": "437600d8ea"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "290": {
    "name": "Nincada",
@@ -24513,8 +25008,8 @@
   },
   "291": {
    "name": "Ninjask",
-   "status": "respelled",
-   "input": "Nin-jask",
+   "status": "manual",
+   "input": "Ninjask",
    "verdict": "match",
    "target": {
     "ipa": "/ˈnɪndʒæsk/",
@@ -24580,10 +25075,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/291/nin-jask~d347382e4a-1.wav",
-    "hash": "d347382e4a"
+    "file": "names/gpt-4o-mini-tts-verse/291/ninjask~6aec493983-s2.wav",
+    "hash": "6aec493983"
    },
-   "at": "2026-10-22T14:18:20.354Z"
+   "at": "2026-10-22T14:18:20.354Z",
+   "history": [
+    {
+     "input": "Nin-jask",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/291/nin-jask~d347382e4a-1.wav",
+      "hash": "d347382e4a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "292": {
    "name": "Shedinja",
@@ -24649,8 +25155,8 @@
   },
   "293": {
    "name": "Whismur",
-   "status": "respelled",
-   "input": "Whiss-mur",
+   "status": "manual",
+   "input": "Whismur",
    "verdict": "match",
    "target": {
     "ipa": "/ˈwɪsmɚ/",
@@ -24723,10 +25229,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/293/whiss-mur~abd1e686eb-1.wav",
-    "hash": "abd1e686eb"
+    "file": "names/gpt-4o-mini-tts-verse/293/whismur~7d04e7b12b-s1.wav",
+    "hash": "7d04e7b12b"
    },
-   "at": "2026-10-22T14:18:21.600Z"
+   "at": "2026-10-22T14:18:21.600Z",
+   "history": [
+    {
+     "input": "Whiss-mur",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/293/whiss-mur~abd1e686eb-1.wav",
+      "hash": "abd1e686eb"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "294": {
    "name": "Loudred",
@@ -25329,8 +25846,8 @@
   },
   "302": {
    "name": "Sableye",
-   "status": "respelled",
-   "input": "Say-bul-eye",
+   "status": "manual",
+   "input": "Sableye",
    "verdict": "match",
    "target": {
     "ipa": "/ˈseɪbəlaɪ/",
@@ -25396,15 +25913,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/302/say-bul-eye~4ab7a74fd7-1.wav",
-    "hash": "4ab7a74fd7"
+    "file": "names/gpt-4o-mini-tts-verse/302/sableye~6e172a237d-s1.wav",
+    "hash": "6e172a237d"
    },
-   "at": "2026-10-22T14:18:55.206Z"
+   "at": "2026-10-22T14:18:55.206Z",
+   "history": [
+    {
+     "input": "Say-bul-eye",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/302/say-bul-eye~4ab7a74fd7-1.wav",
+      "hash": "4ab7a74fd7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "303": {
    "name": "Mawile",
-   "status": "respelled",
-   "input": "Maw-wile",
+   "status": "manual",
+   "input": "Mawile",
    "verdict": "match",
    "target": {
     "ipa": "/ˈmɔwaɪl/",
@@ -25462,10 +25990,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/303/maw-wile~4b4d234e68-1.wav",
-    "hash": "4b4d234e68"
+    "file": "names/gpt-4o-mini-tts-verse/303/mawile~9faae73af8-s1.wav",
+    "hash": "9faae73af8"
    },
-   "at": "2026-10-22T14:18:48.514Z"
+   "at": "2026-10-22T14:18:48.514Z",
+   "history": [
+    {
+     "input": "Maw-wile",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/303/maw-wile~4b4d234e68-1.wav",
+      "hash": "4b4d234e68"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "304": {
    "name": "Aron",
@@ -26129,8 +26668,8 @@
   },
   "313": {
    "name": "Volbeat",
-   "status": "respelled",
-   "input": "Vaal-beet",
+   "status": "manual",
+   "input": "Vaalbeet",
    "verdict": "match",
    "target": {
     "ipa": "/ˈvɑlbit/",
@@ -26260,10 +26799,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/313/vaal-beet~4b923a91f7-1.wav",
-    "hash": "4b923a91f7"
+    "file": "names/gpt-4o-mini-tts-verse/313/vaalbeet~cf616196c2-s2.wav",
+    "hash": "cf616196c2"
    },
-   "at": "2026-10-22T14:20:00.059Z"
+   "at": "2026-10-22T14:20:00.059Z",
+   "history": [
+    {
+     "input": "Vaal-beet",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/313/vaal-beet~4b923a91f7-1.wav",
+      "hash": "4b923a91f7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "314": {
    "name": "Illumise",
@@ -26343,8 +26893,8 @@
   },
   "316": {
    "name": "Gulpin",
-   "status": "respelled",
-   "input": "Gulp-inn",
+   "status": "manual",
+   "input": "Gulpin",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡʌlpɪn/",
@@ -26505,10 +27055,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/316/gulp-inn~9135a70170-1.wav",
-    "hash": "9135a70170"
+    "file": "names/gpt-4o-mini-tts-verse/316/gulpin~3346d3a2a4-s2.wav",
+    "hash": "3346d3a2a4"
    },
-   "at": "2026-10-22T14:20:48.249Z"
+   "at": "2026-10-22T14:20:48.249Z",
+   "history": [
+    {
+     "input": "Gulp-inn",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/316/gulp-inn~9135a70170-1.wav",
+      "hash": "9135a70170"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "317": {
    "name": "Swalot",
@@ -26609,8 +27170,8 @@
   },
   "318": {
    "name": "Carvanha",
-   "status": "respelled",
-   "input": "Kar-vah-nuh",
+   "status": "manual",
+   "input": "Carvanha",
    "verdict": "match",
    "target": {
     "ipa": "/kɑrˈvɑnə/",
@@ -26684,10 +27245,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/318/kar-vah-nuh~7aa3fa68db-1.wav",
-    "hash": "7aa3fa68db"
+    "file": "names/gpt-4o-mini-tts-verse/318/carvanha~9d40417bb2-s1.wav",
+    "hash": "9d40417bb2"
    },
-   "at": "2026-10-22T14:19:36.782Z"
+   "at": "2026-10-22T14:19:36.782Z",
+   "history": [
+    {
+     "input": "Kar-vah-nuh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/318/kar-vah-nuh~7aa3fa68db-1.wav",
+      "hash": "7aa3fa68db"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "319": {
    "name": "Sharpedo",
@@ -26832,8 +27404,8 @@
   },
   "321": {
    "name": "Wailord",
-   "status": "respelled",
-   "input": "Whale-lord",
+   "status": "manual",
+   "input": "Wailord",
    "verdict": "match",
    "target": {
     "ipa": "/ˈweɪlɔrd/",
@@ -26907,10 +27479,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/321/whale-lord~8274859692-1.wav",
-    "hash": "8274859692"
+    "file": "names/gpt-4o-mini-tts-verse/321/wailord~27cecc0690-s2.wav",
+    "hash": "27cecc0690"
    },
-   "at": "2026-10-22T14:19:49.688Z"
+   "at": "2026-10-22T14:19:49.688Z",
+   "history": [
+    {
+     "input": "Whale-lord",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/321/whale-lord~8274859692-1.wav",
+      "hash": "8274859692"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "322": {
    "name": "Numel",
@@ -28295,8 +28878,8 @@
   },
   "341": {
    "name": "Corphish",
-   "status": "respelled",
-   "input": "Kor-fish",
+   "status": "manual",
+   "input": "Corphish",
    "verdict": "match",
    "target": {
     "ipa": "/ˈkɔrfɪʃ/",
@@ -28354,15 +28937,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/341/kor-fish~fdee6ad87b-1.wav",
-    "hash": "fdee6ad87b"
+    "file": "names/gpt-4o-mini-tts-verse/341/corphish~ebdf4dc8e8-s2.wav",
+    "hash": "ebdf4dc8e8"
    },
-   "at": "2026-10-22T14:20:18.240Z"
+   "at": "2026-10-22T14:20:18.240Z",
+   "history": [
+    {
+     "input": "Kor-fish",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/341/kor-fish~fdee6ad87b-1.wav",
+      "hash": "fdee6ad87b"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "342": {
    "name": "Crawdaunt",
-   "status": "respelled",
-   "input": "Kraw-dawnt",
+   "status": "manual",
+   "input": "Crawdaunt",
    "verdict": "match",
    "target": {
     "ipa": "/ˈkrɔdɔnt/",
@@ -28438,10 +29032,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/342/kraw-dawnt~c5e4fdbc8f-1.wav",
-    "hash": "c5e4fdbc8f"
+    "file": "names/gpt-4o-mini-tts-verse/342/crawdaunt~00e96aaaf5-s1.wav",
+    "hash": "00e96aaaf5"
    },
-   "at": "2026-10-22T14:21:02.407Z"
+   "at": "2026-10-22T14:21:02.407Z",
+   "history": [
+    {
+     "input": "Kraw-dawnt",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/342/kraw-dawnt~c5e4fdbc8f-1.wav",
+      "hash": "c5e4fdbc8f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "343": {
    "name": "Baltoy",
@@ -30094,8 +30699,8 @@
   },
   "361": {
    "name": "Snorunt",
-   "status": "respelled",
-   "input": "Snoh-runt",
+   "status": "manual",
+   "input": "Snorunt",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsnoʊrʌnt/",
@@ -30162,10 +30767,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/361/snoh-runt~dfe65008cc-1.wav",
-    "hash": "dfe65008cc"
+    "file": "names/gpt-4o-mini-tts-verse/361/snorunt~8b2b657a70-s1.wav",
+    "hash": "8b2b657a70"
    },
-   "at": "2026-10-22T14:21:37.509Z"
+   "at": "2026-10-22T14:21:37.509Z",
+   "history": [
+    {
+     "input": "Snoh-runt",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/361/snoh-runt~dfe65008cc-1.wav",
+      "hash": "dfe65008cc"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "362": {
    "name": "Glalie",
@@ -30548,8 +31164,8 @@
   },
   "368": {
    "name": "Gorebyss",
-   "status": "respelled",
-   "input": "Gor-uh-bis",
+   "status": "manual",
+   "input": "Gorebyss",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡɔrəbɪs/",
@@ -30607,10 +31223,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/368/gor-uh-bis~0ee601db76-1.wav",
-    "hash": "0ee601db76"
+    "file": "names/gpt-4o-mini-tts-verse/368/gorebyss~a3b00d9d0e-s1.wav",
+    "hash": "a3b00d9d0e"
    },
-   "at": "2026-10-22T14:21:46.230Z"
+   "at": "2026-10-22T14:21:46.230Z",
+   "history": [
+    {
+     "input": "Gor-uh-bis",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/368/gor-uh-bis~0ee601db76-1.wav",
+      "hash": "0ee601db76"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "369": {
    "name": "Relicanth",
@@ -30870,8 +31497,8 @@
   },
   "372": {
    "name": "Shelgon",
-   "status": "respelled",
-   "input": "Shel-gon",
+   "status": "manual",
+   "input": "Shelgon",
    "verdict": "match",
    "target": {
     "ipa": "/ˈʃɛlɡɑn/",
@@ -30931,10 +31558,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/372/shel-gon~ed27671f28-1.wav",
-    "hash": "ed27671f28"
+    "file": "names/gpt-4o-mini-tts-verse/372/shelgon~9e692a5709-s2.wav",
+    "hash": "9e692a5709"
    },
-   "at": "2026-10-22T14:22:30.611Z"
+   "at": "2026-10-22T14:22:30.611Z",
+   "history": [
+    {
+     "input": "Shel-gon",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/372/shel-gon~ed27671f28-1.wav",
+      "hash": "ed27671f28"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "373": {
    "name": "Salamence",
@@ -31864,8 +32502,8 @@
   },
   "387": {
    "name": "Turtwig",
-   "status": "respelled",
-   "input": "Tur-twig",
+   "status": "manual",
+   "input": "Turtwig",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtɝtwɪɡ/",
@@ -31932,15 +32570,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/387/tur-twig~cd87afdadd-1.wav",
-    "hash": "cd87afdadd"
+    "file": "names/gpt-4o-mini-tts-verse/387/turtwig~ed94d62e2f-s1.wav",
+    "hash": "ed94d62e2f"
    },
-   "at": "2026-10-22T14:22:39.872Z"
+   "at": "2026-10-22T14:22:39.872Z",
+   "history": [
+    {
+     "input": "Tur-twig",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/387/tur-twig~cd87afdadd-1.wav",
+      "hash": "cd87afdadd"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "388": {
    "name": "Grotle",
-   "status": "review",
-   "input": "Grot-ul",
+   "status": "manual",
+   "input": "Grotle",
    "verdict": "near",
    "target": {
     "ipa": "/ˈɡrɑtəl/",
@@ -32079,10 +32728,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/388/grot-ul~ad9cdb7d3f-1.wav",
-    "hash": "ad9cdb7d3f"
+    "file": "names/gpt-4o-mini-tts-verse/388/grotle~ac5d687f86-s2.wav",
+    "hash": "ac5d687f86"
    },
-   "at": "2026-10-22T14:24:27.765Z"
+   "at": "2026-10-22T14:24:27.765Z",
+   "history": [
+    {
+     "input": "Grot-ul",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/388/grot-ul~ad9cdb7d3f-1.wav",
+      "hash": "ad9cdb7d3f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "389": {
    "name": "Torterra",
@@ -32245,8 +32905,8 @@
   },
   "392": {
    "name": "Infernape",
-   "status": "review",
-   "input": "In-fur-nape",
+   "status": "manual",
+   "input": "In-furnape",
    "verdict": "near",
    "target": {
     "ipa": "/ɪnˈfɝneɪp/",
@@ -32298,15 +32958,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/392/in-fur-nape~289eb57cbb-1.wav",
-    "hash": "289eb57cbb"
+    "file": "names/gpt-4o-mini-tts-verse/392/in-furnape~6bf6971c3d-r2t1.wav",
+    "hash": "6bf6971c3d"
    },
-   "at": "2026-10-22T14:23:24.183Z"
+   "at": "2026-10-22T14:23:24.183Z",
+   "history": [
+    {
+     "input": "In-fur-nape",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/392/in-fur-nape~289eb57cbb-1.wav",
+      "hash": "289eb57cbb"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "393": {
    "name": "Piplup",
-   "status": "respelled",
-   "input": "Pip-lup",
+   "status": "manual",
+   "input": "Piplup",
    "verdict": "match",
    "target": {
     "ipa": "/ˈpɪplʌp/",
@@ -32380,10 +33051,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/393/pip-lup~e9eea13322-1.wav",
-    "hash": "e9eea13322"
+    "file": "names/gpt-4o-mini-tts-verse/393/piplup~af90d953db-s2.wav",
+    "hash": "af90d953db"
    },
-   "at": "2026-10-22T14:22:54.108Z"
+   "at": "2026-10-22T14:22:54.108Z",
+   "history": [
+    {
+     "input": "Pip-lup",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/393/pip-lup~e9eea13322-1.wav",
+      "hash": "e9eea13322"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "394": {
    "name": "Prinplup",
@@ -32681,8 +33363,8 @@
   },
   "399": {
    "name": "Bidoof",
-   "status": "respelled",
-   "input": "Bee-doof",
+   "status": "manual",
+   "input": "Beedoof",
    "verdict": "match",
    "target": {
     "ipa": "/ˈbiduf/",
@@ -32740,10 +33422,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/399/bee-doof~6b513f74f5-1.wav",
-    "hash": "6b513f74f5"
+    "file": "names/gpt-4o-mini-tts-verse/399/beedoof~d6f249dbf6-s2.wav",
+    "hash": "d6f249dbf6"
    },
-   "at": "2026-10-22T14:23:06.429Z"
+   "at": "2026-10-22T14:23:06.429Z",
+   "history": [
+    {
+     "input": "Bee-doof",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/399/bee-doof~6b513f74f5-1.wav",
+      "hash": "6b513f74f5"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "400": {
    "name": "Bibarel",
@@ -33458,8 +34151,8 @@
   },
   "410": {
    "name": "Shieldon",
-   "status": "respelled",
-   "input": "Sheel-don",
+   "status": "manual",
+   "input": "Shieldon",
    "verdict": "match",
    "target": {
     "ipa": "/ˈʃildɑn/",
@@ -33533,15 +34226,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/410/sheel-don~88a7bf78db-1.wav",
-    "hash": "88a7bf78db"
+    "file": "names/gpt-4o-mini-tts-verse/410/shieldon~808446378e-s2.wav",
+    "hash": "808446378e"
    },
-   "at": "2026-10-22T14:23:51.721Z"
+   "at": "2026-10-22T14:23:51.721Z",
+   "history": [
+    {
+     "input": "Sheel-don",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/410/sheel-don~88a7bf78db-1.wav",
+      "hash": "88a7bf78db"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "411": {
    "name": "Bastiodon",
-   "status": "respelled",
-   "input": "Bass-teeoh-don",
+   "status": "manual",
+   "input": "Bastiodon",
    "verdict": "match",
    "target": {
     "ipa": "/ˈbæstioʊdɑn/",
@@ -33634,10 +34338,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/411/bass-teeoh-don~412cd54e6d-1.wav",
-    "hash": "412cd54e6d"
+    "file": "names/gpt-4o-mini-tts-verse/411/bastiodon~02d23f4fe5-s1.wav",
+    "hash": "02d23f4fe5"
    },
-   "at": "2026-10-22T14:24:41.319Z"
+   "at": "2026-10-22T14:24:41.319Z",
+   "history": [
+    {
+     "input": "Bass-teeoh-don",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/411/bass-teeoh-don~412cd54e6d-1.wav",
+      "hash": "412cd54e6d"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "412": {
    "name": "Burmy",
@@ -34307,8 +35022,8 @@
   },
   "420": {
    "name": "Cherubi",
-   "status": "review",
-   "input": "Char-roo-bee",
+   "status": "manual",
+   "input": "Chuhrooby",
    "verdict": "near",
    "target": {
     "ipa": "/tʃəˈrubi/",
@@ -34416,10 +35131,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/420/char-roo-bee~8e368c343a-1.wav",
-    "hash": "8e368c343a"
+    "file": "names/gpt-4o-mini-tts-verse/420/chuhrooby~4d168fd3b4-s1.wav",
+    "hash": "4d168fd3b4"
    },
-   "at": "2026-10-22T14:25:22.958Z"
+   "at": "2026-10-22T14:25:22.958Z",
+   "history": [
+    {
+     "input": "Char-roo-bee",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/420/char-roo-bee~8e368c343a-1.wav",
+      "hash": "8e368c343a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "421": {
    "name": "Cherrim",
@@ -34753,8 +35479,8 @@
   },
   "425": {
    "name": "Drifloon",
-   "status": "respelled",
-   "input": "Driff-loon",
+   "status": "manual",
+   "input": "Drifloon",
    "verdict": "match",
    "target": {
     "ipa": "/ˈdrɪflun/",
@@ -34852,10 +35578,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/425/driff-loon~a799403759-1.wav",
-    "hash": "a799403759"
+    "file": "names/gpt-4o-mini-tts-verse/425/drifloon~fb6efc1251-s2.wav",
+    "hash": "fb6efc1251"
    },
-   "at": "2026-10-22T14:24:24.059Z"
+   "at": "2026-10-22T14:24:24.059Z",
+   "history": [
+    {
+     "input": "Driff-loon",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/425/driff-loon~a799403759-1.wav",
+      "hash": "a799403759"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "426": {
    "name": "Drifblim",
@@ -34991,8 +35728,8 @@
   },
   "427": {
    "name": "Buneary",
-   "status": "review",
-   "input": "Buneary",
+   "status": "manual",
+   "input": "Buh-neery",
    "verdict": "near",
    "target": {
     "ipa": "/bəˈnɪri/",
@@ -35022,15 +35759,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/427/buneary~e02108bcb9-1.wav",
-    "hash": "e02108bcb9"
+    "file": "names/gpt-4o-mini-tts-verse/427/buh-neery~fac8c1a9cc-r2t2.wav",
+    "hash": "fac8c1a9cc"
    },
-   "at": "2026-10-22T14:24:57.139Z"
+   "at": "2026-10-22T14:24:57.139Z",
+   "history": [
+    {
+     "input": "Buneary",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/427/buneary~e02108bcb9-1.wav",
+      "hash": "e02108bcb9"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "428": {
    "name": "Lopunny",
-   "status": "review",
-   "input": "Lah-punny",
+   "status": "manual",
+   "input": "Lopunny",
    "verdict": "near",
    "target": {
     "ipa": "/ˈlɑpʌni/",
@@ -35098,10 +35846,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/428/lah-punny~9013da517c-1.wav",
-    "hash": "9013da517c"
+    "file": "names/gpt-4o-mini-tts-verse/428/lopunny~8e7b73e34b-r2t1.wav",
+    "hash": "8e7b73e34b"
    },
-   "at": "2026-10-22T14:25:07.719Z"
+   "at": "2026-10-22T14:25:07.719Z",
+   "history": [
+    {
+     "input": "Lah-punny",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/428/lah-punny~9013da517c-1.wav",
+      "hash": "9013da517c"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "429": {
    "name": "Mismagius",
@@ -35290,8 +36049,8 @@
   },
   "431": {
    "name": "Glameow",
-   "status": "respelled",
-   "input": "Glam-meow",
+   "status": "manual",
+   "input": "Glammeow",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡlæmiaʊ/",
@@ -35349,10 +36108,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/431/glam-meow~f2a3ee4b07-1.wav",
-    "hash": "f2a3ee4b07"
+    "file": "names/gpt-4o-mini-tts-verse/431/glammeow~42a495b588-s1.wav",
+    "hash": "42a495b588"
    },
-   "at": "2026-10-22T14:25:02.724Z"
+   "at": "2026-10-22T14:25:02.724Z",
+   "history": [
+    {
+     "input": "Glam-meow",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/431/glam-meow~f2a3ee4b07-1.wav",
+      "hash": "f2a3ee4b07"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "432": {
    "name": "Purugly",
@@ -35557,8 +36327,8 @@
   },
   "434": {
    "name": "Stunky",
-   "status": "respelled",
-   "input": "Stun-kee",
+   "status": "manual",
+   "input": "Stunky",
    "verdict": "match",
    "target": {
     "ipa": "/ˈstʌŋki/",
@@ -35673,10 +36443,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/434/stun-kee~5e081c5548-1.wav",
-    "hash": "5e081c5548"
+    "file": "names/gpt-4o-mini-tts-verse/434/stunky~5a02e2f01c-s2.wav",
+    "hash": "5a02e2f01c"
    },
-   "at": "2026-10-22T14:25:52.531Z"
+   "at": "2026-10-22T14:25:52.531Z",
+   "history": [
+    {
+     "input": "Stun-kee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/434/stun-kee~5e081c5548-1.wav",
+      "hash": "5e081c5548"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "435": {
    "name": "Skuntank",
@@ -35989,8 +36770,8 @@
   },
   "438": {
    "name": "Bonsly",
-   "status": "respelled",
-   "input": "Bon Slye",
+   "status": "manual",
+   "input": "Bonsly",
    "verdict": "match",
    "target": {
     "ipa": "/ˈbɑnslaɪ/",
@@ -36094,10 +36875,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/438/bon-slye~5a51c0344c-1.wav",
-    "hash": "5a51c0344c"
+    "file": "names/gpt-4o-mini-tts-verse/438/bonsly~275d33d9f7-s1.wav",
+    "hash": "275d33d9f7"
    },
-   "at": "2026-10-22T14:26:17.982Z"
+   "at": "2026-10-22T14:26:17.982Z",
+   "history": [
+    {
+     "input": "Bon Slye",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/438/bon-slye~5a51c0344c-1.wav",
+      "hash": "5a51c0344c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "439": {
    "name": "Mime Jr.",
@@ -36783,8 +37575,8 @@
   },
   "446": {
    "name": "Munchlax",
-   "status": "respelled",
-   "input": "Munch-laks",
+   "status": "manual",
+   "input": "Munchlax",
    "verdict": "match",
    "target": {
     "ipa": "/ˈmʌntʃlæks/",
@@ -36850,10 +37642,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/446/munch-laks~3d7657f9e6-1.wav",
-    "hash": "3d7657f9e6"
+    "file": "names/gpt-4o-mini-tts-verse/446/munchlax~2f2363b7e9-s1.wav",
+    "hash": "2f2363b7e9"
    },
-   "at": "2026-10-22T14:25:56.421Z"
+   "at": "2026-10-22T14:25:56.421Z",
+   "history": [
+    {
+     "input": "Munch-laks",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/446/munch-laks~3d7657f9e6-1.wav",
+      "hash": "3d7657f9e6"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "447": {
    "name": "Riolu",
@@ -37115,8 +37918,8 @@
   },
   "451": {
    "name": "Skorupi",
-   "status": "respelled",
-   "input": "Skor-oo-pee",
+   "status": "manual",
+   "input": "Scoroopee",
    "verdict": "match",
    "target": {
     "ipa": "/skɔrˈupi/",
@@ -37183,10 +37986,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/451/skor-oo-pee~4a0c1c96cd-1.wav",
-    "hash": "4a0c1c96cd"
+    "file": "names/gpt-4o-mini-tts-verse/451/scoroopee~c986efd23b-s1.wav",
+    "hash": "c986efd23b"
    },
-   "at": "2026-10-22T14:26:28.995Z"
+   "at": "2026-10-22T14:26:28.995Z",
+   "history": [
+    {
+     "input": "Skor-oo-pee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/451/skor-oo-pee~4a0c1c96cd-1.wav",
+      "hash": "4a0c1c96cd"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "452": {
    "name": "Drapion",
@@ -38826,8 +39640,8 @@
   },
   "476": {
    "name": "Probopass",
-   "status": "respelled",
-   "input": "Proh-boh-pas",
+   "status": "manual",
+   "input": "Probopass",
    "verdict": "match",
    "target": {
     "ipa": "/ˈproʊboʊpæs/",
@@ -38886,10 +39700,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/476/proh-boh-pas~658ec2eae0-1.wav",
-    "hash": "658ec2eae0"
+    "file": "names/gpt-4o-mini-tts-verse/476/probopass~05645103cc-s2.wav",
+    "hash": "05645103cc"
    },
-   "at": "2026-10-22T14:27:31.835Z"
+   "at": "2026-10-22T14:27:31.835Z",
+   "history": [
+    {
+     "input": "Proh-boh-pas",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/476/proh-boh-pas~658ec2eae0-1.wav",
+      "hash": "658ec2eae0"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "477": {
    "name": "Dusknoir",
@@ -39120,8 +39945,8 @@
   },
   "480": {
    "name": "Uxie",
-   "status": "respelled",
-   "input": "Yuke-see",
+   "status": "manual",
+   "input": "Uxie",
    "verdict": "match",
    "target": {
     "ipa": "/ˈjuksi/",
@@ -39219,10 +40044,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/480/yuke-see~0cc14c6439-1.wav",
-    "hash": "0cc14c6439"
+    "file": "names/gpt-4o-mini-tts-verse/480/uxie~b576917f6d-s2.wav",
+    "hash": "b576917f6d"
    },
-   "at": "2026-10-22T14:27:41.179Z"
+   "at": "2026-10-22T14:27:41.179Z",
+   "history": [
+    {
+     "input": "Yuke-see",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/480/yuke-see~0cc14c6439-1.wav",
+      "hash": "0cc14c6439"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "481": {
    "name": "Mesprit",
@@ -39897,8 +40733,8 @@
   },
   "488": {
    "name": "Cresselia",
-   "status": "respelled",
-   "input": "Kreh-sell-lee-uh",
+   "status": "manual",
+   "input": "Cresselia",
    "verdict": "match",
    "target": {
     "ipa": "/krɛˈsɛliə/",
@@ -39957,10 +40793,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/488/kreh-sell-lee-uh~3851fa69d0-1.wav",
-    "hash": "3851fa69d0"
+    "file": "names/gpt-4o-mini-tts-verse/488/cresselia~b7852ce3b5-s2.wav",
+    "hash": "b7852ce3b5"
    },
-   "at": "2026-10-22T14:28:26.760Z"
+   "at": "2026-10-22T14:28:26.760Z",
+   "history": [
+    {
+     "input": "Kreh-sell-lee-uh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/488/kreh-sell-lee-uh~3851fa69d0-1.wav",
+      "hash": "3851fa69d0"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "489": {
    "name": "Phione",
@@ -40311,8 +41158,8 @@
   },
   "495": {
    "name": "Snivy",
-   "status": "respelled",
-   "input": "Sny-vee",
+   "status": "manual",
+   "input": "Snivy",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsnaɪvi/",
@@ -40379,10 +41226,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/495/sny-vee~5e34e928a6-1.wav",
-    "hash": "5e34e928a6"
+    "file": "names/gpt-4o-mini-tts-verse/495/snivy~f00a69ee09-s1.wav",
+    "hash": "f00a69ee09"
    },
-   "at": "2026-10-22T14:28:13.106Z"
+   "at": "2026-10-22T14:28:13.106Z",
+   "history": [
+    {
+     "input": "Sny-vee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/495/sny-vee~5e34e928a6-1.wav",
+      "hash": "5e34e928a6"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "496": {
    "name": "Servine",
@@ -41064,8 +41922,8 @@
   },
   "506": {
    "name": "Lillipup",
-   "status": "respelled",
-   "input": "Lilly-pup",
+   "status": "manual",
+   "input": "Lillipup",
    "verdict": "match",
    "target": {
     "ipa": "/ˈlɪlipʌp/",
@@ -41125,10 +41983,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/506/lilly-pup~dabb0236c9-1.wav",
-    "hash": "dabb0236c9"
+    "file": "names/gpt-4o-mini-tts-verse/506/lillipup~8656294d30-s1.wav",
+    "hash": "8656294d30"
    },
-   "at": "2026-10-22T14:28:53.229Z"
+   "at": "2026-10-22T14:28:53.229Z",
+   "history": [
+    {
+     "input": "Lilly-pup",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/506/lilly-pup~dabb0236c9-1.wav",
+      "hash": "dabb0236c9"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "507": {
    "name": "Herdier",
@@ -41223,8 +42092,8 @@
   },
   "508": {
    "name": "Stoutland",
-   "status": "respelled",
-   "input": "Stowt-lund",
+   "status": "manual",
+   "input": "Stoutlund",
    "verdict": "match",
    "target": {
     "ipa": "/ˈstaʊtlənd/",
@@ -41283,10 +42152,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/508/stowt-lund~2368dbe216-1.wav",
-    "hash": "2368dbe216"
+    "file": "names/gpt-4o-mini-tts-verse/508/stoutlund~8af5ac369a-s2.wav",
+    "hash": "8af5ac369a"
    },
-   "at": "2026-10-22T14:28:57.990Z"
+   "at": "2026-10-22T14:28:57.990Z",
+   "history": [
+    {
+     "input": "Stowt-lund",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/508/stowt-lund~2368dbe216-1.wav",
+      "hash": "2368dbe216"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "509": {
    "name": "Purrloin",
@@ -41419,8 +42299,8 @@
   },
   "511": {
    "name": "Pansage",
-   "status": "respelled",
-   "input": "Pan-sayj",
+   "status": "manual",
+   "input": "Pansage",
    "verdict": "match",
    "target": {
     "ipa": "/ˈpænseɪdʒ/",
@@ -41479,10 +42359,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/511/pan-sayj~e788adaf9c-1.wav",
-    "hash": "e788adaf9c"
+    "file": "names/gpt-4o-mini-tts-verse/511/pansage~4e05319732-s1.wav",
+    "hash": "4e05319732"
    },
-   "at": "2026-10-22T14:28:52.121Z"
+   "at": "2026-10-22T14:28:52.121Z",
+   "history": [
+    {
+     "input": "Pan-sayj",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/511/pan-sayj~e788adaf9c-1.wav",
+      "hash": "e788adaf9c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "512": {
    "name": "Simisage",
@@ -41592,8 +42483,8 @@
   },
   "514": {
    "name": "Simisear",
-   "status": "respelled",
-   "input": "Simmy-seer",
+   "status": "manual",
+   "input": "Simisear",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsɪmisɪr/",
@@ -41659,10 +42550,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/514/simmy-seer~825fbb154e-1.wav",
-    "hash": "825fbb154e"
+    "file": "names/gpt-4o-mini-tts-verse/514/simisear~a4efb2f219-s1.wav",
+    "hash": "a4efb2f219"
    },
-   "at": "2026-10-22T14:29:22.148Z"
+   "at": "2026-10-22T14:29:22.148Z",
+   "history": [
+    {
+     "input": "Simmy-seer",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/514/simmy-seer~825fbb154e-1.wav",
+      "hash": "825fbb154e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "515": {
    "name": "Panpour",
@@ -42034,8 +42936,8 @@
   },
   "521": {
    "name": "Unfezant",
-   "status": "respelled",
-   "input": "Un-fez-unt",
+   "status": "manual",
+   "input": "Unfezant",
    "verdict": "match",
    "target": {
     "ipa": "/ʌnˈfɛzənt/",
@@ -42103,10 +43005,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/521/un-fez-unt~bc07b93399-1.wav",
-    "hash": "bc07b93399"
+    "file": "names/gpt-4o-mini-tts-verse/521/unfezant~512f935fcc-s2.wav",
+    "hash": "512f935fcc"
    },
-   "at": "2026-10-22T14:29:49.829Z"
+   "at": "2026-10-22T14:29:49.829Z",
+   "history": [
+    {
+     "input": "Un-fez-unt",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/521/un-fez-unt~bc07b93399-1.wav",
+      "hash": "bc07b93399"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "522": {
    "name": "Blitzle",
@@ -42422,8 +43335,8 @@
   },
   "526": {
    "name": "Gigalith",
-   "status": "respelled",
-   "input": "Gig-uh-lith",
+   "status": "manual",
+   "input": "Gigalith",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡɪɡəlɪθ/",
@@ -42489,10 +43402,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/526/gig-uh-lith~b16eff2d33-1.wav",
-    "hash": "b16eff2d33"
+    "file": "names/gpt-4o-mini-tts-verse/526/gigalith~7b12eb4756-s2.wav",
+    "hash": "7b12eb4756"
    },
-   "at": "2026-10-22T14:29:21.961Z"
+   "at": "2026-10-22T14:29:21.961Z",
+   "history": [
+    {
+     "input": "Gig-uh-lith",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/526/gig-uh-lith~b16eff2d33-1.wav",
+      "hash": "b16eff2d33"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "527": {
    "name": "Woobat",
@@ -43559,8 +44483,8 @@
   },
   "540": {
    "name": "Sewaddle",
-   "status": "respelled",
-   "input": "Seh-wah-dul",
+   "status": "manual",
+   "input": "Sewaddle",
    "verdict": "match",
    "target": {
     "ipa": "/sɛˈwɑdəl/",
@@ -43635,10 +44559,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/540/seh-wah-dul~1ef55a480e-1.wav",
-    "hash": "1ef55a480e"
+    "file": "names/gpt-4o-mini-tts-verse/540/sewaddle~fdefc7ce4c-s2.wav",
+    "hash": "fdefc7ce4c"
    },
-   "at": "2026-10-22T14:30:25.350Z"
+   "at": "2026-10-22T14:30:25.350Z",
+   "history": [
+    {
+     "input": "Seh-wah-dul",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/540/seh-wah-dul~1ef55a480e-1.wav",
+      "hash": "1ef55a480e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "541": {
    "name": "Swadloon",
@@ -44409,8 +45344,8 @@
   },
   "552": {
    "name": "Krokorok",
-   "status": "review",
-   "input": "Krah-koh-rock",
+   "status": "manual",
+   "input": "Krockohrock",
    "verdict": "near",
    "target": {
     "ipa": "/ˈkrɑkoʊrɑk/",
@@ -44518,10 +45453,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/552/krah-koh-rock~a47e62f553-1.wav",
-    "hash": "a47e62f553"
+    "file": "names/gpt-4o-mini-tts-verse/552/krockohrock~433c46a8bd-s1.wav",
+    "hash": "433c46a8bd"
    },
-   "at": "2026-10-22T14:31:52.432Z"
+   "at": "2026-10-22T14:31:52.432Z",
+   "history": [
+    {
+     "input": "Krah-koh-rock",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/552/krah-koh-rock~a47e62f553-1.wav",
+      "hash": "a47e62f553"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "553": {
    "name": "Krookodile",
@@ -44640,8 +45586,8 @@
   },
   "555": {
    "name": "Darmanitan",
-   "status": "respelled",
-   "input": "Dar-man-ih-tan",
+   "status": "manual",
+   "input": "Darmanitan",
    "verdict": "match",
    "target": {
     "ipa": "/dɑrˈmænɪtæn/",
@@ -44699,10 +45645,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/555/dar-man-ih-tan~295de22037-1.wav",
-    "hash": "295de22037"
+    "file": "names/gpt-4o-mini-tts-verse/555/darmanitan~84645e53f3-s2.wav",
+    "hash": "84645e53f3"
    },
-   "at": "2026-10-22T14:30:32.986Z"
+   "at": "2026-10-22T14:30:32.986Z",
+   "history": [
+    {
+     "input": "Dar-man-ih-tan",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/555/dar-man-ih-tan~295de22037-1.wav",
+      "hash": "295de22037"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "556": {
    "name": "Maractus",
@@ -45330,8 +46287,8 @@
   },
   "563": {
    "name": "Cofagrigus",
-   "status": "respelled",
-   "input": "Cough-uh-gree-gus",
+   "status": "manual",
+   "input": "Cofagrigus",
    "verdict": "match",
    "target": {
     "ipa": "/ˌkɑfəˈɡriɡəs/",
@@ -45412,10 +46369,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/563/cough-uh-gree-gus~35eeb9be70-1.wav",
-    "hash": "35eeb9be70"
+    "file": "names/gpt-4o-mini-tts-verse/563/cofagrigus~e14cf32c94-s1.wav",
+    "hash": "e14cf32c94"
    },
-   "at": "2026-10-22T14:31:48.200Z"
+   "at": "2026-10-22T14:31:48.200Z",
+   "history": [
+    {
+     "input": "Cough-uh-gree-gus",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/563/cough-uh-gree-gus~35eeb9be70-1.wav",
+      "hash": "35eeb9be70"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "564": {
    "name": "Tirtouga",
@@ -46495,8 +47463,8 @@
   },
   "576": {
    "name": "Gothitelle",
-   "status": "respelled",
-   "input": "Goth-ih-tell",
+   "status": "manual",
+   "input": "Gothitelle",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡɑθɪtɛl/",
@@ -46586,10 +47554,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/576/goth-ih-tell~3cbbe5ae1c-1.wav",
-    "hash": "3cbbe5ae1c"
+    "file": "names/gpt-4o-mini-tts-verse/576/gothitelle~ef880d5db8-s1.wav",
+    "hash": "ef880d5db8"
    },
-   "at": "2026-10-22T14:32:32.732Z"
+   "at": "2026-10-22T14:32:32.732Z",
+   "history": [
+    {
+     "input": "Goth-ih-tell",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/576/goth-ih-tell~3cbbe5ae1c-1.wav",
+      "hash": "3cbbe5ae1c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "577": {
    "name": "Solosis",
@@ -46684,8 +47663,8 @@
   },
   "579": {
    "name": "Reuniclus",
-   "status": "respelled",
-   "input": "Ree-yoo-nee-clus",
+   "status": "manual",
+   "input": "Reeyooneeklus",
    "verdict": "match",
    "target": {
     "ipa": "/ˌrijuˈnikləs/",
@@ -46765,10 +47744,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/579/ree-yoo-nee-clus~8747a1b8c3-1.wav",
-    "hash": "8747a1b8c3"
+    "file": "names/gpt-4o-mini-tts-verse/579/reeyooneeklus~3755f6b314-s2.wav",
+    "hash": "3755f6b314"
    },
-   "at": "2026-10-22T14:32:32.279Z"
+   "at": "2026-10-22T14:32:32.279Z",
+   "history": [
+    {
+     "input": "Ree-yoo-nee-clus",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/579/ree-yoo-nee-clus~8747a1b8c3-1.wav",
+      "hash": "8747a1b8c3"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "580": {
    "name": "Ducklett",
@@ -46878,8 +47868,8 @@
   },
   "582": {
    "name": "Vanillite",
-   "status": "respelled",
-   "input": "Vuh-nil-ite",
+   "status": "manual",
+   "input": "Vanillite",
    "verdict": "match",
    "target": {
     "ipa": "/vəˈnɪlaɪt/",
@@ -46937,10 +47927,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/582/vuh-nil-ite~66faa8d8f7-1.wav",
-    "hash": "66faa8d8f7"
+    "file": "names/gpt-4o-mini-tts-verse/582/vanillite~38a61c5870-s2.wav",
+    "hash": "38a61c5870"
    },
-   "at": "2026-10-22T14:32:22.087Z"
+   "at": "2026-10-22T14:32:22.087Z",
+   "history": [
+    {
+     "input": "Vuh-nil-ite",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/582/vuh-nil-ite~66faa8d8f7-1.wav",
+      "hash": "66faa8d8f7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "583": {
    "name": "Vanillish",
@@ -47806,8 +48807,8 @@
   },
   "595": {
    "name": "Joltik",
-   "status": "respelled",
-   "input": "Jole-tik",
+   "status": "manual",
+   "input": "Joltik",
    "verdict": "match",
    "target": {
     "ipa": "/ˈdʒoʊltɪk/",
@@ -47897,10 +48898,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/595/jole-tik~6f4c703e15-1.wav",
-    "hash": "6f4c703e15"
+    "file": "names/gpt-4o-mini-tts-verse/595/joltik~c159b53817-s2.wav",
+    "hash": "c159b53817"
    },
-   "at": "2026-10-22T14:33:08.153Z"
+   "at": "2026-10-22T14:33:08.153Z",
+   "history": [
+    {
+     "input": "Jole-tik",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/595/jole-tik~6f4c703e15-1.wav",
+      "hash": "6f4c703e15"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "596": {
    "name": "Galvantula",
@@ -48043,8 +49055,8 @@
   },
   "598": {
    "name": "Ferrothorn",
-   "status": "review",
-   "input": "Fuh-rah-thorn",
+   "status": "manual",
+   "input": "Fuhrahthorn",
    "verdict": "near",
    "target": {
     "ipa": "/fəˈrɑθɔrn/",
@@ -48096,10 +49108,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/598/fuh-rah-thorn~9648480d4a-1.wav",
-    "hash": "9648480d4a"
+    "file": "names/gpt-4o-mini-tts-verse/598/fuhrahthorn~5365640eb8-s2.wav",
+    "hash": "5365640eb8"
    },
-   "at": "2026-10-22T14:34:09.062Z"
+   "at": "2026-10-22T14:34:09.062Z",
+   "history": [
+    {
+     "input": "Fuh-rah-thorn",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/598/fuh-rah-thorn~9648480d4a-1.wav",
+      "hash": "9648480d4a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "599": {
    "name": "Klink",
@@ -48311,8 +49334,8 @@
   },
   "601": {
    "name": "Klinklang",
-   "status": "review",
-   "input": "Kleenk-clang",
+   "status": "manual",
+   "input": "Klinklang",
    "verdict": "near",
    "target": {
     "ipa": "/ˈkliŋklæŋ/",
@@ -48427,10 +49450,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/601/kleenk-clang~bafd195442-1.wav",
-    "hash": "bafd195442"
+    "file": "names/gpt-4o-mini-tts-verse/601/klinklang~578e302e55-s2.wav",
+    "hash": "578e302e55"
    },
-   "at": "2026-10-22T14:34:49.290Z"
+   "at": "2026-10-22T14:34:49.290Z",
+   "history": [
+    {
+     "input": "Kleenk-clang",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/601/kleenk-clang~bafd195442-1.wav",
+      "hash": "bafd195442"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "602": {
    "name": "Tynamo",
@@ -49028,8 +50062,8 @@
   },
   "612": {
    "name": "Haxorus",
-   "status": "respelled",
-   "input": "Hacksore-us",
+   "status": "manual",
+   "input": "Haxorus",
    "verdict": "match",
    "target": {
     "ipa": "/ˈhæksɔrəs/",
@@ -49142,10 +50176,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/612/hacksore-us~7e84383e04-1.wav",
-    "hash": "7e84383e04"
+    "file": "names/gpt-4o-mini-tts-verse/612/haxorus~fa4c2f4409-s1.wav",
+    "hash": "fa4c2f4409"
    },
-   "at": "2026-10-22T14:34:42.549Z"
+   "at": "2026-10-22T14:34:42.549Z",
+   "history": [
+    {
+     "input": "Hacksore-us",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/612/hacksore-us~7e84383e04-1.wav",
+      "hash": "7e84383e04"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "613": {
    "name": "Cubchoo",
@@ -49445,8 +50490,8 @@
   },
   "617": {
    "name": "Accelgor",
-   "status": "respelled",
-   "input": "Ack-sell-gor",
+   "status": "manual",
+   "input": "Accelgor",
    "verdict": "match",
    "target": {
     "ipa": "/ækˈsɛlɡɔr/",
@@ -49528,10 +50573,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/617/ack-sell-gor~d5a7f8829f-1.wav",
-    "hash": "d5a7f8829f"
+    "file": "names/gpt-4o-mini-tts-verse/617/accelgor~0855de53b8-s2.wav",
+    "hash": "0855de53b8"
    },
-   "at": "2026-10-22T14:34:43.481Z"
+   "at": "2026-10-22T14:34:43.481Z",
+   "history": [
+    {
+     "input": "Ack-sell-gor",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/617/ack-sell-gor~d5a7f8829f-1.wav",
+      "hash": "d5a7f8829f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "618": {
    "name": "Stunfisk",
@@ -50566,8 +51622,8 @@
   },
   "630": {
    "name": "Mandibuzz",
-   "status": "respelled",
-   "input": "Man-dih-buzz",
+   "status": "manual",
+   "input": "Mandybuzz",
    "verdict": "match",
    "target": {
     "ipa": "/ˈmændɪbʌz/",
@@ -50625,10 +51681,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/630/man-dih-buzz~32f833556d-1.wav",
-    "hash": "32f833556d"
+    "file": "names/gpt-4o-mini-tts-verse/630/mandybuzz~1581173ab1-s2.wav",
+    "hash": "1581173ab1"
    },
-   "at": "2026-10-22T14:35:00.330Z"
+   "at": "2026-10-22T14:35:00.330Z",
+   "history": [
+    {
+     "input": "Man-dih-buzz",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/630/man-dih-buzz~32f833556d-1.wav",
+      "hash": "32f833556d"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "631": {
    "name": "Heatmor",
@@ -51047,8 +52114,8 @@
   },
   "637": {
    "name": "Volcarona",
-   "status": "respelled",
-   "input": "Vol-kuh-roh-nuh",
+   "status": "manual",
+   "input": "Volcarona",
    "verdict": "match",
    "target": {
     "ipa": "/ˌvɑlkəˈroʊnə/",
@@ -51106,10 +52173,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/637/vol-kuh-roh-nuh~052ebc1822-1.wav",
-    "hash": "052ebc1822"
+    "file": "names/gpt-4o-mini-tts-verse/637/volcarona~81221ccb3a-s2.wav",
+    "hash": "81221ccb3a"
    },
-   "at": "2026-10-22T14:35:39.645Z"
+   "at": "2026-10-22T14:35:39.645Z",
+   "history": [
+    {
+     "input": "Vol-kuh-roh-nuh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/637/vol-kuh-roh-nuh~052ebc1822-1.wav",
+      "hash": "052ebc1822"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "638": {
    "name": "Cobalion",
@@ -51842,8 +52920,8 @@
   },
   "647": {
    "name": "Keldeo",
-   "status": "review",
-   "input": "Kel-dee-ow",
+   "status": "manual",
+   "input": "Keldeo",
    "verdict": "near",
    "target": {
     "ipa": "/ˈkɛldioʊ/",
@@ -51934,10 +53012,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/647/kel-dee-ow~0d5f4aa454-1.wav",
-    "hash": "0d5f4aa454"
+    "file": "names/gpt-4o-mini-tts-verse/647/keldeo~cf52a4871c-s2.wav",
+    "hash": "cf52a4871c"
    },
-   "at": "2026-10-22T14:36:34.906Z"
+   "at": "2026-10-22T14:36:34.906Z",
+   "history": [
+    {
+     "input": "Kel-dee-ow",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/647/kel-dee-ow~0d5f4aa454-1.wav",
+      "hash": "0d5f4aa454"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "648": {
    "name": "Meloetta",
@@ -52241,8 +53330,8 @@
   },
   "651": {
    "name": "Quilladin",
-   "status": "respelled",
-   "input": "Kwil-uh-din",
+   "status": "manual",
+   "input": "Quilladin",
    "verdict": "match",
    "target": {
     "ipa": "/ˈkwɪlədɪn/",
@@ -52308,10 +53397,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/651/kwil-uh-din~e393744c4c-1.wav",
-    "hash": "e393744c4c"
+    "file": "names/gpt-4o-mini-tts-verse/651/quilladin~1ebc274601-s2.wav",
+    "hash": "1ebc274601"
    },
-   "at": "2026-10-22T14:35:56.390Z"
+   "at": "2026-10-22T14:35:56.390Z",
+   "history": [
+    {
+     "input": "Kwil-uh-din",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/651/kwil-uh-din~e393744c4c-1.wav",
+      "hash": "e393744c4c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "652": {
    "name": "Chesnaught",
@@ -52983,8 +54083,8 @@
   },
   "661": {
    "name": "Fletchling",
-   "status": "review",
-   "input": "Fletch Ling",
+   "status": "manual",
+   "input": "Fletchling",
    "verdict": "near",
    "target": {
     "ipa": "/ˈflɛtʃlɪŋ/",
@@ -53085,10 +54185,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/661/fletch-ling~c6969ec672-1.wav",
-    "hash": "c6969ec672"
+    "file": "names/gpt-4o-mini-tts-verse/661/fletchling~b6fff80f7f-s1.wav",
+    "hash": "b6fff80f7f"
    },
-   "at": "2026-10-22T14:37:21.431Z"
+   "at": "2026-10-22T14:37:21.431Z",
+   "history": [
+    {
+     "input": "Fletch Ling",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/661/fletch-ling~c6969ec672-1.wav",
+      "hash": "c6969ec672"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "662": {
    "name": "Fletchinder",
@@ -53363,8 +54474,8 @@
   },
   "666": {
    "name": "Vivillon",
-   "status": "review",
-   "input": "Vih-vee-yon",
+   "status": "manual",
+   "input": "Viviyon",
    "verdict": "near",
    "target": {
     "ipa": "/ˈvɪvijɑn/",
@@ -53457,15 +54568,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/666/vih-vee-yon~d6bec39d0c-1.wav",
-    "hash": "d6bec39d0c"
+    "file": "names/gpt-4o-mini-tts-verse/666/viviyon~aee05d332e-s1.wav",
+    "hash": "aee05d332e"
    },
-   "at": "2026-10-22T14:37:35.878Z"
+   "at": "2026-10-22T14:37:35.878Z",
+   "history": [
+    {
+     "input": "Vih-vee-yon",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/666/vih-vee-yon~d6bec39d0c-1.wav",
+      "hash": "d6bec39d0c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "667": {
    "name": "Litleo",
-   "status": "respelled",
-   "input": "Lit Leo",
+   "status": "manual",
+   "input": "Litleo",
    "verdict": "match",
    "target": {
     "ipa": "/ˈlɪtlioʊ/",
@@ -53532,10 +54654,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/667/lit-leo~f6a97f17a3-1.wav",
-    "hash": "f6a97f17a3"
+    "file": "names/gpt-4o-mini-tts-verse/667/litleo~fbbe2f0ef0-s1.wav",
+    "hash": "fbbe2f0ef0"
    },
-   "at": "2026-10-22T14:37:20.839Z"
+   "at": "2026-10-22T14:37:20.839Z",
+   "history": [
+    {
+     "input": "Lit Leo",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/667/lit-leo~f6a97f17a3-1.wav",
+      "hash": "f6a97f17a3"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "668": {
    "name": "Pyroar",
@@ -53667,8 +54800,8 @@
   },
   "670": {
    "name": "Floette",
-   "status": "review",
-   "input": "Flo-ette",
+   "status": "manual",
+   "input": "Floette",
    "verdict": "near",
    "target": {
     "ipa": "/floʊˈɛt/",
@@ -53797,10 +54930,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/670/flo-ette~9237642141-1.wav",
-    "hash": "9237642141"
+    "file": "names/gpt-4o-mini-tts-verse/670/floette~c73e321d9d-s1.wav",
+    "hash": "c73e321d9d"
    },
-   "at": "2026-10-22T14:37:26.499Z"
+   "at": "2026-10-22T14:37:26.499Z",
+   "history": [
+    {
+     "input": "Flo-ette",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/670/flo-ette~9237642141-1.wav",
+      "hash": "9237642141"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "671": {
    "name": "Florges",
@@ -53870,8 +55014,8 @@
   },
   "672": {
    "name": "Skiddo",
-   "status": "respelled",
-   "input": "Skih-doo",
+   "status": "manual",
+   "input": "Skiddo",
    "verdict": "match",
    "target": {
     "ipa": "/skɪˈdu/",
@@ -53929,10 +55073,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/672/skih-doo~7139133149-1.wav",
-    "hash": "7139133149"
+    "file": "names/gpt-4o-mini-tts-verse/672/skiddo~453ce736b6-s2.wav",
+    "hash": "453ce736b6"
    },
-   "at": "2026-10-22T14:37:08.141Z"
+   "at": "2026-10-22T14:37:08.141Z",
+   "history": [
+    {
+     "input": "Skih-doo",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/672/skih-doo~7139133149-1.wav",
+      "hash": "7139133149"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "673": {
    "name": "Gogoat",
@@ -54599,8 +55754,8 @@
   },
   "681": {
    "name": "Aegislash",
-   "status": "respelled",
-   "input": "Eejih Slash",
+   "status": "manual",
+   "input": "Eejislash",
    "verdict": "match",
    "target": {
     "ipa": "/ˈidʒɪˌslæʃ/",
@@ -54684,10 +55839,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/681/eejih-slash~750436775d-1.wav",
-    "hash": "750436775d"
+    "file": "names/gpt-4o-mini-tts-verse/681/eejislash~57d84fc8e3-s1.wav",
+    "hash": "57d84fc8e3"
    },
-   "at": "2026-10-22T14:38:59.027Z"
+   "at": "2026-10-22T14:38:59.027Z",
+   "history": [
+    {
+     "input": "Eejih Slash",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/681/eejih-slash~750436775d-1.wav",
+      "hash": "750436775d"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "682": {
    "name": "Spritzee",
@@ -55325,8 +56491,8 @@
   },
   "692": {
    "name": "Clauncher",
-   "status": "respelled",
-   "input": "Clawn-chur",
+   "status": "manual",
+   "input": "Clauncher",
    "verdict": "match",
    "target": {
     "ipa": "/ˈklɔntʃɚ/",
@@ -55447,10 +56613,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/692/clawn-chur~9e383f22d9-1.wav",
-    "hash": "9e383f22d9"
+    "file": "names/gpt-4o-mini-tts-verse/692/clauncher~74ce1bf7f1-s2.wav",
+    "hash": "74ce1bf7f1"
    },
-   "at": "2026-10-22T14:38:39.742Z"
+   "at": "2026-10-22T14:38:39.742Z",
+   "history": [
+    {
+     "input": "Clawn-chur",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/692/clawn-chur~9e383f22d9-1.wav",
+      "hash": "9e383f22d9"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "693": {
    "name": "Clawitzer",
@@ -55849,8 +57026,8 @@
   },
   "698": {
    "name": "Amaura",
-   "status": "review",
-   "input": "Uh-mor-uh",
+   "status": "manual",
+   "input": "Amaura",
    "verdict": "near",
    "target": {
     "ipa": "/əˈmɔrə/",
@@ -55902,10 +57079,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/698/uh-mor-uh~8020872775-1.wav",
-    "hash": "8020872775"
+    "file": "names/gpt-4o-mini-tts-verse/698/amaura~91624f975e-s2.wav",
+    "hash": "91624f975e"
    },
-   "at": "2026-10-22T14:38:27.361Z"
+   "at": "2026-10-22T14:38:27.361Z",
+   "history": [
+    {
+     "input": "Uh-mor-uh",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/698/uh-mor-uh~8020872775-1.wav",
+      "hash": "8020872775"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "699": {
    "name": "Aurorus",
@@ -56016,8 +57204,8 @@
   },
   "701": {
    "name": "Hawlucha",
-   "status": "respelled",
-   "input": "Haw-loo-chuh",
+   "status": "manual",
+   "input": "Hawloochuh",
    "verdict": "match",
    "target": {
     "ipa": "/hɔˈlutʃə/",
@@ -56075,10 +57263,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/701/haw-loo-chuh~7a0cd2dc38-1.wav",
-    "hash": "7a0cd2dc38"
+    "file": "names/gpt-4o-mini-tts-verse/701/hawloochuh~e3d0ee0d10-s2.wav",
+    "hash": "e3d0ee0d10"
    },
-   "at": "2026-10-22T14:38:40.723Z"
+   "at": "2026-10-22T14:38:40.723Z",
+   "history": [
+    {
+     "input": "Haw-loo-chuh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/701/haw-loo-chuh~7a0cd2dc38-1.wav",
+      "hash": "7a0cd2dc38"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "702": {
    "name": "Dedenne",
@@ -56241,8 +57440,8 @@
   },
   "705": {
    "name": "Sliggoo",
-   "status": "respelled",
-   "input": "Slig-oo",
+   "status": "manual",
+   "input": "Sliggoo",
    "verdict": "match",
    "target": {
     "ipa": "/ˈslɪɡu/",
@@ -56308,10 +57507,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/705/slig-oo~5430caec8b-1.wav",
-    "hash": "5430caec8b"
+    "file": "names/gpt-4o-mini-tts-verse/705/sliggoo~a6ceaa281f-s1.wav",
+    "hash": "a6ceaa281f"
    },
-   "at": "2026-10-22T14:38:24.295Z"
+   "at": "2026-10-22T14:38:24.295Z",
+   "history": [
+    {
+     "input": "Slig-oo",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/705/slig-oo~5430caec8b-1.wav",
+      "hash": "5430caec8b"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "706": {
    "name": "Goodra",
@@ -56594,8 +57804,8 @@
   },
   "709": {
    "name": "Trevenant",
-   "status": "respelled",
-   "input": "Trev Uh Nuhnt",
+   "status": "manual",
+   "input": "Trevenant",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtrɛvənənt/",
@@ -56718,10 +57928,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/709/trev-uh-nuhnt~ccd815b38f-1.wav",
-    "hash": "ccd815b38f"
+    "file": "names/gpt-4o-mini-tts-verse/709/trevenant~b00d08a856-s1.wav",
+    "hash": "b00d08a856"
    },
-   "at": "2026-10-22T14:39:43.101Z"
+   "at": "2026-10-22T14:39:43.101Z",
+   "history": [
+    {
+     "input": "Trev Uh Nuhnt",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/709/trev-uh-nuhnt~ccd815b38f-1.wav",
+      "hash": "ccd815b38f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "710": {
    "name": "Pumpkaboo",
@@ -57125,8 +58346,8 @@
   },
   "716": {
    "name": "Xerneas",
-   "status": "respelled",
-   "input": "Zur-nee-us",
+   "status": "manual",
+   "input": "Xerneas",
    "verdict": "match",
    "target": {
     "ipa": "/ˈzɝniəs/",
@@ -57185,15 +58406,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/716/zur-nee-us~1921d54195-1.wav",
-    "hash": "1921d54195"
+    "file": "names/gpt-4o-mini-tts-verse/716/xerneas~e622ddb3da-s2.wav",
+    "hash": "e622ddb3da"
    },
-   "at": "2026-10-22T14:38:53.063Z"
+   "at": "2026-10-22T14:38:53.063Z",
+   "history": [
+    {
+     "input": "Zur-nee-us",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/716/zur-nee-us~1921d54195-1.wav",
+      "hash": "1921d54195"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "717": {
    "name": "Yveltal",
-   "status": "review",
-   "input": "Eevell-tall",
+   "status": "manual",
+   "input": "Yveltal",
    "verdict": "near",
    "target": {
     "ipa": "/iˈvɛltɔl/",
@@ -57294,10 +58526,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/717/eevell-tall~8c33957636-1.wav",
-    "hash": "8c33957636"
+    "file": "names/gpt-4o-mini-tts-verse/717/yveltal~c76f8e45d4-r2t1.wav",
+    "hash": "c76f8e45d4"
    },
-   "at": "2026-10-22T14:40:21.696Z"
+   "at": "2026-10-22T14:40:21.696Z",
+   "history": [
+    {
+     "input": "Eevell-tall",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/717/eevell-tall~8c33957636-1.wav",
+      "hash": "8c33957636"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "718": {
    "name": "Zygarde",
@@ -57354,8 +58597,8 @@
   },
   "719": {
    "name": "Diancie",
-   "status": "review",
-   "input": "Diancie",
+   "status": "manual",
+   "input": "Dianne-see",
    "verdict": "near",
    "target": {
     "ipa": "/daɪˈɑnsi/",
@@ -57415,10 +58658,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/719/diancie~2f6d417393-1.wav",
-    "hash": "2f6d417393"
+    "file": "names/gpt-4o-mini-tts-verse/719/dianne-see~bd4e62e670-r2t1.wav",
+    "hash": "bd4e62e670"
    },
-   "at": "2026-10-22T14:39:07.928Z"
+   "at": "2026-10-22T14:39:07.928Z",
+   "history": [
+    {
+     "input": "Diancie",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/719/diancie~2f6d417393-1.wav",
+      "hash": "2f6d417393"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "720": {
    "name": "Hoopa",
@@ -57728,8 +58982,8 @@
   },
   "725": {
    "name": "Litten",
-   "status": "respelled",
-   "input": "Lit-tun",
+   "status": "manual",
+   "input": "Litten",
    "verdict": "match",
    "target": {
     "ipa": "/ˈlɪtən/",
@@ -57804,10 +59058,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/725/lit-tun~b7f9f622a4-1.wav",
-    "hash": "b7f9f622a4"
+    "file": "names/gpt-4o-mini-tts-verse/725/litten~11158f920c-s1.wav",
+    "hash": "11158f920c"
    },
-   "at": "2026-10-22T14:40:01.550Z"
+   "at": "2026-10-22T14:40:01.550Z",
+   "history": [
+    {
+     "input": "Lit-tun",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/725/lit-tun~b7f9f622a4-1.wav",
+      "hash": "b7f9f622a4"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "726": {
    "name": "Torracat",
@@ -58142,8 +59407,8 @@
   },
   "730": {
    "name": "Primarina",
-   "status": "respelled",
-   "input": "Pree-muh-reena",
+   "status": "manual",
+   "input": "Primarina",
    "verdict": "match",
    "target": {
     "ipa": "/ˌpriməˈrinə/",
@@ -58234,10 +59499,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/730/pree-muh-reena~3fbafcd565-1.wav",
-    "hash": "3fbafcd565"
+    "file": "names/gpt-4o-mini-tts-verse/730/primarina~3f8b918150-s1.wav",
+    "hash": "3f8b918150"
    },
-   "at": "2026-10-22T14:40:01.568Z"
+   "at": "2026-10-22T14:40:01.568Z",
+   "history": [
+    {
+     "input": "Pree-muh-reena",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/730/pree-muh-reena~3fbafcd565-1.wav",
+      "hash": "3fbafcd565"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "731": {
    "name": "Pikipek",
@@ -58294,8 +59570,8 @@
   },
   "732": {
    "name": "Trumbeak",
-   "status": "review",
-   "input": "Trum-beak",
+   "status": "manual",
+   "input": "Trumbeak",
    "verdict": "near",
    "target": {
     "ipa": "/ˈtrʌmbik/",
@@ -58370,10 +59646,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/732/trum-beak~60c09080d7-1.wav",
-    "hash": "60c09080d7"
+    "file": "names/gpt-4o-mini-tts-verse/732/trumbeak~2112745162-s1.wav",
+    "hash": "2112745162"
    },
-   "at": "2026-10-22T14:40:13.179Z"
+   "at": "2026-10-22T14:40:13.179Z",
+   "history": [
+    {
+     "input": "Trum-beak",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/732/trum-beak~60c09080d7-1.wav",
+      "hash": "60c09080d7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "733": {
    "name": "Toucannon",
@@ -58731,8 +60018,8 @@
   },
   "737": {
    "name": "Charjabug",
-   "status": "respelled",
-   "input": "Tchar-juh-bug",
+   "status": "manual",
+   "input": "Charjabug",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtʃɑrdʒəbʌɡ/",
@@ -58846,10 +60133,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/737/tchar-juh-bug~fb6a1e5446-1.wav",
-    "hash": "fb6a1e5446"
+    "file": "names/gpt-4o-mini-tts-verse/737/charjabug~fee7653ad5-s1.wav",
+    "hash": "fee7653ad5"
    },
-   "at": "2026-10-22T14:40:17.832Z"
+   "at": "2026-10-22T14:40:17.832Z",
+   "history": [
+    {
+     "input": "Tchar-juh-bug",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/737/tchar-juh-bug~fb6a1e5446-1.wav",
+      "hash": "fb6a1e5446"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "738": {
    "name": "Vikavolt",
@@ -59426,8 +60724,8 @@
   },
   "746": {
    "name": "Wishiwashi",
-   "status": "respelled",
-   "input": "Wishy Wah-shee",
+   "status": "manual",
+   "input": "Wishiwashi",
    "verdict": "match",
    "target": {
     "ipa": "/ˈwɪʃiˌwɑʃi/",
@@ -59534,10 +60832,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/746/wishy-wah-shee~f528ec8697-1.wav",
-    "hash": "f528ec8697"
+    "file": "names/gpt-4o-mini-tts-verse/746/wishiwashi~dbab889c58-s1.wav",
+    "hash": "dbab889c58"
    },
-   "at": "2026-10-22T14:41:01.397Z"
+   "at": "2026-10-22T14:41:01.397Z",
+   "history": [
+    {
+     "input": "Wishy Wah-shee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/746/wishy-wah-shee~f528ec8697-1.wav",
+      "hash": "f528ec8697"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "747": {
    "name": "Mareanie",
@@ -61770,8 +63079,8 @@
   },
   "777": {
    "name": "Togedemaru",
-   "status": "respelled",
-   "input": "Toh-gheh-deh-mah-roo",
+   "status": "manual",
+   "input": "Togedemaru",
    "verdict": "match",
    "target": {
     "ipa": "/ˌtoʊɡɛdɛˈmɑru/",
@@ -61829,15 +63138,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/777/toh-gheh-deh-mah-roo~e85efe26ff-1.wav",
-    "hash": "e85efe26ff"
+    "file": "names/gpt-4o-mini-tts-verse/777/togedemaru~77bb4e6120-s1.wav",
+    "hash": "77bb4e6120"
    },
-   "at": "2026-10-22T14:41:35.740Z"
+   "at": "2026-10-22T14:41:35.740Z",
+   "history": [
+    {
+     "input": "Toh-gheh-deh-mah-roo",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/777/toh-gheh-deh-mah-roo~e85efe26ff-1.wav",
+      "hash": "e85efe26ff"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "778": {
    "name": "Mimikyu",
-   "status": "review",
-   "input": "Mee-mee-kyoo",
+   "status": "manual",
+   "input": "Mimikyu",
    "verdict": "near",
    "target": {
     "ipa": "/ˈmimiˌkju/",
@@ -61976,15 +63296,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/778/mee-mee-kyoo~798e515a3b-1.wav",
-    "hash": "798e515a3b"
+    "file": "names/gpt-4o-mini-tts-verse/778/mimikyu~2cbeb58169-r2t2.wav",
+    "hash": "2cbeb58169"
    },
-   "at": "2026-10-22T14:42:46.552Z"
+   "at": "2026-10-22T14:42:46.552Z",
+   "history": [
+    {
+     "input": "Mee-mee-kyoo",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/778/mee-mee-kyoo~798e515a3b-1.wav",
+      "hash": "798e515a3b"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "779": {
    "name": "Bruxish",
-   "status": "review",
-   "input": "Bruck-sish",
+   "status": "manual",
+   "input": "Bruxish",
    "verdict": "near",
    "target": {
     "ipa": "/ˈbrʌksɪʃ/",
@@ -62131,10 +63462,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/779/bruck-sish~ed943b3280-1.wav",
-    "hash": "ed943b3280"
+    "file": "names/gpt-4o-mini-tts-verse/779/bruxish~1085199d75-s1.wav",
+    "hash": "1085199d75"
    },
-   "at": "2026-10-22T14:42:22.696Z"
+   "at": "2026-10-22T14:42:22.696Z",
+   "history": [
+    {
+     "input": "Bruck-sish",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/779/bruck-sish~ed943b3280-1.wav",
+      "hash": "ed943b3280"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "780": {
    "name": "Drampa",
@@ -62237,8 +63579,8 @@
   },
   "781": {
    "name": "Dhelmise",
-   "status": "respelled",
-   "input": "Del-myze",
+   "status": "manual",
+   "input": "Dhelmise",
    "verdict": "match",
    "target": {
     "ipa": "/dɛlˈmaɪz/",
@@ -62296,10 +63638,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/781/del-myze~3fa9459de8-1.wav",
-    "hash": "3fa9459de8"
+    "file": "names/gpt-4o-mini-tts-verse/781/dhelmise~6d4dd7f395-s2.wav",
+    "hash": "6d4dd7f395"
    },
-   "at": "2026-10-22T14:41:29.516Z"
+   "at": "2026-10-22T14:41:29.516Z",
+   "history": [
+    {
+     "input": "Del-myze",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/781/del-myze~3fa9459de8-1.wav",
+      "hash": "3fa9459de8"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "782": {
    "name": "Jangmo-o",
@@ -62440,8 +63793,8 @@
   },
   "785": {
    "name": "Tapu Koko",
-   "status": "respelled",
-   "input": "Tah-poo Koh-koh",
+   "status": "manual",
+   "input": "Tapu Koko",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtɑpu ˈkoʊkoʊ/",
@@ -62508,15 +63861,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/785/tah-poo-koh-koh~d4b87e8fd5-1.wav",
-    "hash": "d4b87e8fd5"
+    "file": "names/gpt-4o-mini-tts-verse/785/tapu-koko~67b053d68a-s2.wav",
+    "hash": "67b053d68a"
    },
-   "at": "2026-10-22T14:41:48.367Z"
+   "at": "2026-10-22T14:41:48.367Z",
+   "history": [
+    {
+     "input": "Tah-poo Koh-koh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/785/tah-poo-koh-koh~d4b87e8fd5-1.wav",
+      "hash": "d4b87e8fd5"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "786": {
    "name": "Tapu Lele",
-   "status": "review",
-   "input": "Tah-poo Lehl-eh",
+   "status": "manual",
+   "input": "Tahpoo Lehleh",
    "verdict": "near",
    "target": {
     "ipa": "/ˈtɑpu ˈlɛlɛ/",
@@ -62654,15 +64018,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/786/tah-poo-lehl-eh~0fdce0cff3-1.wav",
-    "hash": "0fdce0cff3"
+    "file": "names/gpt-4o-mini-tts-verse/786/tahpoo-lehleh~94a92308af-s1.wav",
+    "hash": "94a92308af"
    },
-   "at": "2026-10-22T14:43:16.526Z"
+   "at": "2026-10-22T14:43:16.526Z",
+   "history": [
+    {
+     "input": "Tah-poo Lehl-eh",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/786/tah-poo-lehl-eh~0fdce0cff3-1.wav",
+      "hash": "0fdce0cff3"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "787": {
    "name": "Tapu Bulu",
-   "status": "respelled",
-   "input": "Taa-poo Boo-loo",
+   "status": "manual",
+   "input": "Tapu Bulu",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtɑpu ˈbulu/",
@@ -62781,15 +64156,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/787/taa-poo-boo-loo~0eef7e374c-1.wav",
-    "hash": "0eef7e374c"
+    "file": "names/gpt-4o-mini-tts-verse/787/tapu-bulu~40b78dc05d-s2.wav",
+    "hash": "40b78dc05d"
    },
-   "at": "2026-10-22T14:42:24.475Z"
+   "at": "2026-10-22T14:42:24.475Z",
+   "history": [
+    {
+     "input": "Taa-poo Boo-loo",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/787/taa-poo-boo-loo~0eef7e374c-1.wav",
+      "hash": "0eef7e374c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "788": {
    "name": "Tapu Fini",
-   "status": "respelled",
-   "input": "Tah-pooh Fee-nee",
+   "status": "manual",
+   "input": "Tapu Fini",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtɑpu ˈfini/",
@@ -62863,10 +64249,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/788/tah-pooh-fee-nee~43982df743-1.wav",
-    "hash": "43982df743"
+    "file": "names/gpt-4o-mini-tts-verse/788/tapu-fini~ae575cd36a-s1.wav",
+    "hash": "ae575cd36a"
    },
-   "at": "2026-10-22T14:42:07.113Z"
+   "at": "2026-10-22T14:42:07.113Z",
+   "history": [
+    {
+     "input": "Tah-pooh Fee-nee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/788/tah-pooh-fee-nee~43982df743-1.wav",
+      "hash": "43982df743"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "789": {
    "name": "Cosmog",
@@ -63482,8 +64879,8 @@
   },
   "796": {
    "name": "Xurkitree",
-   "status": "review",
-   "input": "Zirk-ih-tree",
+   "status": "manual",
+   "input": "Xurkitree",
    "verdict": "near",
    "target": {
     "ipa": "/ˈzɝkɪˌtri/",
@@ -63622,10 +65019,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/796/zirk-ih-tree~fd96986eec-1.wav",
-    "hash": "fd96986eec"
+    "file": "names/gpt-4o-mini-tts-verse/796/xurkitree~5e97893a62-s2.wav",
+    "hash": "5e97893a62"
    },
-   "at": "2026-10-22T14:43:58.175Z"
+   "at": "2026-10-22T14:43:58.175Z",
+   "history": [
+    {
+     "input": "Zirk-ih-tree",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/796/zirk-ih-tree~fd96986eec-1.wav",
+      "hash": "fd96986eec"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "797": {
    "name": "Celesteela",
@@ -63993,8 +65401,8 @@
   },
   "801": {
    "name": "Magearna",
-   "status": "review",
-   "input": "Muh-geer-nuh",
+   "status": "manual",
+   "input": "Muhgeerna",
    "verdict": "near",
    "target": {
     "ipa": "/məˈɡɪrnə/",
@@ -64039,10 +65447,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/801/muh-geer-nuh~6e680e18d6-1.wav",
-    "hash": "6e680e18d6"
+    "file": "names/gpt-4o-mini-tts-verse/801/muhgeerna~0fd79aab1b-s1.wav",
+    "hash": "0fd79aab1b"
    },
-   "at": "2026-10-22T14:42:42.342Z"
+   "at": "2026-10-22T14:42:42.342Z",
+   "history": [
+    {
+     "input": "Muh-geer-nuh",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/801/muh-geer-nuh~6e680e18d6-1.wav",
+      "hash": "6e680e18d6"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "802": {
    "name": "Marshadow",
@@ -64198,8 +65617,8 @@
   },
   "804": {
    "name": "Naganadel",
-   "status": "review",
-   "input": "Naw-guh-naw-dul",
+   "status": "manual",
+   "input": "Nawguhnawdul",
    "verdict": "near",
    "target": {
     "ipa": "/ˌnɔɡəˈnɔdəl/",
@@ -64251,10 +65670,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/804/naw-guh-naw-dul~5d2dc97a5f-1.wav",
-    "hash": "5d2dc97a5f"
+    "file": "names/gpt-4o-mini-tts-verse/804/nawguhnawdul~656bfd1548-s1.wav",
+    "hash": "656bfd1548"
    },
-   "at": "2026-10-22T14:43:17.028Z"
+   "at": "2026-10-22T14:43:17.028Z",
+   "history": [
+    {
+     "input": "Naw-guh-naw-dul",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/804/naw-guh-naw-dul~5d2dc97a5f-1.wav",
+      "hash": "5d2dc97a5f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "805": {
    "name": "Stakataka",
@@ -64419,8 +65849,8 @@
   },
   "807": {
    "name": "Zeraora",
-   "status": "review",
-   "input": "Zeh-rah-ohra",
+   "status": "manual",
+   "input": "Zehraohra",
    "verdict": "near",
    "target": {
     "ipa": "/ˌzɛrɑˈoʊrɑ/",
@@ -64553,10 +65983,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/807/zeh-rah-ohra~33791d8466-1.wav",
-    "hash": "33791d8466"
+    "file": "names/gpt-4o-mini-tts-verse/807/zehraohra~ff5028e1a6-s2.wav",
+    "hash": "ff5028e1a6"
    },
-   "at": "2026-10-22T14:44:46.682Z"
+   "at": "2026-10-22T14:44:46.682Z",
+   "history": [
+    {
+     "input": "Zeh-rah-ohra",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/807/zeh-rah-ohra~33791d8466-1.wav",
+      "hash": "33791d8466"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "808": {
    "name": "Meltan",
@@ -66656,8 +68097,8 @@
   },
   "830": {
    "name": "Eldegoss",
-   "status": "review",
-   "input": "Ehl-duh-gahss",
+   "status": "manual",
+   "input": "Eldegoss",
    "verdict": "near",
    "target": {
     "ipa": "/ˈɛldəɡɑs/",
@@ -66717,10 +68158,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/830/ehl-duh-gahss~23406c46c1-1.wav",
-    "hash": "23406c46c1"
+    "file": "names/gpt-4o-mini-tts-verse/830/eldegoss~a973a71d99-s2.wav",
+    "hash": "a973a71d99"
    },
-   "at": "2026-10-22T14:44:22.043Z"
+   "at": "2026-10-22T14:44:22.043Z",
+   "history": [
+    {
+     "input": "Ehl-duh-gahss",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/830/ehl-duh-gahss~23406c46c1-1.wav",
+      "hash": "23406c46c1"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "831": {
    "name": "Wooloo",
@@ -67868,8 +69320,8 @@
   },
   "848": {
    "name": "Toxel",
-   "status": "review",
-   "input": "Tahk-sul",
+   "status": "manual",
+   "input": "Toxel",
    "verdict": "near",
    "target": {
     "ipa": "/ˈtɑksəl/",
@@ -68016,10 +69468,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/848/tahk-sul~2de17b686a-1.wav",
-    "hash": "2de17b686a"
+    "file": "names/gpt-4o-mini-tts-verse/848/toxel~022637c2da-s1.wav",
+    "hash": "022637c2da"
    },
-   "at": "2026-10-22T14:46:17.991Z"
+   "at": "2026-10-22T14:46:17.991Z",
+   "history": [
+    {
+     "input": "Tahk-sul",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/848/tahk-sul~2de17b686a-1.wav",
+      "hash": "2de17b686a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "849": {
    "name": "Toxtricity",
@@ -68223,8 +69686,8 @@
   },
   "851": {
    "name": "Centiskorch",
-   "status": "respelled",
-   "input": "Sen-tih-skorch",
+   "status": "manual",
+   "input": "Centiskorch",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsɛntɪˌskɔrtʃ/",
@@ -68292,15 +69755,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/851/sen-tih-skorch~baa605441d-1.wav",
-    "hash": "baa605441d"
+    "file": "names/gpt-4o-mini-tts-verse/851/centiskorch~d80bfddb7b-s1.wav",
+    "hash": "d80bfddb7b"
    },
-   "at": "2026-10-22T14:45:32.844Z"
+   "at": "2026-10-22T14:45:32.844Z",
+   "history": [
+    {
+     "input": "Sen-tih-skorch",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/851/sen-tih-skorch~baa605441d-1.wav",
+      "hash": "baa605441d"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "852": {
    "name": "Clobbopus",
-   "status": "review",
-   "input": "Klah-buh-puss",
+   "status": "manual",
+   "input": "Klahbupus",
    "verdict": "near",
    "target": {
     "ipa": "/ˈklɑbəpəs/",
@@ -68461,15 +69935,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/852/klah-buh-puss~282fabae0e-1.wav",
-    "hash": "282fabae0e"
+    "file": "names/gpt-4o-mini-tts-verse/852/klahbupus~a0faef818d-s2.wav",
+    "hash": "a0faef818d"
    },
-   "at": "2026-10-22T14:46:36.602Z"
+   "at": "2026-10-22T14:46:36.602Z",
+   "history": [
+    {
+     "input": "Klah-buh-puss",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/852/klah-buh-puss~282fabae0e-1.wav",
+      "hash": "282fabae0e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "853": {
    "name": "Grapploct",
-   "status": "respelled",
-   "input": "Grap-lockt",
+   "status": "manual",
+   "input": "Grapploct",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡræplɑkt/",
@@ -68549,15 +70034,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/853/grap-lockt~c2c7d0fc6b-1.wav",
-    "hash": "c2c7d0fc6b"
+    "file": "names/gpt-4o-mini-tts-verse/853/grapploct~8fa0b320f8-s2.wav",
+    "hash": "8fa0b320f8"
    },
-   "at": "2026-10-22T14:45:34.717Z"
+   "at": "2026-10-22T14:45:34.717Z",
+   "history": [
+    {
+     "input": "Grap-lockt",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/853/grap-lockt~c2c7d0fc6b-1.wav",
+      "hash": "c2c7d0fc6b"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "854": {
    "name": "Sinistea",
-   "status": "respelled",
-   "input": "Sinis-tee",
+   "status": "manual",
+   "input": "Sinistee",
    "verdict": "match",
    "target": {
     "ipa": "/ˈsɪnɪsti/",
@@ -68633,10 +70129,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/854/sinis-tee~c3e27f5e99-1.wav",
-    "hash": "c3e27f5e99"
+    "file": "names/gpt-4o-mini-tts-verse/854/sinistee~624993e93c-s1.wav",
+    "hash": "624993e93c"
    },
-   "at": "2026-10-22T14:45:45.249Z"
+   "at": "2026-10-22T14:45:45.249Z",
+   "history": [
+    {
+     "input": "Sinis-tee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/854/sinis-tee~c3e27f5e99-1.wav",
+      "hash": "c3e27f5e99"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "855": {
    "name": "Polteageist",
@@ -68845,8 +70352,8 @@
   },
   "857": {
    "name": "Hattrem",
-   "status": "respelled",
-   "input": "Hat-rem",
+   "status": "manual",
+   "input": "Hattrem",
    "verdict": "match",
    "target": {
     "ipa": "/ˈhætrəm/",
@@ -68934,10 +70441,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/857/hat-rem~82c9fc2acb-1.wav",
-    "hash": "82c9fc2acb"
+    "file": "names/gpt-4o-mini-tts-verse/857/hattrem~7c670ab407-s1.wav",
+    "hash": "7c670ab407"
    },
-   "at": "2026-10-22T14:45:44.485Z"
+   "at": "2026-10-22T14:45:44.485Z",
+   "history": [
+    {
+     "input": "Hat-rem",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/857/hat-rem~82c9fc2acb-1.wav",
+      "hash": "82c9fc2acb"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "858": {
    "name": "Hatterene",
@@ -69114,8 +70632,8 @@
   },
   "861": {
    "name": "Grimmsnarl",
-   "status": "respelled",
-   "input": "Grimm Snarl",
+   "status": "manual",
+   "input": "Grimmsnarl",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡrɪmˌsnɑrl/",
@@ -69204,10 +70722,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/861/grimm-snarl~0438a9ba34-1.wav",
-    "hash": "0438a9ba34"
+    "file": "names/gpt-4o-mini-tts-verse/861/grimmsnarl~6c9430a7fa-s1.wav",
+    "hash": "6c9430a7fa"
    },
-   "at": "2026-10-22T14:45:46.136Z"
+   "at": "2026-10-22T14:45:46.136Z",
+   "history": [
+    {
+     "input": "Grimm Snarl",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/861/grimm-snarl~0438a9ba34-1.wav",
+      "hash": "0438a9ba34"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "862": {
    "name": "Obstagoon",
@@ -69266,8 +70795,8 @@
   },
   "863": {
    "name": "Perrserker",
-   "status": "review",
-   "input": "Pur-zur-ker",
+   "status": "manual",
+   "input": "Perrserker",
    "verdict": "near",
    "target": {
     "ipa": "/pɚˈzɝkɚ/",
@@ -69341,10 +70870,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/863/pur-zur-ker~7872f1e346-1.wav",
-    "hash": "7872f1e346"
+    "file": "names/gpt-4o-mini-tts-verse/863/perrserker~9bb29b1eb4-s1.wav",
+    "hash": "9bb29b1eb4"
    },
-   "at": "2026-10-22T14:46:17.198Z"
+   "at": "2026-10-22T14:46:17.198Z",
+   "history": [
+    {
+     "input": "Pur-zur-ker",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/863/pur-zur-ker~7872f1e346-1.wav",
+      "hash": "7872f1e346"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "864": {
    "name": "Cursola",
@@ -69629,8 +71169,8 @@
   },
   "869": {
    "name": "Alcremie",
-   "status": "respelled",
-   "input": "Al-kruh-mee",
+   "status": "manual",
+   "input": "Alcremie",
    "verdict": "match",
    "target": {
     "ipa": "/ˈælkrəmi/",
@@ -69707,15 +71247,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/869/al-kruh-mee~9588883d19-1.wav",
-    "hash": "9588883d19"
+    "file": "names/gpt-4o-mini-tts-verse/869/alcremie~4aef9798a2-s1.wav",
+    "hash": "4aef9798a2"
    },
-   "at": "2026-10-22T14:46:31.047Z"
+   "at": "2026-10-22T14:46:31.047Z",
+   "history": [
+    {
+     "input": "Al-kruh-mee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/869/al-kruh-mee~9588883d19-1.wav",
+      "hash": "9588883d19"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "870": {
    "name": "Falinks",
-   "status": "respelled",
-   "input": "Fay-linx",
+   "status": "manual",
+   "input": "Falinks",
    "verdict": "match",
    "target": {
     "ipa": "/ˈfeɪlɪŋks/",
@@ -69826,10 +71377,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/870/fay-linx~2188be10f7-1.wav",
-    "hash": "2188be10f7"
+    "file": "names/gpt-4o-mini-tts-verse/870/falinks~e8d1de593f-s2.wav",
+    "hash": "e8d1de593f"
    },
-   "at": "2026-10-22T14:46:04.438Z"
+   "at": "2026-10-22T14:46:04.438Z",
+   "history": [
+    {
+     "input": "Fay-linx",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/870/fay-linx~2188be10f7-1.wav",
+      "hash": "2188be10f7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "871": {
    "name": "Pincurchin",
@@ -70432,8 +71994,8 @@
   },
   "879": {
    "name": "Copperajah",
-   "status": "respelled",
-   "input": "Kah-puh-rah-zhuh",
+   "status": "manual",
+   "input": "Copperajah",
    "verdict": "match",
    "target": {
     "ipa": "/ˌkɑpəˈrɑʒə/",
@@ -70500,10 +72062,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/879/kah-puh-rah-zhuh~a50587c810-1.wav",
-    "hash": "a50587c810"
+    "file": "names/gpt-4o-mini-tts-verse/879/copperajah~461df1dc60-s2.wav",
+    "hash": "461df1dc60"
    },
-   "at": "2026-10-22T14:46:46.797Z"
+   "at": "2026-10-22T14:46:46.797Z",
+   "history": [
+    {
+     "input": "Kah-puh-rah-zhuh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/879/kah-puh-rah-zhuh~a50587c810-1.wav",
+      "hash": "a50587c810"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "880": {
    "name": "Dracozolt",
@@ -70665,8 +72238,8 @@
   },
   "883": {
    "name": "Arctovish",
-   "status": "respelled",
-   "input": "Ark-toh-vish",
+   "status": "manual",
+   "input": "Arctovish",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɑrktoʊˌvɪʃ/",
@@ -70732,10 +72305,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/883/ark-toh-vish~14abf8d6ef-1.wav",
-    "hash": "14abf8d6ef"
+    "file": "names/gpt-4o-mini-tts-verse/883/arctovish~7d5452a21c-s2.wav",
+    "hash": "7d5452a21c"
    },
-   "at": "2026-10-22T14:46:41.807Z"
+   "at": "2026-10-22T14:46:41.807Z",
+   "history": [
+    {
+     "input": "Ark-toh-vish",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/883/ark-toh-vish~14abf8d6ef-1.wav",
+      "hash": "14abf8d6ef"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "884": {
    "name": "Duraludon",
@@ -70908,8 +72492,8 @@
   },
   "886": {
    "name": "Drakloak",
-   "status": "respelled",
-   "input": "Drak-cloak",
+   "status": "manual",
+   "input": "Drakloak",
    "verdict": "match",
    "target": {
     "ipa": "/ˈdrækˌkloʊk/",
@@ -71000,15 +72584,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/886/drak-cloak~315b5593dd-1.wav",
-    "hash": "315b5593dd"
+    "file": "names/gpt-4o-mini-tts-verse/886/drakloak~d7b89c92b5-s2.wav",
+    "hash": "d7b89c92b5"
    },
-   "at": "2026-10-22T14:47:40.499Z"
+   "at": "2026-10-22T14:47:40.499Z",
+   "history": [
+    {
+     "input": "Drak-cloak",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/886/drak-cloak~315b5593dd-1.wav",
+      "hash": "315b5593dd"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "887": {
    "name": "Dragapult",
-   "status": "review",
-   "input": "Drag Uh Pult",
+   "status": "manual",
+   "input": "Dragapult",
    "verdict": "near",
    "target": {
     "ipa": "/ˈdræɡəˌpʌlt/",
@@ -71139,10 +72734,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/887/drag-uh-pult~6f24ce128b-1.wav",
-    "hash": "6f24ce128b"
+    "file": "names/gpt-4o-mini-tts-verse/887/dragapult~79793fee3f-r2t2.wav",
+    "hash": "79793fee3f"
    },
-   "at": "2026-10-22T14:47:43.453Z"
+   "at": "2026-10-22T14:47:43.453Z",
+   "history": [
+    {
+     "input": "Drag Uh Pult",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/887/drag-uh-pult~6f24ce128b-1.wav",
+      "hash": "6f24ce128b"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "888": {
    "name": "Zacian",
@@ -71620,8 +73226,8 @@
   },
   "894": {
    "name": "Regieleki",
-   "status": "respelled",
-   "input": "Redjee-eh-leh-kee",
+   "status": "manual",
+   "input": "Regieleki",
    "verdict": "match",
    "target": {
     "ipa": "/ˈrɛdʒiɛˌlɛki/",
@@ -71703,10 +73309,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/894/redjee-eh-leh-kee~cde1a46b39-1.wav",
-    "hash": "cde1a46b39"
+    "file": "names/gpt-4o-mini-tts-verse/894/regieleki~52a2360b6c-s1.wav",
+    "hash": "52a2360b6c"
    },
-   "at": "2026-10-22T14:48:47.294Z"
+   "at": "2026-10-22T14:48:47.294Z",
+   "history": [
+    {
+     "input": "Redjee-eh-leh-kee",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/894/redjee-eh-leh-kee~cde1a46b39-1.wav",
+      "hash": "cde1a46b39"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "895": {
    "name": "Regidrago",
@@ -72043,8 +73660,8 @@
   },
   "898": {
    "name": "Calyrex",
-   "status": "respelled",
-   "input": "Kal-ih-reks",
+   "status": "manual",
+   "input": "Calyrex",
    "verdict": "match",
    "target": {
     "ipa": "/ˈkælɪrɛks/",
@@ -72110,10 +73727,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/898/kal-ih-reks~e308b8752e-1.wav",
-    "hash": "e308b8752e"
+    "file": "names/gpt-4o-mini-tts-verse/898/calyrex~ea2db3e9ea-s1.wav",
+    "hash": "ea2db3e9ea"
    },
-   "at": "2026-10-22T14:47:21.349Z"
+   "at": "2026-10-22T14:47:21.349Z",
+   "history": [
+    {
+     "input": "Kal-ih-reks",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/898/kal-ih-reks~e308b8752e-1.wav",
+      "hash": "e308b8752e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "899": {
    "name": "Wyrdeer",
@@ -73009,8 +74637,8 @@
   },
   "911": {
    "name": "Skeledirge",
-   "status": "respelled",
-   "input": "Skel-uh-durj",
+   "status": "manual",
+   "input": "Skeledirge",
    "verdict": "match",
    "target": {
     "ipa": "/ˈskɛləˌdɝdʒ/",
@@ -73069,10 +74697,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/911/skel-uh-durj~5b159ed4b9-1.wav",
-    "hash": "5b159ed4b9"
+    "file": "names/gpt-4o-mini-tts-verse/911/skeledirge~c2c7ac6118-s1.wav",
+    "hash": "c2c7ac6118"
    },
-   "at": "2026-10-22T14:48:28.642Z"
+   "at": "2026-10-22T14:48:28.642Z",
+   "history": [
+    {
+     "input": "Skel-uh-durj",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/911/skel-uh-durj~5b159ed4b9-1.wav",
+      "hash": "5b159ed4b9"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "912": {
    "name": "Quaxly",
@@ -73258,8 +74897,8 @@
   },
   "915": {
    "name": "Lechonk",
-   "status": "review",
-   "input": "Leh-chahnk",
+   "status": "manual",
+   "input": "Luh-chonk",
    "verdict": "near",
    "target": {
     "ipa": "/lɛˈtʃɑŋk/",
@@ -73319,10 +74958,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/915/leh-chahnk~4ea526b9a9-1.wav",
-    "hash": "4ea526b9a9"
+    "file": "names/gpt-4o-mini-tts-verse/915/luh-chonk~ff46a5972a-r2t2.wav",
+    "hash": "ff46a5972a"
    },
-   "at": "2026-10-22T14:48:51.542Z"
+   "at": "2026-10-22T14:48:51.542Z",
+   "history": [
+    {
+     "input": "Leh-chahnk",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/915/leh-chahnk~4ea526b9a9-1.wav",
+      "hash": "4ea526b9a9"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "916": {
    "name": "Oinkologne",
@@ -73553,8 +75203,8 @@
   },
   "920": {
    "name": "Lokix",
-   "status": "respelled",
-   "input": "Low-kicks",
+   "status": "manual",
+   "input": "Lokix",
    "verdict": "match",
    "target": {
     "ipa": "/ˈloʊkɪks/",
@@ -73634,10 +75284,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/920/low-kicks~0caf73228e-1.wav",
-    "hash": "0caf73228e"
+    "file": "names/gpt-4o-mini-tts-verse/920/lokix~efe1aa4168-s2.wav",
+    "hash": "efe1aa4168"
    },
-   "at": "2026-10-22T14:48:42.133Z"
+   "at": "2026-10-22T14:48:42.133Z",
+   "history": [
+    {
+     "input": "Low-kicks",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/920/low-kicks~0caf73228e-1.wav",
+      "hash": "0caf73228e"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "921": {
    "name": "Pawmi",
@@ -73695,8 +75356,8 @@
   },
   "922": {
    "name": "Pawmo",
-   "status": "respelled",
-   "input": "Paw-moh",
+   "status": "manual",
+   "input": "Pawmoh",
    "verdict": "match",
    "target": {
     "ipa": "/ˈpɔmoʊ/",
@@ -73770,10 +75431,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/922/paw-moh~b2fcef732f-1.wav",
-    "hash": "b2fcef732f"
+    "file": "names/gpt-4o-mini-tts-verse/922/pawmoh~04bee70bcc-s2.wav",
+    "hash": "04bee70bcc"
    },
-   "at": "2026-10-22T14:48:46.719Z"
+   "at": "2026-10-22T14:48:46.719Z",
+   "history": [
+    {
+     "input": "Paw-moh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/922/paw-moh~b2fcef732f-1.wav",
+      "hash": "b2fcef732f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "923": {
    "name": "Pawmot",
@@ -73938,8 +75610,8 @@
   },
   "926": {
    "name": "Fidough",
-   "status": "respelled",
-   "input": "Fy-doh",
+   "status": "manual",
+   "input": "Fidoe",
    "verdict": "match",
    "target": {
     "ipa": "/ˈfaɪdoʊ/",
@@ -73997,10 +75669,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/926/fy-doh~d3f41730f4-1.wav",
-    "hash": "d3f41730f4"
+    "file": "names/gpt-4o-mini-tts-verse/926/fidoe~bd0c600c6d-s1.wav",
+    "hash": "bd0c600c6d"
    },
-   "at": "2026-10-22T14:48:51.587Z"
+   "at": "2026-10-22T14:48:51.587Z",
+   "history": [
+    {
+     "input": "Fy-doh",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/926/fy-doh~d3f41730f4-1.wav",
+      "hash": "d3f41730f4"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "927": {
    "name": "Dachsbun",
@@ -74690,8 +76373,8 @@
   },
   "934": {
    "name": "Garganacl",
-   "status": "respelled",
-   "input": "Gar-guh-nackle",
+   "status": "manual",
+   "input": "Garganacl",
    "verdict": "match",
    "target": {
     "ipa": "/ˌɡɑrɡəˈnækəl/",
@@ -74774,15 +76457,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/934/gar-guh-nackle~b88397bae6-1.wav",
-    "hash": "b88397bae6"
+    "file": "names/gpt-4o-mini-tts-verse/934/garganacl~e88465c135-s2.wav",
+    "hash": "e88465c135"
    },
-   "at": "2026-10-22T14:49:39.720Z"
+   "at": "2026-10-22T14:49:39.720Z",
+   "history": [
+    {
+     "input": "Gar-guh-nackle",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/934/gar-guh-nackle~b88397bae6-1.wav",
+      "hash": "b88397bae6"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "935": {
    "name": "Charcadet",
-   "status": "respelled",
-   "input": "Charr-kuh-det",
+   "status": "manual",
+   "input": "Charcadet",
    "verdict": "match",
    "target": {
     "ipa": "/ˈtʃɑrkəˌdɛt/",
@@ -74920,10 +76614,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/935/charr-kuh-det~7828d9be08-1.wav",
-    "hash": "7828d9be08"
+    "file": "names/gpt-4o-mini-tts-verse/935/charcadet~6a9050895c-s1.wav",
+    "hash": "6a9050895c"
    },
-   "at": "2026-10-22T14:50:34.629Z"
+   "at": "2026-10-22T14:50:34.629Z",
+   "history": [
+    {
+     "input": "Charr-kuh-det",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/935/charr-kuh-det~7828d9be08-1.wav",
+      "hash": "7828d9be08"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "936": {
    "name": "Armarouge",
@@ -74994,8 +76699,8 @@
   },
   "937": {
    "name": "Ceruledge",
-   "status": "respelled",
-   "input": "Suh-roo-ledge",
+   "status": "manual",
+   "input": "Ceruledge",
    "verdict": "match",
    "target": {
     "ipa": "/səˈrulɛdʒ/",
@@ -75054,10 +76759,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/937/suh-roo-ledge~6b3c0e1aa3-1.wav",
-    "hash": "6b3c0e1aa3"
+    "file": "names/gpt-4o-mini-tts-verse/937/ceruledge~0439f7cf0a-s1.wav",
+    "hash": "0439f7cf0a"
    },
-   "at": "2026-10-22T14:49:46.253Z"
+   "at": "2026-10-22T14:49:46.253Z",
+   "history": [
+    {
+     "input": "Suh-roo-ledge",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/937/suh-roo-ledge~6b3c0e1aa3-1.wav",
+      "hash": "6b3c0e1aa3"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "938": {
    "name": "Tadbulb",
@@ -75169,8 +76885,8 @@
   },
   "940": {
    "name": "Wattrel",
-   "status": "respelled",
-   "input": "Wah-trell",
+   "status": "manual",
+   "input": "Wattrel",
    "verdict": "match",
    "target": {
     "ipa": "/ˈwɑtrɛl/",
@@ -75266,10 +76982,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/940/wah-trell~d2f04b3097-1.wav",
-    "hash": "d2f04b3097"
+    "file": "names/gpt-4o-mini-tts-verse/940/wattrel~619f20bde0-s1.wav",
+    "hash": "619f20bde0"
    },
-   "at": "2026-10-22T14:50:14.588Z"
+   "at": "2026-10-22T14:50:14.588Z",
+   "history": [
+    {
+     "input": "Wah-trell",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/940/wah-trell~d2f04b3097-1.wav",
+      "hash": "d2f04b3097"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "941": {
    "name": "Kilowattrel",
@@ -75571,8 +77298,8 @@
   },
   "945": {
    "name": "Grafaiai",
-   "status": "respelled",
-   "input": "Gruh-fye-eye",
+   "status": "manual",
+   "input": "Gruhfieye",
    "verdict": "match",
    "target": {
     "ipa": "/ɡrəˈfaɪaɪ/",
@@ -75676,10 +77403,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/945/gruh-fye-eye~799b760513-1.wav",
-    "hash": "799b760513"
+    "file": "names/gpt-4o-mini-tts-verse/945/gruhfieye~aaff97e5e5-s2.wav",
+    "hash": "aaff97e5e5"
    },
-   "at": "2026-10-22T14:51:11.887Z"
+   "at": "2026-10-22T14:51:11.887Z",
+   "history": [
+    {
+     "input": "Gruh-fye-eye",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/945/gruh-fye-eye~799b760513-1.wav",
+      "hash": "799b760513"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "946": {
    "name": "Bramblin",
@@ -76322,8 +78060,8 @@
   },
   "952": {
    "name": "Scovillain",
-   "status": "respelled",
-   "input": "Skoh-vil-un",
+   "status": "manual",
+   "input": "Scovillen",
    "verdict": "match",
    "target": {
     "ipa": "/ˈskoʊvɪlən/",
@@ -76389,10 +78127,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/952/skoh-vil-un~e9e409ace6-1.wav",
-    "hash": "e9e409ace6"
+    "file": "names/gpt-4o-mini-tts-verse/952/scovillen~f6b6f44809-s1.wav",
+    "hash": "f6b6f44809"
    },
-   "at": "2026-10-22T14:50:35.215Z"
+   "at": "2026-10-22T14:50:35.215Z",
+   "history": [
+    {
+     "input": "Skoh-vil-un",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/952/skoh-vil-un~e9e409ace6-1.wav",
+      "hash": "e9e409ace6"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "953": {
    "name": "Rellor",
@@ -76788,8 +78537,8 @@
   },
   "959": {
    "name": "Tinkaton",
-   "status": "review",
-   "input": "Tink-uh-tun",
+   "status": "manual",
+   "input": "Tinkaton",
    "verdict": "near",
    "target": {
     "ipa": "/ˈtɪŋkətʌn/",
@@ -76966,10 +78715,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/959/tink-uh-tun~40c6edac19-1.wav",
-    "hash": "40c6edac19"
+    "file": "names/gpt-4o-mini-tts-verse/959/tinkaton~cb3eade919-r2t1.wav",
+    "hash": "cb3eade919"
    },
-   "at": "2026-10-22T14:53:41.445Z"
+   "at": "2026-10-22T14:53:41.445Z",
+   "history": [
+    {
+     "input": "Tink-uh-tun",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/959/tink-uh-tun~40c6edac19-1.wav",
+      "hash": "40c6edac19"
+     }
+    }
+   ],
+   "why": "round 2 pick by ear"
   },
   "960": {
    "name": "Wiglett",
@@ -77109,8 +78869,8 @@
   },
   "962": {
    "name": "Bombirdier",
-   "status": "respelled",
-   "input": "Bahm-ber-deer",
+   "status": "manual",
+   "input": "Bombirdier",
    "verdict": "match",
    "target": {
     "ipa": "/ˈbɑmbɚˌdɪr/",
@@ -77168,10 +78928,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/962/bahm-ber-deer~1bff5cf2d4-1.wav",
-    "hash": "1bff5cf2d4"
+    "file": "names/gpt-4o-mini-tts-verse/962/bombirdier~3286201d08-s2.wav",
+    "hash": "3286201d08"
    },
-   "at": "2026-10-22T14:51:15.217Z"
+   "at": "2026-10-22T14:51:15.217Z",
+   "history": [
+    {
+     "input": "Bahm-ber-deer",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/962/bahm-ber-deer~1bff5cf2d4-1.wav",
+      "hash": "1bff5cf2d4"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "963": {
    "name": "Finizen",
@@ -77813,8 +79584,8 @@
   },
   "969": {
    "name": "Glimmet",
-   "status": "respelled",
-   "input": "Glim-mitt",
+   "status": "manual",
+   "input": "Glimit",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡlɪmɪt/",
@@ -77942,10 +79713,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/969/glim-mitt~1b1f99de9b-1.wav",
-    "hash": "1b1f99de9b"
+    "file": "names/gpt-4o-mini-tts-verse/969/glimit~2f662d2638-s1.wav",
+    "hash": "2f662d2638"
    },
-   "at": "2026-10-22T14:51:56.112Z"
+   "at": "2026-10-22T14:51:56.112Z",
+   "history": [
+    {
+     "input": "Glim-mitt",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/969/glim-mitt~1b1f99de9b-1.wav",
+      "hash": "1b1f99de9b"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "970": {
    "name": "Glimmora",
@@ -78018,8 +79800,8 @@
   },
   "971": {
    "name": "Greavard",
-   "status": "respelled",
-   "input": "Gree-verd",
+   "status": "manual",
+   "input": "Greavard",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡrivɚd/",
@@ -78086,10 +79868,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/971/gree-verd~f08641abf7-1.wav",
-    "hash": "f08641abf7"
+    "file": "names/gpt-4o-mini-tts-verse/971/greavard~67684ea391-s2.wav",
+    "hash": "67684ea391"
    },
-   "at": "2026-10-22T14:51:42.626Z"
+   "at": "2026-10-22T14:51:42.626Z",
+   "history": [
+    {
+     "input": "Gree-verd",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/971/gree-verd~f08641abf7-1.wav",
+      "hash": "f08641abf7"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "972": {
    "name": "Houndstone",
@@ -78768,8 +80561,8 @@
   },
   "982": {
    "name": "Dudunsparce",
-   "status": "review",
-   "input": "Duh-dun-sparss",
+   "status": "manual",
+   "input": "Duhdunnsparse",
    "verdict": "near",
    "target": {
     "ipa": "/dəˈdʌnˌspɑrs/",
@@ -78844,10 +80637,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/982/duh-dun-sparss~1e982aa68a-1.wav",
-    "hash": "1e982aa68a"
+    "file": "names/gpt-4o-mini-tts-verse/982/duhdunnsparse~b276897ce4-s1.wav",
+    "hash": "b276897ce4"
    },
-   "at": "2026-10-22T14:53:10.606Z"
+   "at": "2026-10-22T14:53:10.606Z",
+   "history": [
+    {
+     "input": "Duh-dun-sparss",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/982/duh-dun-sparss~1e982aa68a-1.wav",
+      "hash": "1e982aa68a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "983": {
    "name": "Kingambit",
@@ -78904,8 +80708,8 @@
   },
   "984": {
    "name": "Great Tusk",
-   "status": "respelled",
-   "input": "Grayt Tusk",
+   "status": "manual",
+   "input": "Great Tusk",
    "verdict": "match",
    "target": {
     "ipa": "/ˈɡreɪt ˈtʌsk/",
@@ -78965,10 +80769,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/984/grayt-tusk~1e8c6e740a-1.wav",
-    "hash": "1e8c6e740a"
+    "file": "names/gpt-4o-mini-tts-verse/984/great-tusk~3c3cebeca3-s1.wav",
+    "hash": "3c3cebeca3"
    },
-   "at": "2026-10-22T14:52:24.820Z"
+   "at": "2026-10-22T14:52:24.820Z",
+   "history": [
+    {
+     "input": "Grayt Tusk",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/984/grayt-tusk~1e8c6e740a-1.wav",
+      "hash": "1e8c6e740a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "985": {
    "name": "Scream Tail",
@@ -79671,8 +81486,8 @@
   },
   "993": {
    "name": "Iron Jugulis",
-   "status": "respelled",
-   "input": "Eye-urn Jug-you-liss",
+   "status": "manual",
+   "input": "Iron Jugulis",
    "verdict": "match",
    "target": {
     "ipa": "/ˈaɪɚn ˈdʒʌɡjəlɪs/",
@@ -79775,15 +81590,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/993/eye-urn-jug-you-liss~1f66a3cc10-1.wav",
-    "hash": "1f66a3cc10"
+    "file": "names/gpt-4o-mini-tts-verse/993/iron-jugulis~3fa83aa096-s2.wav",
+    "hash": "3fa83aa096"
    },
-   "at": "2026-10-22T14:53:37.731Z"
+   "at": "2026-10-22T14:53:37.731Z",
+   "history": [
+    {
+     "input": "Eye-urn Jug-you-liss",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/993/eye-urn-jug-you-liss~1f66a3cc10-1.wav",
+      "hash": "1f66a3cc10"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "994": {
    "name": "Iron Moth",
-   "status": "respelled",
-   "input": "Eye-urn Maughth",
+   "status": "manual",
+   "input": "Iron Moth",
    "verdict": "match",
    "target": {
     "ipa": "/ˈaɪɚn ˈmɔθ/",
@@ -79936,15 +81762,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/994/eye-urn-maughth~f2f731919c-1.wav",
-    "hash": "f2f731919c"
+    "file": "names/gpt-4o-mini-tts-verse/994/iron-moth~32eb176c6a-s1.wav",
+    "hash": "32eb176c6a"
    },
-   "at": "2026-10-22T14:54:39.177Z"
+   "at": "2026-10-22T14:54:39.177Z",
+   "history": [
+    {
+     "input": "Eye-urn Maughth",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/994/eye-urn-maughth~f2f731919c-1.wav",
+      "hash": "f2f731919c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "995": {
    "name": "Iron Thorns",
-   "status": "respelled",
-   "input": "Eye-urn Thawrnz",
+   "status": "manual",
+   "input": "Iron Thorns",
    "verdict": "match",
    "target": {
     "ipa": "/ˈaɪɚn ˈθɔrnz/",
@@ -80066,10 +81903,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/995/eye-urn-thawrnz~e8df5532b1-1.wav",
-    "hash": "e8df5532b1"
+    "file": "names/gpt-4o-mini-tts-verse/995/iron-thorns~fde77b5bc7-s2.wav",
+    "hash": "fde77b5bc7"
    },
-   "at": "2026-10-22T14:53:30.752Z"
+   "at": "2026-10-22T14:53:30.752Z",
+   "history": [
+    {
+     "input": "Eye-urn Thawrnz",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/995/eye-urn-thawrnz~e8df5532b1-1.wav",
+      "hash": "e8df5532b1"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "996": {
    "name": "Frigibax",
@@ -80548,8 +82396,8 @@
   },
   "1001": {
    "name": "Wo-Chien",
-   "status": "review",
-   "input": "Woh-chyen",
+   "status": "manual",
+   "input": "Wohchyen",
    "verdict": "near",
    "target": {
     "ipa": "/ˈwoʊˌtʃjɛn/",
@@ -80594,10 +82442,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/1001/woh-chyen~e96be5b8dd-1.wav",
-    "hash": "e96be5b8dd"
+    "file": "names/gpt-4o-mini-tts-verse/1001/wohchyen~e75cf0292c-s1.wav",
+    "hash": "e75cf0292c"
    },
-   "at": "2026-10-22T14:53:29.827Z"
+   "at": "2026-10-22T14:53:29.827Z",
+   "history": [
+    {
+     "input": "Woh-chyen",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/1001/woh-chyen~e96be5b8dd-1.wav",
+      "hash": "e96be5b8dd"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "1002": {
    "name": "Chien-Pao",
@@ -80788,8 +82647,8 @@
   },
   "1005": {
    "name": "Roaring Moon",
-   "status": "respelled",
-   "input": "Rawr-ing Moon",
+   "status": "manual",
+   "input": "Rawring Moon",
    "verdict": "match",
    "target": {
     "ipa": "/ˈrɔrɪŋ ˈmun/",
@@ -80863,10 +82722,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/1005/rawr-ing-moon~e83e29b01c-1.wav",
-    "hash": "e83e29b01c"
+    "file": "names/gpt-4o-mini-tts-verse/1005/rawring-moon~7b0f679e5d-s2.wav",
+    "hash": "7b0f679e5d"
    },
-   "at": "2026-10-22T14:53:36.594Z"
+   "at": "2026-10-22T14:53:36.594Z",
+   "history": [
+    {
+     "input": "Rawr-ing Moon",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/1005/rawr-ing-moon~e83e29b01c-1.wav",
+      "hash": "e83e29b01c"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "1006": {
    "name": "Iron Valiant",
@@ -81029,8 +82899,8 @@
   },
   "1009": {
    "name": "Walking Wake",
-   "status": "respelled",
-   "input": "Waw-king Wayk",
+   "status": "manual",
+   "input": "Wawking Wayk",
    "verdict": "match",
    "target": {
     "ipa": "/ˈwɔkɪŋ ˈweɪk/",
@@ -81096,10 +82966,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/1009/waw-king-wayk~808a9b601f-1.wav",
-    "hash": "808a9b601f"
+    "file": "names/gpt-4o-mini-tts-verse/1009/wawking-wayk~fb0e68615f-s1.wav",
+    "hash": "fb0e68615f"
    },
-   "at": "2026-10-22T14:53:55.503Z"
+   "at": "2026-10-22T14:53:55.503Z",
+   "history": [
+    {
+     "input": "Waw-king Wayk",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/1009/waw-king-wayk~808a9b601f-1.wav",
+      "hash": "808a9b601f"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "1010": {
    "name": "Iron Leaves",
@@ -81320,8 +83201,8 @@
   },
   "1012": {
    "name": "Poltchageist",
-   "status": "review",
-   "input": "Pohl-tchuh-guyst",
+   "status": "manual",
+   "input": "Pohlchuhguyst",
    "verdict": "near",
    "target": {
     "ipa": "/ˈpoʊltʃəˌɡaɪst/",
@@ -81476,10 +83357,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/1012/pohl-tchuh-guyst~025ae3a6b6-1.wav",
-    "hash": "025ae3a6b6"
+    "file": "names/gpt-4o-mini-tts-verse/1012/pohlchuhguyst~d9f569112e-s1.wav",
+    "hash": "d9f569112e"
    },
-   "at": "2026-10-22T14:56:15.697Z"
+   "at": "2026-10-22T14:56:15.697Z",
+   "history": [
+    {
+     "input": "Pohl-tchuh-guyst",
+     "status": "review",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/1012/pohl-tchuh-guyst~025ae3a6b6-1.wav",
+      "hash": "025ae3a6b6"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "1013": {
    "name": "Sinistcha",
@@ -82225,8 +84117,8 @@
   },
   "1023": {
    "name": "Iron Crown",
-   "status": "respelled",
-   "input": "Eye-urn Krown",
+   "status": "manual",
+   "input": "Iron Crown",
    "verdict": "match",
    "target": {
     "ipa": "/ˈaɪɚn ˈkraʊn/",
@@ -82302,15 +84194,26 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/1023/eye-urn-krown~2f635f55af-1.wav",
-    "hash": "2f635f55af"
+    "file": "names/gpt-4o-mini-tts-verse/1023/iron-crown~f01dd7e4ca-s1.wav",
+    "hash": "f01dd7e4ca"
    },
-   "at": "2026-10-22T14:54:46.091Z"
+   "at": "2026-10-22T14:54:46.091Z",
+   "history": [
+    {
+     "input": "Eye-urn Krown",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/1023/eye-urn-krown~2f635f55af-1.wav",
+      "hash": "2f635f55af"
+     }
+    }
+   ],
+   "why": "round 2 sweep (rule): the respelling read robotic"
   },
   "1024": {
    "name": "Terapagos",
-   "status": "respelled",
-   "input": "Teh-rah-puh-gohss",
+   "status": "manual",
+   "input": "Tehrahpuhgohs",
    "verdict": "match",
    "target": {
     "ipa": "/təˈrɑpəɡoʊs/",
@@ -82370,10 +84273,21 @@
     }
    ],
    "take": {
-    "file": "names/gpt-4o-mini-tts-verse/1024/teh-rah-puh-gohss~2be470a93a-1.wav",
-    "hash": "2be470a93a"
+    "file": "names/gpt-4o-mini-tts-verse/1024/tehrahpuhgohs~836f127f30-s2.wav",
+    "hash": "836f127f30"
    },
-   "at": "2026-10-22T14:55:43.072Z"
+   "at": "2026-10-22T14:55:43.072Z",
+   "history": [
+    {
+     "input": "Teh-rah-puh-gohss",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/1024/teh-rah-puh-gohss~2be470a93a-1.wav",
+      "hash": "2be470a93a"
+     }
+    }
+   ],
+   "why": "round 2 sweep (picked): the respelling read robotic"
   },
   "1025": {
    "name": "Pecharunt",
@@ -82430,8 +84344,8 @@
   },
   "pokemon": {
    "name": "Pokémon",
-   "status": "respelled",
-   "input": "Poh-kay-mon",
+   "status": "manual",
+   "input": "Pokemon",
    "verdict": "match",
    "target": {
     "ipa": "/ˈpoʊkeɪˌmɑn/",
@@ -82489,11 +84403,18 @@
      ]
     }
    ],
-   "take": {
-    "file": "names/gpt-4o-mini-tts-verse/pokemon/poh-kay-mon~014a5ff4c5-1.wav",
-    "hash": "014a5ff4c5"
-   },
-   "at": "2026-10-22T14:04:20.595Z"
+   "at": "2026-10-22T14:04:20.595Z",
+   "history": [
+    {
+     "input": "Poh-kay-mon",
+     "status": "respelled",
+     "take": {
+      "file": "names/gpt-4o-mini-tts-verse/pokemon/poh-kay-mon~014a5ff4c5-1.wav",
+      "hash": "014a5ff4c5"
+     }
+    }
+   ],
+   "why": "round 2: the respelling Poh-kay-mon came out syllable by syllable; Manuel picked this by ear"
   },
   "alola": {
    "name": "Alola",

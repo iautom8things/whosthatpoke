@@ -17,11 +17,16 @@ import { plainName, sentenceCase, slotIds, slug, spoken } from "./lib/text.mjs";
 const GAME_LENGTHS = [5, 10, 15];
 const SURVIVAL_MAX = 150;
 const REVEAL = "It’s {id}!";
+/** The everyday read of the word. The respelled "Poh-kay-mon" came out syllable by syllable (round 2, 2026-10-22). */
+const POKEMON_NOTE = "Say “Pokémon” the everyday way kids say it, one quick word that rolls straight off the tongue.";
 
 const LINES = [
   {
     key: "line.whos-that",
     text: "Who’s that Pokémon?",
+    // Spelled out, not slotted: Manuel picked these takes by ear with this exact spelling, and the
+    // {pokemon} slot's input ("Pokemon") would make them render again.
+    template: "Who’s that Pokémon?",
     variants: [
       { id: "a", direction: "Classic TV-cartoon reading: a mysterious lean on “Who’s that”, a big rise on the last word." },
       { id: "b", direction: "Slower and spookier, a half-beat hang after “Who’s that”, playful Halloween hush." },
@@ -84,7 +89,7 @@ export function buildManifest({ catalog, words, tiers }) {
   for (const of of GAME_LENGTHS) for (let n = 1; n < of; n++) add({ key: `score.got.${n}-of-${of}`, kind: "score", text: `You got ${n} out of ${of}!`, n, of });
   for (const of of GAME_LENGTHS) for (let n = 1; n < of; n++) add({ key: `score.team.${n}-of-${of}`, kind: "score", text: `Your team got ${n} out of ${of}!`, n, of });
   for (const of of GAME_LENGTHS) add({ key: `score.perfect.${of}`, kind: "score", text: `Perfect score! ${of} out of ${of}!`, n: of, of });
-  for (let n = 1; n <= SURVIVAL_MAX; n++) add({ key: `score.named.${n}`, kind: "score", text: `You named ${n} Pokémon!`, n });
+  for (let n = 1; n <= SURVIVAL_MAX; n++) add({ key: `score.named.${n}`, kind: "score", text: `You named ${n} Pokémon!`, n, direction: POKEMON_NOTE });
 
   const top = Math.max(...tiers.map((t) => t.minCorrect ?? 0));
   const seen = new Set();
@@ -96,6 +101,7 @@ export function buildManifest({ catalog, words, tiers }) {
     seen.add(key);
     const stress = [...source.matchAll(/\b[A-Z]{3,}\b/g)].map((m) => `Stress “${m[0].toLowerCase()}”.`);
     if (tier.minCorrect === top && tiers.length > 1) stress.push("The top prize: the biggest moment of the night.");
+    if (/Pokémon/.test(source)) stress.push(POKEMON_NOTE);
     add({ key, kind: "prize", text: sentenceCase(said), source, ...(stress.length ? { direction: stress.join(" ") } : {}) });
   }
   add({ key: "prize.custom", kind: "prize", text: "Here’s your prize!", source: "(stand-in when a host-typed prize has no recording)" });

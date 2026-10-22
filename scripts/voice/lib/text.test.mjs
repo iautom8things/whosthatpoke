@@ -151,7 +151,9 @@ describe("buildManifest", () => {
     expect(by["fact.778"].template).toBe("Its rag looks like {25}’s face. No {pokemon} is scarier.");
     expect(by["fact.778"].names).toEqual(["25", "pokemon"]);
     expect(by["fact.122"].template).toBe("{122}'s walls are invisible.");
-    expect(by["line.whos-that"].template).toBe("Who’s that {pokemon}?");
+    // The catchphrase keeps its spelling: its takes were picked by ear with it.
+    expect(by["line.whos-that"].template).toBe("Who’s that Pokémon?");
+    expect(by["score.named.12"].template).toBe("You named 12 {pokemon}!");
     expect(by["reveal.122"]).toMatchObject({ text: "It’s Mr. Mime!", template: "It’s {122}!" });
     expect(by["choice.last.25"]).toMatchObject({ text: "or Pikachu?", template: "or {25}?" });
   });
