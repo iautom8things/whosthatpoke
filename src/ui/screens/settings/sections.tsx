@@ -1,14 +1,17 @@
 // The smaller Settings tabs: Sound, Game, Look, Party tools and About.
-import { useState, useSyncExternalStore } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { announcer, whosThat } from "../../../audio";
 import { artUrl, CATALOG } from "../../../data/catalog";
 import { clearRecent, recentAnswers } from "../../../game/history";
 import { leaderboard } from "../../../game/leaderboard";
+import { storageWorks } from "../../../game/storage";
 import { useFullscreen } from "../../../lib/useFullscreen";
 import { useSettings, type Theme } from "../../../state/settings";
-import { Button, Card, ConfirmDialog, Display, IconPlay, IconRefresh, Pill, toast } from "../../components";
+import { Button, Card, ConfirmDialog, Display, IconBack, IconPlay, IconRefresh, Pill, toast } from "../../components";
 import { Choices, Level, Row, SectionTitle, SwitchRow } from "./controls";
 import { IconTrash } from "./icons";
+import { tonightScores } from "./partyScores";
+import { ScoreList } from "./ScoreList";
 import s from "./Settings.module.css";
 
 /* ---------------- Sound ---------------- */
@@ -140,7 +143,10 @@ export function PartySection() {
   const update = useSettings((st) => st.update);
   const reset = useSettings((st) => st.reset);
   const fullscreen = useFullscreen();
-  const scores = useSyncExternalStore(leaderboard.subscribe, leaderboard.all).length;
+  const all = useSyncExternalStore(leaderboard.subscribe, leaderboard.all);
+  const scores = all.length;
+  const tonight = useMemo(() => tonightScores(leaderboard), [all]);
+  const saves = storageWorks();
   const [recent, setRecent] = useState(() => recentAnswers().length);
   const [pending, setPending] = useState<Pending>(null);
 
@@ -172,13 +178,25 @@ export function PartySection() {
         disabled={!fullscreen.supported}
         onChange={() => void fullscreen.toggle()}
       />
-      <Row label="Leaderboard" hint={scores === 0 ? "No scores yet." : `${scores} ${scores === 1 ? "score" : "scores"} saved on this device.`}>
+      <Row label="Keep the screen on" hint="Set iPad Auto-Lock to Never and turn off Mac display sleep. Older iPads ignore the app’s keep-awake." />
+      <Row
+        label="Leaderboard"
+        hint={
+          <>
+            {scores === 0
+              ? "No scores yet."
+              : `${scores} ${scores === 1 ? "score" : "scores"} ${saves ? "saved on this device" : "so far"}.${tonight.length > 0 ? " Remove one name below, or clear them all." : ""}`}
+            {!saves && <span className={s.rowWarn}>Scores won’t be saved on this device.</span>}
+          </>
+        }
+      >
         {scores > 0 && (
           <Button variant="danger" icon={<IconTrash />} onPress={() => setPending("scores")}>
             Clear
           </Button>
         )}
       </Row>
+      {tonight.length > 0 && <ScoreList entries={tonight} />}
       <Row
         label="Recently shown Pokémon"
         hint={recent === 0 ? "Nothing to skip yet. Every Pokémon can come up." : `The last ${recent} are skipped so kids see new ones.`}
@@ -206,7 +224,8 @@ export function PartySection() {
               : "Pokémon from earlier games can show up again right away."
         }
         confirmLabel={pending ? CONFIRM[pending].label : ""}
-        cancelLabel="Keep"
+        cancelLabel="Cancel"
+        cancelIcon={<IconBack />}
         onConfirm={confirm}
         onCancel={() => setPending(null)}
       />

@@ -76,21 +76,18 @@
 .paddleWrap {
   position: relative;
   width: 100%;
-  transition:
-    transform 260ms var(--ease-pop),
-    opacity var(--dur-med) var(--ease-out),
-    filter var(--dur-med) var(--ease-out);
+  transition: transform 260ms var(--ease-pop);
+}
+/* The paddle the verdict did not take. A tap on it changes the verdict, so it stays solid (the sky never
+   shows through), only a little darker, with an Undo tag. */
+.paddleWrap[data-undo] .paddle {
+  filter: brightness(0.72) saturate(0.7);
 }
 .paddleWrap[data-armed] {
   transform: scale(1.08);
 }
 .paddleWrap[data-armed] .paddle {
   filter: brightness(1.15);
-}
-/* The paddle the verdict did not take. It still takes a tap: that changes the verdict. */
-.paddleWrap[data-dim] {
-  opacity: 0.4;
-  filter: saturate(0.5);
 }
 
 .layout .side .paddle {
@@ -130,6 +127,38 @@
   pointer-events: none;
   /* Above the neighbouring Reveal button in the portrait row. */
   z-index: 1;
+}
+
+.undoTag {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  translate: -50% 35%;
+  /* left: 50% would otherwise squeeze it to half the paddle. */
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  padding: 0.16em 0.5em 0.04em;
+  border: var(--stroke) solid var(--outline);
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink-dark);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 3px 0 var(--outline);
+  pointer-events: none;
+  z-index: 1;
+  animation: hintIn 300ms var(--ease-pop) both;
+}
+.undoIcon {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.12em;
 }
 
 /* ---------- Reveal / hint / Next ---------- */
@@ -193,6 +222,10 @@
 
 /* ---------- portrait ---------- */
 @media (orientation: portrait) {
+  /* The label sits low in a stacked paddle; hang the pill lower so it clears the letters. */
+  .undoTag {
+    translate: -50% 62%;
+  }
   .layout {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: minmax(0, 1fr) auto;
@@ -254,6 +287,21 @@
   min-height: calc(var(--touch-min) - var(--edge));
   padding: 0 0.6em;
   font-size: var(--fs-md);
+}
+/* On the iPad the host's thumb needs the full-size button, not a pill. The header keeps that height in
+   every state, so the card never jumps between Reveal, the hint and Next. */
+@media (pointer: coarse) and (min-height: 600px) {
+  .headerRight {
+    min-height: var(--h-lg);
+  }
+  .headerRight .centerBtn {
+    --h: var(--h-lg);
+    --fs: var(--fs-lg);
+    border-radius: var(--r-xl);
+  }
+  .headerRight .hint {
+    min-height: calc(var(--h-lg) - var(--edge));
+  }
 }
 
 @keyframes fuse {

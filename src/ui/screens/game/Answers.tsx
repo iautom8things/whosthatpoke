@@ -111,14 +111,14 @@ function useFittedFact(fact: string | undefined) {
 
 /** Pokédex-style card: number, genus, types, region and a kid-friendly fact when we have one. */
 export function FactCard({ mon }: { mon: Mon }) {
-  const region = categoryById(`region-${mon.region}`).label;
+  const region = mon.place ?? categoryById(`region-${mon.region}`).label;
   const badge = useViewport().size === "phone" ? "sm" : "md";
   const fact = useFittedFact(mon.fact);
   return (
     <Panel tone="solid" padding="none" className={s.fact} data-has-fact={mon.fact ? true : undefined} data-tight={fact.tight || undefined}>
       <div className={s.factHead}>
         <span className={s.dexNo}>{COPY.dex(mon.dex)}</span>
-        {mon.genus && <span className={`wtp-display ${s.genus}`}>{mon.genus}</span>}
+        {mon.genus && <span className={`wtp-display wtp-surface-title ${s.genus}`}>{mon.genus}</span>}
       </div>
       <div className={s.factTags}>
         {mon.types.map((t) => (

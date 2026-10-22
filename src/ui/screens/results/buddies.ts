@@ -1,5 +1,6 @@
 import { CATALOG } from "../../../data/catalog";
 import type { Mon } from "../../../data/types";
+import { isBlockedName } from "../../../game/names";
 
 // Pikachu, Eevee, then every region's grass, fire and water starter.
 const BUDDY_DEX = [
@@ -53,4 +54,14 @@ export const NAME_MAX = 12;
 export function randomTrainerName(avoid?: string): string {
   const pool = TRAINER_NAMES.filter((n) => n !== avoid);
   return pool[Math.floor(Math.random() * pool.length)];
+}
+
+/**
+ * The name that goes on the board. Blank or rude gets a fun trainer name instead.
+ * Laptop keyboards don't auto-capitalize: "ash ketchum" goes on the board as "Ash Ketchum".
+ */
+export function boardName(typed: string): string {
+  const name = typed.trim().replace(/\s+/g, " ");
+  if (!name || isBlockedName(name)) return randomTrainerName();
+  return name === name.toLowerCase() ? name.replace(/(^|\s)\p{L}/gu, (c) => c.toUpperCase()) : name;
 }

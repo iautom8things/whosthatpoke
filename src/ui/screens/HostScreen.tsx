@@ -8,7 +8,7 @@ import { haptic } from "../../lib/haptic";
 import { useKeys } from "../../lib/useKeys";
 import { useSwipe, type SwipeDirection } from "../../lib/useSwipe";
 import { useViewport } from "../../lib/useViewport";
-import { useNav } from "../../state/nav";
+import { onBrowserBack, useNav } from "../../state/nav";
 import { useSession } from "../../state/session";
 import { useSettings } from "../../state/settings";
 import {
@@ -31,6 +31,7 @@ import {
   ScreenFrame,
   toast,
 } from "../components";
+import { ART_CHECK_MS, artLoads, dealWithArt } from "./host/artCheck";
 import { hostDemo, hostHelpSeen, markHostHelpSeen } from "./host/flags";
 import s from "./host/Host.module.css";
 import { DeckBacks, HostCard, type CardFace, type Verdict } from "./host/HostCard";
@@ -93,6 +94,25 @@ const blurIfPointer = (e: MouseEvent<HTMLButtonElement>) => {
   if (e.detail > 0) e.currentTarget.blur();
 };
 
+/** A curved arrow back. The kit has no undo icon. */
+function IconUndo({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={3}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 0 11H11" />
+    </svg>
+  );
+}
+
 export default function HostScreen() {
   const current = useSession((st) => st.current);
   const phase = useSession((st) => st.phase);
@@ -108,6 +128,9 @@ export default function HostScreen() {
   const [confirmQuit, setConfirmQuit] = useState(false);
   /** Bumped when the verdict changes, so the reveal hold and its fuse start over. */
   const [flips, setFlips] = useState(0);
+  /** The card whose art was checked (see the deal effect). Its round starts only then. */
+  const [artReady, setArtReady] = useState<number | null>(null);
+  const toldArt = useRef(false);
   const hidden = useSyncExternalStore(subscribeVisibility, isHidden);
   const judgedAt = useRef(0);
   const dealtAt = useRef(performance.now());
@@ -148,10 +171,32 @@ export default function HostScreen() {
   const exitDir = advanceDir.current ?? (last?.correct === false ? -1 : 1);
   const live = current != null && phase !== "done" && phase !== "idle" && !helpOpen && !confirmQuit;
 
+  // A new deal never shows a "?" tile: art that fails to load (offline, missing file) gets the card swapped for a spare.
+  const dealing = phase === "intro" ? index : null;
+  useEffect(() => {
+    if (dealing == null) return;
+    let alive = true;
+    void dealWithArt({
+      current: () => useSession.getState().current?.answer,
+      loads: (mon) => artLoads(mon, ART_CHECK_MS),
+      swap: () => alive && useSession.getState().swapCurrent(),
+    }).then((ok) => {
+      if (!alive) return;
+      if (!ok && !toldArt.current) {
+        toldArt.current = true;
+        toast("Some pictures won’t load. Check the connection.", { tone: "bad", ms: 4000 });
+      }
+      setArtReady(dealing);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [dealing]);
+
   // A new card: the sting, "Who's that Pokémon?", then the round is on. A hidden tab waits.
   const dex = current?.answer.dex;
   useEffect(() => {
-    if (phase !== "intro" || dex == null || helpOpen || hidden) return;
+    if (phase !== "intro" || dex == null || helpOpen || hidden || artReady !== index) return;
     // The line outlives the intro (it starts about 1 s in), so only leaving the screen cancels it.
     const sting = window.setTimeout(() => (cue.current = whosThat()), 120);
     const ask = window.setTimeout(() => useSession.getState().beginAsking(), INTRO_MS);
@@ -159,7 +204,7 @@ export default function HostScreen() {
       window.clearTimeout(sting);
       window.clearTimeout(ask);
     };
-  }, [phase, dex, helpOpen, hidden]);
+  }, [phase, dex, helpOpen, hidden, artReady]);
 
   useEffect(() => {
     if (current) void preloadArt([current.answer]);
@@ -231,7 +276,7 @@ export default function HostScreen() {
     audio.sfx(got ? "correct" : "wrong");
     haptic(got ? "success" : "error");
     if (got) celebrate("burst", { origin: stageOrigin(), intensity: 0.65 });
-    toast(got ? "Changed to Got it!" : "Changed to Missed", { tone: got ? "good" : "bad", icon: got ? <IconCheck /> : <IconX />, ms: 1600 });
+    toast(got ? "Changed to Got it!" : "Changed to Missed", { tone: got ? "good" : "bad", icon: got ? <IconCheck /> : <IconX />, ms: 1600, place: "bottom" });
   }
 
   /** A paddle: judge the card, or change the verdict while its answer is up. */
@@ -362,7 +407,13 @@ export default function HostScreen() {
     useSession.getState().quit();
     useNav.getState().back();
   }
-  const onBack = () => (rounds.length > 0 && phase !== "done" ? setConfirmQuit(true) : leave());
+  function onBack() {
+    const st = useSession.getState();
+    if (st.rounds.length > 0 && st.phase !== "done") setConfirmQuit(true);
+    else leave();
+  }
+  // The browser's Back (Safari's edge swipe) does what the Back button does. onBack reads the store, so the first one is fine.
+  useEffect(() => onBrowserBack(onBack), []);
 
   function closeHelp() {
     markHostHelpSeen();
@@ -380,6 +431,14 @@ export default function HostScreen() {
   );
 
   const remaining = Math.max(0, total - index - 1);
+  /** While the answer is up, the paddle the verdict did not take changes it (see flip). */
+  const undoTo: Verdict | null = verdict === "got" ? "missed" : verdict === "missed" ? "got" : null;
+  const undoTag = (
+    <span className={s.undoTag} aria-hidden="true">
+      <IconUndo className={s.undoIcon} />
+      Undo
+    </span>
+  );
   const holdMs = peeked === index ? REVEAL_AFTER_PEEK_MS : REVEAL_MS;
 
   // Reveal before judging, a hint while peeking, Next once judged. Landscape screens up to the iPad's height
@@ -448,7 +507,7 @@ export default function HostScreen() {
     >
       <div className={s.layout} data-face={face} data-compact={compact || undefined} {...layoutHandlers}>
         <div className={`${s.side} ${s.miss}`}>
-          <div className={s.paddleWrap} data-armed={armed === "missed" || undefined} data-dim={(judged && verdict !== "missed") || undefined}>
+          <div className={s.paddleWrap} data-armed={armed === "missed" || undefined} data-undo={undoTo === "missed" || undefined}>
             <Button
               variant="danger"
               size="lg"
@@ -456,6 +515,7 @@ export default function HostScreen() {
               className={s.paddle}
               icon={<IconX className={s.paddleIcon} />}
               aria-disabled={verdict === "missed" || undefined}
+              aria-label={undoTo === "missed" ? "Change to Missed" : undefined}
               onPress={(e) => {
                 blurIfPointer(e);
                 decide(false);
@@ -466,6 +526,7 @@ export default function HostScreen() {
             <span className={s.tally} aria-label={`${missed} missed`}>
               {missed}
             </span>
+            {undoTo === "missed" && undoTag}
           </div>
         </div>
 
@@ -494,7 +555,7 @@ export default function HostScreen() {
         {!compact && <div className={`${s.side} ${s.center}`}>{centerControl}</div>}
 
         <div className={`${s.side} ${s.got}`}>
-          <div className={s.paddleWrap} data-armed={armed === "got" || undefined} data-dim={(judged && verdict !== "got") || undefined}>
+          <div className={s.paddleWrap} data-armed={armed === "got" || undefined} data-undo={undoTo === "got" || undefined}>
             <Button
               variant="success"
               size="lg"
@@ -502,6 +563,7 @@ export default function HostScreen() {
               className={s.paddle}
               icon={<IconCheck className={s.paddleIcon} />}
               aria-disabled={verdict === "got" || undefined}
+              aria-label={undoTo === "got" ? "Change to Got it" : undefined}
               onPress={(e) => {
                 blurIfPointer(e);
                 decide(true);
@@ -512,6 +574,7 @@ export default function HostScreen() {
             <span className={s.tally} aria-label={`${correct} got it`}>
               {correct}
             </span>
+            {undoTo === "got" && undoTag}
           </div>
         </div>
       </div>

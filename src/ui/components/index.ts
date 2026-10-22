@@ -31,4 +31,4 @@ export * from "./icons";
 export { Logo, type LogoProps } from "./Logo";
 export { PokeArt, preloadArt, type PokeArtProps } from "./PokeArt";
 export { ScreenFrame, type FrameLayout, type ScreenFrameProps } from "./ScreenFrame";
-export { toast, ToastHost, type ToastOptions, type ToastTone } from "./Toast";
+export { toast, ToastHost, type ToastOptions, type ToastPlace, type ToastTone } from "./Toast";

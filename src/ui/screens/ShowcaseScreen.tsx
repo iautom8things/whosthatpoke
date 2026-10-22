@@ -276,7 +276,7 @@ function TopTrainers({ n }: { n: number }) {
         <Panel tone="solid" className={s.empty}>
           <div className={s.emptyArt}>{mascot && <PokeArt mon={mascot} revealed outline={false} />}</div>
           <div className={s.emptyText}>
-            <Display size="xl">No Top Trainers yet!</Display>
+            <Display size="xl" className="wtp-surface-title">No Top Trainers yet!</Display>
             <p>Be the first one on the board tonight.</p>
           </div>
         </Panel>

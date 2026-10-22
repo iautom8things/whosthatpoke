@@ -13,6 +13,7 @@ import { celebrate, preloadArt, toast } from "../../components";
 import { COPY } from "./copy";
 import { Countdown } from "./countdown";
 import { gameDemo } from "./demoHooks";
+import { ReadOut } from "./readOut";
 import { Timers } from "./timers";
 
 /** Silhouette swoop + "Who's that Pokémon?" before the clock starts. The sting's hit lands at ~0.9 s. */
@@ -162,6 +163,8 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
   const voiceGate = useRef<Promise<void> | null>(null);
   /** This question's "Who's that Pokémon?" line, which waits about a second before it starts. */
   const asked = useRef<ReturnType<typeof whosThat> | null>(null);
+  /** This question's line and names, so Keep playing can read again what the Quit dialog cut off. */
+  const readOut = useRef<ReadOut | null>(null);
   const toldArt = useRef(false);
   const sawPlay = useRef(false);
   const lastQuestion = useRef<Question | null>(current);
@@ -291,6 +294,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
       clockRef.current = null;
       autoRef.current = null;
       voiceGate.current = null;
+      readOut.current = null;
       setGameOver(false);
       const enter = () => {
         const cur = useSession.getState().current ?? q;
@@ -299,13 +303,17 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
         const line = whosThat();
         asked.current = line;
         // Poké Ball reads the four names out, for kids who can't read them yet.
-        if (useSession.getState().config?.difficulty === "easy") {
-          const key = keyOf(useSession.getState());
-          const names = COPY.choices(cur.choices.map((m) => m.say));
-          voiceGate.current = line.then(() =>
-            keyOf(useSession.getState()) === key && !answered.current && !quitRef.current ? announcer.say(names) : undefined,
-          );
-        }
+        const easy = useSession.getState().config?.difficulty === "easy";
+        const key = keyOf(useSession.getState());
+        const voice = new ReadOut({
+          line: COPY.ask,
+          names: easy ? COPY.choices(cur.choices.map((m) => m.say)) : null,
+          say: (text) => announcer.say(text),
+          cut: () => keyOf(useSession.getState()) !== key || answered.current || quitRef.current,
+        });
+        readOut.current = voice;
+        const read = voice.start(line);
+        if (easy) voiceGate.current = read;
         if (!gameDemo.hold) t.later(() => useSession.getState().beginAsking(), reduce ? 400 : INTRO_MS);
         const upcoming = peekNext();
         if (upcoming) void preloadArt([upcoming.answer], 10000);
@@ -489,6 +497,14 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
     quitRef.current = false;
     setQuitOpen(false);
     scope.current.resume();
+    // Read again the line or names the dialog cut off. On Poké Ball the clock waits for them again.
+    const again = readOut.current?.resume();
+    if (again && voiceGate.current) {
+      voiceGate.current = again;
+      const c = clockRef.current;
+      if (c) void again.then(() => clockRef.current === c && canRun() && c.start());
+      return;
+    }
     resumeAll();
   }, [resumeAll]);
 

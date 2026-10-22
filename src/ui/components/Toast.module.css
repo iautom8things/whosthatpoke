@@ -12,6 +12,12 @@
   max-width: calc(100vw - 2 * var(--gutter));
   pointer-events: none;
 }
+/* Compact and low, so it fits under the game's timer bar on an upright iPad. */
+.host[data-place="bottom"] {
+  top: auto;
+  bottom: calc(var(--safe-b) + var(--sp-1));
+  flex-direction: column-reverse;
+}
 
 .toast {
   --bg: var(--surface-strong);
@@ -31,6 +37,9 @@
   box-shadow:
     0 5px 0 var(--outline),
     var(--shadow-soft);
+}
+.host[data-place="bottom"] .toast {
+  font-size: var(--fs-sm);
 }
 .toast[data-tone="good"] {
   --bg: var(--good);

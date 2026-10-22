@@ -1,16 +1,23 @@
 // A light check on names that go up on the projector. It catches the usual rude words, spelled
 // with spaces, repeated letters or digits for letters ("f u u c k", "sh1t"); it is not a full filter.
 
-/** Rude anywhere in a name, after spaces and punctuation are dropped and repeated letters collapsed. */
+/** Rude anywhere inside a word, once repeated letters are collapsed. */
 const ANYWHERE = [
-  "fuck", "phuck", "shit", "bitch", "biatch", "cunt", "whore", "slut", "penis", "vagina", "porn", "dildo",
+  "fuck", "phuck", "bitch", "biatch", "cunt", "whore", "slut", "penis", "vagina", "porn", "dildo",
   "nigger", "nigga", "faggot", "asshole", "butthole", "bastard", "wanker", "retard", "rapist", "molest",
   "hitler", "jizz", "dumbass", "jackass", "killyourself", "mierda", "pendejo", "chinga", "motherf",
+  "dickhead", "dickface", "dicksuck", "cocksuck",
 ];
+
+/**
+ * "shit" inside a word unless a vowel follows: "bullshit" and "shitty" are rude, while Matsushita,
+ * Shitara and Shiitake are real names. On its own it is a whole word below.
+ */
+const SHIT_INSIDE = /shit(?![aeiou])/;
 
 /** Rude as a whole word (or the whole name). Too short to look for inside other names: "Cassidy", "Titan". */
 const WHOLE_WORD = [
-  "ass", "arse", "fuk", "fck", "fk", "sht", "btch", "dick", "cock", "pussy", "tit", "tits", "titty", "boob",
+  "ass", "arse", "shit", "fuk", "fck", "fk", "sht", "btch", "dick", "cock", "pussy", "tit", "tits", "titty", "boob",
   "boobs", "cum", "sex", "sexy", "anal", "anus", "rape", "fag", "nazi", "kkk", "milf", "horny", "nude",
   "twat", "wtf", "stfu", "puta", "verga", "culo", "kys",
 ];
@@ -37,16 +44,31 @@ const wholeCollapsed = new Map(WHOLE_WORD.map((w) => [collapse(w), w.length]));
 const wordHit = (word: string) =>
   whole.has(word) || (wholeCollapsed.get(collapse(word)) ?? Infinity) <= word.length;
 
-/** True when a name should not go on the board. */
-export function isBlockedName(name: string): boolean {
-  for (const spelled of spellings(name)) {
-    const letters = spelled.replace(/[^a-z]/g, "");
-    const squeezed = collapse(letters);
-    if (anywhere.some((w) => squeezed.includes(w))) return true;
-    if (wordHit(letters)) return true;
-    if (spelled.split(/[^a-z]+/).some((w) => w && wordHit(w))) return true;
+const insideWord = (word: string) => {
+  const squeezed = collapse(word);
+  return wordHit(word) || SHIT_INSIDE.test(squeezed) || anywhere.some((w) => squeezed.includes(w));
+};
+
+/**
+ * Words run together ("F U C K", "Big Butt Hole") only count when they spell a rude word exactly,
+ * so "Wes Hitley" and "Bob Itchy" pass.
+ */
+const spelledAcross = (words: readonly string[]) => {
+  for (let i = 0; i < words.length; i++) {
+    for (let j = i + 2; j <= words.length; j++) {
+      const joined = words.slice(i, j).join("");
+      if (wordHit(joined) || anywhere.includes(collapse(joined))) return true;
+    }
   }
   return false;
+};
+
+/** True when a name should not go on the board. */
+export function isBlockedName(name: string): boolean {
+  return spellings(name).some((spelled) => {
+    const words = spelled.split(/[^a-z]+/).filter(Boolean);
+    return words.some(insideWord) || spelledAcross(words);
+  });
 }
 
 /** The name, or `fallback` when it is blocked. */

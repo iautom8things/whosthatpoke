@@ -7,7 +7,19 @@ describe("name check", () => {
     (name) => expect(isBlockedName(name)).toBe(true),
   );
 
+  // Compounds, and rude words spelled out across spaces or dots.
+  it.each(["dickhead", "Dick Head", "Bullshit", "shitty", "Shithead", "S H I T", "F.U.C.K", "Fu ck", "Bitchy"])(
+    "blocks %s",
+    (name) => expect(isBlockedName(name)).toBe(true),
+  );
+
   it.each(["Ash", "Misty", "Cassidy", "Sasha", "Titan", "Dickens", "Bob", "Scott", "Shiloh", "Analise", "Hancock", "Pikachu", "Kid 3", "Mr. Mime", "Zoë", "AS"])(
+    "allows %s",
+    (name) => expect(isBlockedName(name)).toBe(false),
+  );
+
+  // Rude words hide inside real names, and across the space between two names.
+  it.each(["Matsushita", "Shitara", "Shiitake", "Kshitij", "Wes Hitley", "Bob Itchy", "Cumming", "Peacock", "Sakura Assi"])(
     "allows %s",
     (name) => expect(isBlockedName(name)).toBe(false),
   );

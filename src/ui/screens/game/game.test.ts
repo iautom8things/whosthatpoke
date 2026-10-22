@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { COPY } from "./copy";
 import { fitOptions, sentences } from "./fact";
+import { ReadOut } from "./readOut";
 import { Timers } from "./timers";
 
 describe("fact sentences", () => {
@@ -98,5 +99,78 @@ describe("pausable timers", () => {
     t.resume();
     vi.advanceTimersByTime(1000);
     expect(fn).not.toHaveBeenCalled();
+  });
+});
+
+describe("question read-out", () => {
+  /** A fake voice: each line waits until the test ends it, as the speech engine or a cancel would. */
+  function voice(names: string | null) {
+    const said: string[] = [];
+    let end = () => {};
+    const state = { quit: false };
+    const say = (text: string) => {
+      said.push(text);
+      return new Promise<void>((resolve) => (end = resolve));
+    };
+    const r = new ReadOut({ line: "Who?", names, say, cut: () => state.quit });
+    const flush = () => new Promise((resolve) => setTimeout(resolve, 0));
+    return { r, said, state, say, flush, end: async () => (end(), await flush()) };
+  }
+
+  it("reads the line, then the names, and owes nothing after", async () => {
+    const v = voice("Is it A, B, C, or D?");
+    void v.r.start(v.say("Who?"));
+    await v.end();
+    expect(v.said).toEqual(["Who?", "Is it A, B, C, or D?"]);
+    await v.end();
+    expect(v.r.resume()).toBeNull();
+  });
+
+  it("reads the line and the names again when Quit cut the line", async () => {
+    const v = voice("Is it A, B, C, or D?");
+    void v.r.start(v.say("Who?"));
+    v.state.quit = true;
+    await v.end();
+    expect(v.said).toEqual(["Who?"]);
+    v.state.quit = false;
+    void v.r.resume();
+    await v.end();
+    expect(v.said).toEqual(["Who?", "Who?", "Is it A, B, C, or D?"]);
+  });
+
+  it("reads only the names again when Quit cut them", async () => {
+    const v = voice("Is it A, B, C, or D?");
+    void v.r.start(v.say("Who?"));
+    await v.end();
+    v.state.quit = true;
+    await v.end();
+    v.state.quit = false;
+    void v.r.resume();
+    await v.flush();
+    expect(v.said).toEqual(["Who?", "Is it A, B, C, or D?", "Is it A, B, C, or D?"]);
+    await v.end();
+    expect(v.r.resume()).toBeNull();
+  });
+
+  it("owes only the line on the balls that don't read names", async () => {
+    const v = voice(null);
+    void v.r.start(v.say("Who?"));
+    v.state.quit = true;
+    await v.end();
+    v.state.quit = false;
+    const again = v.r.resume();
+    expect(again).not.toBeNull();
+    await v.end();
+    await again;
+    expect(v.said).toEqual(["Who?", "Who?"]);
+    expect(v.r.resume()).toBeNull();
+  });
+
+  it("owes nothing once the question is over", async () => {
+    const v = voice("Is it A, B, C, or D?");
+    void v.r.start(v.say("Who?"));
+    v.state.quit = true;
+    await v.end();
+    expect(v.r.resume()).toBeNull();
   });
 });

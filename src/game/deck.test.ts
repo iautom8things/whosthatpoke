@@ -381,6 +381,17 @@ describe("survival", () => {
     expect(mean(early)).toBeLessThan(mean(late));
   });
 
+  it("never asks a featureless silhouette on Poké Ball or Great Ball, even past the band", () => {
+    for (const c of CATEGORIES) {
+      for (const difficulty of ["easy", "medium"] as const) {
+        for (const seed of seeds(3)) {
+          const blobs = take(createDeck(config({ mode: "survival", categoryId: c.id, difficulty, seed })), 40).filter((q) => q.answer.blob);
+          expect(blobs.map((q) => `${c.id} ${difficulty} ${q.answer.name}`)).toEqual([]);
+        }
+      }
+    }
+  });
+
   it("avoids recent answers at the start of a run", () => {
     const recent = take(createDeck(config({ mode: "survival", seed: 1 })), 30).map((q) => q.answer.dex);
     const next = take(createDeck(config({ mode: "survival", seed: 2 }), recent), 30);

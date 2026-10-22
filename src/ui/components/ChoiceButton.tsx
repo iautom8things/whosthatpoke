@@ -45,6 +45,7 @@ export function ChoiceButton({ label, state = "idle", hint, onPress, disabled, s
       type="button"
       className={cx(s.choice, className)}
       data-state={state}
+      data-long={label.length > 10 || undefined}
       aria-disabled={!live || undefined}
       aria-label={suffix ? `${label}, ${suffix}` : label}
       style={{ ...style, ["--len" as string]: Math.max(label.length, 7) }}

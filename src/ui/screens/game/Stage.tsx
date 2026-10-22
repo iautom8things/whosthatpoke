@@ -2,7 +2,9 @@ import { AnimatePresence, motion } from "motion/react";
 import type { CSSProperties, Ref } from "react";
 import type { Mon } from "../../../data/types";
 import type { Round } from "../../../state/session";
+import { useSettings } from "../../../state/settings";
 import { useSwipe } from "../../../lib/useSwipe";
+import { useViewport } from "../../../lib/useViewport";
 import { Burst, Display, Pill, PokeArt } from "../../components";
 import { COPY } from "./copy";
 import s from "./game.module.css";
@@ -60,7 +62,12 @@ export function Stage({ mon, artKey, ready, revealed, timedOut, round, popup, st
     ? { transform: `translate(${Math.min(0, swipe.dx) * 0.55 + Math.max(0, swipe.dx) * 0.15}px, ${Math.min(0, swipe.dy) * 0.55}px) rotate(${swipe.dx / 28}deg)` }
     : {};
 
-  const intensity = revealed ? 1 : ready ? 0.62 : 0.4;
+  // A washed-out projector needs stronger rays behind the silhouette and bigger score pills. At 480p three
+  // bigger pills wrap onto the revealed Pokémon's face, so they stay small there.
+  const projector = useSettings((st) => st.projector);
+  const phone = useViewport().size === "phone";
+  const intensity = revealed ? 1 : ready ? (projector ? 0.85 : 0.62) : 0.4;
+  const pill = projector && !phone ? "md" : "sm";
   const score = round?.score;
   const showPoints = popup && revealed && round?.correct && score && score.points > 0;
   const showMiss = popup && revealed && round && !round.correct;
@@ -103,16 +110,16 @@ export function Stage({ mon, artKey, ready, revealed, timedOut, round, popup, st
               +{score.points}
             </Display>
             <div className={s.breakdown}>
-              <Pill tone="good" size="sm">
+              <Pill tone="good" size={pill}>
                 {COPY.right} +{timed ? score.base : score.base + score.speedBonus}
               </Pill>
               {timed && score.speedBonus > 0 && (
-                <Pill tone="hi" size="sm">
+                <Pill tone="hi" size={pill}>
                   {COPY.fast} +{score.speedBonus}
                 </Pill>
               )}
               {score.streakBonus > 0 && (
-                <Pill tone="accent" size="sm" icon="🔥">
+                <Pill tone="accent" size={pill} icon="🔥">
                   {COPY.streakBonus} +{score.streakBonus}
                 </Pill>
               )}

@@ -7,7 +7,7 @@ import { useViewport } from "../../../lib/useViewport";
 import { useNav } from "../../../state/nav";
 import { useSettings } from "../../../state/settings";
 import { Burst, Button, Display, IconCheck, PokeArt, ScreenFrame } from "../../components";
-import { BUDDIES, buddyMon, DEFAULT_BUDDY, NAME_MAX, randomTrainerName } from "./buddies";
+import { boardName, BUDDIES, buddyMon, DEFAULT_BUDDY, NAME_MAX, randomTrainerName } from "./buddies";
 import { MonThumb } from "./MonThumb";
 import { useResultsUi } from "./state";
 import type { GameSummary } from "./model";
@@ -43,11 +43,8 @@ export function NameEntry({ summary }: { summary: GameSummary }) {
 
   const save = () => {
     if (summary.mode === "host") return;
-    const typed = name.trim().replace(/\s+/g, " ");
-    // Laptop keyboards don't auto-capitalize: "ash ketchum" goes on the board as "Ash Ketchum".
-    const finalName = !typed ? randomTrainerName() : typed === typed.toLowerCase() ? typed.replace(/(^|\s)\p{L}/gu, (c) => c.toUpperCase()) : typed;
     const entry = leaderboard.add({
-      name: finalName,
+      name: boardName(name),
       buddy,
       mode: summary.mode,
       points: summary.points,
@@ -160,7 +157,7 @@ export function NameEntry({ summary }: { summary: GameSummary }) {
           </Button>
 
           <p className={s.pickLabel}>Pick your buddy!</p>
-          <div className={s.buddies} role="radiogroup" aria-label="Buddy">
+          <div className={s.buddies} role="radiogroup" aria-label="Buddy" style={{ "--per-row": Math.ceil(BUDDIES.length / 3) } as CSSProperties}>
             {BUDDIES.map((b, i) => (
               <button
                 key={b.dex}

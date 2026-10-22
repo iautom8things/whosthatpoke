@@ -8,6 +8,9 @@ export interface AwakeEnv {
   win: Listen;
 }
 
+/** A request that has not settled by now is treated as lost, so the next tap asks again. */
+const REQUEST_TIMEOUT_MS = 5000;
+
 /**
  * Holds a screen wake lock until the returned function runs. The OS drops the lock whenever the
  * page is hidden, and Safari grants it only after a user gesture, so it is requested again on
@@ -17,22 +20,29 @@ export interface AwakeEnv {
 export function keepScreenAwake(env: AwakeEnv): () => void {
   const { wakeLock, doc, win } = env;
   let lock: WakeLockSentinel | null = null;
-  let pending = false;
+  // The request in flight, if any. Only that one may clear it.
+  let pending: object | null = null;
   let alive = true;
 
   const request = () => {
     if (!alive || pending || (lock && !lock.released) || doc.visibilityState !== "visible") return;
-    pending = true;
+    const attempt = {};
+    pending = attempt;
+    const settle = () => {
+      if (pending === attempt) pending = null;
+    };
+    const timer = setTimeout(settle, REQUEST_TIMEOUT_MS);
     wakeLock
       .request("screen")
       .then((sentinel) => {
-        lock = sentinel;
-        // Stopped while the request was in flight.
-        if (!alive) void sentinel.release().catch(() => {});
+        // Stopped while the request was in flight, or a retry already holds a lock.
+        if (!alive || (lock && !lock.released)) void sentinel.release().catch(() => {});
+        else lock = sentinel;
       })
       .catch(() => {})
       .finally(() => {
-        pending = false;
+        clearTimeout(timer);
+        settle();
       });
   };
 

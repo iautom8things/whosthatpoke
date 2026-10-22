@@ -29,7 +29,7 @@ Every demo: `&theme=spooky|classic`, `&projector=on|off`, `&motion=reduce`.
 | `game-long-names` | `&reveal=1` shows the reveal instead of the question |
 | `host*`, `showcase*` | `&dex=N`, `&seed=N`; showcase also `&speed=N` |
 | `results-*` | `&intro=full` plays the count-up instead of jumping to the end |
-| `settings` | `&tab=game\|look\|prizes\|party\|offline\|about`; on the offline tab `&pwa=installing\|reload\|ready\|error` and `&art=<n>` (cached art count, dev server only) |
+| `settings` | `&tab=sound\|game\|look\|prizes\|party\|offline\|about`; on the offline tab `&pwa=installing\|reload\|ready\|error` and `&art=<n>` (cached art count). The offline params work on the dev server only: a build's real service worker overrides them |
 
 ## Batch capture
 
@@ -38,6 +38,8 @@ node qa/capture.mjs --url http://localhost:<port> --out <dir> [--devices a,b] [-
   [--themes spooky,classic] [--projector off,on] [--wait 1500] [--session-prefix <short>]
 ```
 
+- `node qa/capture.mjs --help` prints these options.
+- Devices run one at a time, so a run never holds more than one browser open. On a shared machine, one device per run keeps each browser hold short.
 - Each run opens its own sessions, `<prefix>-<n>` (default prefix `wtp<pid>`), and closes only those. Keep a custom prefix short: macOS refuses socket paths past about 16 characters of session name.
 - `game-*` demos get `&hold=1`, so clocks are frozen and shots compare across devices.
 - Every shot is checked on disk and retried once; `manifest.json` lists a shot only if its file exists.

@@ -94,15 +94,22 @@ function useIdleHome(screen: Screen) {
   useEffect(() => restart(), [screen, restart]);
 }
 
-/** A mirrored iPad held upright fills a narrow column of the projector. Ask the host to turn it. */
-function useSidewaysHint() {
+/**
+ * A mirrored iPad held upright fills a narrow column of the projector. Ask the host to turn it,
+ * from the bottom edge so the hint never hides the top HUD (progress dots, TOP TRAINERS).
+ */
+/** Screens where the bottom of the screen has room for the hint; results and showcase keep their buttons and call to action clear. */
+const SIDEWAYS_HINT_SCREENS = new Set<Screen>(["title", "category", "difficulty", "game"]);
+
+function useSidewaysHint(screen: Screen) {
   const projector = useSettings((s) => s.projector);
   const { w, h, orientation } = useViewport();
   const tabletUpright =
     projector && orientation === "portrait" && Math.min(w, h) >= 700 && typeof matchMedia === "function" && matchMedia("(any-pointer: coarse)").matches;
+  const show = tabletUpright && SIDEWAYS_HINT_SCREENS.has(screen);
   useEffect(() => {
-    if (tabletUpright) return toast("Turn the iPad sideways for the big screen!", { tone: "hi", icon: <IconRefresh />, ms: 6000 });
-  }, [tabletUpright]);
+    if (show) return toast("Turn the iPad sideways for the big screen!", { tone: "hi", icon: <IconRefresh />, ms: 5000, place: "bottom" });
+  }, [show]);
 }
 
 export default function App() {
@@ -113,7 +120,7 @@ export default function App() {
   useThemeAttributes();
   useWakeLock();
   useIdleHome(screen);
-  useSidewaysHint();
+  useSidewaysHint(screen);
   // F toggles full screen on the projector laptop. Ignored while typing a name.
   useKeys({ f: () => void fullscreen.toggle() });
 

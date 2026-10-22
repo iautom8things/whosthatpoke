@@ -133,7 +133,6 @@
   align-items: center;
   gap: 0.3em;
   font-size: var(--fs-lg);
-  --display-fill: #fff;
 }
 .labelIcon {
   display: inline-grid;

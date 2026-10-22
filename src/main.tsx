@@ -8,7 +8,17 @@ import "./lib/kiosk";
 import "./pwa";
 import App from "./App";
 import { runDemoFromUrl } from "./dev/demos";
+import { reloadForMissingChunk } from "./lib/staleChunk";
 import { hasStoredSettings, useSettings } from "./state/settings";
+
+// A chunk that fails to load (an old tab after an update) reloads the page once instead of crashing.
+window.addEventListener("vite:preloadError", () => {
+  try {
+    reloadForMissingChunk({ storage: sessionStorage, now: Date.now(), online: navigator.onLine, reload: () => location.reload() });
+  } catch {
+    // No sessionStorage means no loop guard, so the Oops card stays.
+  }
+});
 
 // ?lab=gallery shows the design-system gallery, ?lab=audio the sound lab. Dev and QA only.
 const LABS = {

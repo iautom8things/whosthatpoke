@@ -119,11 +119,13 @@
   height: 28px;
   background: linear-gradient(var(--surface-strong), transparent);
 }
+/* Solid under the chevron, so it never sits on top of a line of text. */
 .fade[data-edge="bottom"] {
   bottom: 0;
+  height: calc(var(--touch-min) * 0.9);
   align-items: end;
   padding-bottom: 6px;
-  background: linear-gradient(transparent, var(--surface-strong) 70%);
+  background: linear-gradient(transparent, var(--surface-strong) 45%);
 }
 .fade[data-show] {
   opacity: 1;
@@ -186,6 +188,7 @@
   padding-block: var(--sp-3);
 }
 .row + .row,
+.scores + .row,
 .themes + .row,
 .status + .row,
 .status + .install,
@@ -213,6 +216,15 @@ label.rowLabel {
   color: var(--surface-ink-soft);
   text-wrap: pretty;
 }
+.rowWarn {
+  display: block;
+  margin-top: 0.2em;
+  font-weight: 700;
+  color: var(--surface-ink);
+}
+.rowWarn::before {
+  content: "⚠️ ";
+}
 .rowControl {
   display: flex;
   flex: 0 1 auto;
@@ -227,6 +239,65 @@ label.rowLabel {
   flex-basis: 100%;
   justify-content: flex-start;
   margin-left: 0;
+}
+
+/* ---------------- party: tonight's scores ---------------- */
+.scores {
+  display: grid;
+  gap: var(--sp-2);
+  padding-bottom: var(--sp-3);
+}
+.scoreList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.score {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 0;
+  /* The bin's 3D edge needs room below it. */
+  padding: 6px 6px 4px var(--sp-2);
+  border: 2px solid var(--divider);
+  border-radius: var(--r-lg);
+  background: color-mix(in srgb, var(--surface-ink) 6%, var(--surface-strong));
+}
+.scoreAvatar {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 4px;
+  border: 2px solid var(--outline);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #fff 0%, #ece6ff 80%);
+  overflow: hidden;
+}
+.scoreText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  margin-bottom: 4px;
+}
+.scoreName {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  overflow-wrap: anywhere;
+}
+.scoreMeta {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  color: var(--surface-ink-soft);
+}
+.scoresMore {
+  justify-self: start;
 }
 
 /* ---------------- switch ---------------- */
@@ -848,7 +919,7 @@ label.rowLabel {
   font-family: var(--font-display);
   font-size: var(--fs-md);
   text-transform: uppercase;
-  color: var(--surface-display);
+  color: var(--surface-title);
 }
 .credits dd {
   margin: 0;

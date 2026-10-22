@@ -148,7 +148,7 @@ Inline SVG with the real colors and markings. `BALL_NAMES[kind]` gives the displ
 App.tsx wraps each screen in one. A render throw or a failed chunk load shows an "Oops! Tap to restart" card that reloads the page, instead of a blank screen the installed app cannot leave. Moving to another screen clears it.
 
 ### Toast
-`toast(message, { tone?: "info" | "good" | "bad" | "hi", icon?, ms? = 2200 })` from anywhere. App renders `<ToastHost/>` once.
+`toast(message, { tone?: "info" | "good" | "bad" | "hi", icon?, ms? = 2200, place?: "top" | "bottom" })` from anywhere. App renders `<ToastHost/>` once. `place: "bottom"` is a smaller pill at the bottom edge, for a hint that must not hide the top HUD.
 
 ### celebrate (confetti)
 `celebrate(kind?: "burst" | "cannons" | "rain" | "stars", { origin?, intensity? })` fires theme-colored confetti above everything. Skipped under reduced motion. `clearConfetti()` stops it. Pair it with a sound yourself (`audio.sfx("pop")`).
@@ -198,8 +198,8 @@ App.tsx renders `<Backdrop/>`, the current screen inside a quick direction-aware
 
 It also owns what every screen shares:
 - **Tap guard.** The leaving screen and, for 600 ms, the arriving one carry `data-busy` (`pointer-events: none`), so a kid's double tap never picks something on the screen sliding in.
-- **ErrorBoundary** around each screen.
+- **ErrorBoundary** around each screen. A chunk that fails to load (an old tab after an update) reloads the page once first (`lib/staleChunk.ts`, wired in main.tsx); offline, or a second failure within 30 s, shows the Oops card.
 - **Idle home.** Category, Difficulty and the leaderboard go back to the title after 2x `attractAfterSec` without input, results (and name entry) after 3x. The title's own idle then starts Show-off mode. Games, Host, Settings and Showcase never time out.
 - **Wake lock** (`useWakeLock`).
 - **F** toggles full screen (ignored while typing).
-- **Sideways hint.** In projector mode, a touch tablet held upright gets a toast asking to turn it sideways, because a mirrored portrait iPad fills a narrow column of the projector.
+- **Sideways hint.** In projector mode, a touch tablet held upright gets a toast asking to turn it sideways, because a mirrored portrait iPad fills a narrow column of the projector. It sits at the bottom edge for 5 s, below the game's timer bar, so the progress dots and the TOP TRAINERS pill stay visible.

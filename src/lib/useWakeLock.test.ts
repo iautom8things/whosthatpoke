@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { keepScreenAwake, type AwakeEnv } from "./useWakeLock";
 
 class FakeTarget {
@@ -83,6 +83,35 @@ describe("keepScreenAwake", () => {
     await flush();
     expect(t.requests()).toBe(2);
     expect(t.granted).toHaveLength(1);
+  });
+
+  it("asks again on a tap once a request has hung for 5 s, and keeps only one lock", async () => {
+    vi.useFakeTimers();
+    try {
+      const doc = Object.assign(new FakeTarget(), { visibilityState: "visible" as DocumentVisibilityState });
+      const win = new FakeTarget();
+      const answers: ((s: WakeLockSentinel) => void)[] = [];
+      const wakeLock = { request: () => new Promise<WakeLockSentinel>((resolve) => answers.push(resolve)) };
+      keepScreenAwake({ wakeLock, doc, win } as unknown as AwakeEnv);
+      win.fire("pointerdown");
+      expect(answers).toHaveLength(1);
+      await vi.advanceTimersByTimeAsync(5000);
+      win.fire("pointerdown");
+      expect(answers).toHaveLength(2);
+
+      const second = new FakeSentinel();
+      answers[1](second as unknown as WakeLockSentinel);
+      await vi.advanceTimersByTimeAsync(0);
+      const late = new FakeSentinel();
+      answers[0](late as unknown as WakeLockSentinel);
+      await vi.advanceTimersByTimeAsync(0);
+      expect(late.released).toBe(true);
+      expect(second.released).toBe(false);
+      win.fire("pointerdown");
+      expect(answers).toHaveLength(2);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it("releases the lock and its listeners on stop, even if the grant arrives late", async () => {

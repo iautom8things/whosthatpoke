@@ -34,6 +34,11 @@
   color: var(--ink);
 }
 
+/* Names over 10 letters (Crabominable, Fletchinder) get thin side padding, so the length-fit font grows. */
+.choice[data-long] {
+  padding-inline: var(--sp-1);
+}
+
 .choice[aria-disabled] {
   cursor: default;
 }

@@ -51,7 +51,7 @@ function Tile({ kind, icon, label, sub }: { kind: TileKind; icon: ReactNode; lab
       </div>
       <div className={s.label}>
         <span className={s.labelIcon}>{icon}</span>
-        <span className="wtp-display">{label}</span>
+        <span className="wtp-display wtp-surface-title">{label}</span>
       </div>
       <div className={s.sub}>{sub}</div>
     </div>

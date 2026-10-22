@@ -261,6 +261,22 @@
     --b: 64px;
   }
 }
+/* A laptop on a 480p projector: a mouse can't fling a scroller and a cut-off row looks broken on
+   the big screen, so every buddy fits in three rows of smaller tiles. Phones keep big tiles and scroll. */
+@media (orientation: landscape) and (max-height: 560px) and (pointer: fine) {
+  .buddies {
+    grid-template-columns: repeat(var(--per-row), minmax(0, var(--b)));
+  }
+  .buddy {
+    min-width: 0;
+  }
+  .buddy[aria-checked="true"] {
+    outline-width: var(--stroke);
+  }
+  .tick {
+    font-size: 11px;
+  }
+}
 
 @keyframes shake {
   0%,

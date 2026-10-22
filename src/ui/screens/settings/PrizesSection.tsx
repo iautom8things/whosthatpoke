@@ -4,7 +4,7 @@ import { audio } from "../../../audio";
 import { DEFAULT_PRIZE_TIERS, prizeFor, tierThreshold, type PrizeTier } from "../../../game/scoring";
 import { haptic } from "../../../lib/haptic";
 import { useSettings } from "../../../state/settings";
-import { Button, ConfirmDialog, Display, IconRefresh, Modal, cx } from "../../components";
+import { Button, ConfirmDialog, Display, IconBack, IconRefresh, Modal, cx } from "../../components";
 import { SectionTitle, Stepper, sliderKeys, useStepDrag } from "./controls";
 import s from "./Settings.module.css";
 
@@ -131,7 +131,8 @@ function Ladder({ tiers, rounds }: { tiers: PrizeTier[]; rounds: number }) {
           {prize.emoji}
         </span>
         <span className={s.prizeText}>
-          <Display size="lg" color={prize.color}>
+          {/* Plain surface ink: a tier color on a white classic panel smears on a projector. The emoji and the edge carry it. */}
+          <Display size="lg" className="wtp-surface-title">
             {tryScore}/{rounds} <span aria-hidden="true">→</span> {prize.title}
           </Display>
           <span className={s.prizeReward}>{prize.reward}</span>
@@ -197,6 +198,7 @@ export function PrizesSection() {
         message="Names, rewards and scores go back to the starting set."
         confirmLabel="Reset"
         cancelLabel="Keep mine"
+        cancelIcon={<IconBack />}
         onConfirm={() => {
           update({ prizeTiers: null });
           setConfirmReset(false);

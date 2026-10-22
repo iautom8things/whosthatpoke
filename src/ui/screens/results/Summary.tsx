@@ -121,10 +121,12 @@ export function Summary({ summary }: { summary: GameSummary }) {
   // ---- leaderboard offer (classic and survival) ----
   const savedId = useResultsUi((st) => st.savedId);
   const boardMode = mode === "host" ? null : mode;
+  // The game length, as NameEntry saves it, so the preview ranks per question like the board does.
+  const played = summary.rounds.length;
   const rank = useMemo(() => {
     if (!boardMode) return null;
-    return savedId ? leaderboard.rankOf(savedId, 10, TONIGHT_MS()) : leaderboard.rankFor(boardMode, points, correct, 10, TONIGHT_MS());
-  }, [boardMode, savedId, points, correct]);
+    return savedId ? leaderboard.rankOf(savedId, 10, TONIGHT_MS()) : leaderboard.rankFor(boardMode, points, correct, 10, TONIGHT_MS(), played);
+  }, [boardMode, savedId, points, correct, played]);
 
   // ---- actions ----
   const nav = useNav.getState();

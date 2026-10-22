@@ -70,9 +70,11 @@ export function answerBand(categoryId: string, difficulty: DifficultyId, rounds 
   return band;
 }
 
+/** Poké Ball and Great Ball. A plain circle or egg is a guess, not a silhouette: they never ask blobs. */
+const isKidLevel = (difficulty: DifficultyId) => difficulty === "easy" || difficulty === "medium";
+
 function bandFor(category: readonly Mon[], difficulty: DifficultyId, rounds: number): Mon[] {
-  // A plain circle or egg is a guess, not a silhouette: keep blobs out of the kid levels.
-  const kidLevel = difficulty === "easy" || difficulty === "medium";
+  const kidLevel = isKidLevel(difficulty);
   const pool = kidLevel ? category.filter((m) => !m.blob) : category;
   const n = pool.length;
   const minSize = rounds + 6;
@@ -536,7 +538,8 @@ export function createDeck(config: GameConfig, recent: readonly number[] = []): 
  */
 function survivalDeck(config: GameConfig, ages: Ages, rng: Rng, ask: (i: number, m: Mon) => Question): Deck {
   const { difficulty } = config;
-  let pool = categoryPool(config.categoryId);
+  // The lap runs past the band into the whole category, so drop blobs from all of it.
+  let pool = categoryPool(config.categoryId).filter((m) => !(m.blob && isKidLevel(difficulty)));
   if (pool.length < MIN_SURVIVAL_POOL) {
     const seen = new Set(pool.map((m) => m.dex));
     const borrowed = answerBand("all", difficulty, MIN_SURVIVAL_POOL).filter((m) => !seen.has(m.dex));

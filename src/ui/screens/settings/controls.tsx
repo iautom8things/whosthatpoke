@@ -10,7 +10,7 @@ import s from "./Settings.module.css";
 export function SectionTitle({ children, note }: { children: ReactNode; note?: ReactNode }) {
   return (
     <header className={s.sectionHead}>
-      <Display as="h2" size="xl" className={s.sectionTitle}>
+      <Display as="h2" size="xl" className={cx(s.sectionTitle, "wtp-surface-title")}>
         {children}
       </Display>
       {note && <p className={s.sectionNote}>{note}</p>}

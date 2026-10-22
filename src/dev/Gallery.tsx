@@ -29,6 +29,7 @@ import {
   IconExpand,
   IconGear,
   IconPlay,
+  IconRefresh,
   IconStar,
   IconTrophy,
   IconVolume,
@@ -479,6 +480,9 @@ function FeedbackSection() {
         </Button>
         <Button variant="secondary" onPress={() => toast("x5 streak!", { tone: "hi", icon: <IconStar /> })}>
           Hi
+        </Button>
+        <Button variant="ghost" onPress={() => toast("Turn the iPad sideways for the big screen!", { tone: "hi", icon: <IconRefresh />, place: "bottom" })}>
+          Bottom
         </Button>
       </Row>
       <Row label="confetti (off when calm)">

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
-import { useRef, type CSSProperties } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import { useKeys } from "../../../lib/useKeys";
+import { onBrowserBack, useNav } from "../../../state/nav";
 import { SURVIVAL_LIVES, useSession } from "../../../state/session";
 import { useSettings } from "../../../state/settings";
 import { ConfirmDialog, IconButton, IconX, ScreenFrame } from "../../components";
@@ -49,6 +50,8 @@ export default function Game() {
 
   // On Game over, Escape and the X go on to the score: there is nothing left to quit.
   const leave = g.gameOver ? g.finish : g.askQuit;
+  // Browser Back and Safari's edge swipe do the same, but not while this screen slides out.
+  useEffect(() => onBrowserBack(() => useNav.getState().screen === "game" && leave()), [leave]);
   const askTitle = COPY.ask;
   const revealTitle = q ? COPY.reveal(q.answer.name) : "";
 
