@@ -66,24 +66,28 @@ interface SessionState {
 }
 
 let deck: Deck | null = null;
-/** One question drawn ahead so the screen can preload its art. undefined = not drawn yet. */
-let ahead: Question | null | undefined;
+/** Questions drawn ahead, in order, so the screen can fetch their art and clips before they are asked. */
+let ahead: Question[] = [];
 /** Stand-ins for questions whose art fails, from a second deck so the game's own deck stays whole. */
 let spare: Deck | null = null;
 
 function draw(): Question | null {
-  if (ahead !== undefined) {
-    const q = ahead;
-    ahead = undefined;
-    return q;
+  return ahead.shift() ?? deck?.next() ?? null;
+}
+
+/** The next `n` questions next() will load, in order, without moving the game on. Fewer when the deck runs out. */
+export function peekAhead(n: number): Question[] {
+  while (ahead.length < n) {
+    const q = deck?.next();
+    if (!q) break;
+    ahead.push(q);
   }
-  return deck?.next() ?? null;
+  return ahead.slice(0, n);
 }
 
 /** The question next() will load, without moving the game on. null when the deck has no more. */
 export function peekNext(): Question | null {
-  if (ahead === undefined) ahead = deck?.next() ?? null;
-  return ahead;
+  return peekAhead(1)[0] ?? null;
 }
 
 const isOver = (s: Pick<SessionState, "config" | "lives" | "rounds">) =>
@@ -108,7 +112,7 @@ export const useSession = create<SessionState>((set, get) => ({
     const { setup } = get();
     const config: GameConfig = { ...setup, rounds: useSettings.getState().rounds, seed };
     deck = createDeck(config, recentAnswers());
-    ahead = undefined;
+    ahead = [];
     spare = null;
     const current = draw();
     set({
@@ -189,7 +193,7 @@ export const useSession = create<SessionState>((set, get) => ({
     const s = get();
     if (s.phase !== "intro" || !s.current || !s.config) return false;
     const used = new Set([...s.rounds.map((r) => r.question.answer.dex), s.current.answer.dex]);
-    if (ahead) used.add(ahead.answer.dex);
+    for (const q of ahead) used.add(q.answer.dex);
     spare ??= createDeck({ ...s.config, seed: (s.config.seed * 7 + 13) % 2147483647 }, [...used, ...recentAnswers()]);
     for (let q = spare.next(); q; q = spare.next()) {
       if (used.has(q.answer.dex)) continue;
@@ -219,7 +223,7 @@ export const useSession = create<SessionState>((set, get) => ({
     const s = get();
     if (s.phase !== "done" && s.rounds.length > 0) rememberAnswers(s.rounds.map((r) => r.question.answer.dex));
     deck = null;
-    ahead = undefined;
+    ahead = [];
     spare = null;
     set({ phase: "idle", current: null, config: null });
   },

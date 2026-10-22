@@ -1,29 +1,15 @@
 // A dealt card never shows a "?" tile: art that fails to load gets the card swapped for a spare.
-// Same check as the game's (src/ui/screens/game/useGameLoop.ts), kept here so the two screens stay apart.
-import { artUrl } from "../../../data/catalog";
-import type { Mon } from "../../../data/types";
+// The game does the same (src/ui/screens/game/useGameLoop.ts); both wait on PokeArt's loadArt, so the check and
+// the fetch ahead share one download.
+export { artLoads } from "../../components/PokeArt";
 
-/** How long the check waits. Slow art counts as fine: PokeArt keeps loading it. */
-export const ART_CHECK_MS = 1500;
+/**
+ * How long the deal waits for the art. Only a failed download swaps the card: slow art counts as fine after this,
+ * and PokeArt shows it when it lands. Cards fetched ahead are ready long before; this is for the first one.
+ */
+export const ART_CHECK_MS = 4000;
 /** Spare cards tried before the card is played as it is. */
 export const MAX_ART_SWAPS = 3;
-
-/** False only when the art definitely failed (offline, missing file). */
-export function artLoads(mon: Pick<Mon, "art">, timeoutMs: number): Promise<boolean> {
-  return new Promise((resolve) => {
-    const img = new Image();
-    const timer = setTimeout(() => resolve(true), timeoutMs);
-    img.onload = () => {
-      clearTimeout(timer);
-      resolve(true);
-    };
-    img.onerror = () => {
-      clearTimeout(timer);
-      resolve(false);
-    };
-    img.src = artUrl(mon);
-  });
-}
 
 export interface ArtDeal<M> {
   /** The answer on the card now. */

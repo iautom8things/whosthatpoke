@@ -822,6 +822,21 @@ label.rowLabel {
   background: linear-gradient(180deg, #7ff0a6, var(--good));
   transition: width 600ms var(--ease-out);
 }
+.saveBar {
+  margin-top: var(--sp-2);
+  max-width: 32rem;
+}
+.saveBar > .progress {
+  margin-top: var(--sp-1);
+}
+.saveBarLabel {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
 
 .install {
   display: grid;

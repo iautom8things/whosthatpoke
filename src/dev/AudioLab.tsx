@@ -1,14 +1,17 @@
-// Sound lab at ?lab=audio: try every song, sfx and announcer voice, and render level measurements.
-// Parents can also use it on the iPad to pin the announcer voice for that device.
+// Sound lab at ?lab=audio: try every song, sfx and announcer line, and render level measurements.
+// Parents can also use it on the iPad to pin the device voice, which says any line that has no recording.
 
-import { useEffect, useState, type CSSProperties } from "react";
-import { whosThat, type SfxId, type SongId } from "../audio";
-import { engine, speech, unlockAll } from "../audio/live";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { lines, whosThat, type Line, type SfxId, type SongId } from "../audio";
+import { expectedKeys, prizeKey } from "../audio/lines";
+import { clips, engine, speech, unlockAll, voice } from "../audio/live";
 import { downloadWav, encodeWav, measure, renderSfx, renderSong, type Measurement } from "../audio/offline";
 import { SFX_IDS } from "../audio/sfx";
 import { SONG_NOTES } from "../audio/songs";
-import { monByDex } from "../data/catalog";
+import { CATALOG, monByDex } from "../data/catalog";
+import { DEFAULT_PRIZE_TIERS } from "../game/scoring";
 import { useSettings } from "../state/settings";
+import { announcementLine, prizeSentence } from "../ui/screens/results/model";
 
 const SONG_IDS = Object.keys(SONG_NOTES) as SongId[];
 const SONG_LABEL: Record<SongId, string> = {
@@ -19,10 +22,20 @@ const SONG_LABEL: Record<SongId, string> = {
   showcase: "Showcase",
 };
 
-const WHOS_THAT = "Who’s that Pokémon?";
-// Reveal lines built like the game's, from the catalog respellings, so the voice check hears what kids will.
-const REVEALS = [25, 130, 1, 39, 383].map((dex) => `It’s ${monByDex(dex).say}!`);
-const LINES = [WHOS_THAT, ...REVEALS, "Three in a row! You're on fire!", "Time's up!", "You won a big candy!"];
+// The game's own lines, so the voice check hears what kids will.
+const WHOS_THAT = lines.whosThat();
+const REVEALS = [25, 130, 1, 39, 383].map((dex) => lines.reveal(monByDex(dex)));
+const GENGAR = monByDex(94);
+const LINES: { label: string; line: Line }[] = [
+  { label: "Who’s that Pokémon?", line: WHOS_THAT },
+  ...REVEALS.map((line) => ({ label: line.text, line })),
+  { label: "Choices", line: lines.choices([25, 1, 4, 7].map(monByDex)) },
+  { label: `${GENGAR.name} + fact`, line: { ...lines.reveal(GENGAR), then: lines.fact(GENGAR) } },
+  { label: "Results", line: announcementLine({ mode: "classic", correct: 7, asked: 10, perfect: false, tier: DEFAULT_PRIZE_TIERS[1] }) },
+  { label: "Game over!", line: lines.gameOver() },
+];
+/** Every key the game can ask for with default settings, to count what the recordings lack. */
+const EXPECTED = [...expectedKeys(CATALOG), ...DEFAULT_PRIZE_TIERS.map((t) => prizeKey(prizeSentence(t)))];
 
 interface Row extends Measurement {
   id: string;
@@ -85,6 +98,16 @@ function Meter() {
   );
 }
 
+/** The recordings: who made them and how many keys they lack. Null while there are none. */
+function useRecordings() {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => void clips.load().then(() => setLoaded(true)), []);
+  return useMemo(() => {
+    const info = clips.info;
+    return info && { ...info, missing: clips.missing(EXPECTED).length };
+  }, [loaded]);
+}
+
 function useVoices() {
   const [, bump] = useState(0);
   useEffect(() => speech.onVoicesChanged(() => bump((n) => n + 1)), []);
@@ -97,12 +120,14 @@ const fmt = (x: number) => (Number.isFinite(x) ? x.toFixed(1) : "-inf");
 export default function AudioLab() {
   const status = useEngineStatus();
   const { voices, current, preferred } = useVoices();
+  const recorded = useRecordings();
+  const [systemOnly, setSystemOnly] = useState(!voice.clipsEnabled);
   const musicVolume = useSettings((s) => s.musicVolume);
   const sfxVolume = useSettings((s) => s.sfxVolume);
-  const voice = useSettings((s) => s.voice);
+  const voiceOn = useSettings((s) => s.voice);
   const update = useSettings((s) => s.update);
   const [flash, setFlash] = useState<string | null>(null);
-  const [text, setText] = useState(REVEALS[1]);
+  const [text, setText] = useState(REVEALS[1].text);
   const [speaking, setSpeaking] = useState(false);
   const [rows, setRows] = useState<Row[]>([]);
   const [measuring, setMeasuring] = useState(false);
@@ -119,11 +144,15 @@ export default function AudioLab() {
     engine.sfx(id);
     ping(id);
   };
-  const say = async (line: string) => {
+  const say = async (line: Line | string) => {
     setSpeaking(true);
     // "Who's that" plays with its sting, timed as in the game.
-    await (line === WHOS_THAT ? whosThat() : speech.say(line));
+    await (line === WHOS_THAT ? whosThat() : voice.say(line));
     setSpeaking(false);
+  };
+  const toggleSystemOnly = () => {
+    voice.setClipsEnabled(systemOnly);
+    setSystemOnly(!systemOnly);
   };
 
   const measureAll = async () => {
@@ -163,7 +192,10 @@ export default function AudioLab() {
           <span className={`pill ${status.state === "running" ? "ok" : "warn"}`}>Audio: {status.state}</span>
           <span className="pill">Song: {status.song ?? status.pending ?? "none"}</span>
           <span className={`pill ${status.ducked ? "warn" : ""}`}>{status.ducked ? "Ducked" : "Not ducked"}</span>
-          <span className="pill">Voice: {speech.supported ? (current ?? "loading…") : "unsupported"}</span>
+          <span className={`pill ${recorded ? "ok" : ""}`}>
+            Recorded: {recorded ? `${recorded.voice ?? "?"}${recorded.model ? ` · ${recorded.model}` : ""} · ${recorded.keys} clips · ${recorded.missing} missing` : "none"}
+          </span>
+          <span className="pill">Device voice: {speech.supported ? (current ?? "loading…") : "unsupported"}</span>
         </div>
       </header>
 
@@ -213,8 +245,8 @@ export default function AudioLab() {
           <Slider label="Music" value={musicVolume} onChange={(v) => update({ musicVolume: v })} />
           <Slider label="Sound effects" value={sfxVolume} onChange={(v) => update({ sfxVolume: v })} />
           <div className="row">
-            <button className={`btn toggle ${voice ? "active" : ""}`} aria-pressed={voice} onClick={() => update({ voice: !voice })}>
-              Announcer {voice ? "on" : "off"}
+            <button className={`btn toggle ${voiceOn ? "active" : ""}`} aria-pressed={voiceOn} onClick={() => update({ voice: !voiceOn })}>
+              Announcer {voiceOn ? "on" : "off"}
             </button>
             <button
               className={`btn toggle ${status.ducked ? "active" : ""}`}
@@ -229,11 +261,16 @@ export default function AudioLab() {
         <div>
           <h2>Announcer</h2>
           <div className="lines">
-            {LINES.map((line) => (
-              <button key={line} className="btn line" onClick={() => void say(line)}>
-                {line}
+            {LINES.map(({ label, line }) => (
+              <button key={label} className="btn line" onClick={() => void say(line)}>
+                {label}
               </button>
             ))}
+          </div>
+          <div className="row voice-mode">
+            <button className={`btn toggle ${systemOnly ? "active" : ""}`} aria-pressed={systemOnly} onClick={toggleSystemOnly}>
+              System voice only
+            </button>
           </div>
           <form
             className="row say"
@@ -246,12 +283,12 @@ export default function AudioLab() {
             <button className="btn primary" type="submit">
               {speaking ? "Speaking…" : "Say it"}
             </button>
-            <button className="btn" type="button" onClick={() => speech.cancel()}>
+            <button className="btn" type="button" onClick={() => voice.cancel()}>
               Hush
             </button>
           </form>
           <label className="voice-pick">
-            <span>Voice on this device</span>
+            <span>Device voice, for lines with no recording</span>
             <select value={preferred ?? ""} onChange={(e) => speech.setPreferredVoice(e.target.value || null)}>
               <option value="">Automatic ({current ?? "none yet"})</option>
               {voices.map((v) => (
@@ -386,6 +423,7 @@ const CSS = `
 .row.spread { margin: 28px 0 12px; }
 .row.spread h2 { margin: 0; }
 .lines { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.voice-mode { margin-bottom: 14px; }
 .line { min-height: 56px; font-size: 16px; }
 .say input { flex: 1 1 220px; min-width: 0; min-height: 64px; font: inherit; color: var(--ink); background: var(--panel); border: 3px solid var(--line); border-radius: 16px; padding: 0 16px; }
 .voice-pick { display: grid; gap: 8px; margin-top: 16px; color: var(--muted); }

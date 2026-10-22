@@ -1,11 +1,13 @@
-type Say = (text: string) => Promise<void>;
+import type { Line } from "../../../audio";
 
-export interface ReadOutOptions {
+type Say<L> = (line: L) => Promise<void>;
+
+export interface ReadOutOptions<L = Line | string> {
   /** The "Who's that Pokémon?" line, for a replay. */
-  line: string;
+  line: L;
   /** The four names, read after the line on Poké Ball. Null on the other balls. */
-  names: string | null;
-  say: Say;
+  names: L | null;
+  say: Say<L>;
   /** True while the read-out must not go on: the Quit dialog is open, or the question was answered or left. */
   cut: () => boolean;
 }
@@ -14,11 +16,11 @@ export interface ReadOutOptions {
  * One question read out loud: the line, then on Poké Ball the names. A part the Quit dialog cut off counts as
  * unheard, and resume() reads it again after Keep playing.
  */
-export class ReadOut {
+export class ReadOut<L = Line | string> {
   private heardLine = false;
   private heardNames = false;
 
-  constructor(private readonly opts: ReadOutOptions) {}
+  constructor(private readonly opts: ReadOutOptions<L>) {}
 
   /** Goes on from `line`, the line already queued with its sting. Resolves when the read-out ends or is cut. */
   start(line: Promise<void>): Promise<void> {

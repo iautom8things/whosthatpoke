@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import type { Mon } from "../../../data/types";
+import type { FactSource, Mon } from "../../../data/types";
 import type { Question } from "../../../game/deck";
 import { categoryById } from "../../../game/categories";
 import { useViewport } from "../../../lib/useViewport";
@@ -68,12 +68,20 @@ export function Answers({ question, live, revealed, picked, factShown, onPick }:
   );
 }
 
+/** One try at fitting the card: a fitOptions() cut and size, with or without the source note under it. */
+type FactFit = FitOption & { note: boolean };
+
 /**
  * Fits the fact to its card: the first of fitOptions() that fits. Only a single sentence too long for the card
- * ends in "…". Each try is a re-render inside the layout phase, so none gets painted.
+ * ends in "…". Each try is a re-render inside the layout phase, so none gets painted. The source note gives way
+ * first: it stays while the whole fact fits above it, and goes before any sentence does.
  */
-function useFittedFact(fact: string | undefined) {
-  const options = useMemo(() => fitOptions(fact), [fact]);
+function useFittedFact(fact: string | undefined, noted: boolean) {
+  const options = useMemo((): FactFit[] => {
+    const all = fitOptions(fact);
+    const whole = noted ? all.filter((o) => o.text === all[0].text) : [];
+    return [...whole.map((o) => ({ ...o, note: true })), ...all.map((o) => ({ ...o, note: false }))];
+  }, [fact, noted]);
   const [at, setAt] = useState(0);
   const ref = useRef<HTMLParagraphElement>(null);
 
@@ -105,15 +113,20 @@ function useFittedFact(fact: string | undefined) {
     };
   }, []);
 
-  const shown: FitOption = options[Math.min(at, options.length - 1)] ?? { text: fact ?? "", scale: 1, tight: false };
+  const shown: FactFit = options[Math.min(at, options.length - 1)] ?? { text: fact ?? "", scale: 1, tight: false, note: false };
   return { ref, ...shown };
 }
 
-/** Pokédex-style card: number, genus, types, region and a kid-friendly fact when we have one. */
+/** The footnote under a fact: "Pokédex: Pokémon Sword", or "Adapted from Pokémon Sun’s Pokédex". Shown, never spoken. */
+function sourceNote({ game, adapted }: FactSource): string {
+  return adapted ? `Adapted from ${game}’s Pokédex` : `Pokédex: ${game}`;
+}
+
+/** Pokédex-style card: number, genus, types, region and a kid-friendly fact with its source when we have one. */
 export function FactCard({ mon }: { mon: Mon }) {
   const region = mon.place ?? categoryById(`region-${mon.region}`).label;
   const badge = useViewport().size === "phone" ? "sm" : "md";
-  const fact = useFittedFact(mon.fact);
+  const fact = useFittedFact(mon.fact, Boolean(mon.factSource));
   return (
     <Panel tone="solid" padding="none" className={s.fact} data-has-fact={mon.fact ? true : undefined} data-tight={fact.tight || undefined}>
       <div className={s.factHead}>
@@ -133,6 +146,7 @@ export function FactCard({ mon }: { mon: Mon }) {
           {fact.text}
         </p>
       )}
+      {mon.fact && mon.factSource && fact.note && <p className={s.factSource}>{sourceNote(mon.factSource)}</p>}
     </Panel>
   );
 }

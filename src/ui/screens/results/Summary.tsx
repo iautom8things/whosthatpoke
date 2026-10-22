@@ -12,7 +12,7 @@ import { Button, celebrate, clearConfetti, Display, IconButton, IconCheck, IconH
 import { PrizeCard } from "./PrizeCard";
 import { Recap } from "./Recap";
 import { useResultsUi } from "./state";
-import { announcement, headline, teaser, type GameSummary } from "./model";
+import { announcementLine, headline, teaser, type GameSummary } from "./model";
 import s from "./Summary.module.css";
 
 /** 0 drumroll, 1 score counts up, 2 prize revealed, 3 buttons live. */
@@ -87,7 +87,7 @@ export function Summary({ summary }: { summary: GameSummary }) {
     };
     const timers = [
       window.setTimeout(() => {
-        void announcer.say(announcement(summary)).then(song);
+        void announcer.say(announcementLine(summary)).then(song);
         timers.push(window.setTimeout(song, SONG_CAP_MS));
       }, JINGLE_MS[jingle]),
     ];
@@ -97,13 +97,14 @@ export function Summary({ summary }: { summary: GameSummary }) {
     };
   }, [prizeShown]);
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    // The drumroll and count-up give the score and prize clips 2.4 s or more to decode.
+    if (!celebratedAlready.current) announcer.prepare([announcementLine(summary)]);
+    return () => {
       announcer.cancel();
       clearConfetti();
-    },
-    [],
-  );
+    };
+  }, []);
 
   const skip = () => {
     if (stage < 2) setStage(2);

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import type { Mode } from "../game/deck";
-import { peekNext, SURVIVAL_LIVES, useSession } from "./session";
+import { peekAhead, peekNext, SURVIVAL_LIVES, useSession } from "./session";
 
 const S = () => useSession.getState();
 
@@ -112,5 +112,39 @@ describe("swapCurrent (art that won't load)", () => {
     const dex = S().current!.answer.dex;
     expect(S().swapCurrent()).toBe(false);
     expect(S().current!.answer.dex).toBe(dex);
+  });
+});
+
+describe("peekAhead (fetching ahead)", () => {
+  const play = () => {
+    S().beginAsking();
+    S().answer(null, 0, 1);
+    S().next();
+  };
+
+  it("shows the questions next() will load, in order, and draws nothing twice", () => {
+    startGame();
+    const [a, b] = peekAhead(2).map((q) => q.answer.dex);
+    expect(peekNext()?.answer.dex).toBe(a);
+    expect(peekAhead(2).map((q) => q.answer.dex)).toEqual([a, b]);
+    play();
+    expect(S().current?.answer.dex).toBe(a);
+    play();
+    expect(S().current?.answer.dex).toBe(b);
+  });
+
+  it("keeps a swap off the questions drawn ahead", () => {
+    startGame();
+    const ahead = new Set(peekAhead(2).map((q) => q.answer.dex));
+    expect(S().swapCurrent()).toBe(true);
+    expect(ahead.has(S().current!.answer.dex)).toBe(false);
+  });
+
+  it("stops at the end of a classic game", () => {
+    startGame();
+    for (let i = 1; i < S().config!.rounds - 1; i++) play();
+    expect(peekAhead(2)).toHaveLength(1);
+    play();
+    expect(peekAhead(2)).toEqual([]);
   });
 });

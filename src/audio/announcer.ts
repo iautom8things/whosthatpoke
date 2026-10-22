@@ -1,7 +1,6 @@
-// The announcer: a speechSynthesis wrapper that picks the best English voice, ducks the game audio while it
-// talks, stays quiet while the tab is hidden, and always resolves (iOS sometimes never fires onend).
-
-import type { Announcer } from "./index";
+// The device voice: a speechSynthesis wrapper that picks the best English voice, ducks the game audio while it
+// talks, stays quiet while the tab is hidden, and always resolves (iOS sometimes never fires onend). The announcer
+// (voice.ts) falls back to it for any line without a recording.
 
 const VOICE_KEY = "wtp.voice.v1";
 const RATE = 1.0;
@@ -52,7 +51,7 @@ function readPref(): string | null {
   }
 }
 
-export class Speech implements Announcer {
+export class Speech {
   readonly supported: boolean;
   private enabled = true;
   private voices: SpeechSynthesisVoice[] = [];

@@ -1,8 +1,12 @@
-// Audio and announcer for the whole game. Everything is synthesized with Web Audio; no audio files.
+// Audio and announcer for the whole game. Music and effects are synthesized with Web Audio. The announcer plays
+// recorded clips (public/voice) when it has them and falls back to the device voice line by line.
 // All calls are safe before unlock() (songs requested early start on unlock) and never throw.
 // Volumes and the announcer switch follow useSettings on their own.
 
-import { engine, speech, unlockAll } from "./live";
+import { lines, type Line } from "./lines";
+import { engine, unlockAll, voice } from "./live";
+
+export { lines, type Line } from "./lines";
 
 export type SongId =
   | "title" // upbeat adventure theme for menus
@@ -49,9 +53,19 @@ export interface Announcer {
   /**
    * Speak a line, after `delayMs` if given. Resolves when finished, or at once if voice is off, unsupported or
    * the tab is hidden. A delayed line is dropped (and resolves) if another line or a hidden tab comes first.
+   * A plain string has no recording, so the device voice says it.
    */
-  say(text: string, delayMs?: number): Promise<void>;
-  /** Stop the line being spoken. A delayed line still waiting is left alone; see whosThat().cancel(). */
+  say(line: Line | string, delayMs?: number): Promise<void>;
+  /** Start decoding the clips these lines need, so they play the moment they are said. Fire and forget. */
+  prepare(lines: readonly (Line | undefined | null | false)[]): void;
+  /**
+   * Download the clips these lines need, questions ahead, without decoding them. The Pokédex entry only on a good
+   * connection, and nothing offline. Resolves when the downloads end; never rejects.
+   */
+  prefetch(lines: readonly (Line | undefined | null | false)[]): Promise<void>;
+  /** True when say(line) would leave the line out: the Pokédex entry on a poor connection, with no clip on the device. */
+  skips(line: Line): boolean;
+  /** Stop the line being spoken and its `then` chain. A delayed line still waiting is left alone; see whosThat().cancel(). */
   cancel(): void;
   setEnabled(on: boolean): void;
   readonly supported: boolean;
@@ -70,18 +84,30 @@ export const audio: Audio = {
   duck: (on) => engine.duck(on),
 };
 
-export const announcer: Announcer = speech;
+export const announcer: Announcer = voice;
 
 /** The "whosThat" sting hits at 0.9 s; the line starts just after so the hit does not bury it. */
 export const WHOS_THAT_LINE_MS = 1000;
 
+/** The line runs about 2 s and answers open 0.25 s in, so the longest a reveal can wait for it is about 1.4 s. */
+const WHOS_THAT_FINISH_MS = 1800;
+
+export type WhosThat = Promise<void> & { cancel(): void; finish(): Promise<void> };
+
 /**
  * The "Who's that Pokémon?" moment, timed the same in every mode: the sting, then the line. Resolves when the
  * line ends, or early if another line or a hidden tab drops it. cancel() drops the line if it has not started
- * (call it when the screen that asked leaves); announcer.cancel() stops it once it is speaking.
+ * (call it when the screen that asked leaves); announcer.cancel() stops it once it is speaking. finish() is for
+ * the line that comes next: it drops this one if it has not started and otherwise waits for it to end, so a
+ * fast answer never cuts the catchphrase off.
  */
-export function whosThat(): Promise<void> & { cancel(): void } {
+export function whosThat(): WhosThat {
   audio.sfx("whosThat");
-  const line = announcer.say("Who’s that Pokémon?", WHOS_THAT_LINE_MS);
-  return Object.assign(line, { cancel: () => speech.unqueue(line) });
+  const line = announcer.say(lines.whosThat(), WHOS_THAT_LINE_MS);
+  const cancel = () => voice.unqueue(line);
+  const finish = () => {
+    cancel();
+    return Promise.race([line, new Promise<void>((r) => setTimeout(r, WHOS_THAT_FINISH_MS))]);
+  };
+  return Object.assign(line, { cancel, finish });
 }

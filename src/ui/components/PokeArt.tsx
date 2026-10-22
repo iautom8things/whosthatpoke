@@ -1,32 +1,50 @@
 import { useEffect, useState, type CSSProperties, type SyntheticEvent } from "react";
 import { artUrl } from "../../data/catalog";
 import type { Mon } from "../../data/types";
+import { readFile } from "../../lib/network";
 import { cx } from "./cx";
 import s from "./PokeArt.module.css";
 
 /** Natural aspect (height / width) per art URL, filled by preloadArt and on first load. */
 const aspects = new Map<string, number>();
-const decoded = new Map<string, Promise<void>>();
+const loads = new Map<string, Promise<boolean>>();
 
 function remember(url: string, img: HTMLImageElement) {
   if (img.naturalWidth > 0 && img.naturalHeight > 0) aspects.set(url, img.naturalHeight / img.naturalWidth);
 }
 
-function preloadOne(url: string, timeoutMs: number): Promise<void> {
-  let job = decoded.get(url);
+/**
+ * Downloads the art once (timed for the network monitor; the service worker keeps it), then decodes it, so the
+ * silhouette appears with no pop-in. False only when the download failed: offline with no copy, or a missing file.
+ */
+export function loadArt(mon: Pick<Mon, "art">): Promise<boolean> {
+  const url = artUrl(mon);
+  let job = loads.get(url);
   if (!job) {
-    const img = new Image();
-    img.decoding = "async";
-    img.src = url;
-    job = img
-      .decode()
-      .then(() => remember(url, img))
-      .catch(() => {
-        decoded.delete(url);
-      });
-    decoded.set(url, job);
+    job = readFile(url, { kind: "art" }).then(async (bytes) => {
+      if (!bytes) return false;
+      const img = new Image();
+      img.decoding = "async";
+      img.src = url;
+      // The file is fine; a decode that fails only costs the pop-in.
+      await img.decode().then(
+        () => remember(url, img),
+        () => {},
+      );
+      return true;
+    });
+    loads.set(url, job);
+    // A failed download is forgotten, so the next try goes to the network again.
+    void job.then((ok) => {
+      if (!ok && loads.get(url) === job) loads.delete(url);
+    });
   }
-  return Promise.race([job, new Promise<void>((r) => setTimeout(r, timeoutMs))]);
+  return job;
+}
+
+/** Like loadArt, but slow art counts as fine after `timeoutMs`: PokeArt keeps loading it. */
+export function artLoads(mon: Pick<Mon, "art">, timeoutMs: number): Promise<boolean> {
+  return Promise.race([loadArt(mon), new Promise<boolean>((r) => setTimeout(() => r(true), timeoutMs))]);
 }
 
 /**
@@ -34,7 +52,7 @@ function preloadOne(url: string, timeoutMs: number): Promise<void> {
  * Resolves when every image is decoded, failed, or `timeoutMs` passed. Never rejects.
  */
 export function preloadArt(mons: readonly Pick<Mon, "art">[], timeoutMs = 4000): Promise<void> {
-  return Promise.all(mons.map((m) => preloadOne(artUrl(m), timeoutMs))).then(() => undefined);
+  return Promise.all(mons.map((m) => artLoads(m, timeoutMs))).then(() => undefined);
 }
 
 export interface PokeArtProps {

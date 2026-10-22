@@ -1,5 +1,6 @@
 // Shared hooks and helpers. kiosk.ts is not re-exported: import it once for its side effects.
 export { haptic, type HapticName } from "./haptic";
+export { network, useNetQuality, type NetQuality } from "./network";
 export { isReducedMotion, useReducedMotion } from "./reducedMotion";
 export { useThemeAttributes } from "./theme";
 export { useFullscreen, type Fullscreen } from "./useFullscreen";

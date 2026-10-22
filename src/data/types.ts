@@ -22,6 +22,14 @@ export type MonTag =
   | "eeveelution"
   | "pseudo-legendary";
 
+/** The game whose Pokédex a fact comes from (scripts/lib/fact-source.mjs). */
+export interface FactSource {
+  /** The earliest game that prints the entry, e.g. "Pokémon Sword", "Pokémon Legends: Arceus". */
+  game: string;
+  /** The fact trims or rewords that entry, e.g. to be kind to small kids. */
+  adapted: boolean;
+}
+
 /** One species, default form. Built by scripts/build-catalog.mjs into catalog.json. */
 export interface Mon {
   dex: number;
@@ -45,6 +53,8 @@ export interface Mon {
   genus?: string;
   /** Kid-friendly Pokédex line. */
   fact?: string;
+  /** Where the fact comes from, for the fact card's footnote (never spoken). Null when no Pokédex entry matches it. */
+  factSource?: FactSource | null;
   color?: string;
   shape?: string;
   /** Evolution chain id. Same family = related Pokémon. */

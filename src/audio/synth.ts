@@ -364,6 +364,8 @@ export interface Chain {
   sfx: GainNode;
   /** Announcer ducking for effects, after the sfx volume. */
   sfxDuck: GainNode;
+  /** The recorded announcer. Joins after the duck stage, so ducking never lowers it. */
+  voice: GainNode;
   master: GainNode;
   /** The last node before the destination, for meters. */
   out: AudioNode;
@@ -389,6 +391,7 @@ export function createChain(ctx: BaseAudioContext, dest: AudioNode = ctx.destina
   const duck = gainNode(ctx);
   const sfx = gainNode(ctx);
   const sfxDuck = gainNode(ctx);
+  const voice = gainNode(ctx);
   const master = gainNode(ctx, 0.8);
   // Soften the top end a little: kinder to small ears and to cheap projector speakers.
   const shelf = ctx.createBiquadFilter();
@@ -413,6 +416,7 @@ export function createChain(ctx: BaseAudioContext, dest: AudioNode = ctx.destina
   const trim = gainNode(ctx, 0.9);
   music.connect(duck).connect(master);
   sfx.connect(sfxDuck).connect(master);
+  voice.connect(master);
   // A silent source keeps both buses awake. With nothing playing, browsers stop processing a bus and its
   // duck ramp freezes halfway, which left effects quieter after the announcer stopped.
   if (typeof ctx.createConstantSource === "function") {
@@ -423,5 +427,5 @@ export function createChain(ctx: BaseAudioContext, dest: AudioNode = ctx.destina
     awake.start();
   }
   master.connect(shelf).connect(comp).connect(limit).connect(trim).connect(clip).connect(dest);
-  return { music, duck, sfx, sfxDuck, master, out: clip };
+  return { music, duck, sfx, sfxDuck, voice, master, out: clip };
 }

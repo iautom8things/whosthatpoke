@@ -1,16 +1,36 @@
 // The live singletons behind `audio` and `announcer`, plus extras for the sound lab.
 // Volumes and the announcer switch follow useSettings.
 
+import { network } from "../lib/network";
 import { useSettings } from "../state/settings";
 import { Speech } from "./announcer";
+import { Clips } from "./clips";
 import { Engine } from "./engine";
+import { CORE_KEYS } from "./lines";
+import { Voice } from "./voice";
 
 export const engine = new Engine();
-export const speech = new Speech((on) => engine.duck(on));
+
+/** Speech and the recorded voice each hold the duck; the music comes back once neither does. */
+const ducking = { speech: false, voice: false };
+const duckFor = (who: keyof typeof ducking) => (on: boolean) => {
+  ducking[who] = on;
+  engine.duck(ducking.speech || ducking.voice);
+};
+
+export const speech = new Speech(duckFor("speech"));
+export const clips = new Clips(
+  () => engine.context,
+  () => engine.voiceOut(),
+);
+export const voice = new Voice(clips, speech, duckFor("voice"), () => network.quality);
 
 export function unlockAll(): Promise<void> {
-  speech.warmUp();
-  return engine.unlock();
+  voice.warmUp();
+  const unlocked = engine.unlock();
+  // Decoding needs the context the unlock creates. The core takes stay decoded all night.
+  void unlocked.then(() => clips.pin(CORE_KEYS));
+  return unlocked;
 }
 
 function followSettings(): void {
@@ -18,11 +38,11 @@ function followSettings(): void {
     const s = useSettings.getState();
     engine.setMusicVolume(s.musicVolume);
     engine.setSfxVolume(s.sfxVolume);
-    speech.setEnabled(s.voice);
+    voice.setEnabled(s.voice);
     useSettings.subscribe((next, prev) => {
       if (next.musicVolume !== prev.musicVolume) engine.setMusicVolume(next.musicVolume);
       if (next.sfxVolume !== prev.sfxVolume) engine.setSfxVolume(next.sfxVolume);
-      if (next.voice !== prev.voice) speech.setEnabled(next.voice);
+      if (next.voice !== prev.voice) voice.setEnabled(next.voice);
     });
   } catch {
     // settings unavailable (tests): keep defaults
@@ -42,3 +62,5 @@ function unlockOnFirstGesture(): void {
 
 followSettings();
 unlockOnFirstGesture();
+// The index is small; the clips download and decode later, per question.
+void clips.load();

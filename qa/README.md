@@ -29,7 +29,7 @@ Every demo: `&theme=spooky|classic`, `&projector=on|off`, `&motion=reduce`.
 | `game-long-names` | `&reveal=1` shows the reveal instead of the question |
 | `host*`, `showcase*` | `&dex=N`, `&seed=N`; showcase also `&speed=N` |
 | `results-*` | `&intro=full` plays the count-up instead of jumping to the end |
-| `settings` | `&tab=sound\|game\|look\|prizes\|party\|offline\|about`; on the offline tab `&pwa=installing\|reload\|ready\|error` and `&art=<n>` (cached art count). The offline params work on the dev server only: a build's real service worker overrides them |
+| `settings` | `&tab=sound\|game\|look\|prizes\|party\|offline\|about`; on the offline tab `&pwa=installing\|reload\|ready\|error`, `&art=<n>` and `&voice=<n>` (saved pictures and clips, out of 1025 and `&clips=<n>`, default 5340), and one of `&saving=1`, `&failed=network\|full` or `&saved=1` (saved once, now short). The offline params work on the dev server only: a build's real service worker overrides them |
 
 ## Batch capture
 

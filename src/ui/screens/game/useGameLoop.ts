@@ -1,18 +1,17 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
-import { announcer, audio, whosThat } from "../../../audio";
-import { artUrl } from "../../../data/catalog";
-import type { Mon } from "../../../data/types";
+import { announcer, audio, lines, whosThat, type Line } from "../../../audio";
 import type { Question } from "../../../game/deck";
 import { difficultyById } from "../../../game/difficulty";
 import { haptic } from "../../../lib/haptic";
 import { isReducedMotion } from "../../../lib/reducedMotion";
 import { useNav } from "../../../state/nav";
-import { peekNext, useSession, type Phase, type Round } from "../../../state/session";
+import { peekAhead, peekNext, useSession, type Phase, type Round } from "../../../state/session";
 import { useSettings } from "../../../state/settings";
-import { celebrate, preloadArt, toast } from "../../components";
-import { COPY } from "./copy";
+import { celebrate, toast } from "../../components";
+import { artLoads } from "../../components/PokeArt";
 import { Countdown } from "./countdown";
 import { gameDemo } from "./demoHooks";
+import { AHEAD, fetchAhead, questionAhead } from "./prefetch";
 import { ReadOut } from "./readOut";
 import { Timers } from "./timers";
 
@@ -30,6 +29,12 @@ export const AUTO_ADVANCE_MS = 4500;
 const AUTO_AFTER_FACT_MS = 2500;
 /** A question whose art fails is swapped for another at most this many times in a row. */
 const MAX_ART_SWAPS = 3;
+/**
+ * The intro waits this long for the art, so the silhouette swoops in drawn. Only a failed download swaps the
+ * question; slow art counts as fine after this and shows when it lands. Questions fetched ahead are ready long
+ * before; this is for the first one on a slow connection.
+ */
+const ART_WAIT_MS = 4000;
 /** Survival: the last miss shows this long before "Game over". */
 const GAME_OVER_DELAY_MS = 2300;
 const GAME_OVER_AUTO_MS = 4000;
@@ -44,26 +49,6 @@ function buzz(pattern: "success" | "error") {
 }
 
 export const isStreakMilestone = (n: number) => n === 3 || (n >= 5 && n % 5 === 0);
-
-/**
- * False only when the art definitely failed (offline, missing file). Slow art counts as fine at the timeout:
- * PokeArt keeps loading it. preloadArt can't tell, it resolves either way.
- */
-function artLoads(mon: Mon, timeoutMs: number): Promise<boolean> {
-  return new Promise((resolve) => {
-    const img = new Image();
-    const timer = setTimeout(() => resolve(true), timeoutMs);
-    img.onload = () => {
-      clearTimeout(timer);
-      resolve(true);
-    };
-    img.onerror = () => {
-      clearTimeout(timer);
-      resolve(false);
-    };
-    img.src = artUrl(mon);
-  });
-}
 
 type SessionSnapshot = ReturnType<typeof useSession.getState>;
 
@@ -164,7 +149,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
   /** This question's "Who's that Pokémon?" line, which waits about a second before it starts. */
   const asked = useRef<ReturnType<typeof whosThat> | null>(null);
   /** This question's line and names, so Keep playing can read again what the Quit dialog cut off. */
-  const readOut = useRef<ReadOut | null>(null);
+  const readOut = useRef<ReadOut<Line> | null>(null);
   const toldArt = useRef(false);
   const sawPlay = useRef(false);
   const lastQuestion = useRef<Question | null>(current);
@@ -204,7 +189,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
     stopAuto();
     setGameOver(true);
     audio.sfx("timeout");
-    void announcer.say("Game over!");
+    void announcer.say(lines.gameOver());
     if (useSettings.getState().autoAdvance && !gameDemo.hold) scope.current.later(finish, GAME_OVER_AUTO_MS);
   }, [finish, stopAuto]);
 
@@ -286,6 +271,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
 
     if (s.phase === "intro" && q) {
       sawPlay.current = true;
+      const easy = s.config?.difficulty === "easy";
       answered.current = false;
       advancing.current = false;
       autoCancelled.current = false;
@@ -303,26 +289,28 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
         const line = whosThat();
         asked.current = line;
         // Poké Ball reads the four names out, for kids who can't read them yet.
-        const easy = useSession.getState().config?.difficulty === "easy";
         const key = keyOf(useSession.getState());
         const voice = new ReadOut({
-          line: COPY.ask,
-          names: easy ? COPY.choices(cur.choices.map((m) => m.say)) : null,
-          say: (text) => announcer.say(text),
+          line: lines.whosThat(),
+          names: easy ? lines.choices(cur.choices) : null,
+          say: (l) => announcer.say(l),
           cut: () => keyOf(useSession.getState()) !== key || answered.current || quitRef.current,
         });
         readOut.current = voice;
         const read = voice.start(line);
         if (easy) voiceGate.current = read;
         if (!gameDemo.hold) t.later(() => useSession.getState().beginAsking(), reduce ? 400 : INTRO_MS);
+        // This question's clips decode while "Who's that" plays, and the next one's well ahead of it.
         const upcoming = peekNext();
-        if (upcoming) void preloadArt([upcoming.answer], 10000);
+        announcer.prepare([cur, upcoming].flatMap((it) => (it ? questionAhead(it, easy).lines : [])));
       };
+      // This question, then the next two: each one's art, then its lines. Most were fetched a question or two ago.
+      void fetchAhead([q, ...peekAhead(AHEAD)].map((it) => questionAhead(it, easy)));
       // Never ask about a "?" tile: art that fails to load gets the question swapped for another.
       void (async () => {
         let mon = q.answer;
         for (let swaps = 0; ; swaps++) {
-          const [ok] = await Promise.all([artLoads(mon, 1500), preloadArt([mon], 1500)]);
+          const ok = await artLoads(mon, ART_WAIT_MS);
           if (!alive) return;
           if (ok) break;
           if (swaps >= MAX_ART_SWAPS || !useSession.getState().swapCurrent()) {
@@ -370,9 +358,10 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
         const settings = useSettings.getState();
         const survivalOver = s.config?.mode === "survival" && s.lives <= 0;
         const beat = gameDemo.beat;
-        const fact = q.answer.fact;
-        // The announcer reads the fact after the name; auto-advance waits for it.
-        const readsFact = Boolean(fact) && settings.voice && announcer.supported && !survivalOver;
+        const fact = lines.fact(q.answer);
+        // The announcer reads the fact after the name, and auto-advance waits for it. On a poor connection a fact
+        // whose clip isn't on the device is left out, and auto-advance goes as if there were none.
+        const readsFact = fact !== undefined && settings.voice && announcer.supported && !survivalOver && !announcer.skips(fact);
         let voiceDone: Promise<void> = Promise.resolve();
         patch({ ready: true, picked: round.picked, timedOut: round.picked === null, popup: beat !== "fact", factShown: beat === "fact" });
 
@@ -389,8 +378,13 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
             audio.sfx("wrong");
             buzz("error");
           }
-          const named = announcer.say(`It’s ${q.answer.say}!`);
-          if (readsFact && fact) voiceDone = named.then(() => (alive ? announcer.say(fact) : undefined));
+          // One line with the fact chained on: cancel() in next() or Quit stops both. A fast answer waits for
+          // "Who's that Pokémon?" to finish, and the beats hold that wait behind the Quit dialog.
+          const reveal = lines.reveal(q.answer);
+          const say = () => announcer.say(readsFact ? { ...reveal, then: fact } : reveal);
+          const ask = asked.current;
+          const said = ask ? ask.finish().then(() => new Promise<void>((done) => t.later(() => void say().then(done), 0))) : say();
+          if (readsFact) voiceDone = said;
         }, 0);
         if (!gameDemo.hold) t.later(() => patch({ popup: false }), 2100);
 
@@ -424,9 +418,6 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
           }, FACT_DELAY_MS);
 
         if (survivalOver) t.later(showGameOver, GAME_OVER_DELAY_MS);
-
-        const upcoming = peekNext();
-        if (upcoming) void preloadArt([upcoming.answer], 10000);
       }
     }
 

@@ -3,7 +3,8 @@
 // ?demo=settings-party opens Party tools with 14 scores tonight and one from last week.
 // Any settings demo: &storage=broken shows the "scores won't be saved" line.
 // Offline cards, dev server only (a real service worker overrides them in a build):
-//   &tab=offline&pwa=installing|reload|ready|error&art=<pictures saved>
+//   &tab=offline&pwa=installing|reload|ready|error&art=<pictures saved>&voice=<clips saved>
+//   &clips=<clips in the index, default 5340>, plus one of &saving=1, &failed=network|full or &saved=1 (saved once)
 import { LEADERBOARD_KEY, type ScoreEntry } from "../../game/leaderboard";
 import { noteFailedWrite } from "../../game/storage";
 import { usePwa, type OfflineStatus } from "../../pwa";
@@ -19,8 +20,21 @@ function openSettings(fallback: SettingsTab): void {
   setSettingsTab(asked && SETTINGS_TABS.includes(asked) ? asked : fallback);
   const pwa = params.get("pwa") as OfflineStatus | null;
   if (pwa && PWA_STATUSES.includes(pwa)) {
-    const art = Number(params.get("art"));
-    usePwa.setState({ status: pwa, cachedArt: params.has("art") && Number.isFinite(art) ? art : null, usage: 31_000_000 });
+    const count = (name: string, fallback: number | null = null) => {
+      const n = Number(params.get(name));
+      return params.has(name) && Number.isFinite(n) ? n : fallback;
+    };
+    const failed = params.get("failed");
+    usePwa.setState({
+      status: pwa,
+      art: count("art"),
+      voice: count("voice", 0),
+      voiceTotal: count("clips", 5340),
+      saving: params.get("saving") === "1",
+      saveFailed: failed === "network" || failed === "full" ? failed : null,
+      savedOnce: params.get("saved") === "1",
+      usage: 123_000_000,
+    });
   }
   if (params.get("storage") === "broken") noteFailedWrite();
   useNav.setState({ screen: "settings", history: ["title"] });

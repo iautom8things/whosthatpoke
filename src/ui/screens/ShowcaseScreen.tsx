@@ -3,7 +3,7 @@
 // Any tap or key goes back to the title screen.
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { announcer, audio, whosThat } from "../../audio";
+import { announcer, audio, lines, whosThat } from "../../audio";
 import { monByDex } from "../../data/catalog";
 import type { Mon } from "../../data/types";
 import { categoryById } from "../../game/categories";
@@ -19,12 +19,12 @@ import {
   Pill,
   PokeArt,
   PokeBall,
-  preloadArt,
   ScreenFrame,
   TimerRing,
   TypeBadge,
   type BallKind,
 } from "../components";
+import { fetchAhead, nameAhead } from "./game/prefetch";
 import { showcaseDemo, type ShowcaseStart } from "./host/flags";
 import { HandIcon } from "./host/HostHelp";
 import { asksAloud, boardFor, EVERY, type BoardMode } from "./host/showcasePlan";
@@ -93,14 +93,17 @@ export default function ShowcaseScreen() {
     const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
     let cue: { cancel(): void } | null = null;
     if (slide.kind === "ask") {
+      // The ask slide runs 6 s, plenty for its name to decode before the reveal, and for the next Pokémon's art and
+      // name to download.
+      announcer.prepare([lines.reveal(slide.mon)]);
+      void fetchAhead([nameAhead(queue.peek())]);
       later(150, () => {
         if (asksAloud(slide.n)) cue = whosThat();
         else audio.sfx("whoosh");
       });
     } else if (slide.kind === "reveal") {
       audio.sfx("reveal");
-      later(250, () => void announcer.say(`It’s ${slide.mon.say}!`));
-      void preloadArt([queue.peek()]);
+      later(250, () => void announcer.say(lines.reveal(slide.mon)));
     } else if (slide.kind === "board") {
       audio.sfx("whoosh");
     } else {

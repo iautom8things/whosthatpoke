@@ -3,13 +3,13 @@
 // While the answer is up, the other paddle or a swipe the other way changes the verdict.
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type MouseEvent, type PointerEvent } from "react";
-import { announcer, audio, whosThat } from "../../audio";
+import { announcer, audio, lines, whosThat, type WhosThat } from "../../audio";
 import { haptic } from "../../lib/haptic";
 import { useKeys } from "../../lib/useKeys";
 import { useSwipe, type SwipeDirection } from "../../lib/useSwipe";
 import { useViewport } from "../../lib/useViewport";
 import { onBrowserBack, useNav } from "../../state/nav";
-import { useSession } from "../../state/session";
+import { peekNext, useSession } from "../../state/session";
 import { useSettings } from "../../state/settings";
 import {
   BackButton,
@@ -26,11 +26,11 @@ import {
   IconStar,
   IconX,
   Pill,
-  preloadArt,
   ProgressDots,
   ScreenFrame,
   toast,
 } from "../components";
+import { fetchAhead, nameAhead } from "./game/prefetch";
 import { ART_CHECK_MS, artLoads, dealWithArt } from "./host/artCheck";
 import { hostDemo, hostHelpSeen, markHostHelpSeen } from "./host/flags";
 import s from "./host/Host.module.css";
@@ -141,7 +141,7 @@ export default function HostScreen() {
   const press = useRef<Press | null>(null);
   /** The press turned into a drag: the click that ends it must not also press the paddle it started on. */
   const swallowClick = useRef(false);
-  const cue = useRef<{ cancel(): void } | null>(null);
+  const cue = useRef<WhosThat | null>(null);
 
   // Arrive with a host game ready. The setup screens normally start it; anything else gets a fresh one.
   useEffect(() => {
@@ -156,6 +156,7 @@ export default function HostScreen() {
     audio.playSong("question");
     return () => {
       cue.current?.cancel();
+      cue.current = null;
       announcer.cancel();
     };
   }, []);
@@ -207,7 +208,12 @@ export default function HostScreen() {
   }, [phase, dex, helpOpen, hidden, artReady]);
 
   useEffect(() => {
-    if (current) void preloadArt([current.answer]);
+    if (!current) return;
+    // This card's art and name download first, then the next card's, before it is dealt.
+    const upcoming = peekNext();
+    void fetchAhead([current, upcoming].flatMap((q) => (q ? [nameAhead(q.answer)] : [])));
+    // The name plays the moment the host taps.
+    announcer.prepare([lines.reveal(current.answer), upcoming && lines.reveal(upcoming.answer)]);
   }, [current]);
 
   // After judging: hold the answer up, then deal the next card. A hidden tab holds it until it is back.
@@ -233,13 +239,22 @@ export default function HostScreen() {
 
   const fresh = () => justDealt(dealtAt.current, performance.now());
 
+  /** Says the card's name once "Who's that Pokémon?" is done, so a quick tap never cuts it off. */
+  function sayName(index: number, mon: Parameters<typeof lines.reveal>[0]) {
+    const ask = cue.current;
+    if (!ask) return void announcer.say(lines.reveal(mon));
+    void ask.finish().then(() => {
+      if (cue.current === ask && useSession.getState().current?.index === index) void announcer.say(lines.reveal(mon));
+    });
+  }
+
   function reveal() {
     const st = useSession.getState();
     if (!st.current || (st.phase !== "asking" && st.phase !== "intro") || peeked === st.current.index || fresh()) return;
     setPeeked(st.current.index);
     audio.sfx("reveal");
     haptic("select");
-    void announcer.say(`It’s ${st.current.answer.say}!`);
+    sayName(st.current.index, st.current.answer);
   }
 
   function judge(got: boolean) {
@@ -252,7 +267,7 @@ export default function HostScreen() {
     advanceDir.current = null;
     audio.sfx(got ? "correct" : "wrong");
     haptic(got ? "success" : "error");
-    if (!wasPeeked) void announcer.say(`It’s ${round.question.answer.say}!`);
+    if (!wasPeeked) sayName(round.question.index, round.question.answer);
     if (got) {
       celebrate("burst", { origin: stageOrigin(), intensity: 0.65 });
       const streak = useSession.getState().streak;

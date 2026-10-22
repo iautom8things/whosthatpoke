@@ -1,4 +1,5 @@
 // Turns a finished session into what the results screen shows and says.
+import { PRIZE_STAND_IN, prizeKey, scoreKey, type Line } from "../../../audio/lines";
 import type { GameConfig, Mode } from "../../../game/deck";
 import { DEFAULT_PRIZE_TIERS, nextTier, prizeFor, tierThreshold, type PrizeTier } from "../../../game/scoring";
 import type { Round } from "../../../state/session";
@@ -79,18 +80,37 @@ export function spoken(text: string): string {
     .trim();
 }
 
-/** What the announcer says when the prize appears. */
-export function announcement(s: GameSummary): string {
+type Announced = Pick<GameSummary, "mode" | "correct" | "asked" | "perfect" | "tier">;
+
+function scoreSentence(s: Announced): string {
   // A zero isn't read out to the whole driveway.
-  const score =
-    s.correct === 0
-      ? "Nice try!"
-      : s.mode === "survival"
-        ? `You named ${s.correct} Pokémon!`
-        : s.perfect
-          ? `Perfect score! ${s.correct} out of ${s.asked}!`
-          : `${s.mode === "host" ? "Your team got" : "You got"} ${s.correct} out of ${s.asked}!`;
-  return spoken(`${score} ${s.tier.title}! ${s.tier.reward}`);
+  if (s.correct === 0) return "Nice try!";
+  if (s.mode === "survival") return `You named ${s.correct} Pokémon!`;
+  if (s.perfect) return `Perfect score! ${s.correct} out of ${s.asked}!`;
+  return `${s.mode === "host" ? "Your team got" : "You got"} ${s.correct} out of ${s.asked}!`;
+}
+
+/** The prize as the announcer says it, e.g. "Ace Trainer! big candy!". */
+export const prizeSentence = (tier: Pick<PrizeTier, "title" | "reward">) => spoken(`${tier.title}! ${tier.reward}`);
+
+/** What the announcer says when the prize appears. */
+export function announcement(s: Announced): string {
+  return spoken(`${scoreSentence(s)} ${prizeSentence(s.tier)}`);
+}
+
+/**
+ * The announcement as two recorded lines, the score and then the prize. A score with no recording (a hand-edited
+ * game length) goes to the device voice on its own. A prize the host typed plays the recorded "Here's your prize!"
+ * instead; drop `standIn` to have the device voice read it word for word.
+ */
+export function announcementLine(s: Announced): Line {
+  const score = scoreKey(s);
+  const prize = prizeSentence(s.tier);
+  return {
+    text: spoken(scoreSentence(s)),
+    clips: score ? [score] : [],
+    then: { text: prize, clips: [prizeKey(prize)], standIn: [PRIZE_STAND_IN], pauseMs: 300 },
+  };
 }
 
 /** Big reward text shrinks with length; long rewards get the smaller size class. */

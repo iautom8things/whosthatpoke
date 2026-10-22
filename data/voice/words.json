@@ -1,0 +1,28 @@
+[
+ {
+  "id": "pokemon",
+  "text": "Pokémon",
+  "ipa": "/ˈpoʊkeɪˌmɑn/",
+  "respell": "POH-kay-mon",
+  "confidence": "high",
+  "notes": "Said every round. The official respelling is POH-kay-mon; plain text tends to come out POH-kuh-mon or pokey-mon (research-api/notes.md section 3)."
+ },
+ {
+  "id": "poke-ball",
+  "text": "Poké Ball",
+  "ipa": "/ˈpoʊkeɪ ˌbɔl/",
+  "respell": "POH-kay BALL",
+  "confidence": "high",
+  "notes": "Same first word as Pokémon."
+ },
+ { "id": "galar", "text": "Galar", "ipa": "/ˈɡælɑr/", "respell": "GAL-ar", "confidence": "medium", "notes": "As in the English dub of Sword and Shield." },
+ { "id": "alola", "text": "Alola", "ipa": "/əˈloʊlə/", "respell": "uh-LOH-luh", "confidence": "high", "notes": "" },
+ { "id": "sinnoh", "text": "Sinnoh", "ipa": "/ˈsɪnoʊ/", "respell": "SIN-oh", "confidence": "high", "notes": "" },
+ { "id": "unova", "text": "Unova", "ipa": "/juˈnoʊvə/", "respell": "yoo-NOH-vuh", "confidence": "high", "notes": "" },
+ { "id": "kalos", "text": "Kalos", "ipa": "/ˈkɑloʊs/", "respell": "KAH-lohs", "confidence": "medium", "notes": "" },
+ { "id": "hisui", "text": "Hisui", "ipa": "/hɪˈsui/", "respell": "hih-SOO-ee", "confidence": "medium", "notes": "" },
+ { "id": "paldea", "text": "Paldea", "ipa": "/pælˈdeɪə/", "respell": "pal-DAY-uh", "confidence": "medium", "notes": "" },
+ { "id": "poni", "text": "Poni", "ipa": "/ˈpoʊni/", "respell": "POH-nee", "confidence": "medium", "notes": "Poni Island in Alola." },
+ { "id": "dynamax", "text": "Dynamax", "ipa": "/ˈdaɪnəmæks/", "respell": "DY-nuh-max", "confidence": "high", "notes": "" },
+ { "id": "terastal", "text": "Terastal", "ipa": "/ˈtɛrəstæl/", "respell": "TAIR-uh-stal", "confidence": "medium", "notes": "As in the English dub of Scarlet and Violet." }
+]

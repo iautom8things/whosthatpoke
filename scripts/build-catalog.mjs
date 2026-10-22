@@ -2,6 +2,7 @@
 // Only data/species-names.json is required; each enrichment is used when present.
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { factSource } from "./lib/fact-source.mjs";
 
 const root = new URL("..", import.meta.url).pathname;
 const pkmnDir = process.env.PKMN_SVGS_DIR ?? join(root, "../pkmn_svgs");
@@ -32,6 +33,7 @@ const artMetrics = read("data/art-metrics.json") ?? {};
 const groups = read("data/groups.json") ?? {};
 const silhouettes = read("data/silhouettes.json") ?? { twins: [], blobs: [] };
 const places = read("data/places.json") ?? {};
+const flavorSources = read("data/pokeapi/flavor-sources.json");
 
 const twinsOf = new Map();
 for (const [a, b] of silhouettes.twins) {
@@ -122,6 +124,8 @@ for (const entry of names) {
     tier,
     ...(sp?.genus && { genus: sp.genus }),
     ...(flavor[dex] && { fact: flavor[dex] }),
+    // The game whose Pokédex the fact comes from, for the fact card's footnote. Null: no entry matches it.
+    ...(flavor[dex] && flavorSources && { factSource: factSource(flavor[dex], flavorSources[dex]) }),
     ...(sp?.color && { color: sp.color }),
     ...(sp?.shape && { shape: sp.shape }),
     family: sp?.chainId ?? 10000 + dex,
@@ -144,7 +148,10 @@ const sources = {
   twins: silhouettes.twins.length,
   blobs: blobs.size,
   places: Object.keys(places).filter((k) => k !== "notes").length,
+  factSources: catalog.filter((m) => m.factSource).length,
 };
 console.log(`catalog: ${catalog.length} species, skipped ${skipped.length} without art`);
 console.log("sources:", JSON.stringify(sources));
 if (skipped.length) console.log("no art:", skipped.join(", "));
+const unsourced = catalog.filter((m) => m.factSource === null).map((m) => `${m.dex} ${m.name}`);
+if (unsourced.length) console.log("facts no Pokédex entry matches:", unsourced.join(", "));

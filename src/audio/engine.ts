@@ -83,6 +83,16 @@ export class Engine implements Audio {
     };
   }
 
+  /** The live context, once the first unlock made it. The recorded announcer decodes and plays on it. */
+  get context(): AudioContext | null {
+    return this.ctx;
+  }
+
+  /** Where the recorded announcer plays: after the duck stage, through the master chain. */
+  voiceOut(): AudioNode | null {
+    return this.chain?.voice ?? null;
+  }
+
   /** Output level right now, RMS 0..1. For the sound lab meter and QA. */
   level(): number {
     if (!this.meter || !this.meterBuf) return 0;

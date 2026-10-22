@@ -1,10 +1,17 @@
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
+// The recorded announcer (scripts/voice writes it). Without it the game asks for no index, so a voiceless build
+// logs no 404, and every line uses the device voice. Checked at build and at dev server start.
+const hasVoice = existsSync(fileURLToPath(new URL("./public/voice/index.json", import.meta.url)));
+
 // Relative base so the build works from GitHub Pages, a subfolder, or `vite preview`.
 export default defineConfig({
   base: "./",
+  define: { __VOICE_INDEX__: JSON.stringify(hasVoice) },
   plugins: [
     react(),
     VitePWA({
@@ -33,14 +40,36 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // Everything, art included, so the van needs no network. ~1000 SVGs is ~40 MB; the biggest
-        // single file is ~0.6 MB, so 3 MB catches a runaway asset without dropping real ones.
-        // The plugin adds manifest.webmanifest itself.
-        globPatterns: ["**/*.{js,css,html,svg,png,webp,woff2,json}"],
+        // Only the app itself, the voice index and the few lines every game says ("Who's that Pokémon?",
+        // "Game over!"). Pictures (~29 MB) and the other clips (~90 MB) come per round through the routes below,
+        // or all at once from Settings > Offline (src/pwa.ts), so a guest's phone on cellular never pulls the
+        // whole game. The plugin adds manifest.webmanifest itself. 3 MB catches a runaway asset.
+        globPatterns: ["**/*.{js,css,html,woff2}", "icons/*.png", "favicon.svg", "voice/index.json", "voice/line.*.mp3"],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
+        // Older versions precached every picture, and activating this one deletes them from the precache.
+        // public/sw-keep-art.js copies them to the art cache first, so a device that saved them keeps them.
+        importScripts: ["sw-keep-art.js"],
+        // Every picture and clip a round fetches stays for good, so anything played once plays offline.
+        // Only 200 (or 0, opaque) is stored, so a 206 from a range request never is; and nothing asks for ranges,
+        // since clips are fetched whole and decoded with Web Audio. Requests with an x-wtp-save header are Save
+        // for offline, which writes these caches from the page (src/pwa-save.ts), so they skip the worker.
+        runtimeCaching: [
+          {
+            urlPattern: ({ url, request, sameOrigin }) =>
+              sameOrigin && !request.headers.has("x-wtp-save") && /\/pokemon\/\d+\.svg$/.test(url.pathname),
+            handler: "CacheFirst",
+            options: { cacheName: "wtp-art", cacheableResponse: { statuses: [0, 200] }, matchOptions: { ignoreVary: true } },
+          },
+          {
+            urlPattern: ({ url, request, sameOrigin }) =>
+              sameOrigin && !request.headers.has("x-wtp-save") && /\/voice\/[^/]+\.mp3$/.test(url.pathname),
+            handler: "CacheFirst",
+            options: { cacheName: "wtp-voice", cacheableResponse: { statuses: [0, 200] }, matchOptions: { ignoreVary: true } },
+          },
+        ],
         cleanupOutdatedCaches: true,
-        // Take over the tab that did the first install. Without it that tab keeps loading art from
-        // the network, so a host who waits for "Ready" and then goes offline sees only "?".
+        // Take over the tab that did the first install. Without it that tab never reads the caches, so a
+        // host who waits for "Ready" and then goes offline sees only "?".
         // Updates still wait for SKIP_WAITING ("prompt" above).
         clientsClaim: true,
         navigateFallback: "index.html",

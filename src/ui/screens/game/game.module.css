@@ -298,11 +298,12 @@
   transform-origin: 50% 0%;
 }
 .fact {
+  --fact-gap: clamp(4px, 4cqh, var(--sp-3));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(4px, 4cqh, var(--sp-3));
+  gap: var(--fact-gap);
   min-height: 0;
   padding: clamp(6px, 5cqh, var(--sp-3)) var(--sp-4);
   overflow: hidden;
@@ -347,6 +348,20 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+/*
+ * The game the fact comes from: quiet and small, set close under the fact like a caption, which also spares the
+ * fact a smaller size on most cards. FactCard drops it before it would cut a sentence from the fact.
+ */
+.factSource {
+  flex: none;
+  max-width: 100%;
+  margin-top: calc(var(--fact-gap) * -0.6);
+  font-size: min(var(--fs-xs), 8cqh);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--surface-ink-soft);
+  text-wrap: balance;
 }
 .fact[data-has-fact] .genus {
   font-size: min(var(--fs-lg), 15cqh, calc(100cqw / 12));
