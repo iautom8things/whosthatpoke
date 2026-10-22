@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -p . --noEmit && vite build",
     "preview": "vite preview --host",
-    "typecheck": "tsc -b --noEmit",
+    "typecheck": "tsc -p . --noEmit",
     "test": "vitest run",
     "sync-assets": "node scripts/sync-assets.mjs",
     "build-catalog": "node scripts/build-catalog.mjs"
