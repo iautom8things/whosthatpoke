@@ -1,0 +1,8202 @@
+[
+ {
+  "dex": 1,
+  "slug": "bulbasaur",
+  "name": "Bulbasaur",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 2,
+  "slug": "ivysaur",
+  "name": "Ivysaur",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 3,
+  "slug": "venusaur",
+  "name": "Venusaur",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 4,
+  "slug": "charmander",
+  "name": "Charmander",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 5,
+  "slug": "charmeleon",
+  "name": "Charmeleon",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 6,
+  "slug": "charizard",
+  "name": "Charizard",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 7,
+  "slug": "squirtle",
+  "name": "Squirtle",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 8,
+  "slug": "wartortle",
+  "name": "Wartortle",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 9,
+  "slug": "blastoise",
+  "name": "Blastoise",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 10,
+  "slug": "caterpie",
+  "name": "Caterpie",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 11,
+  "slug": "metapod",
+  "name": "Metapod",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 12,
+  "slug": "butterfree",
+  "name": "Butterfree",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 13,
+  "slug": "weedle",
+  "name": "Weedle",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 14,
+  "slug": "kakuna",
+  "name": "Kakuna",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 15,
+  "slug": "beedrill",
+  "name": "Beedrill",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 16,
+  "slug": "pidgey",
+  "name": "Pidgey",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 17,
+  "slug": "pidgeotto",
+  "name": "Pidgeotto",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 18,
+  "slug": "pidgeot",
+  "name": "Pidgeot",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 19,
+  "slug": "rattata",
+  "name": "Rattata",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 20,
+  "slug": "raticate",
+  "name": "Raticate",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 21,
+  "slug": "spearow",
+  "name": "Spearow",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 22,
+  "slug": "fearow",
+  "name": "Fearow",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 23,
+  "slug": "ekans",
+  "name": "Ekans",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 24,
+  "slug": "arbok",
+  "name": "Arbok",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 25,
+  "slug": "pikachu",
+  "name": "Pikachu",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 26,
+  "slug": "raichu",
+  "name": "Raichu",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 27,
+  "slug": "sandshrew",
+  "name": "Sandshrew",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 28,
+  "slug": "sandslash",
+  "name": "Sandslash",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 29,
+  "slug": "nidoran-f",
+  "name": "Nidoran♀",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 30,
+  "slug": "nidorina",
+  "name": "Nidorina",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 31,
+  "slug": "nidoqueen",
+  "name": "Nidoqueen",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 32,
+  "slug": "nidoran-m",
+  "name": "Nidoran♂",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 33,
+  "slug": "nidorino",
+  "name": "Nidorino",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 34,
+  "slug": "nidoking",
+  "name": "Nidoking",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 35,
+  "slug": "clefairy",
+  "name": "Clefairy",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 36,
+  "slug": "clefable",
+  "name": "Clefable",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 37,
+  "slug": "vulpix",
+  "name": "Vulpix",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 38,
+  "slug": "ninetales",
+  "name": "Ninetales",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 39,
+  "slug": "jigglypuff",
+  "name": "Jigglypuff",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 40,
+  "slug": "wigglytuff",
+  "name": "Wigglytuff",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 41,
+  "slug": "zubat",
+  "name": "Zubat",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 42,
+  "slug": "golbat",
+  "name": "Golbat",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 43,
+  "slug": "oddish",
+  "name": "Oddish",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 44,
+  "slug": "gloom",
+  "name": "Gloom",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 45,
+  "slug": "vileplume",
+  "name": "Vileplume",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 46,
+  "slug": "paras",
+  "name": "Paras",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 47,
+  "slug": "parasect",
+  "name": "Parasect",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 48,
+  "slug": "venonat",
+  "name": "Venonat",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 49,
+  "slug": "venomoth",
+  "name": "Venomoth",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 50,
+  "slug": "diglett",
+  "name": "Diglett",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 51,
+  "slug": "dugtrio",
+  "name": "Dugtrio",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 52,
+  "slug": "meowth",
+  "name": "Meowth",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 53,
+  "slug": "persian",
+  "name": "Persian",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 54,
+  "slug": "psyduck",
+  "name": "Psyduck",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 55,
+  "slug": "golduck",
+  "name": "Golduck",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 56,
+  "slug": "mankey",
+  "name": "Mankey",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 57,
+  "slug": "primeape",
+  "name": "Primeape",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 58,
+  "slug": "growlithe",
+  "name": "Growlithe",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 59,
+  "slug": "arcanine",
+  "name": "Arcanine",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 60,
+  "slug": "poliwag",
+  "name": "Poliwag",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 61,
+  "slug": "poliwhirl",
+  "name": "Poliwhirl",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 62,
+  "slug": "poliwrath",
+  "name": "Poliwrath",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 63,
+  "slug": "abra",
+  "name": "Abra",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 64,
+  "slug": "kadabra",
+  "name": "Kadabra",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 65,
+  "slug": "alakazam",
+  "name": "Alakazam",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 66,
+  "slug": "machop",
+  "name": "Machop",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 67,
+  "slug": "machoke",
+  "name": "Machoke",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 68,
+  "slug": "machamp",
+  "name": "Machamp",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 69,
+  "slug": "bellsprout",
+  "name": "Bellsprout",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 70,
+  "slug": "weepinbell",
+  "name": "Weepinbell",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 71,
+  "slug": "victreebel",
+  "name": "Victreebel",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 72,
+  "slug": "tentacool",
+  "name": "Tentacool",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 73,
+  "slug": "tentacruel",
+  "name": "Tentacruel",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 74,
+  "slug": "geodude",
+  "name": "Geodude",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 75,
+  "slug": "graveler",
+  "name": "Graveler",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 76,
+  "slug": "golem",
+  "name": "Golem",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 77,
+  "slug": "ponyta",
+  "name": "Ponyta",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 78,
+  "slug": "rapidash",
+  "name": "Rapidash",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 79,
+  "slug": "slowpoke",
+  "name": "Slowpoke",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 80,
+  "slug": "slowbro",
+  "name": "Slowbro",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 81,
+  "slug": "magnemite",
+  "name": "Magnemite",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 82,
+  "slug": "magneton",
+  "name": "Magneton",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 83,
+  "slug": "farfetchd",
+  "name": "Farfetch’d",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 84,
+  "slug": "doduo",
+  "name": "Doduo",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 85,
+  "slug": "dodrio",
+  "name": "Dodrio",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 86,
+  "slug": "seel",
+  "name": "Seel",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 87,
+  "slug": "dewgong",
+  "name": "Dewgong",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 88,
+  "slug": "grimer",
+  "name": "Grimer",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 89,
+  "slug": "muk",
+  "name": "Muk",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 90,
+  "slug": "shellder",
+  "name": "Shellder",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 91,
+  "slug": "cloyster",
+  "name": "Cloyster",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 92,
+  "slug": "gastly",
+  "name": "Gastly",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 93,
+  "slug": "haunter",
+  "name": "Haunter",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 94,
+  "slug": "gengar",
+  "name": "Gengar",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 95,
+  "slug": "onix",
+  "name": "Onix",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 96,
+  "slug": "drowzee",
+  "name": "Drowzee",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 97,
+  "slug": "hypno",
+  "name": "Hypno",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 98,
+  "slug": "krabby",
+  "name": "Krabby",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 99,
+  "slug": "kingler",
+  "name": "Kingler",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 100,
+  "slug": "voltorb",
+  "name": "Voltorb",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 101,
+  "slug": "electrode",
+  "name": "Electrode",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 102,
+  "slug": "exeggcute",
+  "name": "Exeggcute",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 103,
+  "slug": "exeggutor",
+  "name": "Exeggutor",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 104,
+  "slug": "cubone",
+  "name": "Cubone",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 105,
+  "slug": "marowak",
+  "name": "Marowak",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 106,
+  "slug": "hitmonlee",
+  "name": "Hitmonlee",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 107,
+  "slug": "hitmonchan",
+  "name": "Hitmonchan",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 108,
+  "slug": "lickitung",
+  "name": "Lickitung",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 109,
+  "slug": "koffing",
+  "name": "Koffing",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 110,
+  "slug": "weezing",
+  "name": "Weezing",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 111,
+  "slug": "rhyhorn",
+  "name": "Rhyhorn",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 112,
+  "slug": "rhydon",
+  "name": "Rhydon",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 113,
+  "slug": "chansey",
+  "name": "Chansey",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 114,
+  "slug": "tangela",
+  "name": "Tangela",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 115,
+  "slug": "kangaskhan",
+  "name": "Kangaskhan",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 116,
+  "slug": "horsea",
+  "name": "Horsea",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 117,
+  "slug": "seadra",
+  "name": "Seadra",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 118,
+  "slug": "goldeen",
+  "name": "Goldeen",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 119,
+  "slug": "seaking",
+  "name": "Seaking",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 120,
+  "slug": "staryu",
+  "name": "Staryu",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 121,
+  "slug": "starmie",
+  "name": "Starmie",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 122,
+  "slug": "mr-mime",
+  "name": "Mr. Mime",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 123,
+  "slug": "scyther",
+  "name": "Scyther",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 124,
+  "slug": "jynx",
+  "name": "Jynx",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 125,
+  "slug": "electabuzz",
+  "name": "Electabuzz",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 126,
+  "slug": "magmar",
+  "name": "Magmar",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 127,
+  "slug": "pinsir",
+  "name": "Pinsir",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 128,
+  "slug": "tauros",
+  "name": "Tauros",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 129,
+  "slug": "magikarp",
+  "name": "Magikarp",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 130,
+  "slug": "gyarados",
+  "name": "Gyarados",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 131,
+  "slug": "lapras",
+  "name": "Lapras",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 132,
+  "slug": "ditto",
+  "name": "Ditto",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 133,
+  "slug": "eevee",
+  "name": "Eevee",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 134,
+  "slug": "vaporeon",
+  "name": "Vaporeon",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 135,
+  "slug": "jolteon",
+  "name": "Jolteon",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 136,
+  "slug": "flareon",
+  "name": "Flareon",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 137,
+  "slug": "porygon",
+  "name": "Porygon",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 138,
+  "slug": "omanyte",
+  "name": "Omanyte",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 139,
+  "slug": "omastar",
+  "name": "Omastar",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 140,
+  "slug": "kabuto",
+  "name": "Kabuto",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 141,
+  "slug": "kabutops",
+  "name": "Kabutops",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 142,
+  "slug": "aerodactyl",
+  "name": "Aerodactyl",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 143,
+  "slug": "snorlax",
+  "name": "Snorlax",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 144,
+  "slug": "articuno",
+  "name": "Articuno",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 145,
+  "slug": "zapdos",
+  "name": "Zapdos",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 146,
+  "slug": "moltres",
+  "name": "Moltres",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 147,
+  "slug": "dratini",
+  "name": "Dratini",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 148,
+  "slug": "dragonair",
+  "name": "Dragonair",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 149,
+  "slug": "dragonite",
+  "name": "Dragonite",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 150,
+  "slug": "mewtwo",
+  "name": "Mewtwo",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 151,
+  "slug": "mew",
+  "name": "Mew",
+  "generation": 1,
+  "region": "Kanto",
+  "hasSvg": true
+ },
+ {
+  "dex": 152,
+  "slug": "chikorita",
+  "name": "Chikorita",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 153,
+  "slug": "bayleef",
+  "name": "Bayleef",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 154,
+  "slug": "meganium",
+  "name": "Meganium",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 155,
+  "slug": "cyndaquil",
+  "name": "Cyndaquil",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 156,
+  "slug": "quilava",
+  "name": "Quilava",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 157,
+  "slug": "typhlosion",
+  "name": "Typhlosion",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 158,
+  "slug": "totodile",
+  "name": "Totodile",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 159,
+  "slug": "croconaw",
+  "name": "Croconaw",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 160,
+  "slug": "feraligatr",
+  "name": "Feraligatr",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 161,
+  "slug": "sentret",
+  "name": "Sentret",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 162,
+  "slug": "furret",
+  "name": "Furret",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 163,
+  "slug": "hoothoot",
+  "name": "Hoothoot",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 164,
+  "slug": "noctowl",
+  "name": "Noctowl",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 165,
+  "slug": "ledyba",
+  "name": "Ledyba",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 166,
+  "slug": "ledian",
+  "name": "Ledian",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 167,
+  "slug": "spinarak",
+  "name": "Spinarak",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 168,
+  "slug": "ariados",
+  "name": "Ariados",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 169,
+  "slug": "crobat",
+  "name": "Crobat",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 170,
+  "slug": "chinchou",
+  "name": "Chinchou",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 171,
+  "slug": "lanturn",
+  "name": "Lanturn",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 172,
+  "slug": "pichu",
+  "name": "Pichu",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 173,
+  "slug": "cleffa",
+  "name": "Cleffa",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 174,
+  "slug": "igglybuff",
+  "name": "Igglybuff",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 175,
+  "slug": "togepi",
+  "name": "Togepi",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 176,
+  "slug": "togetic",
+  "name": "Togetic",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 177,
+  "slug": "natu",
+  "name": "Natu",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 178,
+  "slug": "xatu",
+  "name": "Xatu",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 179,
+  "slug": "mareep",
+  "name": "Mareep",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 180,
+  "slug": "flaaffy",
+  "name": "Flaaffy",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 181,
+  "slug": "ampharos",
+  "name": "Ampharos",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 182,
+  "slug": "bellossom",
+  "name": "Bellossom",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 183,
+  "slug": "marill",
+  "name": "Marill",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 184,
+  "slug": "azumarill",
+  "name": "Azumarill",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 185,
+  "slug": "sudowoodo",
+  "name": "Sudowoodo",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 186,
+  "slug": "politoed",
+  "name": "Politoed",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 187,
+  "slug": "hoppip",
+  "name": "Hoppip",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 188,
+  "slug": "skiploom",
+  "name": "Skiploom",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 189,
+  "slug": "jumpluff",
+  "name": "Jumpluff",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 190,
+  "slug": "aipom",
+  "name": "Aipom",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 191,
+  "slug": "sunkern",
+  "name": "Sunkern",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 192,
+  "slug": "sunflora",
+  "name": "Sunflora",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 193,
+  "slug": "yanma",
+  "name": "Yanma",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 194,
+  "slug": "wooper",
+  "name": "Wooper",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 195,
+  "slug": "quagsire",
+  "name": "Quagsire",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 196,
+  "slug": "espeon",
+  "name": "Espeon",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 197,
+  "slug": "umbreon",
+  "name": "Umbreon",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 198,
+  "slug": "murkrow",
+  "name": "Murkrow",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 199,
+  "slug": "slowking",
+  "name": "Slowking",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 200,
+  "slug": "misdreavus",
+  "name": "Misdreavus",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 201,
+  "slug": "unown",
+  "name": "Unown",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 202,
+  "slug": "wobbuffet",
+  "name": "Wobbuffet",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 203,
+  "slug": "girafarig",
+  "name": "Girafarig",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 204,
+  "slug": "pineco",
+  "name": "Pineco",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 205,
+  "slug": "forretress",
+  "name": "Forretress",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 206,
+  "slug": "dunsparce",
+  "name": "Dunsparce",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 207,
+  "slug": "gligar",
+  "name": "Gligar",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 208,
+  "slug": "steelix",
+  "name": "Steelix",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 209,
+  "slug": "snubbull",
+  "name": "Snubbull",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 210,
+  "slug": "granbull",
+  "name": "Granbull",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 211,
+  "slug": "qwilfish",
+  "name": "Qwilfish",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 212,
+  "slug": "scizor",
+  "name": "Scizor",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 213,
+  "slug": "shuckle",
+  "name": "Shuckle",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 214,
+  "slug": "heracross",
+  "name": "Heracross",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 215,
+  "slug": "sneasel",
+  "name": "Sneasel",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 216,
+  "slug": "teddiursa",
+  "name": "Teddiursa",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 217,
+  "slug": "ursaring",
+  "name": "Ursaring",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 218,
+  "slug": "slugma",
+  "name": "Slugma",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 219,
+  "slug": "magcargo",
+  "name": "Magcargo",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 220,
+  "slug": "swinub",
+  "name": "Swinub",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 221,
+  "slug": "piloswine",
+  "name": "Piloswine",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 222,
+  "slug": "corsola",
+  "name": "Corsola",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 223,
+  "slug": "remoraid",
+  "name": "Remoraid",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 224,
+  "slug": "octillery",
+  "name": "Octillery",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 225,
+  "slug": "delibird",
+  "name": "Delibird",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 226,
+  "slug": "mantine",
+  "name": "Mantine",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 227,
+  "slug": "skarmory",
+  "name": "Skarmory",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 228,
+  "slug": "houndour",
+  "name": "Houndour",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 229,
+  "slug": "houndoom",
+  "name": "Houndoom",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 230,
+  "slug": "kingdra",
+  "name": "Kingdra",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 231,
+  "slug": "phanpy",
+  "name": "Phanpy",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 232,
+  "slug": "donphan",
+  "name": "Donphan",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 233,
+  "slug": "porygon2",
+  "name": "Porygon2",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 234,
+  "slug": "stantler",
+  "name": "Stantler",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 235,
+  "slug": "smeargle",
+  "name": "Smeargle",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 236,
+  "slug": "tyrogue",
+  "name": "Tyrogue",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 237,
+  "slug": "hitmontop",
+  "name": "Hitmontop",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 238,
+  "slug": "smoochum",
+  "name": "Smoochum",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 239,
+  "slug": "elekid",
+  "name": "Elekid",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 240,
+  "slug": "magby",
+  "name": "Magby",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 241,
+  "slug": "miltank",
+  "name": "Miltank",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 242,
+  "slug": "blissey",
+  "name": "Blissey",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 243,
+  "slug": "raikou",
+  "name": "Raikou",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 244,
+  "slug": "entei",
+  "name": "Entei",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 245,
+  "slug": "suicune",
+  "name": "Suicune",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 246,
+  "slug": "larvitar",
+  "name": "Larvitar",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 247,
+  "slug": "pupitar",
+  "name": "Pupitar",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 248,
+  "slug": "tyranitar",
+  "name": "Tyranitar",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 249,
+  "slug": "lugia",
+  "name": "Lugia",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 250,
+  "slug": "ho-oh",
+  "name": "Ho-Oh",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 251,
+  "slug": "celebi",
+  "name": "Celebi",
+  "generation": 2,
+  "region": "Johto",
+  "hasSvg": true
+ },
+ {
+  "dex": 252,
+  "slug": "treecko",
+  "name": "Treecko",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 253,
+  "slug": "grovyle",
+  "name": "Grovyle",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 254,
+  "slug": "sceptile",
+  "name": "Sceptile",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 255,
+  "slug": "torchic",
+  "name": "Torchic",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 256,
+  "slug": "combusken",
+  "name": "Combusken",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 257,
+  "slug": "blaziken",
+  "name": "Blaziken",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 258,
+  "slug": "mudkip",
+  "name": "Mudkip",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 259,
+  "slug": "marshtomp",
+  "name": "Marshtomp",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 260,
+  "slug": "swampert",
+  "name": "Swampert",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 261,
+  "slug": "poochyena",
+  "name": "Poochyena",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 262,
+  "slug": "mightyena",
+  "name": "Mightyena",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 263,
+  "slug": "zigzagoon",
+  "name": "Zigzagoon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 264,
+  "slug": "linoone",
+  "name": "Linoone",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 265,
+  "slug": "wurmple",
+  "name": "Wurmple",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 266,
+  "slug": "silcoon",
+  "name": "Silcoon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 267,
+  "slug": "beautifly",
+  "name": "Beautifly",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 268,
+  "slug": "cascoon",
+  "name": "Cascoon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 269,
+  "slug": "dustox",
+  "name": "Dustox",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 270,
+  "slug": "lotad",
+  "name": "Lotad",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 271,
+  "slug": "lombre",
+  "name": "Lombre",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 272,
+  "slug": "ludicolo",
+  "name": "Ludicolo",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 273,
+  "slug": "seedot",
+  "name": "Seedot",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 274,
+  "slug": "nuzleaf",
+  "name": "Nuzleaf",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 275,
+  "slug": "shiftry",
+  "name": "Shiftry",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 276,
+  "slug": "taillow",
+  "name": "Taillow",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 277,
+  "slug": "swellow",
+  "name": "Swellow",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 278,
+  "slug": "wingull",
+  "name": "Wingull",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 279,
+  "slug": "pelipper",
+  "name": "Pelipper",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 280,
+  "slug": "ralts",
+  "name": "Ralts",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 281,
+  "slug": "kirlia",
+  "name": "Kirlia",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 282,
+  "slug": "gardevoir",
+  "name": "Gardevoir",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 283,
+  "slug": "surskit",
+  "name": "Surskit",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 284,
+  "slug": "masquerain",
+  "name": "Masquerain",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 285,
+  "slug": "shroomish",
+  "name": "Shroomish",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 286,
+  "slug": "breloom",
+  "name": "Breloom",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 287,
+  "slug": "slakoth",
+  "name": "Slakoth",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 288,
+  "slug": "vigoroth",
+  "name": "Vigoroth",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 289,
+  "slug": "slaking",
+  "name": "Slaking",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 290,
+  "slug": "nincada",
+  "name": "Nincada",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 291,
+  "slug": "ninjask",
+  "name": "Ninjask",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 292,
+  "slug": "shedinja",
+  "name": "Shedinja",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 293,
+  "slug": "whismur",
+  "name": "Whismur",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 294,
+  "slug": "loudred",
+  "name": "Loudred",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 295,
+  "slug": "exploud",
+  "name": "Exploud",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 296,
+  "slug": "makuhita",
+  "name": "Makuhita",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 297,
+  "slug": "hariyama",
+  "name": "Hariyama",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 298,
+  "slug": "azurill",
+  "name": "Azurill",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 299,
+  "slug": "nosepass",
+  "name": "Nosepass",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 300,
+  "slug": "skitty",
+  "name": "Skitty",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 301,
+  "slug": "delcatty",
+  "name": "Delcatty",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 302,
+  "slug": "sableye",
+  "name": "Sableye",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 303,
+  "slug": "mawile",
+  "name": "Mawile",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 304,
+  "slug": "aron",
+  "name": "Aron",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 305,
+  "slug": "lairon",
+  "name": "Lairon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 306,
+  "slug": "aggron",
+  "name": "Aggron",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 307,
+  "slug": "meditite",
+  "name": "Meditite",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 308,
+  "slug": "medicham",
+  "name": "Medicham",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 309,
+  "slug": "electrike",
+  "name": "Electrike",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 310,
+  "slug": "manectric",
+  "name": "Manectric",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 311,
+  "slug": "plusle",
+  "name": "Plusle",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 312,
+  "slug": "minun",
+  "name": "Minun",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 313,
+  "slug": "volbeat",
+  "name": "Volbeat",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 314,
+  "slug": "illumise",
+  "name": "Illumise",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 315,
+  "slug": "roselia",
+  "name": "Roselia",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 316,
+  "slug": "gulpin",
+  "name": "Gulpin",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 317,
+  "slug": "swalot",
+  "name": "Swalot",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 318,
+  "slug": "carvanha",
+  "name": "Carvanha",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 319,
+  "slug": "sharpedo",
+  "name": "Sharpedo",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 320,
+  "slug": "wailmer",
+  "name": "Wailmer",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 321,
+  "slug": "wailord",
+  "name": "Wailord",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 322,
+  "slug": "numel",
+  "name": "Numel",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 323,
+  "slug": "camerupt",
+  "name": "Camerupt",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 324,
+  "slug": "torkoal",
+  "name": "Torkoal",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 325,
+  "slug": "spoink",
+  "name": "Spoink",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 326,
+  "slug": "grumpig",
+  "name": "Grumpig",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 327,
+  "slug": "spinda",
+  "name": "Spinda",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 328,
+  "slug": "trapinch",
+  "name": "Trapinch",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 329,
+  "slug": "vibrava",
+  "name": "Vibrava",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 330,
+  "slug": "flygon",
+  "name": "Flygon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 331,
+  "slug": "cacnea",
+  "name": "Cacnea",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 332,
+  "slug": "cacturne",
+  "name": "Cacturne",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 333,
+  "slug": "swablu",
+  "name": "Swablu",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 334,
+  "slug": "altaria",
+  "name": "Altaria",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 335,
+  "slug": "zangoose",
+  "name": "Zangoose",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 336,
+  "slug": "seviper",
+  "name": "Seviper",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 337,
+  "slug": "lunatone",
+  "name": "Lunatone",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 338,
+  "slug": "solrock",
+  "name": "Solrock",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 339,
+  "slug": "barboach",
+  "name": "Barboach",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 340,
+  "slug": "whiscash",
+  "name": "Whiscash",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 341,
+  "slug": "corphish",
+  "name": "Corphish",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 342,
+  "slug": "crawdaunt",
+  "name": "Crawdaunt",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 343,
+  "slug": "baltoy",
+  "name": "Baltoy",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 344,
+  "slug": "claydol",
+  "name": "Claydol",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 345,
+  "slug": "lileep",
+  "name": "Lileep",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 346,
+  "slug": "cradily",
+  "name": "Cradily",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 347,
+  "slug": "anorith",
+  "name": "Anorith",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 348,
+  "slug": "armaldo",
+  "name": "Armaldo",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 349,
+  "slug": "feebas",
+  "name": "Feebas",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 350,
+  "slug": "milotic",
+  "name": "Milotic",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 351,
+  "slug": "castform",
+  "name": "Castform",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 352,
+  "slug": "kecleon",
+  "name": "Kecleon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 353,
+  "slug": "shuppet",
+  "name": "Shuppet",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 354,
+  "slug": "banette",
+  "name": "Banette",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 355,
+  "slug": "duskull",
+  "name": "Duskull",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 356,
+  "slug": "dusclops",
+  "name": "Dusclops",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 357,
+  "slug": "tropius",
+  "name": "Tropius",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 358,
+  "slug": "chimecho",
+  "name": "Chimecho",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 359,
+  "slug": "absol",
+  "name": "Absol",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 360,
+  "slug": "wynaut",
+  "name": "Wynaut",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 361,
+  "slug": "snorunt",
+  "name": "Snorunt",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 362,
+  "slug": "glalie",
+  "name": "Glalie",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 363,
+  "slug": "spheal",
+  "name": "Spheal",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 364,
+  "slug": "sealeo",
+  "name": "Sealeo",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 365,
+  "slug": "walrein",
+  "name": "Walrein",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 366,
+  "slug": "clamperl",
+  "name": "Clamperl",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 367,
+  "slug": "huntail",
+  "name": "Huntail",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 368,
+  "slug": "gorebyss",
+  "name": "Gorebyss",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 369,
+  "slug": "relicanth",
+  "name": "Relicanth",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 370,
+  "slug": "luvdisc",
+  "name": "Luvdisc",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 371,
+  "slug": "bagon",
+  "name": "Bagon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 372,
+  "slug": "shelgon",
+  "name": "Shelgon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 373,
+  "slug": "salamence",
+  "name": "Salamence",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 374,
+  "slug": "beldum",
+  "name": "Beldum",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 375,
+  "slug": "metang",
+  "name": "Metang",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 376,
+  "slug": "metagross",
+  "name": "Metagross",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 377,
+  "slug": "regirock",
+  "name": "Regirock",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 378,
+  "slug": "regice",
+  "name": "Regice",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 379,
+  "slug": "registeel",
+  "name": "Registeel",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 380,
+  "slug": "latias",
+  "name": "Latias",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 381,
+  "slug": "latios",
+  "name": "Latios",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 382,
+  "slug": "kyogre",
+  "name": "Kyogre",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 383,
+  "slug": "groudon",
+  "name": "Groudon",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 384,
+  "slug": "rayquaza",
+  "name": "Rayquaza",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 385,
+  "slug": "jirachi",
+  "name": "Jirachi",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 386,
+  "slug": "deoxys",
+  "name": "Deoxys",
+  "generation": 3,
+  "region": "Hoenn",
+  "hasSvg": true
+ },
+ {
+  "dex": 387,
+  "slug": "turtwig",
+  "name": "Turtwig",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 388,
+  "slug": "grotle",
+  "name": "Grotle",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 389,
+  "slug": "torterra",
+  "name": "Torterra",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 390,
+  "slug": "chimchar",
+  "name": "Chimchar",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 391,
+  "slug": "monferno",
+  "name": "Monferno",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 392,
+  "slug": "infernape",
+  "name": "Infernape",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 393,
+  "slug": "piplup",
+  "name": "Piplup",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 394,
+  "slug": "prinplup",
+  "name": "Prinplup",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 395,
+  "slug": "empoleon",
+  "name": "Empoleon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 396,
+  "slug": "starly",
+  "name": "Starly",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 397,
+  "slug": "staravia",
+  "name": "Staravia",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 398,
+  "slug": "staraptor",
+  "name": "Staraptor",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 399,
+  "slug": "bidoof",
+  "name": "Bidoof",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 400,
+  "slug": "bibarel",
+  "name": "Bibarel",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 401,
+  "slug": "kricketot",
+  "name": "Kricketot",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 402,
+  "slug": "kricketune",
+  "name": "Kricketune",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 403,
+  "slug": "shinx",
+  "name": "Shinx",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 404,
+  "slug": "luxio",
+  "name": "Luxio",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 405,
+  "slug": "luxray",
+  "name": "Luxray",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 406,
+  "slug": "budew",
+  "name": "Budew",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 407,
+  "slug": "roserade",
+  "name": "Roserade",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 408,
+  "slug": "cranidos",
+  "name": "Cranidos",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 409,
+  "slug": "rampardos",
+  "name": "Rampardos",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 410,
+  "slug": "shieldon",
+  "name": "Shieldon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 411,
+  "slug": "bastiodon",
+  "name": "Bastiodon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 412,
+  "slug": "burmy",
+  "name": "Burmy",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 413,
+  "slug": "wormadam",
+  "name": "Wormadam",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 414,
+  "slug": "mothim",
+  "name": "Mothim",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 415,
+  "slug": "combee",
+  "name": "Combee",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 416,
+  "slug": "vespiquen",
+  "name": "Vespiquen",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 417,
+  "slug": "pachirisu",
+  "name": "Pachirisu",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 418,
+  "slug": "buizel",
+  "name": "Buizel",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 419,
+  "slug": "floatzel",
+  "name": "Floatzel",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 420,
+  "slug": "cherubi",
+  "name": "Cherubi",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 421,
+  "slug": "cherrim",
+  "name": "Cherrim",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 422,
+  "slug": "shellos",
+  "name": "Shellos",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 423,
+  "slug": "gastrodon",
+  "name": "Gastrodon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 424,
+  "slug": "ambipom",
+  "name": "Ambipom",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 425,
+  "slug": "drifloon",
+  "name": "Drifloon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 426,
+  "slug": "drifblim",
+  "name": "Drifblim",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 427,
+  "slug": "buneary",
+  "name": "Buneary",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 428,
+  "slug": "lopunny",
+  "name": "Lopunny",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 429,
+  "slug": "mismagius",
+  "name": "Mismagius",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 430,
+  "slug": "honchkrow",
+  "name": "Honchkrow",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 431,
+  "slug": "glameow",
+  "name": "Glameow",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 432,
+  "slug": "purugly",
+  "name": "Purugly",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 433,
+  "slug": "chingling",
+  "name": "Chingling",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 434,
+  "slug": "stunky",
+  "name": "Stunky",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 435,
+  "slug": "skuntank",
+  "name": "Skuntank",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 436,
+  "slug": "bronzor",
+  "name": "Bronzor",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 437,
+  "slug": "bronzong",
+  "name": "Bronzong",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 438,
+  "slug": "bonsly",
+  "name": "Bonsly",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 439,
+  "slug": "mime-jr",
+  "name": "Mime Jr.",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 440,
+  "slug": "happiny",
+  "name": "Happiny",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 441,
+  "slug": "chatot",
+  "name": "Chatot",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 442,
+  "slug": "spiritomb",
+  "name": "Spiritomb",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 443,
+  "slug": "gible",
+  "name": "Gible",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 444,
+  "slug": "gabite",
+  "name": "Gabite",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 445,
+  "slug": "garchomp",
+  "name": "Garchomp",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 446,
+  "slug": "munchlax",
+  "name": "Munchlax",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 447,
+  "slug": "riolu",
+  "name": "Riolu",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 448,
+  "slug": "lucario",
+  "name": "Lucario",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 449,
+  "slug": "hippopotas",
+  "name": "Hippopotas",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 450,
+  "slug": "hippowdon",
+  "name": "Hippowdon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 451,
+  "slug": "skorupi",
+  "name": "Skorupi",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 452,
+  "slug": "drapion",
+  "name": "Drapion",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 453,
+  "slug": "croagunk",
+  "name": "Croagunk",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 454,
+  "slug": "toxicroak",
+  "name": "Toxicroak",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 455,
+  "slug": "carnivine",
+  "name": "Carnivine",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 456,
+  "slug": "finneon",
+  "name": "Finneon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 457,
+  "slug": "lumineon",
+  "name": "Lumineon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 458,
+  "slug": "mantyke",
+  "name": "Mantyke",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 459,
+  "slug": "snover",
+  "name": "Snover",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 460,
+  "slug": "abomasnow",
+  "name": "Abomasnow",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 461,
+  "slug": "weavile",
+  "name": "Weavile",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 462,
+  "slug": "magnezone",
+  "name": "Magnezone",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 463,
+  "slug": "lickilicky",
+  "name": "Lickilicky",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 464,
+  "slug": "rhyperior",
+  "name": "Rhyperior",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 465,
+  "slug": "tangrowth",
+  "name": "Tangrowth",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 466,
+  "slug": "electivire",
+  "name": "Electivire",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 467,
+  "slug": "magmortar",
+  "name": "Magmortar",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 468,
+  "slug": "togekiss",
+  "name": "Togekiss",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 469,
+  "slug": "yanmega",
+  "name": "Yanmega",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 470,
+  "slug": "leafeon",
+  "name": "Leafeon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 471,
+  "slug": "glaceon",
+  "name": "Glaceon",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 472,
+  "slug": "gliscor",
+  "name": "Gliscor",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 473,
+  "slug": "mamoswine",
+  "name": "Mamoswine",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 474,
+  "slug": "porygon-z",
+  "name": "Porygon-Z",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 475,
+  "slug": "gallade",
+  "name": "Gallade",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 476,
+  "slug": "probopass",
+  "name": "Probopass",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 477,
+  "slug": "dusknoir",
+  "name": "Dusknoir",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 478,
+  "slug": "froslass",
+  "name": "Froslass",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 479,
+  "slug": "rotom",
+  "name": "Rotom",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 480,
+  "slug": "uxie",
+  "name": "Uxie",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 481,
+  "slug": "mesprit",
+  "name": "Mesprit",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 482,
+  "slug": "azelf",
+  "name": "Azelf",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 483,
+  "slug": "dialga",
+  "name": "Dialga",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 484,
+  "slug": "palkia",
+  "name": "Palkia",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 485,
+  "slug": "heatran",
+  "name": "Heatran",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 486,
+  "slug": "regigigas",
+  "name": "Regigigas",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 487,
+  "slug": "giratina",
+  "name": "Giratina",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 488,
+  "slug": "cresselia",
+  "name": "Cresselia",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 489,
+  "slug": "phione",
+  "name": "Phione",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 490,
+  "slug": "manaphy",
+  "name": "Manaphy",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 491,
+  "slug": "darkrai",
+  "name": "Darkrai",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 492,
+  "slug": "shaymin",
+  "name": "Shaymin",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 493,
+  "slug": "arceus",
+  "name": "Arceus",
+  "generation": 4,
+  "region": "Sinnoh",
+  "hasSvg": true
+ },
+ {
+  "dex": 494,
+  "slug": "victini",
+  "name": "Victini",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 495,
+  "slug": "snivy",
+  "name": "Snivy",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 496,
+  "slug": "servine",
+  "name": "Servine",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 497,
+  "slug": "serperior",
+  "name": "Serperior",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 498,
+  "slug": "tepig",
+  "name": "Tepig",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 499,
+  "slug": "pignite",
+  "name": "Pignite",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 500,
+  "slug": "emboar",
+  "name": "Emboar",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 501,
+  "slug": "oshawott",
+  "name": "Oshawott",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 502,
+  "slug": "dewott",
+  "name": "Dewott",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 503,
+  "slug": "samurott",
+  "name": "Samurott",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 504,
+  "slug": "patrat",
+  "name": "Patrat",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 505,
+  "slug": "watchog",
+  "name": "Watchog",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 506,
+  "slug": "lillipup",
+  "name": "Lillipup",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 507,
+  "slug": "herdier",
+  "name": "Herdier",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 508,
+  "slug": "stoutland",
+  "name": "Stoutland",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 509,
+  "slug": "purrloin",
+  "name": "Purrloin",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 510,
+  "slug": "liepard",
+  "name": "Liepard",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 511,
+  "slug": "pansage",
+  "name": "Pansage",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 512,
+  "slug": "simisage",
+  "name": "Simisage",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 513,
+  "slug": "pansear",
+  "name": "Pansear",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 514,
+  "slug": "simisear",
+  "name": "Simisear",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 515,
+  "slug": "panpour",
+  "name": "Panpour",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 516,
+  "slug": "simipour",
+  "name": "Simipour",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 517,
+  "slug": "munna",
+  "name": "Munna",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 518,
+  "slug": "musharna",
+  "name": "Musharna",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 519,
+  "slug": "pidove",
+  "name": "Pidove",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 520,
+  "slug": "tranquill",
+  "name": "Tranquill",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 521,
+  "slug": "unfezant",
+  "name": "Unfezant",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 522,
+  "slug": "blitzle",
+  "name": "Blitzle",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 523,
+  "slug": "zebstrika",
+  "name": "Zebstrika",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 524,
+  "slug": "roggenrola",
+  "name": "Roggenrola",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 525,
+  "slug": "boldore",
+  "name": "Boldore",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 526,
+  "slug": "gigalith",
+  "name": "Gigalith",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 527,
+  "slug": "woobat",
+  "name": "Woobat",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 528,
+  "slug": "swoobat",
+  "name": "Swoobat",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 529,
+  "slug": "drilbur",
+  "name": "Drilbur",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 530,
+  "slug": "excadrill",
+  "name": "Excadrill",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 531,
+  "slug": "audino",
+  "name": "Audino",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 532,
+  "slug": "timburr",
+  "name": "Timburr",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 533,
+  "slug": "gurdurr",
+  "name": "Gurdurr",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 534,
+  "slug": "conkeldurr",
+  "name": "Conkeldurr",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 535,
+  "slug": "tympole",
+  "name": "Tympole",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 536,
+  "slug": "palpitoad",
+  "name": "Palpitoad",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 537,
+  "slug": "seismitoad",
+  "name": "Seismitoad",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 538,
+  "slug": "throh",
+  "name": "Throh",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 539,
+  "slug": "sawk",
+  "name": "Sawk",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 540,
+  "slug": "sewaddle",
+  "name": "Sewaddle",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 541,
+  "slug": "swadloon",
+  "name": "Swadloon",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 542,
+  "slug": "leavanny",
+  "name": "Leavanny",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 543,
+  "slug": "venipede",
+  "name": "Venipede",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 544,
+  "slug": "whirlipede",
+  "name": "Whirlipede",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 545,
+  "slug": "scolipede",
+  "name": "Scolipede",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 546,
+  "slug": "cottonee",
+  "name": "Cottonee",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 547,
+  "slug": "whimsicott",
+  "name": "Whimsicott",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 548,
+  "slug": "petilil",
+  "name": "Petilil",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 549,
+  "slug": "lilligant",
+  "name": "Lilligant",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 550,
+  "slug": "basculin",
+  "name": "Basculin",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 551,
+  "slug": "sandile",
+  "name": "Sandile",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 552,
+  "slug": "krokorok",
+  "name": "Krokorok",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 553,
+  "slug": "krookodile",
+  "name": "Krookodile",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 554,
+  "slug": "darumaka",
+  "name": "Darumaka",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 555,
+  "slug": "darmanitan",
+  "name": "Darmanitan",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 556,
+  "slug": "maractus",
+  "name": "Maractus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 557,
+  "slug": "dwebble",
+  "name": "Dwebble",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 558,
+  "slug": "crustle",
+  "name": "Crustle",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 559,
+  "slug": "scraggy",
+  "name": "Scraggy",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 560,
+  "slug": "scrafty",
+  "name": "Scrafty",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 561,
+  "slug": "sigilyph",
+  "name": "Sigilyph",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 562,
+  "slug": "yamask",
+  "name": "Yamask",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 563,
+  "slug": "cofagrigus",
+  "name": "Cofagrigus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 564,
+  "slug": "tirtouga",
+  "name": "Tirtouga",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 565,
+  "slug": "carracosta",
+  "name": "Carracosta",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 566,
+  "slug": "archen",
+  "name": "Archen",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 567,
+  "slug": "archeops",
+  "name": "Archeops",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 568,
+  "slug": "trubbish",
+  "name": "Trubbish",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 569,
+  "slug": "garbodor",
+  "name": "Garbodor",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 570,
+  "slug": "zorua",
+  "name": "Zorua",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 571,
+  "slug": "zoroark",
+  "name": "Zoroark",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 572,
+  "slug": "minccino",
+  "name": "Minccino",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 573,
+  "slug": "cinccino",
+  "name": "Cinccino",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 574,
+  "slug": "gothita",
+  "name": "Gothita",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 575,
+  "slug": "gothorita",
+  "name": "Gothorita",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 576,
+  "slug": "gothitelle",
+  "name": "Gothitelle",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 577,
+  "slug": "solosis",
+  "name": "Solosis",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 578,
+  "slug": "duosion",
+  "name": "Duosion",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 579,
+  "slug": "reuniclus",
+  "name": "Reuniclus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 580,
+  "slug": "ducklett",
+  "name": "Ducklett",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 581,
+  "slug": "swanna",
+  "name": "Swanna",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 582,
+  "slug": "vanillite",
+  "name": "Vanillite",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 583,
+  "slug": "vanillish",
+  "name": "Vanillish",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 584,
+  "slug": "vanilluxe",
+  "name": "Vanilluxe",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 585,
+  "slug": "deerling",
+  "name": "Deerling",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 586,
+  "slug": "sawsbuck",
+  "name": "Sawsbuck",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 587,
+  "slug": "emolga",
+  "name": "Emolga",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 588,
+  "slug": "karrablast",
+  "name": "Karrablast",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 589,
+  "slug": "escavalier",
+  "name": "Escavalier",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 590,
+  "slug": "foongus",
+  "name": "Foongus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 591,
+  "slug": "amoonguss",
+  "name": "Amoonguss",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 592,
+  "slug": "frillish",
+  "name": "Frillish",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 593,
+  "slug": "jellicent",
+  "name": "Jellicent",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 594,
+  "slug": "alomomola",
+  "name": "Alomomola",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 595,
+  "slug": "joltik",
+  "name": "Joltik",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 596,
+  "slug": "galvantula",
+  "name": "Galvantula",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 597,
+  "slug": "ferroseed",
+  "name": "Ferroseed",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 598,
+  "slug": "ferrothorn",
+  "name": "Ferrothorn",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 599,
+  "slug": "klink",
+  "name": "Klink",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 600,
+  "slug": "klang",
+  "name": "Klang",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 601,
+  "slug": "klinklang",
+  "name": "Klinklang",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 602,
+  "slug": "tynamo",
+  "name": "Tynamo",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 603,
+  "slug": "eelektrik",
+  "name": "Eelektrik",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 604,
+  "slug": "eelektross",
+  "name": "Eelektross",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 605,
+  "slug": "elgyem",
+  "name": "Elgyem",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 606,
+  "slug": "beheeyem",
+  "name": "Beheeyem",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 607,
+  "slug": "litwick",
+  "name": "Litwick",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 608,
+  "slug": "lampent",
+  "name": "Lampent",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 609,
+  "slug": "chandelure",
+  "name": "Chandelure",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 610,
+  "slug": "axew",
+  "name": "Axew",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 611,
+  "slug": "fraxure",
+  "name": "Fraxure",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 612,
+  "slug": "haxorus",
+  "name": "Haxorus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 613,
+  "slug": "cubchoo",
+  "name": "Cubchoo",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 614,
+  "slug": "beartic",
+  "name": "Beartic",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 615,
+  "slug": "cryogonal",
+  "name": "Cryogonal",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 616,
+  "slug": "shelmet",
+  "name": "Shelmet",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 617,
+  "slug": "accelgor",
+  "name": "Accelgor",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 618,
+  "slug": "stunfisk",
+  "name": "Stunfisk",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 619,
+  "slug": "mienfoo",
+  "name": "Mienfoo",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 620,
+  "slug": "mienshao",
+  "name": "Mienshao",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 621,
+  "slug": "druddigon",
+  "name": "Druddigon",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 622,
+  "slug": "golett",
+  "name": "Golett",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 623,
+  "slug": "golurk",
+  "name": "Golurk",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 624,
+  "slug": "pawniard",
+  "name": "Pawniard",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 625,
+  "slug": "bisharp",
+  "name": "Bisharp",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 626,
+  "slug": "bouffalant",
+  "name": "Bouffalant",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 627,
+  "slug": "rufflet",
+  "name": "Rufflet",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 628,
+  "slug": "braviary",
+  "name": "Braviary",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 629,
+  "slug": "vullaby",
+  "name": "Vullaby",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 630,
+  "slug": "mandibuzz",
+  "name": "Mandibuzz",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 631,
+  "slug": "heatmor",
+  "name": "Heatmor",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 632,
+  "slug": "durant",
+  "name": "Durant",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 633,
+  "slug": "deino",
+  "name": "Deino",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 634,
+  "slug": "zweilous",
+  "name": "Zweilous",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 635,
+  "slug": "hydreigon",
+  "name": "Hydreigon",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 636,
+  "slug": "larvesta",
+  "name": "Larvesta",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 637,
+  "slug": "volcarona",
+  "name": "Volcarona",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 638,
+  "slug": "cobalion",
+  "name": "Cobalion",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 639,
+  "slug": "terrakion",
+  "name": "Terrakion",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 640,
+  "slug": "virizion",
+  "name": "Virizion",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 641,
+  "slug": "tornadus",
+  "name": "Tornadus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 642,
+  "slug": "thundurus",
+  "name": "Thundurus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 643,
+  "slug": "reshiram",
+  "name": "Reshiram",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 644,
+  "slug": "zekrom",
+  "name": "Zekrom",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 645,
+  "slug": "landorus",
+  "name": "Landorus",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 646,
+  "slug": "kyurem",
+  "name": "Kyurem",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 647,
+  "slug": "keldeo",
+  "name": "Keldeo",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 648,
+  "slug": "meloetta",
+  "name": "Meloetta",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 649,
+  "slug": "genesect",
+  "name": "Genesect",
+  "generation": 5,
+  "region": "Unova",
+  "hasSvg": true
+ },
+ {
+  "dex": 650,
+  "slug": "chespin",
+  "name": "Chespin",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 651,
+  "slug": "quilladin",
+  "name": "Quilladin",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 652,
+  "slug": "chesnaught",
+  "name": "Chesnaught",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 653,
+  "slug": "fennekin",
+  "name": "Fennekin",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 654,
+  "slug": "braixen",
+  "name": "Braixen",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 655,
+  "slug": "delphox",
+  "name": "Delphox",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 656,
+  "slug": "froakie",
+  "name": "Froakie",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 657,
+  "slug": "frogadier",
+  "name": "Frogadier",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 658,
+  "slug": "greninja",
+  "name": "Greninja",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 659,
+  "slug": "bunnelby",
+  "name": "Bunnelby",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 660,
+  "slug": "diggersby",
+  "name": "Diggersby",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 661,
+  "slug": "fletchling",
+  "name": "Fletchling",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 662,
+  "slug": "fletchinder",
+  "name": "Fletchinder",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 663,
+  "slug": "talonflame",
+  "name": "Talonflame",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 664,
+  "slug": "scatterbug",
+  "name": "Scatterbug",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 665,
+  "slug": "spewpa",
+  "name": "Spewpa",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 666,
+  "slug": "vivillon",
+  "name": "Vivillon",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 667,
+  "slug": "litleo",
+  "name": "Litleo",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 668,
+  "slug": "pyroar",
+  "name": "Pyroar",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 669,
+  "slug": "flabebe",
+  "name": "Flabébé",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 670,
+  "slug": "floette",
+  "name": "Floette",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 671,
+  "slug": "florges",
+  "name": "Florges",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 672,
+  "slug": "skiddo",
+  "name": "Skiddo",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 673,
+  "slug": "gogoat",
+  "name": "Gogoat",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 674,
+  "slug": "pancham",
+  "name": "Pancham",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 675,
+  "slug": "pangoro",
+  "name": "Pangoro",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 676,
+  "slug": "furfrou",
+  "name": "Furfrou",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 677,
+  "slug": "espurr",
+  "name": "Espurr",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 678,
+  "slug": "meowstic",
+  "name": "Meowstic",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 679,
+  "slug": "honedge",
+  "name": "Honedge",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 680,
+  "slug": "doublade",
+  "name": "Doublade",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 681,
+  "slug": "aegislash",
+  "name": "Aegislash",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 682,
+  "slug": "spritzee",
+  "name": "Spritzee",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 683,
+  "slug": "aromatisse",
+  "name": "Aromatisse",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 684,
+  "slug": "swirlix",
+  "name": "Swirlix",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 685,
+  "slug": "slurpuff",
+  "name": "Slurpuff",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 686,
+  "slug": "inkay",
+  "name": "Inkay",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 687,
+  "slug": "malamar",
+  "name": "Malamar",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 688,
+  "slug": "binacle",
+  "name": "Binacle",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 689,
+  "slug": "barbaracle",
+  "name": "Barbaracle",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 690,
+  "slug": "skrelp",
+  "name": "Skrelp",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 691,
+  "slug": "dragalge",
+  "name": "Dragalge",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 692,
+  "slug": "clauncher",
+  "name": "Clauncher",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 693,
+  "slug": "clawitzer",
+  "name": "Clawitzer",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 694,
+  "slug": "helioptile",
+  "name": "Helioptile",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 695,
+  "slug": "heliolisk",
+  "name": "Heliolisk",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 696,
+  "slug": "tyrunt",
+  "name": "Tyrunt",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 697,
+  "slug": "tyrantrum",
+  "name": "Tyrantrum",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 698,
+  "slug": "amaura",
+  "name": "Amaura",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 699,
+  "slug": "aurorus",
+  "name": "Aurorus",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 700,
+  "slug": "sylveon",
+  "name": "Sylveon",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 701,
+  "slug": "hawlucha",
+  "name": "Hawlucha",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 702,
+  "slug": "dedenne",
+  "name": "Dedenne",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 703,
+  "slug": "carbink",
+  "name": "Carbink",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 704,
+  "slug": "goomy",
+  "name": "Goomy",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 705,
+  "slug": "sliggoo",
+  "name": "Sliggoo",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 706,
+  "slug": "goodra",
+  "name": "Goodra",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 707,
+  "slug": "klefki",
+  "name": "Klefki",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 708,
+  "slug": "phantump",
+  "name": "Phantump",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 709,
+  "slug": "trevenant",
+  "name": "Trevenant",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 710,
+  "slug": "pumpkaboo",
+  "name": "Pumpkaboo",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 711,
+  "slug": "gourgeist",
+  "name": "Gourgeist",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 712,
+  "slug": "bergmite",
+  "name": "Bergmite",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 713,
+  "slug": "avalugg",
+  "name": "Avalugg",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 714,
+  "slug": "noibat",
+  "name": "Noibat",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 715,
+  "slug": "noivern",
+  "name": "Noivern",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 716,
+  "slug": "xerneas",
+  "name": "Xerneas",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 717,
+  "slug": "yveltal",
+  "name": "Yveltal",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 718,
+  "slug": "zygarde",
+  "name": "Zygarde",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 719,
+  "slug": "diancie",
+  "name": "Diancie",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 720,
+  "slug": "hoopa",
+  "name": "Hoopa",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": true
+ },
+ {
+  "dex": 721,
+  "slug": "volcanion",
+  "name": "Volcanion",
+  "generation": 6,
+  "region": "Kalos",
+  "hasSvg": false
+ },
+ {
+  "dex": 722,
+  "slug": "rowlet",
+  "name": "Rowlet",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 723,
+  "slug": "dartrix",
+  "name": "Dartrix",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 724,
+  "slug": "decidueye",
+  "name": "Decidueye",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 725,
+  "slug": "litten",
+  "name": "Litten",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 726,
+  "slug": "torracat",
+  "name": "Torracat",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 727,
+  "slug": "incineroar",
+  "name": "Incineroar",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 728,
+  "slug": "popplio",
+  "name": "Popplio",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 729,
+  "slug": "brionne",
+  "name": "Brionne",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 730,
+  "slug": "primarina",
+  "name": "Primarina",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 731,
+  "slug": "pikipek",
+  "name": "Pikipek",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 732,
+  "slug": "trumbeak",
+  "name": "Trumbeak",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 733,
+  "slug": "toucannon",
+  "name": "Toucannon",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 734,
+  "slug": "yungoos",
+  "name": "Yungoos",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 735,
+  "slug": "gumshoos",
+  "name": "Gumshoos",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 736,
+  "slug": "grubbin",
+  "name": "Grubbin",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 737,
+  "slug": "charjabug",
+  "name": "Charjabug",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 738,
+  "slug": "vikavolt",
+  "name": "Vikavolt",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 739,
+  "slug": "crabrawler",
+  "name": "Crabrawler",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 740,
+  "slug": "crabominable",
+  "name": "Crabominable",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 741,
+  "slug": "oricorio",
+  "name": "Oricorio",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 742,
+  "slug": "cutiefly",
+  "name": "Cutiefly",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 743,
+  "slug": "ribombee",
+  "name": "Ribombee",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 744,
+  "slug": "rockruff",
+  "name": "Rockruff",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 745,
+  "slug": "lycanroc",
+  "name": "Lycanroc",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 746,
+  "slug": "wishiwashi",
+  "name": "Wishiwashi",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 747,
+  "slug": "mareanie",
+  "name": "Mareanie",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 748,
+  "slug": "toxapex",
+  "name": "Toxapex",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 749,
+  "slug": "mudbray",
+  "name": "Mudbray",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 750,
+  "slug": "mudsdale",
+  "name": "Mudsdale",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 751,
+  "slug": "dewpider",
+  "name": "Dewpider",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 752,
+  "slug": "araquanid",
+  "name": "Araquanid",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 753,
+  "slug": "fomantis",
+  "name": "Fomantis",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 754,
+  "slug": "lurantis",
+  "name": "Lurantis",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 755,
+  "slug": "morelull",
+  "name": "Morelull",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 756,
+  "slug": "shiinotic",
+  "name": "Shiinotic",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 757,
+  "slug": "salandit",
+  "name": "Salandit",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 758,
+  "slug": "salazzle",
+  "name": "Salazzle",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 759,
+  "slug": "stufful",
+  "name": "Stufful",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 760,
+  "slug": "bewear",
+  "name": "Bewear",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 761,
+  "slug": "bounsweet",
+  "name": "Bounsweet",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 762,
+  "slug": "steenee",
+  "name": "Steenee",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 763,
+  "slug": "tsareena",
+  "name": "Tsareena",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 764,
+  "slug": "comfey",
+  "name": "Comfey",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 765,
+  "slug": "oranguru",
+  "name": "Oranguru",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 766,
+  "slug": "passimian",
+  "name": "Passimian",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 767,
+  "slug": "wimpod",
+  "name": "Wimpod",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 768,
+  "slug": "golisopod",
+  "name": "Golisopod",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 769,
+  "slug": "sandygast",
+  "name": "Sandygast",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 770,
+  "slug": "palossand",
+  "name": "Palossand",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 771,
+  "slug": "pyukumuku",
+  "name": "Pyukumuku",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 772,
+  "slug": "type-null",
+  "name": "Type: Null",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 773,
+  "slug": "silvally",
+  "name": "Silvally",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 774,
+  "slug": "minior",
+  "name": "Minior",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 775,
+  "slug": "komala",
+  "name": "Komala",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 776,
+  "slug": "turtonator",
+  "name": "Turtonator",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 777,
+  "slug": "togedemaru",
+  "name": "Togedemaru",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 778,
+  "slug": "mimikyu",
+  "name": "Mimikyu",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 779,
+  "slug": "bruxish",
+  "name": "Bruxish",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 780,
+  "slug": "drampa",
+  "name": "Drampa",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 781,
+  "slug": "dhelmise",
+  "name": "Dhelmise",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 782,
+  "slug": "jangmo-o",
+  "name": "Jangmo-o",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 783,
+  "slug": "hakamo-o",
+  "name": "Hakamo-o",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 784,
+  "slug": "kommo-o",
+  "name": "Kommo-o",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 785,
+  "slug": "tapu-koko",
+  "name": "Tapu Koko",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 786,
+  "slug": "tapu-lele",
+  "name": "Tapu Lele",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 787,
+  "slug": "tapu-bulu",
+  "name": "Tapu Bulu",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 788,
+  "slug": "tapu-fini",
+  "name": "Tapu Fini",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 789,
+  "slug": "cosmog",
+  "name": "Cosmog",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 790,
+  "slug": "cosmoem",
+  "name": "Cosmoem",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 791,
+  "slug": "solgaleo",
+  "name": "Solgaleo",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 792,
+  "slug": "lunala",
+  "name": "Lunala",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 793,
+  "slug": "nihilego",
+  "name": "Nihilego",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 794,
+  "slug": "buzzwole",
+  "name": "Buzzwole",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 795,
+  "slug": "pheromosa",
+  "name": "Pheromosa",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 796,
+  "slug": "xurkitree",
+  "name": "Xurkitree",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 797,
+  "slug": "celesteela",
+  "name": "Celesteela",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 798,
+  "slug": "kartana",
+  "name": "Kartana",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 799,
+  "slug": "guzzlord",
+  "name": "Guzzlord",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 800,
+  "slug": "necrozma",
+  "name": "Necrozma",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 801,
+  "slug": "magearna",
+  "name": "Magearna",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 802,
+  "slug": "marshadow",
+  "name": "Marshadow",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 803,
+  "slug": "poipole",
+  "name": "Poipole",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 804,
+  "slug": "naganadel",
+  "name": "Naganadel",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 805,
+  "slug": "stakataka",
+  "name": "Stakataka",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 806,
+  "slug": "blacephalon",
+  "name": "Blacephalon",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": false
+ },
+ {
+  "dex": 807,
+  "slug": "zeraora",
+  "name": "Zeraora",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 808,
+  "slug": "meltan",
+  "name": "Meltan",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 809,
+  "slug": "melmetal",
+  "name": "Melmetal",
+  "generation": 7,
+  "region": "Alola",
+  "hasSvg": true
+ },
+ {
+  "dex": 810,
+  "slug": "grookey",
+  "name": "Grookey",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 811,
+  "slug": "thwackey",
+  "name": "Thwackey",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 812,
+  "slug": "rillaboom",
+  "name": "Rillaboom",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 813,
+  "slug": "scorbunny",
+  "name": "Scorbunny",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 814,
+  "slug": "raboot",
+  "name": "Raboot",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 815,
+  "slug": "cinderace",
+  "name": "Cinderace",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 816,
+  "slug": "sobble",
+  "name": "Sobble",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 817,
+  "slug": "drizzile",
+  "name": "Drizzile",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 818,
+  "slug": "inteleon",
+  "name": "Inteleon",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 819,
+  "slug": "skwovet",
+  "name": "Skwovet",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 820,
+  "slug": "greedent",
+  "name": "Greedent",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 821,
+  "slug": "rookidee",
+  "name": "Rookidee",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 822,
+  "slug": "corvisquire",
+  "name": "Corvisquire",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 823,
+  "slug": "corviknight",
+  "name": "Corviknight",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 824,
+  "slug": "blipbug",
+  "name": "Blipbug",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 825,
+  "slug": "dottler",
+  "name": "Dottler",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 826,
+  "slug": "orbeetle",
+  "name": "Orbeetle",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 827,
+  "slug": "nickit",
+  "name": "Nickit",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 828,
+  "slug": "thievul",
+  "name": "Thievul",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 829,
+  "slug": "gossifleur",
+  "name": "Gossifleur",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 830,
+  "slug": "eldegoss",
+  "name": "Eldegoss",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 831,
+  "slug": "wooloo",
+  "name": "Wooloo",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 832,
+  "slug": "dubwool",
+  "name": "Dubwool",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 833,
+  "slug": "chewtle",
+  "name": "Chewtle",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 834,
+  "slug": "drednaw",
+  "name": "Drednaw",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 835,
+  "slug": "yamper",
+  "name": "Yamper",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 836,
+  "slug": "boltund",
+  "name": "Boltund",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 837,
+  "slug": "rolycoly",
+  "name": "Rolycoly",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 838,
+  "slug": "carkol",
+  "name": "Carkol",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 839,
+  "slug": "coalossal",
+  "name": "Coalossal",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 840,
+  "slug": "applin",
+  "name": "Applin",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 841,
+  "slug": "flapple",
+  "name": "Flapple",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 842,
+  "slug": "appletun",
+  "name": "Appletun",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 843,
+  "slug": "silicobra",
+  "name": "Silicobra",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 844,
+  "slug": "sandaconda",
+  "name": "Sandaconda",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 845,
+  "slug": "cramorant",
+  "name": "Cramorant",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 846,
+  "slug": "arrokuda",
+  "name": "Arrokuda",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 847,
+  "slug": "barraskewda",
+  "name": "Barraskewda",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 848,
+  "slug": "toxel",
+  "name": "Toxel",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 849,
+  "slug": "toxtricity",
+  "name": "Toxtricity",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 850,
+  "slug": "sizzlipede",
+  "name": "Sizzlipede",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 851,
+  "slug": "centiskorch",
+  "name": "Centiskorch",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 852,
+  "slug": "clobbopus",
+  "name": "Clobbopus",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 853,
+  "slug": "grapploct",
+  "name": "Grapploct",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 854,
+  "slug": "sinistea",
+  "name": "Sinistea",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 855,
+  "slug": "polteageist",
+  "name": "Polteageist",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 856,
+  "slug": "hatenna",
+  "name": "Hatenna",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 857,
+  "slug": "hattrem",
+  "name": "Hattrem",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 858,
+  "slug": "hatterene",
+  "name": "Hatterene",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 859,
+  "slug": "impidimp",
+  "name": "Impidimp",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 860,
+  "slug": "morgrem",
+  "name": "Morgrem",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 861,
+  "slug": "grimmsnarl",
+  "name": "Grimmsnarl",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 862,
+  "slug": "obstagoon",
+  "name": "Obstagoon",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 863,
+  "slug": "perrserker",
+  "name": "Perrserker",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 864,
+  "slug": "cursola",
+  "name": "Cursola",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 865,
+  "slug": "sirfetchd",
+  "name": "Sirfetch’d",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 866,
+  "slug": "mr-rime",
+  "name": "Mr. Rime",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 867,
+  "slug": "runerigus",
+  "name": "Runerigus",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 868,
+  "slug": "milcery",
+  "name": "Milcery",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 869,
+  "slug": "alcremie",
+  "name": "Alcremie",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 870,
+  "slug": "falinks",
+  "name": "Falinks",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 871,
+  "slug": "pincurchin",
+  "name": "Pincurchin",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 872,
+  "slug": "snom",
+  "name": "Snom",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 873,
+  "slug": "frosmoth",
+  "name": "Frosmoth",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 874,
+  "slug": "stonjourner",
+  "name": "Stonjourner",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 875,
+  "slug": "eiscue",
+  "name": "Eiscue",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 876,
+  "slug": "indeedee",
+  "name": "Indeedee",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 877,
+  "slug": "morpeko",
+  "name": "Morpeko",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 878,
+  "slug": "cufant",
+  "name": "Cufant",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 879,
+  "slug": "copperajah",
+  "name": "Copperajah",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 880,
+  "slug": "dracozolt",
+  "name": "Dracozolt",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 881,
+  "slug": "arctozolt",
+  "name": "Arctozolt",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 882,
+  "slug": "dracovish",
+  "name": "Dracovish",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 883,
+  "slug": "arctovish",
+  "name": "Arctovish",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 884,
+  "slug": "duraludon",
+  "name": "Duraludon",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 885,
+  "slug": "dreepy",
+  "name": "Dreepy",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 886,
+  "slug": "drakloak",
+  "name": "Drakloak",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 887,
+  "slug": "dragapult",
+  "name": "Dragapult",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 888,
+  "slug": "zacian",
+  "name": "Zacian",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 889,
+  "slug": "zamazenta",
+  "name": "Zamazenta",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 890,
+  "slug": "eternatus",
+  "name": "Eternatus",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 891,
+  "slug": "kubfu",
+  "name": "Kubfu",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 892,
+  "slug": "urshifu",
+  "name": "Urshifu",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 893,
+  "slug": "zarude",
+  "name": "Zarude",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 894,
+  "slug": "regieleki",
+  "name": "Regieleki",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 895,
+  "slug": "regidrago",
+  "name": "Regidrago",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 896,
+  "slug": "glastrier",
+  "name": "Glastrier",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 897,
+  "slug": "spectrier",
+  "name": "Spectrier",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 898,
+  "slug": "calyrex",
+  "name": "Calyrex",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 899,
+  "slug": "wyrdeer",
+  "name": "Wyrdeer",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 900,
+  "slug": "kleavor",
+  "name": "Kleavor",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 901,
+  "slug": "ursaluna",
+  "name": "Ursaluna",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": true
+ },
+ {
+  "dex": 902,
+  "slug": "basculegion",
+  "name": "Basculegion",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 903,
+  "slug": "sneasler",
+  "name": "Sneasler",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 904,
+  "slug": "overqwil",
+  "name": "Overqwil",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 905,
+  "slug": "enamorus",
+  "name": "Enamorus",
+  "generation": 8,
+  "region": "Galar / Hisui",
+  "hasSvg": false
+ },
+ {
+  "dex": 906,
+  "slug": "sprigatito",
+  "name": "Sprigatito",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 907,
+  "slug": "floragato",
+  "name": "Floragato",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 908,
+  "slug": "meowscarada",
+  "name": "Meowscarada",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 909,
+  "slug": "fuecoco",
+  "name": "Fuecoco",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 910,
+  "slug": "crocalor",
+  "name": "Crocalor",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 911,
+  "slug": "skeledirge",
+  "name": "Skeledirge",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 912,
+  "slug": "quaxly",
+  "name": "Quaxly",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 913,
+  "slug": "quaxwell",
+  "name": "Quaxwell",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 914,
+  "slug": "quaquaval",
+  "name": "Quaquaval",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 915,
+  "slug": "lechonk",
+  "name": "Lechonk",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 916,
+  "slug": "oinkologne",
+  "name": "Oinkologne",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 917,
+  "slug": "tarountula",
+  "name": "Tarountula",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 918,
+  "slug": "spidops",
+  "name": "Spidops",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 919,
+  "slug": "nymble",
+  "name": "Nymble",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 920,
+  "slug": "lokix",
+  "name": "Lokix",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 921,
+  "slug": "pawmi",
+  "name": "Pawmi",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 922,
+  "slug": "pawmo",
+  "name": "Pawmo",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 923,
+  "slug": "pawmot",
+  "name": "Pawmot",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 924,
+  "slug": "tandemaus",
+  "name": "Tandemaus",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 925,
+  "slug": "maushold",
+  "name": "Maushold",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 926,
+  "slug": "fidough",
+  "name": "Fidough",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 927,
+  "slug": "dachsbun",
+  "name": "Dachsbun",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 928,
+  "slug": "smoliv",
+  "name": "Smoliv",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 929,
+  "slug": "dolliv",
+  "name": "Dolliv",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 930,
+  "slug": "arboliva",
+  "name": "Arboliva",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 931,
+  "slug": "squawkabilly",
+  "name": "Squawkabilly",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 932,
+  "slug": "nacli",
+  "name": "Nacli",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 933,
+  "slug": "naclstack",
+  "name": "Naclstack",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 934,
+  "slug": "garganacl",
+  "name": "Garganacl",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 935,
+  "slug": "charcadet",
+  "name": "Charcadet",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 936,
+  "slug": "armarouge",
+  "name": "Armarouge",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 937,
+  "slug": "ceruledge",
+  "name": "Ceruledge",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 938,
+  "slug": "tadbulb",
+  "name": "Tadbulb",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 939,
+  "slug": "bellibolt",
+  "name": "Bellibolt",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 940,
+  "slug": "wattrel",
+  "name": "Wattrel",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 941,
+  "slug": "kilowattrel",
+  "name": "Kilowattrel",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 942,
+  "slug": "maschiff",
+  "name": "Maschiff",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 943,
+  "slug": "mabosstiff",
+  "name": "Mabosstiff",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 944,
+  "slug": "shroodle",
+  "name": "Shroodle",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 945,
+  "slug": "grafaiai",
+  "name": "Grafaiai",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 946,
+  "slug": "bramblin",
+  "name": "Bramblin",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 947,
+  "slug": "brambleghast",
+  "name": "Brambleghast",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 948,
+  "slug": "toedscool",
+  "name": "Toedscool",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 949,
+  "slug": "toedscruel",
+  "name": "Toedscruel",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 950,
+  "slug": "klawf",
+  "name": "Klawf",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 951,
+  "slug": "capsakid",
+  "name": "Capsakid",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 952,
+  "slug": "scovillain",
+  "name": "Scovillain",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 953,
+  "slug": "rellor",
+  "name": "Rellor",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 954,
+  "slug": "rabsca",
+  "name": "Rabsca",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 955,
+  "slug": "flittle",
+  "name": "Flittle",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 956,
+  "slug": "espathra",
+  "name": "Espathra",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 957,
+  "slug": "tinkatink",
+  "name": "Tinkatink",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 958,
+  "slug": "tinkatuff",
+  "name": "Tinkatuff",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 959,
+  "slug": "tinkaton",
+  "name": "Tinkaton",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 960,
+  "slug": "wiglett",
+  "name": "Wiglett",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 961,
+  "slug": "wugtrio",
+  "name": "Wugtrio",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 962,
+  "slug": "bombirdier",
+  "name": "Bombirdier",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 963,
+  "slug": "finizen",
+  "name": "Finizen",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 964,
+  "slug": "palafin",
+  "name": "Palafin",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 965,
+  "slug": "varoom",
+  "name": "Varoom",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 966,
+  "slug": "revavroom",
+  "name": "Revavroom",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 967,
+  "slug": "cyclizar",
+  "name": "Cyclizar",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 968,
+  "slug": "orthworm",
+  "name": "Orthworm",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 969,
+  "slug": "glimmet",
+  "name": "Glimmet",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 970,
+  "slug": "glimmora",
+  "name": "Glimmora",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 971,
+  "slug": "greavard",
+  "name": "Greavard",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 972,
+  "slug": "houndstone",
+  "name": "Houndstone",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 973,
+  "slug": "flamigo",
+  "name": "Flamigo",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 974,
+  "slug": "cetoddle",
+  "name": "Cetoddle",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 975,
+  "slug": "cetitan",
+  "name": "Cetitan",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 976,
+  "slug": "veluza",
+  "name": "Veluza",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 977,
+  "slug": "dondozo",
+  "name": "Dondozo",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 978,
+  "slug": "tatsugiri",
+  "name": "Tatsugiri",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 979,
+  "slug": "annihilape",
+  "name": "Annihilape",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 980,
+  "slug": "clodsire",
+  "name": "Clodsire",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 981,
+  "slug": "farigiraf",
+  "name": "Farigiraf",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 982,
+  "slug": "dudunsparce",
+  "name": "Dudunsparce",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 983,
+  "slug": "kingambit",
+  "name": "Kingambit",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 984,
+  "slug": "great-tusk",
+  "name": "Great Tusk",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 985,
+  "slug": "scream-tail",
+  "name": "Scream Tail",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 986,
+  "slug": "brute-bonnet",
+  "name": "Brute Bonnet",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 987,
+  "slug": "flutter-mane",
+  "name": "Flutter Mane",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 988,
+  "slug": "slither-wing",
+  "name": "Slither Wing",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 989,
+  "slug": "sandy-shocks",
+  "name": "Sandy Shocks",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 990,
+  "slug": "iron-treads",
+  "name": "Iron Treads",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 991,
+  "slug": "iron-bundle",
+  "name": "Iron Bundle",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 992,
+  "slug": "iron-hands",
+  "name": "Iron Hands",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 993,
+  "slug": "iron-jugulis",
+  "name": "Iron Jugulis",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 994,
+  "slug": "iron-moth",
+  "name": "Iron Moth",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 995,
+  "slug": "iron-thorns",
+  "name": "Iron Thorns",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 996,
+  "slug": "frigibax",
+  "name": "Frigibax",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 997,
+  "slug": "arctibax",
+  "name": "Arctibax",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 998,
+  "slug": "baxcalibur",
+  "name": "Baxcalibur",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 999,
+  "slug": "gimmighoul",
+  "name": "Gimmighoul",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1000,
+  "slug": "gholdengo",
+  "name": "Gholdengo",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1001,
+  "slug": "wo-chien",
+  "name": "Wo-Chien",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1002,
+  "slug": "chien-pao",
+  "name": "Chien-Pao",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1003,
+  "slug": "ting-lu",
+  "name": "Ting-Lu",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1004,
+  "slug": "chi-yu",
+  "name": "Chi-Yu",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1005,
+  "slug": "roaring-moon",
+  "name": "Roaring Moon",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1006,
+  "slug": "iron-valiant",
+  "name": "Iron Valiant",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1007,
+  "slug": "koraidon",
+  "name": "Koraidon",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1008,
+  "slug": "miraidon",
+  "name": "Miraidon",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1009,
+  "slug": "walking-wake",
+  "name": "Walking Wake",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1010,
+  "slug": "iron-leaves",
+  "name": "Iron Leaves",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1011,
+  "slug": "dipplin",
+  "name": "Dipplin",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1012,
+  "slug": "poltchageist",
+  "name": "Poltchageist",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1013,
+  "slug": "sinistcha",
+  "name": "Sinistcha",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1014,
+  "slug": "okidogi",
+  "name": "Okidogi",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1015,
+  "slug": "munkidori",
+  "name": "Munkidori",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1016,
+  "slug": "fezandipiti",
+  "name": "Fezandipiti",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1017,
+  "slug": "ogerpon",
+  "name": "Ogerpon",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1018,
+  "slug": "archaludon",
+  "name": "Archaludon",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1019,
+  "slug": "hydrapple",
+  "name": "Hydrapple",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1020,
+  "slug": "gouging-fire",
+  "name": "Gouging Fire",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1021,
+  "slug": "raging-bolt",
+  "name": "Raging Bolt",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1022,
+  "slug": "iron-boulder",
+  "name": "Iron Boulder",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1023,
+  "slug": "iron-crown",
+  "name": "Iron Crown",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1024,
+  "slug": "terapagos",
+  "name": "Terapagos",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ },
+ {
+  "dex": 1025,
+  "slug": "pecharunt",
+  "name": "Pecharunt",
+  "generation": 9,
+  "region": "Paldea",
+  "hasSvg": true
+ }
+]

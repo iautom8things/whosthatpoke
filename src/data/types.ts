@@ -1,0 +1,54 @@
+export const POKE_TYPES = [
+  "normal", "fire", "water", "grass", "electric", "ice", "fighting", "poison", "ground",
+  "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy",
+] as const;
+export type PokeType = (typeof POKE_TYPES)[number];
+
+export const REGIONS = [
+  "kanto", "johto", "hoenn", "sinnoh", "unova", "kalos", "alola", "galar", "paldea",
+] as const;
+export type RegionId = (typeof REGIONS)[number];
+
+/** 1 = easy (very famous) ... 4 = master (deep cut). */
+export type Tier = 1 | 2 | 3 | 4;
+
+export type MonTag =
+  | "starter"
+  | "spooky"
+  | "ultra-beast"
+  | "paradox"
+  | "fossil"
+  | "baby"
+  | "eeveelution"
+  | "pseudo-legendary";
+
+/** One species, default form. Built by scripts/build-catalog.mjs into catalog.json. */
+export interface Mon {
+  dex: number;
+  slug: string;
+  /** Display name, e.g. "Mr. Mime", "Nidoran♀". */
+  name: string;
+  /** What the announcer should say (pronunciation respelling, or the name). */
+  say: string;
+  gen: number;
+  region: RegionId;
+  types: PokeType[];
+  legendary: boolean;
+  mythical: boolean;
+  tags: MonTag[];
+  /** Path relative to the app base, e.g. "pokemon/25.svg". */
+  art: string;
+  /** 1 = most recognizable. */
+  rank: number;
+  tier: Tier;
+  /** e.g. "Mouse Pokémon". */
+  genus?: string;
+  /** Kid-friendly Pokédex line. */
+  fact?: string;
+  color?: string;
+  shape?: string;
+  /** Evolution chain id. Same family = related Pokémon. */
+  family: number;
+  /** Normalized alpha bounding box [x, y, w, h] in 0..1 of the art canvas. */
+  bbox?: [number, number, number, number];
+}
