@@ -112,7 +112,7 @@ export default function SettingsScreen() {
   useKeys({ PageDown: () => step(1), PageUp: () => step(-1) });
 
   return (
-    <ScreenFrame back title="Host Panel" layout="fill" bodyClassName={s.body}>
+    <ScreenFrame back title="Host Panel" layout="fill" bodyClassName={s.body} sound>
       <div className={s.layout}>
         <TabRail current={tab} />
         <Panel tone="solid" padding="none" className={s.pane}>

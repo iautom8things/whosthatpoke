@@ -4,14 +4,24 @@ import { haptic } from "../../lib/haptic";
 import { isReducedMotion } from "../../lib/reducedMotion";
 import { useKeys } from "../../lib/useKeys";
 import { useNav } from "../../state/nav";
-import { Burst, IconVolume, Logo, PokeBall, ScreenFrame } from "../components";
+import { useSettings, type SoundMode } from "../../state/settings";
+import { Burst, Logo, PokeBall, ScreenFrame, SOUND_INFO } from "../components";
 import { logoHandoff, useMenuSong } from "./menus/shared";
 import s from "./menus/Splash.module.css";
+
+/** A game saved muted says so before it starts. */
+const SPLASH_HINT: Record<SoundMode, string> = {
+  full: "Sound on for the full show",
+  noVoice: "The announcer is off",
+  mute: "Sound is off",
+};
 
 /** First thing the crowd sees. One tap anywhere unlocks sound (iOS needs a gesture) and opens the menu. */
 export default function SplashScreen() {
   const [opening, setOpening] = useState(false);
   const started = useRef(false);
+  const sound = useSettings((st) => st.sound);
+  const { Icon } = SOUND_INFO[sound];
   useMenuSong();
 
   const start = () => {
@@ -52,7 +62,7 @@ export default function SplashScreen() {
           <span className={`wtp-display ${s.cta}`}>Tap to play!</span>
         </button>
         <p className={s.hint}>
-          <IconVolume /> Sound on for the full show
+          <Icon /> {SPLASH_HINT[sound]}
         </p>
       </ScreenFrame>
     </div>

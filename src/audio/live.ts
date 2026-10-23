@@ -1,11 +1,12 @@
 // The live singletons behind `audio` and `announcer`, plus extras for the sound lab.
-// Volumes and the announcer switch follow useSettings.
+// Volumes and the announcer follow useSettings: the saved levels with the sound mode on top.
 
 import { network } from "../lib/network";
 import { useSettings } from "../state/settings";
 import { Speech } from "./announcer";
 import { Clips } from "./clips";
 import { Engine } from "./engine";
+import { followSettings } from "./follow";
 import { CORE_KEYS } from "./lines";
 import { Voice } from "./voice";
 
@@ -33,16 +34,12 @@ export function unlockAll(): Promise<void> {
   return unlocked;
 }
 
-function followSettings(): void {
+function follow(): void {
   try {
-    const s = useSettings.getState();
-    engine.setMusicVolume(s.musicVolume);
-    engine.setSfxVolume(s.sfxVolume);
-    voice.setEnabled(s.voice);
-    useSettings.subscribe((next, prev) => {
-      if (next.musicVolume !== prev.musicVolume) engine.setMusicVolume(next.musicVolume);
-      if (next.sfxVolume !== prev.sfxVolume) engine.setSfxVolume(next.sfxVolume);
-      if (next.voice !== prev.voice) voice.setEnabled(next.voice);
+    followSettings(useSettings, {
+      music: (v) => engine.setMusicVolume(v),
+      sfx: (v) => engine.setSfxVolume(v),
+      voice: (on) => voice.setEnabled(on),
     });
   } catch {
     // settings unavailable (tests): keep defaults
@@ -60,7 +57,7 @@ function unlockOnFirstGesture(): void {
   for (const e of events) window.addEventListener(e, handler, { capture: true, passive: true });
 }
 
-followSettings();
+follow();
 unlockOnFirstGesture();
 // The index is small; the clips download and decode later, per question.
 void clips.load();

@@ -124,7 +124,7 @@ export default function AudioLab() {
   const [systemOnly, setSystemOnly] = useState(!voice.clipsEnabled);
   const musicVolume = useSettings((s) => s.musicVolume);
   const sfxVolume = useSettings((s) => s.sfxVolume);
-  const voiceOn = useSettings((s) => s.voice);
+  const voiceOn = useSettings((s) => s.sound === "full");
   const update = useSettings((s) => s.update);
   const [flash, setFlash] = useState<string | null>(null);
   const [text, setText] = useState(REVEALS[1].text);
@@ -245,7 +245,7 @@ export default function AudioLab() {
           <Slider label="Music" value={musicVolume} onChange={(v) => update({ musicVolume: v })} />
           <Slider label="Sound effects" value={sfxVolume} onChange={(v) => update({ sfxVolume: v })} />
           <div className="row">
-            <button className={`btn toggle ${voiceOn ? "active" : ""}`} aria-pressed={voiceOn} onClick={() => update({ voice: !voiceOn })}>
+            <button className={`btn toggle ${voiceOn ? "active" : ""}`} aria-pressed={voiceOn} onClick={() => update({ sound: voiceOn ? "noVoice" : "full" })}>
               Announcer {voiceOn ? "on" : "off"}
             </button>
             <button

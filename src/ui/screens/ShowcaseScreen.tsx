@@ -1,6 +1,7 @@
 // Showcase (attract mode): the projector loops on its own while the van is idle.
 // Silhouette with a countdown, the reveal, and every few Pokémon the Top Trainers and a "Tap to play!" slide.
-// A play-at-home QR code stays in the corner throughout. Any tap or key goes back to the title screen.
+// A play-at-home QR code stays in the corner throughout. Any tap or key goes back to the title screen, except
+// the sound button and its M key.
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { announcer, audio, lines, whosThat } from "../../audio";
@@ -20,6 +21,7 @@ import {
   PokeArt,
   PokeBall,
   ScreenFrame,
+  SOUND_KEY,
   TimerRing,
   TypeBadge,
   type BallKind,
@@ -121,7 +123,7 @@ export default function ShowcaseScreen() {
   // Any tap, click or key: back to the title screen.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.repeat || ["Shift", "Control", "Alt", "Meta"].includes(e.key)) return;
+      if (e.repeat || ["Shift", "Control", "Alt", "Meta"].includes(e.key) || e.key.toLowerCase() === SOUND_KEY) return;
       e.preventDefault();
       leave();
     };
@@ -137,6 +139,7 @@ export default function ShowcaseScreen() {
       <ScreenFrame
         layout="fill"
         className={s.frame}
+        sound
         footer={
           <div className={s.footRow}>
             <div className={s.tapBar} data-hidden={!showTapBar || undefined} aria-hidden={!showTapBar || undefined}>

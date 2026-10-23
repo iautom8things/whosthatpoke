@@ -35,6 +35,13 @@
   min-width: 0;
   text-align: center;
 }
+/* No header: the sound button keeps the same top-right spot, over the body. */
+.corner {
+  position: absolute;
+  top: calc(var(--safe-t) + var(--sp-3));
+  right: calc(var(--safe-r) + var(--gutter));
+  z-index: var(--z-hud);
+}
 .titleText {
   font-size: var(--fs-xl);
   white-space: nowrap;
@@ -117,5 +124,8 @@
     padding-top: calc(var(--safe-t) + var(--sp-2));
     padding-bottom: calc(var(--safe-b) + var(--sp-2));
     gap: var(--sp-2);
+  }
+  .corner {
+    top: calc(var(--safe-t) + var(--sp-2));
   }
 }

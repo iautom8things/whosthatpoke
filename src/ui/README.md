@@ -87,8 +87,12 @@ For logic that CSS cannot express, `useViewport()` returns `{ w, h, orientation,
 Persistent animated background. App.tsx renders it once; screens must not. Pauses while the tab is hidden, freezes under reduced motion, simplified in projector mode. It reads the current screen to stay out from under the HUD: no moon on game, host, showcase, results or the leaderboard; no pumpkins on results and the leaderboard, nor on the play screens in portrait or short viewports; and a small moon without halo on the menus in portrait, short viewports and projector mode.
 
 ### ScreenFrame
-`{ title?, back?: boolean | () => void, headerLeft?, headerRight?, footer?, layout?: "center" | "split" | "stack" | "fill", className?, bodyClassName? }`
+`{ title?, back?: boolean | () => void, headerLeft?, headerRight?, sound?, footer?, layout?: "center" | "split" | "stack" | "fill", className?, bodyClassName? }`
 Safe areas, header row (back slot, centered title, actions), a body that never scrolls the page, optional footer. `back` adds the back button and binds Escape. A string `title` renders as display text.
+`sound` adds the `SoundButton` top right: in the header just inside `headerRight`, or alone in the corner when the screen has no header. The screens that play sound for the crowd use it (title, game, host, Show-off, results) and so does Settings. The short hops in between (category, ball, leaderboard, name entry) leave it out: nothing talks there, and their phone headers have no room for another 64 px button. The game places its own: next to the score, or in the stage's top-right corner on narrow portrait phones, where the header is full.
+
+### SoundButton, cycleSound
+The speaker the host uses to quiet the game without opening Settings. A tap (or **M** anywhere, bound in App) cycles `settings.sound`: **All on** (speaker), **No voice** (music note: the announcer stops, music and effects keep playing), **Muted** (red speaker with an X). Each change shows a toast naming the new mode, and a tap on the game's reveal does not stop the auto-advance. The mode sits on top of the saved levels (`heard()` in `state/settings.ts`) and never writes them, so muting and coming back plays at the levels the host set. A plain tap is enough on purpose: a kid's tap costs nothing that a second tap can't undo, while the hold-to-open gear guards Settings, where a kid could clear scores. `SOUND_INFO` has the names and icons for anything else that shows the mode (the Settings chips, the splash hint).
 
 ### Button
 `{ variant?: "primary" | "secondary" | "ghost" | "danger" | "success", size?: "md" | "lg" | "xl", icon?, block?, sfx?: SfxId | null = "tap", onPress?, ...button props }`
@@ -154,7 +158,7 @@ App.tsx wraps each screen in one. A render throw or a failed chunk load shows an
 `celebrate(kind?: "burst" | "cannons" | "rain" | "stars", { origin?, intensity? })` fires theme-colored confetti above everything. Skipped under reduced motion. `clearConfetti()` stops it. Pair it with a sound yourself (`audio.sfx("pop")`).
 
 ### Icons
-`IconBack, IconNext, IconCheck, IconX, IconPlay, IconPause, IconHome, IconRefresh, IconExpand, IconQuestion, IconVolume, IconVolumeOff, IconGear, IconTrophy, IconStar, IconUsers, IconEye`. 1em, `currentColor`, chunky round strokes.
+`IconBack, IconNext, IconCheck, IconX, IconPlay, IconPause, IconHome, IconRefresh, IconExpand, IconQuestion, IconVolume, IconVolumeOff, IconMusic, IconGear, IconTrophy, IconStar, IconUsers, IconEye`. 1em, `currentColor`, chunky round strokes.
 
 ## Hooks (`src/lib`)
 
@@ -201,5 +205,5 @@ It also owns what every screen shares:
 - **ErrorBoundary** around each screen. A chunk that fails to load (an old tab after an update) reloads the page once first (`lib/staleChunk.ts`, wired in main.tsx); offline, or a second failure within 30 s, shows the Oops card.
 - **Idle home.** Category, Difficulty and the leaderboard go back to the title after 2x `attractAfterSec` without input, results (and name entry) after 3x. The title's own idle then starts Show-off mode. Games, Host, Settings and Showcase never time out.
 - **Wake lock** (`useWakeLock`).
-- **F** toggles full screen (ignored while typing).
+- **F** toggles full screen and **M** cycles the sound mode (both ignored while typing).
 - **Sideways hint.** In projector mode, a touch tablet held upright gets a toast asking to turn it sideways, because a mirrored portrait iPad fills a narrow column of the projector. It sits at the bottom edge for 5 s, below the game's timer bar, so the progress dots and the TOP TRAINERS pill stay visible.

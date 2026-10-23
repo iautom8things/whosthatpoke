@@ -32,4 +32,5 @@ export { Logo, type LogoProps } from "./Logo";
 export { PokeArt, preloadArt, type PokeArtProps } from "./PokeArt";
 export { QrCode, type QrCodeProps } from "./QrCode";
 export { ScreenFrame, type FrameLayout, type ScreenFrameProps } from "./ScreenFrame";
+export { cycleSound, SOUND_INFO, SOUND_KEY, SoundButton } from "./SoundButton";
 export { toast, ToastHost, type ToastOptions, type ToastPlace, type ToastTone } from "./Toast";

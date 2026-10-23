@@ -7,8 +7,8 @@ import { isReducedMotion } from "../../../lib/reducedMotion";
 import { fault } from "../../../metrics";
 import { useNav } from "../../../state/nav";
 import { peekAhead, peekNext, useSession, type Phase, type Round } from "../../../state/session";
-import { useSettings } from "../../../state/settings";
-import { celebrate, toast } from "../../components";
+import { heard, useSettings } from "../../../state/settings";
+import { celebrate, SOUND_KEY, toast } from "../../components";
 import { artLoads } from "../../components/PokeArt";
 import { Countdown } from "./countdown";
 import { gameDemo } from "./demoHooks";
@@ -365,7 +365,7 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
         const fact = lines.fact(q.answer);
         // The announcer reads the fact after the name, and auto-advance waits for it. On a poor connection a fact
         // whose clip isn't on the device is left out, and auto-advance goes as if there were none.
-        const readsFact = fact !== undefined && settings.voice && announcer.supported && !survivalOver && !announcer.skips(fact);
+        const readsFact = fact !== undefined && heard(settings).voice && announcer.supported && !survivalOver && !announcer.skips(fact);
         let voiceDone: Promise<void> = Promise.resolve();
         patch({ ready: true, picked: round.picked, timedOut: round.picked === null, popup: beat !== "fact", factShown: beat === "fact" });
 
@@ -443,8 +443,9 @@ export function useGameLoop(stage: RefObject<HTMLElement | null>): GameLoop {
     if (phase !== "revealed") return;
     const stop = (e: Event) => {
       // Taps and keys on the Quit dialog, and the X or Escape that opens it, are about quitting, not the reveal.
+      // The sound button and its key only change what plays.
       if (autoCancelled.current || quitRef.current) return;
-      if (e instanceof KeyboardEvent ? e.key === "Escape" : (e.target as Element | null)?.closest?.("[data-quit]")) return;
+      if (e instanceof KeyboardEvent ? e.key === "Escape" || e.key.toLowerCase() === SOUND_KEY : (e.target as Element | null)?.closest?.("[data-quit], [data-sound]")) return;
       autoCancelled.current = true;
       if (autoRef.current && !autoRef.current.isFinished) {
         autoRef.current.stop();

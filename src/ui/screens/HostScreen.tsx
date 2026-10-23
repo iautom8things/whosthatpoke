@@ -505,6 +505,7 @@ export default function HostScreen() {
     <ScreenFrame
       layout="fill"
       back={onBack}
+      sound
       headerLeft={
         <div className={s.headerLeft}>
           <BackButton onPress={onBack} />

@@ -91,7 +91,7 @@ export function SwitchRow({ label, hint, on, onChange, disabled }: Omit<RowProps
 
 export interface ChoicesProps<T> {
   value: T;
-  options: readonly { value: T; label: ReactNode }[];
+  options: readonly { value: T; label: ReactNode; icon?: ReactNode }[];
   onChange(value: T): void;
   label: string;
 }
@@ -101,7 +101,7 @@ export function Choices<T extends string | number>({ value, options, onChange, l
   return (
     <div role="group" aria-label={label} className={s.choices}>
       {options.map((o) => (
-        <Chip key={String(o.value)} selected={o.value === value} onPress={() => o.value !== value && onChange(o.value)} className={s.choice}>
+        <Chip key={String(o.value)} selected={o.value === value} icon={o.icon} onPress={() => o.value !== value && onChange(o.value)} className={s.choice}>
           {o.label}
         </Chip>
       ))}

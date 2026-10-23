@@ -1,7 +1,7 @@
 // Audio and announcer for the whole game. Music and effects are synthesized with Web Audio. The announcer plays
 // recorded clips (public/voice) when it has them and falls back to the device voice line by line.
 // All calls are safe before unlock() (songs requested early start on unlock) and never throw.
-// Volumes and the announcer switch follow useSettings on their own.
+// Volumes and the announcer follow useSettings on their own, sound mode included (see follow.ts).
 
 import { lines, type Line } from "./lines";
 import { engine, unlockAll, voice } from "./live";

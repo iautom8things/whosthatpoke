@@ -9,7 +9,7 @@ import { useViewport } from "./lib/useViewport";
 import { useWakeLock } from "./lib/useWakeLock";
 import { useNav, type Screen } from "./state/nav";
 import { useSettings } from "./state/settings";
-import { Backdrop, clearConfetti, ErrorBoundary, IconRefresh, toast, ToastHost } from "./ui/components";
+import { Backdrop, clearConfetti, cycleSound, ErrorBoundary, IconRefresh, SOUND_KEY, toast, ToastHost } from "./ui/components";
 
 const LOADERS: Record<Screen, () => Promise<{ default: ComponentType }>> = {
   splash: () => import("./ui/screens/SplashScreen"),
@@ -121,8 +121,8 @@ export default function App() {
   useWakeLock();
   useIdleHome(screen);
   useSidewaysHint(screen);
-  // F toggles full screen on the projector laptop. Ignored while typing a name.
-  useKeys({ f: () => void fullscreen.toggle() });
+  // F toggles full screen on the projector laptop, M cycles the sound. Ignored while typing a name.
+  useKeys({ f: () => void fullscreen.toggle(), [SOUND_KEY]: cycleSound });
 
   // Fetch every screen chunk once the first one is up, so later transitions never show a blank frame.
   useEffect(() => {

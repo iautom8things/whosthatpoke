@@ -5,11 +5,18 @@ import { browserStorage, noteFailedWrite } from "../game/storage";
 
 export type Theme = "spooky" | "classic";
 
+/**
+ * The speaker button cycles these in order. A mode sits on top of the saved levels and never changes them:
+ * full plays everything, noVoice turns the announcer off (music and effects keep playing), mute silences it all.
+ */
+export const SOUND_MODES = ["full", "noVoice", "mute"] as const;
+export type SoundMode = (typeof SOUND_MODES)[number];
+
 export interface Settings {
   musicVolume: number;
   sfxVolume: number;
-  /** Announcer says "Who's that Pokémon?" and "It's Pikachu!". */
-  voice: boolean;
+  /** The announcer ("Who's that Pokémon?", "It's Pikachu!") speaks only in full. */
+  sound: SoundMode;
   /** Questions per classic or host game. */
   rounds: number;
   timer: boolean;
@@ -28,7 +35,7 @@ export interface Settings {
 export const DEFAULT_SETTINGS: Settings = {
   musicVolume: 0.6,
   sfxVolume: 0.8,
-  voice: true,
+  sound: "full",
   rounds: 10,
   timer: true,
   autoAdvance: true,
@@ -55,7 +62,7 @@ const isTier = (v: unknown): v is PrizeTier => {
 const CHECKS: { [K in keyof Settings]: (v: unknown) => boolean } = {
   musicVolume: (v) => isNum(v) && v >= 0 && v <= 1,
   sfxVolume: (v) => isNum(v) && v >= 0 && v <= 1,
-  voice: (v) => typeof v === "boolean",
+  sound: (v) => SOUND_MODES.includes(v as SoundMode),
   rounds: (v) => isNum(v) && Number.isInteger(v) && v >= 1 && v <= 50,
   timer: (v) => typeof v === "boolean",
   autoAdvance: (v) => typeof v === "boolean",
@@ -74,7 +81,19 @@ export function validSettings(stored: unknown): Partial<Settings> {
   for (const key of Object.keys(CHECKS) as (keyof Settings)[]) {
     if (key in data && CHECKS[key](data[key])) out[key] = data[key];
   }
+  // Older builds saved the announcer as an on/off switch.
+  if (!("sound" in out) && data.voice === false) out.sound = "noVoice";
   return out as Partial<Settings>;
+}
+
+export function nextSoundMode(mode: SoundMode): SoundMode {
+  return SOUND_MODES[(SOUND_MODES.indexOf(mode) + 1) % SOUND_MODES.length];
+}
+
+/** What actually plays: the saved levels with the sound mode on top. */
+export function heard({ sound, musicVolume, sfxVolume }: Pick<Settings, "sound" | "musicVolume" | "sfxVolume">) {
+  const muted = sound === "mute";
+  return { music: muted ? 0 : musicVolume, sfx: muted ? 0 : sfxVolume, voice: sound === "full" };
 }
 
 /** True when this device has saved settings before (the host has made choices). */

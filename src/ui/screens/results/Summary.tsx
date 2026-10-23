@@ -176,7 +176,7 @@ export function Summary({ summary }: { summary: GameSummary }) {
   );
 
   return (
-    <ScreenFrame layout="fill" bodyClassName={s.body}>
+    <ScreenFrame layout="fill" bodyClassName={s.body} sound>
       <div className={s.grid} data-mode={mode} onPointerDown={stage < 2 ? skip : undefined}>
         <PrizeCard className={s.prize} tier={tier} open={stage >= 2} ball={difficulty.ball} level={level} />
 

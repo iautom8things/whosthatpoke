@@ -13,7 +13,7 @@ import { pageview, startMetrics, track, type EventData } from "./lib/metrics";
 import { network } from "./lib/network";
 import { useNav } from "./state/nav";
 import { useSession, type Round } from "./state/session";
-import { useSettings } from "./state/settings";
+import { heard, useSettings } from "./state/settings";
 
 export type Send = (name: string, data?: EventData) => void;
 type Game = ReturnType<typeof useSession.getState>;
@@ -26,12 +26,14 @@ const about = (c: GameConfig): EventData => ({ mode: c.mode, category: c.categor
 
 function started(c: GameConfig): EventData {
   const st = useSettings.getState();
+  // What the game actually plays, after the sound button.
+  const on = heard(st);
   return {
     ...about(c),
     group: categoryById(c.categoryId).group,
     rounds: c.mode === "survival" ? undefined : c.rounds,
-    voice: st.voice,
-    music: st.musicVolume > 0,
+    voice: on.voice,
+    music: on.music > 0,
     timer: st.timer,
     auto_advance: st.autoAdvance,
     theme: st.theme,

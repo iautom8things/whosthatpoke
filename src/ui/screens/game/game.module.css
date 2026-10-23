@@ -133,6 +133,25 @@
   display: contents;
 }
 
+/* The sound button sits in the header next to the score. Narrow portrait phones have no room left there
+   (the streak flame and survival's lives fill it), so it moves to the stage's top-right corner. */
+.game .soundStage {
+  display: none;
+}
+@media (orientation: portrait) and (max-width: 599px) {
+  .root .soundHeader {
+    display: none;
+  }
+  .game .soundStage {
+    display: inline-flex;
+    grid-area: stage;
+    justify-self: end;
+    align-self: start;
+    /* Above the swipe area, under the score popup and streak banner (3), which let taps through. */
+    z-index: 2;
+  }
+}
+
 /* ================= stage ================= */
 .drag {
   position: absolute;

@@ -7,8 +7,8 @@ import { leaderboard } from "../../../game/leaderboard";
 import { storageWorks } from "../../../game/storage";
 import { metricsOn } from "../../../lib/metrics";
 import { useFullscreen } from "../../../lib/useFullscreen";
-import { useSettings, type Theme } from "../../../state/settings";
-import { Button, Card, ConfirmDialog, Display, IconBack, IconPlay, IconRefresh, Pill, toast } from "../../components";
+import { SOUND_MODES, useSettings, type SoundMode, type Theme } from "../../../state/settings";
+import { Button, Card, ConfirmDialog, Display, IconBack, IconPlay, IconRefresh, Pill, SOUND_INFO, toast } from "../../components";
 import { Choices, Level, Row, SectionTitle, SwitchRow } from "./controls";
 import { IconTrash } from "./icons";
 import { tonightScores } from "./partyScores";
@@ -17,31 +17,41 @@ import s from "./Settings.module.css";
 
 /* ---------------- Sound ---------------- */
 
+const SOUND_OPTIONS = SOUND_MODES.map((m) => {
+  const { name, Icon } = SOUND_INFO[m];
+  return { value: m, label: name, icon: <Icon /> };
+});
+
+const SOUND_HINT: Record<SoundMode, string> = {
+  full: "Music, effects and the announcer, who says “Who’s that Pokémon?”, reads the four names on Poké Ball, then names the Pokémon and reads its fun fact.",
+  noVoice: "Music and effects. The announcer stays quiet.",
+  mute: "Nothing plays. Music and effects come back at the levels below.",
+};
+
 export function SoundSection() {
   const musicVolume = useSettings((st) => st.musicVolume);
   const sfxVolume = useSettings((st) => st.sfxVolume);
-  const voice = useSettings((st) => st.voice);
+  const sound = useSettings((st) => st.sound);
   const update = useSettings((st) => st.update);
 
   // The same sting and delay as a real question, so the voice comes in after the jingle, not under it.
   const test = () => void whosThat();
+  // Turning a level up while muted means the host wants to hear it. The announcer stays off.
+  const unmuteFor = (v: number) => (sound === "mute" && v > 0 ? { sound: "noVoice" as const } : {});
+  const modeHint = sound === "full" && !announcer.supported ? "Music and effects. This device has no speaking voice, so the announcer stays quiet." : SOUND_HINT[sound];
 
   return (
     <>
       <SectionTitle>Sound</SectionTitle>
+      <Row label="Sound mode" hint={`${modeHint} The speaker in the top-right corner switches this too, and so does M on a keyboard.`} stack>
+        <Choices label="Sound mode" value={sound} options={SOUND_OPTIONS} onChange={(m) => update({ sound: m })} />
+      </Row>
       <Row label="Music" hint="Catchy tunes in the menus, suspense music during questions.">
-        <Level label="Music volume" value={musicVolume} sfx={null} onChange={(v) => update({ musicVolume: v })} />
+        <Level label="Music volume" value={musicVolume} sfx={null} onChange={(v) => update({ musicVolume: v, ...unmuteFor(v) })} />
       </Row>
       <Row label="Sound effects" hint="Dings, buzzers and the big candy fanfare.">
-        <Level label="Effects volume" value={sfxVolume} sfx="correct" onChange={(v) => update({ sfxVolume: v })} />
+        <Level label="Effects volume" value={sfxVolume} sfx="correct" onChange={(v) => update({ sfxVolume: v, ...unmuteFor(v) })} />
       </Row>
-      <SwitchRow
-        label="Announcer voice"
-        hint={announcer.supported ? "Says “Who’s that Pokémon?”, reads the four names on Poké Ball, then names the Pokémon and reads its fun fact." : "This device has no speaking voice, so this stays quiet."}
-        on={voice}
-        disabled={!announcer.supported}
-        onChange={(on) => update({ voice: on })}
-      />
       <Row label="Test it" hint="No sound? Check the volume buttons and the silent switch.">
         <Button variant="secondary" icon={<IconPlay />} sfx={null} onPress={test}>
           Test sound

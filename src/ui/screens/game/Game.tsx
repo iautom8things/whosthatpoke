@@ -4,7 +4,7 @@ import { useKeys } from "../../../lib/useKeys";
 import { onBrowserBack, useNav } from "../../../state/nav";
 import { SURVIVAL_LIVES, useSession } from "../../../state/session";
 import { useSettings } from "../../../state/settings";
-import { ConfirmDialog, IconButton, IconX, ScreenFrame } from "../../components";
+import { ConfirmDialog, IconButton, IconX, ScreenFrame, SoundButton } from "../../components";
 import { ActionBar } from "./ActionBar";
 import { Answers } from "./Answers";
 import { COPY } from "./copy";
@@ -76,7 +76,12 @@ export default function Game() {
             caught={correct}
           />
         }
-        headerRight={<HudScore score={score} streak={streak} />}
+        headerRight={
+          <>
+            <SoundButton className={s.soundHeader} />
+            <HudScore score={score} streak={streak} />
+          </>
+        }
       >
         <div className={s.game} data-phase={g.phase} data-survival={survival || undefined}>
           {!survival && <DotsRow total={total} index={index} rounds={rounds} />}
@@ -96,6 +101,8 @@ export default function Game() {
             timed={timer}
             onSwipeNext={g.next}
           />
+          {/* Narrow phones have no room left in the header, so the sound button waits in the stage's corner. */}
+          <SoundButton className={s.soundStage} />
 
           <div className={s.side}>
             <div className={s.titleSlot}>

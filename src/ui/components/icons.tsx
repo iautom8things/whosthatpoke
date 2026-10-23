@@ -55,6 +55,14 @@ export const IconVolumeOff = icon(
     <path d="m16 9.5 5 5M21 9.5l-5 5" />
   </>,
 );
+export const IconMusic = icon(
+  "IconMusic",
+  <>
+    <path d="M9.5 17.5V6.5l10-2.5v11.5" />
+    <circle cx="6.5" cy="17.5" r="3" fill="currentColor" strokeWidth={2} />
+    <circle cx="16.5" cy="15.5" r="3" fill="currentColor" strokeWidth={2} />
+  </>,
+);
 export const IconGear = icon(
   "IconGear",
   <>

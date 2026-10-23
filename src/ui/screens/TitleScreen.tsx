@@ -53,6 +53,7 @@ export default function TitleScreen() {
         bodyClassName={s.body}
         headerLeft={<IconButton className={NAV} icon={<IconTrophy />} label="Top trainers" showLabel variant="ghost" onPress={() => go("leaderboard")} />}
         headerRight={<HoldGear onOpen={() => go("settings")} />}
+        sound
       >
         <div className={s.hero}>
           <Logo size="xl" animated={logoIntro} bob style={{ "--fs": "var(--logo-fs)" } as CSSProperties} />

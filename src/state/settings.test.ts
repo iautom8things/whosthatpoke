@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { storageWorks } from "../game/storage";
-import { DEFAULT_SETTINGS, SETTINGS_KEY, useSettings, validSettings } from "./settings";
+import { DEFAULT_SETTINGS, heard, nextSoundMode, SETTINGS_KEY, useSettings, validSettings } from "./settings";
 
 const memoryStorage = (initial: Record<string, string> = {}) => {
   const data = new Map(Object.entries(initial));
@@ -51,5 +51,52 @@ describe("stored settings", () => {
     expect(() => useSettings.getState().update({ theme: "classic" })).not.toThrow();
     expect(useSettings.getState().theme).toBe("classic");
     expect(storageWorks()).toBe(false);
+  });
+});
+
+describe("sound mode", () => {
+  const cycle = () => useSettings.getState().update({ sound: nextSoundMode(useSettings.getState().sound) });
+
+  it("cycles all on, no voice, muted, then all on again", () => {
+    const seen = [useSettings.getState().sound];
+    for (let i = 0; i < 3; i++) {
+      cycle();
+      seen.push(useSettings.getState().sound);
+    }
+    expect(seen).toEqual(["full", "noVoice", "mute", "full"]);
+  });
+
+  it("no voice keeps music and effects, mute silences everything", () => {
+    const levels = { musicVolume: 0.4, sfxVolume: 0.2 };
+    expect(heard({ ...levels, sound: "full" })).toEqual({ music: 0.4, sfx: 0.2, voice: true });
+    expect(heard({ ...levels, sound: "noVoice" })).toEqual({ music: 0.4, sfx: 0.2, voice: false });
+    expect(heard({ ...levels, sound: "mute" })).toEqual({ music: 0, sfx: 0, voice: false });
+  });
+
+  it("a mute round trip leaves the saved levels alone", () => {
+    useSettings.getState().update({ musicVolume: 0.4, sfxVolume: 0.2 });
+    cycle();
+    cycle();
+    expect(heard(useSettings.getState()).music).toBe(0);
+    cycle();
+    const { musicVolume, sfxVolume, sound } = useSettings.getState();
+    expect({ musicVolume, sfxVolume, sound }).toEqual({ musicVolume: 0.4, sfxVolume: 0.2, sound: "full" });
+  });
+
+  it("survives a reload", async () => {
+    const device = memoryStorage();
+    vi.stubGlobal("localStorage", device);
+    useSettings.getState().update({ sound: "mute" });
+    const saved = device.getItem(SETTINGS_KEY)!;
+    useSettings.setState(DEFAULT_SETTINGS);
+    vi.stubGlobal("localStorage", memoryStorage({ [SETTINGS_KEY]: saved }));
+    await useSettings.persist.rehydrate();
+    expect(useSettings.getState().sound).toBe("mute");
+  });
+
+  it("reads an older build's announcer switch", () => {
+    expect(validSettings({ voice: false })).toEqual({ sound: "noVoice" });
+    expect(validSettings({ voice: true })).toEqual({});
+    expect(validSettings({ voice: false, sound: "mute" })).toEqual({ sound: "mute" });
   });
 });

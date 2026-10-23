@@ -1,0 +1,23 @@
+.wrap {
+  display: inline-flex;
+  flex: none;
+}
+
+/* Muted is the state a host must spot from across the room: the icon turns red. */
+.wrap[data-sound="mute"] > button {
+  --fg: var(--bad);
+}
+
+.icon {
+  display: inline-flex;
+}
+/* A new icon pops in, so a tap visibly lands even with the sound off. */
+.swap {
+  animation: swap var(--dur-med) var(--ease-pop);
+}
+@keyframes swap {
+  from {
+    scale: 0.4;
+    rotate: -20deg;
+  }
+}
