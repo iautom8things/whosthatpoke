@@ -7,7 +7,7 @@ import { useIdle } from "./lib/useIdle";
 import { useKeys } from "./lib/useKeys";
 import { useViewport } from "./lib/useViewport";
 import { useWakeLock } from "./lib/useWakeLock";
-import { useNav, type Screen } from "./state/nav";
+import { BOOT_SCREEN, useNav, type Screen } from "./state/nav";
 import { useSettings } from "./state/settings";
 import { Backdrop, clearConfetti, cycleSound, ErrorBoundary, IconRefresh, SOUND_KEY, toast, ToastHost } from "./ui/components";
 
@@ -136,7 +136,8 @@ export default function App() {
   return (
     <MotionConfig reducedMotion={reduceMotion ? "always" : "user"}>
       <Backdrop />
-      <AnimatePresence initial={false} custom={dir}>
+      {/* After an update reload the screen it resumed on slides in, as if just arrived. */}
+      <AnimatePresence initial={BOOT_SCREEN !== "splash"} custom={dir}>
         <ScreenLayer key={screen} dir={dir}>
           <ErrorBoundary>
             <Suspense fallback={null}>

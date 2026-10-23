@@ -30,6 +30,8 @@ function subscribe(onChange: () => void): () => void {
 }
 
 const isActive = () => current() !== null;
+/** The page is in element full screen (the F key). A reload would drop it, and only a tap can bring it back. */
+export const isFullscreen = isActive;
 
 export interface Fullscreen {
   /** False on iPhone Safari and in some embeds. enter() is then a no-op. */

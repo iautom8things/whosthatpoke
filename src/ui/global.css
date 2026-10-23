@@ -77,6 +77,14 @@ img {
   -webkit-user-drag: none;
 }
 
+/* src/pwa.ts sets data-leaving just before an update reload in view: the screen fades, the sky stays.
+   Children, because motion writes inline opacity on .wtp-screen itself. */
+html[data-leaving] .wtp-screen > * {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  pointer-events: none;
+}
+
 html {
   height: 100%;
   overflow: hidden;

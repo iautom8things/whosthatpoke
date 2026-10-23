@@ -193,7 +193,7 @@ export function OfflineSection() {
       <SectionTitle>Offline</SectionTitle>
       <OfflineStatus />
       {needRefresh && (
-        <Row label="New version ready" hint="Updating reloads the game. Do it between players.">
+        <Row label="New version ready" hint="It installs itself when someone leaves Show-off mode, or when the screen locks on the title screen. Update installs it now and reloads the game.">
           <Button variant="success" icon={<IconRefresh />} onPress={applyUpdate}>
             Update
           </Button>

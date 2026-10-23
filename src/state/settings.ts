@@ -46,6 +46,7 @@ export const DEFAULT_SETTINGS: Settings = {
   reduceMotion: false,
 };
 
+// index.html reads the theme from this key before the app loads. Rename it there too.
 export const SETTINGS_KEY = "wtp.settings.v1";
 
 interface SettingsState extends Settings {

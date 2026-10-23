@@ -6,16 +6,21 @@
 // round fetches them, or all at once by saveForOffline() (src/pwa-save.ts). An installed home-screen app starts
 // that save by itself.
 //
-// The worker is in "prompt" mode: a new version waits instead of reloading the page mid-game.
-// It applies itself on the splash or title screen, where nobody is mid-game, or when the host taps "Update" in
-// Settings. A device that kept a tab open would otherwise play the old version until someone found that button.
+// The worker is in "prompt" mode: a new version downloads in the background and waits. The page reloads into it
+// only when that can't startle anyone: while the app is out of sight on the splash, title or Show-off screen (it
+// comes back on the same screen), on the splash before its first tap, on the tap that leaves Show-off mode, or
+// when the host taps "Update" in Settings. A closed app opens on the new version by itself. Never on any other
+// screen, seen or not, and never in full screen, which a reload would drop, unless the host taps Update.
+// The page also looks for a new version every 15 minutes, because browsers only look when a page loads.
 import { registerSW } from "virtual:pwa-register";
 import { create } from "zustand";
+import { announcer, audio } from "./audio";
 import { CATALOG } from "./data/catalog";
 import { track } from "./lib/metrics";
 import { network } from "./lib/network";
 import { ART_CACHE, countSaved, saveAll, VOICE_CACHE, voiceFiles, type SaveJob, type Tally } from "./pwa-save";
-import { useNav } from "./state/nav";
+import { isFullscreen } from "./lib/useFullscreen";
+import { noteResume, useNav, type Screen } from "./state/nav";
 
 /** Set by vite.config.ts: whether public/voice/index.json existed at build. */
 declare const __VOICE_INDEX__: boolean | undefined;
@@ -30,7 +35,7 @@ export type OfflineStatus =
 
 export interface PwaState {
   status: OfflineStatus;
-  /** A newer version is downloaded and waiting. applyUpdate() switches to it. */
+  /** This tab runs an older version than the one downloaded. applyUpdate() switches to it. */
   needRefresh: boolean;
   /** Pokémon pictures saved on this device. null until counted. */
   art: number | null;
@@ -112,18 +117,71 @@ const jobs = (voice: readonly string[]): SaveJob[] => [
 let updateSW: ((reloadPage?: boolean) => Promise<void>) | null = null;
 let registration: ServiceWorkerRegistration | undefined;
 
-/** Switch to the waiting version. The page reloads once the new worker takes over. */
-export function applyUpdate(): void {
-  void updateSW?.(true);
+/** Screens an update can reload under while the app is hidden. It comes back on the same screen. */
+const OUT_OF_SIGHT: ReadonlySet<Screen> = new Set(["splash", "title", "showcase"]);
+/** How often an open page looks for a new version. */
+const CHECK_MS = 15 * 60_000;
+/** The screen fades this long before a reload in view (global.css, html[data-leaving]). */
+const FADE_MS = 300;
+/** If the new worker hasn't taken over by then (a newer deploy replaced it), reload anyway. */
+const FAILSAFE_MS = 4000;
+
+let taking = false;
+
+/** Reloads into the new version, back on `resume` (the splash when null). Fades the screen and music first if in view. */
+function swap(resume: Screen | null): void {
+  if (taking) return;
+  taking = true;
+  noteResume(resume);
+  const hidden = document.hidden;
+  if (!hidden) {
+    // The screen under the fade keeps running until the reload, so nothing new may sound. The reload restores both.
+    document.documentElement.dataset.leaving = "";
+    audio.stopSong(FADE_MS);
+    audio.setSfxVolume(0);
+    announcer.setEnabled(false);
+  }
+  setTimeout(
+    () => {
+      // The controllerchange listener in start() reloads once the new worker takes over. No worker waiting means
+      // another tab already switched, and a plain reload loads the new version.
+      if (registration?.waiting) void updateSW?.();
+      else location.reload();
+      setTimeout(() => location.reload(), FAILSAFE_MS);
+    },
+    hidden ? 0 : FADE_MS,
+  );
 }
 
-/** Screens where nobody is mid-game, so a waiting update can reload there. A reload lands on "Tap to play". */
-const IDLE_SCREENS: ReadonlySet<string> = new Set(["splash", "title"]);
+/** Settings' Update button: switch now. The page reloads to the splash. */
+export function applyUpdate(): void {
+  swap(null);
+}
 
-/** Applies a waiting update when the game is idle and no save for offline is running. */
-function applyWhenIdle(): void {
+/**
+ * For a moment the game changes scene anyway (the tap that leaves Show-off mode). Reloads into a waiting
+ * update, back on `resume`, and returns true; the caller then stops. Also true while a reload is already coming.
+ * False when no update is waiting, a save is running, or the page is in full screen.
+ */
+export function takeUpdate(resume: Screen): boolean {
+  if (taking) return true;
   const { needRefresh, saving } = usePwa.getState();
-  if (needRefresh && !saving && IDLE_SCREENS.has(useNav.getState().screen)) applyUpdate();
+  if (!needRefresh || saving || isFullscreen()) return false;
+  swap(resume);
+  return true;
+}
+
+/**
+ * Takes a waiting update on the splash before its tap (sound unlocks on that tap), or while the app is hidden
+ * on a screen it can come back to.
+ */
+function takeIfUnseen(): void {
+  const { screen } = useNav.getState();
+  if ((screen === "splash" && !audio.unlocked) || (document.hidden && OUT_OF_SIGHT.has(screen))) takeUpdate(screen);
+}
+
+function checkForUpdate(): void {
+  if (!document.hidden && navigator.onLine !== false) void registration?.update().catch(() => {});
 }
 
 let statsRun = 0;
@@ -266,6 +324,9 @@ function syncStatus(): void {
 
 function watch(worker: ServiceWorker | null): void {
   worker?.addEventListener("statechange", () => {
+    // A worker installed while another controls this page is an update. Workbox reports only the first one found
+    // after a minute, and the 15-minute checks can find more.
+    if (worker.state === "installed" && navigator.serviceWorker.controller) usePwa.setState({ needRefresh: true });
     const reg = registration;
     // A first install that fails (a download dropped) discards the worker and fires nothing else, so without
     // this the card would say "Setting up" forever.
@@ -286,10 +347,19 @@ function start(): void {
     usePwa.setState({ status: "unsupported" });
     return;
   }
-  navigator.serviceWorker.addEventListener("controllerchange", syncStatus);
-  // Back on the title screen after a game, or a save just ended: a waiting update applies then.
-  useNav.subscribe(applyWhenIdle);
-  usePwa.subscribe((s, prev) => prev.saving && !s.saving && applyWhenIdle());
+  let controlled = Boolean(navigator.serviceWorker.controller);
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (taking) return location.reload();
+    // Another tab switched to the new worker. This one still runs the old version and reloads at its next chance.
+    if (controlled) usePwa.setState({ needRefresh: true });
+    controlled = true;
+    syncStatus();
+  });
+  document.addEventListener("visibilitychange", () => (document.hidden ? takeIfUnseen() : checkForUpdate()));
+  setInterval(checkForUpdate, CHECK_MS);
+  useNav.subscribe(takeIfUnseen);
+  // An update just arrived, or a save that held it back ended.
+  usePwa.subscribe((s, prev) => ((s.needRefresh && !prev.needRefresh) || (prev.saving && !s.saving)) && takeIfUnseen());
   updateSW = registerSW({
     immediate: true,
     onRegisteredSW(_url, reg) {
@@ -304,8 +374,10 @@ function start(): void {
     },
     onNeedRefresh() {
       usePwa.setState({ needRefresh: true });
-      applyWhenIdle();
     },
+    // Without this the plugin reloads every tab when any one of them switches, mid-game included.
+    // The controllerchange listener above reloads only the tab that asked.
+    onNeedReload() {},
     onRegisterError() {
       usePwa.setState({ status: "error" });
     },

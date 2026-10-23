@@ -11,6 +11,14 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <title>Who's That Pokémon?</title>
+    <script>
+      // The saved theme from the first frame, so a reload never flashes the other theme's sky.
+      // src/lib/theme.ts keeps it in sync after that.
+      try {
+        var theme = JSON.parse(localStorage.getItem("wtp.settings.v1")).state.theme;
+        if (theme) document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

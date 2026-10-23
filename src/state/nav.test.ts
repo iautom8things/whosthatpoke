@@ -57,3 +57,49 @@ describe("browser Back", () => {
     expect(quit).toHaveBeenCalledTimes(1);
   });
 });
+
+describe("resuming after an update reload", () => {
+  function fakeStorage(note?: string) {
+    const items = new Map(note ? [["wtp-resume", note]] : []);
+    return {
+      items,
+      getItem: (k: string) => items.get(k) ?? null,
+      setItem: (k: string, v: string) => void items.set(k, v),
+      removeItem: (k: string) => void items.delete(k),
+    };
+  }
+
+  it.each(["title", "showcase"])("boots on %s once, then forgets the note", async (screen) => {
+    const storage = fakeStorage(screen);
+    vi.stubGlobal("sessionStorage", storage);
+    const { BOOT_SCREEN, useNav } = await import("./nav");
+    expect(BOOT_SCREEN).toBe(screen);
+    expect(useNav.getState().screen).toBe(screen);
+    expect(storage.items.size).toBe(0);
+  });
+
+  it.each(["game", "results", "nonsense"])("boots on the splash for a %s note", async (note) => {
+    vi.stubGlobal("sessionStorage", fakeStorage(note));
+    const { useNav } = await import("./nav");
+    expect(useNav.getState().screen).toBe("splash");
+  });
+
+  it("boots on the splash with no storage", async () => {
+    vi.stubGlobal("sessionStorage", undefined);
+    const { useNav } = await import("./nav");
+    expect(useNav.getState().screen).toBe("splash");
+  });
+
+  it("notes only screens it can come back to", async () => {
+    const storage = fakeStorage();
+    vi.stubGlobal("sessionStorage", storage);
+    const { noteResume } = await import("./nav");
+    noteResume("showcase");
+    expect(storage.items.get("wtp-resume")).toBe("showcase");
+    noteResume("game");
+    expect(storage.items.has("wtp-resume")).toBe(false);
+    noteResume("title");
+    noteResume(null);
+    expect(storage.items.has("wtp-resume")).toBe(false);
+  });
+});

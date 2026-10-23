@@ -10,6 +10,7 @@ import type { Mon } from "../../data/types";
 import { categoryById } from "../../game/categories";
 import { leaderboard, TONIGHT_MS, type ScoreEntry } from "../../game/leaderboard";
 import { useInterval } from "../../lib/useInterval";
+import { takeUpdate } from "../../pwa";
 import { useNav } from "../../state/nav";
 import {
   Burst,
@@ -120,10 +121,12 @@ export default function ShowcaseScreen() {
 
   useInterval(() => setNow(performance.now()), slide.kind === "ask" && !hold ? 100 : null);
 
-  // Any tap, click or key: back to the title screen.
+  // Any tap, click or key: back to the title screen. Not the sound key, and not F, which only toggles full screen
+  // (App.tsx): leaving would take a waiting update, and its reload would drop the full screen F just asked for.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.repeat || ["Shift", "Control", "Alt", "Meta"].includes(e.key) || e.key.toLowerCase() === SOUND_KEY) return;
+      const key = e.key.toLowerCase();
+      if (e.repeat || ["Shift", "Control", "Alt", "Meta"].includes(e.key) || key === SOUND_KEY || key === "f") return;
       e.preventDefault();
       leave();
     };
@@ -169,6 +172,8 @@ export default function ShowcaseScreen() {
 
 function leave() {
   audio.sfx("select");
+  // Someone is here and about to tap again, which brings back sound and the iPad's wake lock after the reload.
+  if (takeUpdate("title")) return;
   useNav.getState().home();
 }
 
