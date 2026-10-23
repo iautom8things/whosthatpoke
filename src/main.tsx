@@ -22,10 +22,11 @@ window.addEventListener("vite:preloadError", (e) => {
   }
 });
 
-// ?lab=gallery shows the design-system gallery, ?lab=audio the sound lab. Dev and QA only.
+// ?lab=gallery shows the design-system gallery, ?lab=audio the sound lab, ?lab=sign the printable play-at-home sign.
 const LABS = {
   gallery: lazy(() => import("./dev/Gallery")),
   audio: lazy(() => import("./dev/AudioLab")),
+  sign: lazy(() => import("./dev/Sign")),
 };
 const params = new URLSearchParams(location.search);
 const lab = params.get("lab") as keyof typeof LABS | null;

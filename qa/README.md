@@ -58,3 +58,15 @@ node qa/projector-sim.mjs <in.png> <out.png> [--ambient 0..1] [--letterbox 854x4
 `?nostats` keeps a visit out of the play stats, as `?demo=` and `?lab=` do. Add it whenever an agent opens the live site (`https://iautom8things.github.io/whosthatpoke/?nostats`): playwright-cli hides `navigator.webdriver`, so nothing else tells the game it is being driven.
 
 `?demo=` and `?lab=` run on the tab's sessionStorage, so they never touch real scores or settings. `?projector=on`, `?theme=classic` and `?motion=reduce` without them save to the device like the Settings switches, so `?projector=on` works as a big-screen bookmark. On a first visit with no saved settings, a laptop that looks like it drives a projector (no touch, 1x pixels, at most 800 px tall, wider than 3:2) turns Projector mode on by itself; demos skip that check.
+
+## Play-at-home sign
+
+`?lab=sign` is a US Letter sign with the play-at-home QR code. Print it from the browser (Letter, no margins, background graphics on), or save the PDF:
+
+```sh
+playwright-cli -s=sign open "http://localhost:<port>/?lab=sign"
+playwright-cli -s=sign run-code "async (page) => { await page.evaluate(() => document.fonts.ready); await page.pdf({ path: '<repo>/print/play-at-home-sign.pdf', format: 'Letter', printBackground: true, preferCSSPageSize: true }); }"
+playwright-cli -s=sign close
+```
+
+Give `path` as an absolute path: the browser runs in its own working directory. The code itself comes from `node scripts/build-qr.mjs`, which writes `src/data/playQr.ts`. Run it again if the public URL changes.

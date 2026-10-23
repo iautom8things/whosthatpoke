@@ -8,6 +8,7 @@ import { useSettings } from "../../state/settings";
 import { Button, Card, cx, IconButton, IconPlay, IconTrophy, IconUsers, Lives, Logo, ScreenFrame } from "../components";
 import { HoldGear } from "./menus/HoldGear";
 import { Peeker } from "./menus/Peeker";
+import { PlayAtHome } from "./menus/PlayAtHome";
 import { logoHandoff, NAV, useMenuKeys, useMenuSong } from "./menus/shared";
 import { TopTrainer } from "./menus/TopTrainer";
 import s from "./menus/Title.module.css";
@@ -16,6 +17,8 @@ const ITEM: Variants = {
   hidden: { opacity: 0, y: 28, scale: 0.92 },
   shown: (i: number) => ({ opacity: 1, y: 0, scale: 1, transition: { delay: 0.25 + i * 0.08, type: "spring", stiffness: 420, damping: 24 } }),
 };
+
+const HOME_IN = { delay: 0.8, type: "spring", stiffness: 380, damping: 22 } as const;
 
 /** Main menu: pick how to play. */
 export default function TitleScreen() {
@@ -53,7 +56,12 @@ export default function TitleScreen() {
       >
         <div className={s.hero}>
           <Logo size="xl" animated={logoIntro} bob style={{ "--fs": "var(--logo-fs)" } as CSSProperties} />
-          <TopTrainer />
+          <div className={s.heroRow}>
+            <TopTrainer />
+            <motion.div className={s.home} initial={{ opacity: 0, y: 16, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={HOME_IN}>
+              <PlayAtHome />
+            </motion.div>
+          </div>
         </div>
 
         <nav className={s.menu} aria-label="Game modes">

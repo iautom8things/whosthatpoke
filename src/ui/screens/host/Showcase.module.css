@@ -1,4 +1,8 @@
 .root {
+  /* The play-at-home card: --qr is the code's width, --home-w and --home-h the whole card. */
+  --qr: clamp(120px, 24vmin, 260px);
+  --home-w: calc(var(--qr) * 1.12);
+  --home-h: calc(var(--qr) * 1.22 + 2 * var(--stroke));
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -24,6 +28,53 @@
 .slide > * {
   min-height: 0;
   height: 100%;
+}
+
+/* ---------- play-at-home QR code, bottom right on every slide ---------- */
+.footRow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.home {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+/* Slides keep clear of it: in landscape the quiz gives up a column on the right and the boards stop short of it
+   on both sides, so they stay centered; in portrait every slide ends above it. */
+@media (orientation: landscape) {
+  .quiz {
+    padding-right: calc(var(--home-w) + var(--sp-3));
+  }
+  .boardPanel,
+  .empty {
+    max-width: calc(100% - 2 * (var(--home-w) + var(--sp-3)));
+  }
+}
+@media (orientation: portrait) {
+  .home {
+    bottom: calc(100% + var(--sp-3));
+  }
+  .slide {
+    padding-bottom: calc(var(--home-h) + var(--sp-3));
+  }
+}
+/* Phones: no room, and whoever holds one is already playing on their own device. */
+@media (max-width: 599px), (max-height: 439px) {
+  .home {
+    display: none;
+  }
+  .quiz,
+  .slide {
+    padding: 0;
+  }
+  .boardPanel,
+  .empty {
+    max-width: none;
+  }
 }
 
 /* ---------- footer call to action ---------- */

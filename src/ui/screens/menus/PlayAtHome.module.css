@@ -1,0 +1,32 @@
+/* A white sticker: the code on top, the caption under it. The code's own quiet zone does the padding.
+   The code's width comes from --qr, set by the screen. */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  margin: 0;
+  border: var(--stroke) solid var(--outline);
+  border-radius: calc(var(--qr, 140px) * 0.1);
+  background: #ffffff;
+  box-shadow:
+    0 5px 0 var(--outline),
+    var(--shadow-soft);
+  overflow: hidden;
+}
+
+.qr {
+  width: var(--qr, 140px);
+}
+
+.label {
+  /* An orange band like the "Tap anywhere to play!" bar. Starts below the code's quiet zone, never inside it. */
+  --display-shadow: 0 0.07em 0 var(--outline);
+  align-self: stretch;
+  padding: 0.3em 0.4em 0.2em;
+  border-top: var(--stroke) solid var(--outline);
+  background: var(--accent);
+  font-size: calc(var(--qr, 140px) * 0.13);
+  text-align: center;
+  white-space: nowrap;
+}

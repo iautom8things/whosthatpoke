@@ -1,6 +1,6 @@
 // Showcase (attract mode): the projector loops on its own while the van is idle.
 // Silhouette with a countdown, the reveal, and every few Pokémon the Top Trainers and a "Tap to play!" slide.
-// Any tap or key goes back to the title screen.
+// A play-at-home QR code stays in the corner throughout. Any tap or key goes back to the title screen.
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { announcer, audio, lines, whosThat } from "../../audio";
@@ -29,6 +29,7 @@ import { showcaseDemo, type ShowcaseStart } from "./host/flags";
 import { HandIcon } from "./host/HostHelp";
 import { asksAloud, boardFor, EVERY, type BoardMode } from "./host/showcasePlan";
 import { createShowcaseQueue, type ShowcaseQueue } from "./host/showcaseQueue";
+import { PlayAtHome } from "./menus/PlayAtHome";
 import s from "./host/Showcase.module.css";
 
 const DURATION: Record<ShowcaseStart, number> = { ask: 6000, reveal: 4000, board: 8000, cta: 6000 };
@@ -137,9 +138,13 @@ export default function ShowcaseScreen() {
         layout="fill"
         className={s.frame}
         footer={
-          <div className={s.tapBar} data-hidden={!showTapBar || undefined} aria-hidden={!showTapBar || undefined}>
-            <HandIcon className={s.tapHand} />
-            <span className="wtp-display">Tap anywhere to play!</span>
+          <div className={s.footRow}>
+            <div className={s.tapBar} data-hidden={!showTapBar || undefined} aria-hidden={!showTapBar || undefined}>
+              <HandIcon className={s.tapHand} />
+              <span className="wtp-display">Tap anywhere to play!</span>
+            </div>
+            {/* In the footer, not a slide, so it never blinks while someone is scanning it. */}
+            <PlayAtHome className={s.home} />
           </div>
         }
       >

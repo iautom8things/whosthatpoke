@@ -30,5 +30,6 @@ export { BackButton, IconButton, type BackButtonProps, type IconButtonProps } fr
 export * from "./icons";
 export { Logo, type LogoProps } from "./Logo";
 export { PokeArt, preloadArt, type PokeArtProps } from "./PokeArt";
+export { QrCode, type QrCodeProps } from "./QrCode";
 export { ScreenFrame, type FrameLayout, type ScreenFrameProps } from "./ScreenFrame";
 export { toast, ToastHost, type ToastOptions, type ToastPlace, type ToastTone } from "./Toast";

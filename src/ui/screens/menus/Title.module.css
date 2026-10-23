@@ -28,6 +28,27 @@
   --logo-fs: min(var(--fs-hero) * 1.2, 18cqw);
 }
 
+/* Tonight's top trainer and the play-at-home code under the logo: side by side where they fit, else the code
+   wraps underneath. Neither one shrinks, so the banner's text never spills. */
+.heroRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3) var(--sp-4);
+  max-width: 100%;
+}
+.home {
+  --qr: clamp(110px, 24vmin, 230px);
+  flex: none;
+}
+/* Phones: no room, and whoever holds one is already playing on their own device. */
+@media (max-width: 599px), (max-height: 439px) {
+  .home {
+    display: none;
+  }
+}
+
 .menu {
   display: flex;
   flex-direction: column;

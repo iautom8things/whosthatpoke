@@ -1,0 +1,105 @@
+/* One US Letter page. White paper and thin lines; color stays in the logo, the headline and small accents. */
+@page {
+  size: letter;
+  margin: 0;
+}
+
+:global(html.wtp-sign),
+:global(html.wtp-sign body) {
+  background: #ffffff;
+  color: #160a33;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 8.5in;
+  height: 11in;
+  margin: 0 auto;
+  padding: 0.6in 0.6in 0.55in;
+  overflow: hidden;
+  background: #ffffff;
+  color: #160a33;
+  text-align: center;
+}
+
+/* The game's lockup with a thinner extrusion and no glow, to spare toner. The spooky glow rule outranks a plain class. */
+.logo {
+  --fs: 0.86in;
+  filter: none !important;
+}
+.logo > span {
+  text-shadow: 0 0.06em 0 var(--logo-shadow);
+}
+
+.headline {
+  --display-fill: #ff8a1f;
+  --display-stroke: #160a33;
+  --display-shadow: 0 0.05em 0 #160a33;
+  margin-top: 0.32in;
+  font-size: 0.82in;
+}
+
+.lede {
+  margin-top: 0.1in;
+  font-size: 17pt;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.28in;
+}
+
+.frame {
+  width: 5.3in;
+  padding: 0.04in;
+  border: 0.035in solid #160a33;
+  border-radius: 0.34in;
+}
+
+.peekLeft,
+.peekRight {
+  position: absolute;
+  bottom: 0;
+  width: 1.05in;
+  height: 1.05in;
+  object-fit: contain;
+}
+.peekLeft {
+  left: 0.02in;
+}
+.peekRight {
+  right: 0.02in;
+}
+
+.url {
+  margin-top: 0.16in;
+  font-size: 18pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  gap: 0.14in;
+  margin-top: auto;
+  font-size: 13pt;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.balls {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 0.32in;
+  gap: 0.05in;
+  height: 0.32in;
+}
