@@ -17,18 +17,16 @@ export const SOUND_INFO: Record<SoundMode, { name: string; toast: string; tone: 
 /** App binds this key to cycleSound on every screen. */
 export const SOUND_KEY = "m";
 
-let dismissLast: (() => void) | null = null;
-
-/** Moves to the next sound mode and names it in a toast. Fast taps replace the toast instead of stacking it. */
+/** Moves to the next sound mode and names it in a toast. Fast taps update that one toast instead of stacking more. */
 export function cycleSound(): void {
   const { sound, update } = useSettings.getState();
   const next = nextSoundMode(sound);
   update({ sound: next });
-  // After the change, so the click sounds only when something still plays.
-  audio.sfx("tap");
-  dismissLast?.();
+  // After the change, so it sounds only when something still plays. "pop" is one of the effects the results
+  // drumroll plays on under; any other would cut the roll short.
+  audio.sfx("pop");
   const { toast: message, tone, Icon } = SOUND_INFO[next];
-  dismissLast = toast(message, { tone, icon: <Icon />, ms: 1800 });
+  toast(message, { tone, icon: <Icon />, ms: 1800, key: "sound" });
 }
 
 /** The top-right speaker (ScreenFrame's `sound`). A tap cycles all on, no voice and muted. */

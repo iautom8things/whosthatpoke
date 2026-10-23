@@ -38,6 +38,7 @@ import s from "./host/Host.module.css";
 import { DeckBacks, HostCard, type CardFace, type Verdict } from "./host/HostCard";
 import { HostHelp } from "./host/HostHelp";
 import { justDealt, swipeAction } from "./host/hostIntent";
+import { useDotsFit } from "./host/useDotsFit";
 
 /** How long the answer stays up after judging a silhouette, and after judging a card already peeked at. */
 const REVEAL_MS = 2600;
@@ -122,7 +123,9 @@ export default function HostScreen() {
   const correct = useSession((st) => st.correct);
   const streak = useSession((st) => st.streak);
   const autoAdvance = useSettings((st) => st.autoAdvance);
+  const projector = useSettings((st) => st.projector);
   const vp = useViewport();
+  const titleRef = useRef<HTMLSpanElement>(null);
 
   const [peeked, setPeeked] = useState<number | null>(null);
   const [helpOpen, setHelpOpen] = useState(() => !hostHelpSeen());
@@ -438,13 +441,18 @@ export default function HostScreen() {
   }
 
   const narrow = vp.w < 560;
-  const title = narrow ? (
-    <Display size="xl" className={s.count}>
-      {Math.min(index + 1, total)}
-      <span className={s.of}>/{total}</span>
-    </Display>
-  ) : (
-    <ProgressDots total={total} current={index} results={rounds.map((r) => r.correct)} />
+  const dotsFit = useDotsFit(titleRef, `${vp.w}x${vp.h}:${projector}:${total}`, !narrow);
+  const title = (
+    <span ref={titleRef} className={s.titleFit}>
+      {narrow || !dotsFit ? (
+        <Display size="xl" className={s.count}>
+          {Math.min(index + 1, total)}
+          <span className={s.of}>/{total}</span>
+        </Display>
+      ) : (
+        <ProgressDots total={total} current={index} results={rounds.map((r) => r.correct)} />
+      )}
+    </span>
   );
 
   const remaining = Math.max(0, total - index - 1);

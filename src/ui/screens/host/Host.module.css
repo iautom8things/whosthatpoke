@@ -12,6 +12,12 @@
   white-space: nowrap;
   padding-top: 0.1em;
 }
+/* The header title at its own width, never squeezed, so useDotsFit can measure the dots and swap in the count. */
+.titleFit {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+}
 .of {
   font-size: 0.65em;
   --display-fill: var(--ink-soft);
@@ -287,6 +293,10 @@
   min-height: calc(var(--touch-min) - var(--edge));
   padding: 0 0.6em;
   font-size: var(--fs-md);
+}
+/* The paddles on both sides of the card already point the way, and the progress dots need the room. */
+.headerRight .hintArrow {
+  display: none;
 }
 /* On the iPad the host's thumb needs the full-size button, not a pill. The header keeps that height in
    every state, so the card never jumps between Reveal, the hint and Next. */

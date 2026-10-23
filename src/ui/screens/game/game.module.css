@@ -133,12 +133,13 @@
   display: contents;
 }
 
-/* The sound button sits in the header next to the score. Narrow portrait phones have no room left there
-   (the streak flame and survival's lives fill it), so it moves to the stage's top-right corner. */
+/* The sound button sits in the header next to the score in landscape. Portrait headers have no room left (the
+   dots, a streak and a four-digit score fill an upright iPad's; survival's lives fill a phone's), so there it
+   moves to the stage's top-right corner, which the round sunburst leaves empty. */
 .game .soundStage {
   display: none;
 }
-@media (orientation: portrait) and (max-width: 599px) {
+@media (orientation: portrait) {
   .root .soundHeader {
     display: none;
   }
@@ -149,6 +150,12 @@
     align-self: start;
     /* Above the swipe area, under the score popup and streak banner (3), which let taps through. */
     z-index: 2;
+  }
+}
+/* Narrow survival hangs the streak flame (font-size --fs-md) under the score, so the button starts below it. */
+@media (orientation: portrait) and (max-width: 599px) {
+  .game[data-survival] .soundStage {
+    margin-top: calc(var(--fs-md) * 1.5);
   }
 }
 

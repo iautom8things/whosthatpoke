@@ -6,6 +6,8 @@
   position: relative;
   display: inline-grid;
   place-items: center;
+  /* Room for the ring (16 px past the button) between it and the sound button. */
+  margin-inline-start: var(--sp-3);
   touch-action: none;
 }
 .gear button svg {
