@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
-import { PLAY_QR } from "../../../data/playQr";
-import { cx, QrCode } from "../../components";
+import { cx, PlayQr } from "../../components";
 import s from "./PlayAtHome.module.css";
 
 /**
@@ -10,7 +9,7 @@ import s from "./PlayAtHome.module.css";
 export function PlayAtHome({ className, style }: { className?: string; style?: CSSProperties }) {
   return (
     <figure className={cx(s.card, className)} style={style}>
-      <QrCode rows={PLAY_QR} title="QR code to play Who’s That Pokémon? at home" className={s.qr} />
+      <PlayQr title="QR code to play Who’s That Pokémon? at home" className={s.qr} />
       <figcaption className={cx("wtp-display", s.label)}>
         Play at home!
       </figcaption>

@@ -1,4 +1,4 @@
-/* A white sticker: the code on top, the caption under it. The code's own quiet zone does the padding.
+/* A sticker: the code on top, the caption under it. The code's own quiet zone does the padding.
    The code's width comes from --qr, set by the screen. */
 .card {
   display: flex;

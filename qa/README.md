@@ -69,4 +69,4 @@ playwright-cli -s=sign run-code "async (page) => { await page.evaluate(() => doc
 playwright-cli -s=sign close
 ```
 
-Give `path` as an absolute path: the browser runs in its own working directory. The code itself comes from `node scripts/build-qr.mjs`, which writes `src/data/playQr.ts`. Run it again if the public URL changes.
+Give `path` as an absolute path: the browser runs in its own working directory. The code itself comes from `node scripts/build-qr.mjs`, which writes `src/data/playQr.ts` and the Gengar art in `src/data/playQr.svg`. Run it again if the public URL changes.

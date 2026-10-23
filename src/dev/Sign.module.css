@@ -1,4 +1,4 @@
-/* One US Letter page. White paper and thin lines; color stays in the logo, the headline and small accents. */
+/* One US Letter page. White paper and thin lines; color stays in the logo, the headline, the code and small accents. */
 @page {
   size: letter;
   margin: 0;
@@ -63,6 +63,10 @@
   padding: 0.04in;
   border: 0.035in solid #160a33;
   border-radius: 0.34in;
+}
+/* Rounds the code's corners to sit inside the frame. The finder eyes start 4 modules in, well clear of the curve. */
+.qr {
+  border-radius: 0.3in;
 }
 
 .peekLeft,

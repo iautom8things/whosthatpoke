@@ -1,8 +1,8 @@
-// Printable "Play at home!" sign for the party (?lab=sign): US Letter, white paper, color only as accents.
+// Printable "Play at home!" sign for the party (?lab=sign): US Letter on white paper, thin lines, no full-bleed color.
 // Print it from the browser (Letter, no margins, background graphics on), or save a PDF as qa/README.md shows.
 import { useEffect } from "react";
-import { PLAY_QR, PLAY_URL } from "../data/playQr";
-import { Logo, PokeBall, QrCode, type BallKind } from "../ui/components";
+import { PLAY_URL } from "../data/playQr";
+import { Logo, PlayQr, PokeBall, type BallKind } from "../ui/components";
 import s from "./Sign.module.css";
 
 const BALLS: BallKind[] = ["poke", "great", "ultra", "master"];
@@ -25,7 +25,7 @@ export default function Sign() {
       <div className={s.stage}>
         <img className={s.peekLeft} src="pokemon/25.svg" alt="" />
         <div className={s.frame}>
-          <QrCode rows={PLAY_QR} ink="#000000" title="QR code to play Who’s That Pokémon? at home" />
+          <PlayQr title="QR code to play Who’s That Pokémon? at home" className={s.qr} />
         </div>
         <img className={s.peekRight} src="pokemon/778.svg" alt="" />
       </div>
